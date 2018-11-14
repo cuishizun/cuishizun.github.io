@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<title>jQuery点击弹出创建快捷方式代码</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<div class="row">
+	<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" style="margin: 100px auto;">
+		<div class="ibox float-e-margins">
+			<div class="ibox-content">
+				<ul class="shortcut-box clearfix">
+					<li class="col-xs-4 col-sm-4 col-md-3 col-lg-3" data-toggle="modal" data-target="#myModal">
+						<div>
+							<i class="fa fa-plus-circle"></i>
+							<p>添加快捷</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!--添加快捷方式模态框开始-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header clearfix mid">
+				<button type="button" class="close mid" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title shortcut-modal-title mid" id="myModalLabel">添加快捷方式</h4>
+				<div class="shortcut-search-form mid">
+					<form action="">
+						<i class="fa fa-search"></i>
+						<input type="search" placeholder="请输入要查询的组件...">
+					</form>
+				</div>
+			</div>
+			<div class="modal-body shortcut-add-box">
+				<div class="shortcut-add-box-left">
+					<ul>
+						<li class="active" id="li1">
+							<i class="fa fa-bars"></i>
+							<span>全部</span>
+						</li>
+						<li>
+							<i class="fa fa-car"></i>
+							<span>快捷一</span>
+						</li>
+						<li>
+							<i class="fa fa-users"></i>
+							<span>快捷二</span>
+						</li>
+						<li>
+							<i class="fa fa-briefcase"></i>
+							<span>快捷三</span>
+						</li>
+						<li>
+							<i class="fa fa-user-plus"></i>
+							<span>快捷四</span>
+						</li>
+						<li>
+							<i class="fa fa-file-text"></i>
+							<span>快捷五</span>
+						</li>
+						<li>
+							<i class="fa fa-wrench"></i>
+							<span>快捷六</span>
+						</li>
+						<li>
+							<i class="fa fa-pencil-square"></i>
+							<span>快捷七</span>
+						</li>
+						<li>
+							<i class="fa fa-building"></i>
+							<span>快捷八</span>
+						</li>
+						<li>
+							<i class="fa fa-bar-chart"></i>
+							<span>快捷九</span>
+						</li>
+						<li>
+							<i class="fa fa-cog"></i>
+							<span>快捷十</span>
+						</li>
+						<div class="lanPos"></div>
+					</ul>
+				</div>
+				<div class="shortcut-add-box-right">
+					<div class="car-info-shortcut shortcut-element-list">
+						<h5><span>快捷一</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-car"></i>
+								<span>快捷方式1</span>
+							</li>
+						</ul>
+					</div>
+					<div class="person-shortcut shortcut-element-list">
+						<h5><span>快捷二</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-user-times"></i>
+								<span>快捷方式2</span>
+							</li>
+						</ul>
+					</div>
+					<div class="enterprise-info-shortcut shortcut-element-list">
+						<h5><span>快捷三</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-male"></i>
+								<span>快捷方式3</span>
+							</li>
+							<li>
+								<i class="fa fa-hand-pointer-o"></i>
+								<span>快捷方式4</span>
+							</li>
+						</ul>
+					</div>
+					<div class="enterprise-server-shortcut shortcut-element-list">
+						<h5><span>快捷四</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-user-plus"></i>
+								<span>快捷方式5</span>
+							</li>
+						</ul>
+					</div>
+					<div class="enterprise-server-shortcut shortcut-element-list">
+						<h5><span>快捷五</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-male"></i>
+								<span>快捷方式6</span>
+							</li>
+						</ul>
+					</div>
+					<div class="repair-info-shortcut shortcut-element-list">
+						<h5><span>快捷六</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-taxi"></i>
+								<span>快捷方式7</span>
+							</li>
+						</ul>
+					</div>
+					<div class="examine-shortcut shortcut-element-list">
+						<h5><span>快捷七</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-check-square-o"></i>
+								<span>快捷方式8</span>
+							</li>
+							<li>
+								<i class="fa fa-list-alt"></i>
+								<span>快捷方式9</span>
+							</li>
+						</ul>
+					</div>
+					<div class="examine-shortcut shortcut-element-list">
+						<h5><span>快捷八</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-building"></i>
+								<span>快捷方式10</span>
+							</li>
+						</ul>
+					</div>
+					<div class="examine-shortcut shortcut-element-list">
+						<h5><span>快捷九</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-bar-chart"></i>
+								<span>快捷方式11</span>
+							</li>
+						</ul>
+					</div>
+					<div class="examine-shortcut shortcut-element-list">
+						<h5><span>快捷十</span></h5>
+						<ul class="shortcut-element-box clearfix">
+							<li>
+								<i class="fa fa-cog"></i>
+								<span>快捷方式12</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="shortcutEnter">确认</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div>
+<!--添加快捷方式模态框结束-->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/index.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

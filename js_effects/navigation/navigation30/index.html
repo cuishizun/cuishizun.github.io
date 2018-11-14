@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="zh-hans-cn">
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="Rin">
+<title>jQuery可拖拽悬浮弹性菜单代码</title>
+
+<link rel="stylesheet" href="css/asidenav.css">
+
+</head>
+<body style="background: black;">
+
+<div>
+    <svg width="0" height="0">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"></feColorMatrix>
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"></feComposite>
+            </filter>
+        </defs>
+    </svg>
+    <div class="aside-nav bounceInUp animated" id="aside-nav">
+        <label for="" class="aside-menu" title="按住拖动">菜单</label>
+
+        <a href="javascript:void(0)" title="返回首页" class="menu-item menu-first">首页</a>
+        <a href="javascript:void(0)" title="QQ咨询" class="menu-item menu-second">QQ</a>
+        <a href="javascript:void(0)" title="一键预约" class="menu-item menu-third">预约</a>
+        <a href="javascript:void(0)" title="微信公众号" class="menu-item menu-line menu-fourth">关注<br>微信</a> <!-- *跳到商家微信推广* -->
+    </div>
+</div>    
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/asidenav.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

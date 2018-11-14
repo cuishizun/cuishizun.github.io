@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery轻量级模态窗口对话框</title>
+
+<link rel="stylesheet" href="assets/css/app.css">
+
+</head>
+<body>
+
+<article style="width:1000px;margin:20px auto;background:#fff;">
+	<header class="header">
+		<div class="container">
+		  <div class="alpha">
+			<div class="logo">
+			  <img src="assets/images/edbox.svg" alt="jQuery edbox plugin">
+			</div>
+			<div class="info">
+			  <div class="version">v2.5.0</div>
+			  <h1 class="description">Responsive and lightweight modal plugin.</h1>
+			</div>
+		  </div>
+		</div>
+	  </header>
+	  <div class="container">
+		<h2 class="title">Examples</h2>
+
+<!-- EXAMPLE 1 -->
+<section class="example">
+  <h3 class="sub-title">Target (DOM element)</h3>
+  <div class="codes">
+	<div class="code-cel">
+	  <h4 class="code-title">html</h4>
+	  <pre><code class="language-markup">&lt;a href="#" edbox data-box-target="#target">Element target example&lt;/a>
+&lt;div id="target">My #target element&lt;/div></code></pre>
+	</div>
+  </div>
+  <div class="target-box">
+	<div id="target">My #target element</div>
+  </div>
+  <a href="#" class="btn btn-example" edbox data-box-target="#target">Element target example</a>
+  <p class="tip">
+	<strong>Tip:</strong> A helper class ('.edbox-target') is applied to the target element when it gets inside the modal. So,
+	if you want to show it only when it's inside the modal, set "display: none" to it and "display: block" on helper
+	class.</p>
+  <p class="tip">
+	<strong>Tip:</strong> Use {copy: true} option or data-box-copy="true" attr tag to render a copy/clone of the target element
+	instead of the element itself. This option only works with target option.</p>
+</section>
+
+
+<!-- EXAMPLE 2 -->
+<section class="example">
+  <h3 class="sub-title">HTML or Text</h3>
+  <div class="codes">
+	<div class="code-cel">
+	  <h4 class="code-title">html</h4>
+	  <pre><code class="language-markup">&lt;!-- This example uses "animate.css" library by Daniel Eden, take a look at "daneden.github.io/animate.css" --&gt;
+&lt;a href="#" class="link-html"
+data-box-html="&lt;div class='example-html'>Hello there!&lt;/div>"
+data-box-animate-open="animated tada"
+data-box-animate-close="animated flipOutX">
+HTML content example
+&lt;/a></code></pre>
+	</div>
+	<div class="code-cel">
+	  <h4 class="code-title">js</h4>
+	  <pre><code class="language-javascript">$('.link-html').edbox();</code></pre>
+	</div>
+  </div>
+  <a href="#" class="btn btn-example link-html" data-box-html="<div class='example-html'>Hello there!</div>" data-box-animate-open="animated tada"
+	data-box-animate-close="animated flipOutX">HTML content example</a>
+</section>
+
+
+<!-- EXAMPLE 3 -->
+<section class="example">
+  <h3 class="sub-title">URL load</h3>
+  <div class="codes">
+	<div class="code-cel">
+	  <h4 class="code-title">html</h4>
+	  <pre><code class="language-markup">&lt;!-- use href or data-box-url attribute --&gt;
+&lt;a href="assets/html/curitiba.html" class="link-url">URL load example&lt;/a></code></pre>
+	</div>
+	<div class="code-cel">
+	  <h4 class="code-title">js</h4>
+	  <pre><code class="language-javascript">$('.link-url').edbox({
+//add an extra class to the modal for an especific style
+addClass: 'example-url',
+width: 900
+});</code></pre>
+	</div>
+  </div>
+  <a class="btn btn-example link-url" href="assets/html/curitiba.html">URL load example</a>
+</section>
+
+
+<!-- EXAMPLE 4 -->
+<section class="example">
+  <h3 class="sub-title">Image load</h3>
+  <div class="codes">
+	<div class="code-cel">
+	  <h4 class="code-title">html</h4>
+	  <pre><code class="language-markup">&lt;a href="#" class="link-image" data-box-header="Curitiba - Parana - Brazil">Image load example&lt;/a></code></pre>
+	</div>
+	<div class="code-cel">
+	  <h4 class="code-title">js</h4>
+	  <pre><code class="language-javascript">$('.link-image').edbox({
+image: 'curitiba-brazil.jpg'
+});</code></pre>
+	</div>
+  </div>
+  <a href="#" class="btn btn-example link-image" data-box-header="Curitiba - Parana - Brazil" data-box-add-class="example-image">Image load example</a>
+</section>
+
+
+<!-- EXAMPLE 5 -->
+<section class="example">
+  <h3 class="sub-title">Alerts</h3>
+  <div class="codes">
+	<div class="code-cel">
+	  <pre><code class="language-javascript">//Success
+$.edbox({ success: '&lt;i>&lt;b>Success&lt;/b>&lt;/i> request!' });
+
+//Info
+$.edbox({ info: 'Some text or &lt;html> info!' });
+
+//Warning
+$.edbox({ warning: '&lt;b>Warning&lt;/b>, &lt;i>do not go ahead&lt;/i>!' });
+
+//Danger
+$.edbox({ danger: 'Sorry,&lt;br>unespected error!' });</code></pre>
+	</div>
+  </div>
+  <button class="btn btn-example btn-success">Success</button>
+  <button class="btn btn-example btn-info">Info</button>
+  <button class="btn btn-example btn-warning">Warning</button>
+  <button class="btn btn-example btn-danger">Danger</button>
+</section>
+	  </div>
+</article>
+
+<script src="assets/js/app.js"></script>
+<script>
+	$(document).ready(function () {
+	  //HTML/Text
+	  $('.link-html').edbox();
+
+	  //URL
+	  $('.link-url').edbox({
+		addClass: 'example-url',
+		width: 900
+	  });
+
+	  //Image
+	  $('.link-image').edbox({
+		image: 'assets/images/curitiba-brazil.jpg'
+	  });
+
+	  //Success
+	  $('.btn-success').edbox({ success: '<i><b>Success</b></i> request!' });
+
+	  //Info
+	  $('.btn-info').edbox({ info: 'Some text or &lt;html> info!' });
+
+	  //Warning
+	  $('.btn-warning').edbox({ warning: '<b>Warning</b>, <i>do not go ahead</i>!' });
+
+	  //Danger
+	  $('.btn-danger').edbox({ danger: 'Sorry,<br>unespected error!' });
+	});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

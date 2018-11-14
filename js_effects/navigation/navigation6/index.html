@@ -1,0 +1,298 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js+svg全屏打开菜单动画特效</title>
+
+<style type="text/css">
+@import url(css/font-awesome.css);
+body {
+  background: linear-gradient(to top, #7b00e0, #ff006a);
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.menu-container {
+  background-color: #ffc901;
+  border-radius: 100%;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: -120px;
+  top: -120px;
+  transition: all 0.3s;
+}
+.menu-container.full-menu {
+  border-radius: 0;
+  padding: 0 !important;
+  position: aboslute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: all 0.3s;
+}
+
+.full-menu .menu {
+  top: 40px;
+  left: 40px;
+}
+
+.menu {
+  color: white;
+  font-size: 3.5em;
+  position: absolute;
+  top: 160px;
+  left: 160px;
+  z-index: 100;
+  transition: all 0.3s;
+}
+.menu i {
+  opacity: 0.7;
+  transform: scale(1);
+  transition: all 0.3s;
+}
+.menu i:hover {
+  opacity: 1;
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+.overlay.open {
+  opacity: .9;
+  visibility: visible;
+  height: 100%;
+}
+.overlay.open li {
+  animation: fadeInRight .5s ease forwards;
+  animation-delay: .35s;
+}
+.overlay.open li:nth-of-type(2) {
+  animation-delay: .4s;
+}
+.overlay.open li:nth-of-type(3) {
+  animation-delay: .45s;
+}
+.overlay.open li:nth-of-type(4) {
+  animation-delay: .50s;
+}
+.overlay nav {
+  font-size: 3.2em;
+  font-family: "Titan One", san-serif;
+  position: relative;
+  height: 70%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 400;
+  text-align: center;
+}
+.overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+}
+.overlay ul li {
+  display: block;
+  height: 25%;
+  height: calc(100% / 4);
+  min-height: 50px;
+  position: relative;
+  opacity: 0;
+}
+.overlay ul li a {
+  display: block;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  overflow: hidden;
+  opacity: 0.7;
+  transform: scale(1);
+  transition: all 0.3s;
+}
+.overlay ul li a:hover, .overlay ul li a:focus, .overlay ul li a:active {
+  opacity: 1;
+  transform: scale(1.2);
+  transition: all 0.3s;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    left: 20%;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+h1 {
+  font-size: 5em;
+  font-family: "Titan One", san-serif;
+  background-color: rgba(255, 0, 106, 0.4);
+  border-radius: 100%;
+  box-shadow: 0 0 2em 1em rgba(255, 0, 106, 0.4);
+  color: white;
+  margin: 30vh auto;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 8px 0 rgba(123, 0, 224, 0.4);
+  transform: rotate(-12deg);
+  width: 800px;
+  height: auto;
+  z-index: -1;
+}
+h1 span {
+  color: #ffc901;
+}
+
+.blob {
+  animation: blobby 4s infinite;
+}
+
+.blob2 {
+  animation: blobby2 6s infinite;
+}
+
+@keyframes blobby {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes blobby2 {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.18);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+svg {
+  position: absolute;
+  top: 0;
+}
+
+#svg-right {
+  display: block;
+  fill: #7b00e0;
+  opacity: 0.5;
+  right: 0;
+  width: 60%;
+  z-index: -10;
+}
+
+#svg-left {
+  fill: #ff006a;
+  margin: 0;
+  width: 60%;
+  z-index: -10;
+}
+
+@media all and (max-width: 980px) {
+  h1 {
+    font-size: 3em;
+    font-family: "Titan One", san-serif;
+  }
+}
+@media all and (max-width: 480px) {
+  h1 {
+    font-size: 2em;
+    font-family: "Titan One", san-serif;
+  }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="menu-container" id="toggle">
+  <a href="#" class="menu" ><i class="fa fa-bars" aria-hidden="true"></i></a>
+  </div>
+  <div class="title-container"><h1><span>Full-Width Menu</span><br />& SVG Weirdness</h1>
+    <div class="circle"></div>
+</div>
+
+<svg version="1.1" id="svg-left" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 400" style="enable-background:new 0 0 600 400;" xml:space="preserve">
+<g>
+	<path class="blob" d="M220.262,366.814c41.228-14.367,64.978-58.826,96.198-136.802
+		c43.518-108.692,53.929-137.426,67.672-149.92s154.708-58.065,177.821-65.59C576.392,9.802,591.841,5.391,596.66-2H-2v334.452
+		c16.689,8.319,35.468,14.508,56.726,18.745C98.453,359.914,179.034,381.181,220.262,366.814z">
+</g>
+</svg>
+<svg version="1.1" id="svg-right" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 600 400" style="enable-background:new 0 0 600 400;" xml:space="preserve">
+<g>
+	<path  class="blob2" d="M361.076,143.985c9.307,26.708,38.108,42.094,88.622,62.319
+		c70.412,28.192,89.027,34.936,97.12,43.839c8.093,8.903,37.615,100.223,42.49,115.196c3.045,9.354,5.902,19.361,10.691,22.483V0
+		H383.337c-5.389,10.811-9.398,22.976-12.143,36.748C365.547,65.075,351.769,117.277,361.076,143.985z">
+</g>
+</svg>
+
+</div>
+  <div class="overlay" id="overlay">
+  <nav class="overlay-menu">
+    <ul>
+      <li ><a href="#">Home</a></li>
+      <li><a href="#">Tour</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script>
+const menu = document.querySelector('#toggle');  
+const menuItems = document.querySelector('#overlay');  
+const menuContainer = document.querySelector('.menu-container');  
+const menuIcon = document.querySelector('i');  
+
+function toggleMenu(e) {
+    menuItems.classList.toggle('open');
+    menuContainer.classList.toggle('full-menu');
+    menuIcon.classList.toggle('fa-bars');
+    menuIcon.classList.add('fa-times');
+    e.preventDefault();
+}
+
+menu.addEventListener('click', toggleMenu, false);
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+

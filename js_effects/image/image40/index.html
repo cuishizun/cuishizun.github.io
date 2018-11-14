@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>jquery给图片加网格效果代码</title>
+
+<link rel="stylesheet" href="css/img.css">
+
+</head>
+<body>
+<center>
+<div class="panel">
+	<img src="img.jpg" width="500" height="578">
+</div>
+</center>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/img.js"></script>
+<script type="text/javascript">
+$(".panel,.testing").jigsaw({
+	freq: 2000
+});
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>  
+<html>  
+<head>  
+<title>jQuery长按图片中显示图片代码</title>  
+<meta charset="UTF-8">  
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  
+<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">  
+<meta http-equiv="pragma" content="no-cache">  
+<meta http-equiv="Cache-Control" content="no-cache">  
+<meta http-equiv="Expires" content="0">  
+<meta name="apple-mobile-web-app-capable" content="yes">  
+<meta name="apple-mobile-web-app-status-bar-style" content="black">  
+<meta name="format-detection" content="telephone=no">  
+<meta name="apple-mobile-web-app-title" content="">  
+<style type="text/css">  
+*{ margin:0px; padding:0px; box-sizing:border-box; -webkit-tap-highlight-color:rgba(0,0,0,0);}  
+html{ min-width:320px; max-width:640px; margin:0 auto;}  
+html , body{ display:block; width:100%; height:100%;}  
+body{ font-family:"PingFangSC-Regular","sans-serif","STHeitiSC-Light","微软雅黑","Microsoft YaHei";  
+        -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; touch-callout:none;  
+}  
+#btn{ width:50px; height:50px; line-height:50px; text-align:center; color:#fff; border-radius:50%; background-color:#f00; cursor:pointer; position:absolute; left:50%; margin-left:-25px; bottom:20px;}  
+#showImg{ width:100%; height:100%; overflow:hidden; position:relative;}  
+#showImg img{ position:absolute;}  
+.showDh{ -webkit-transition:all linear .1s; transition:all linear .1s;}  
+</style>  
+</head>  
+  
+<body>  
+<div id="showImg">  
+    <img id="showImg2" src="2.jpg" />  
+    <img id="showImg1" src="1.jpg" />  
+</div>  
+<div id="btn">按</div>  
+  
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>  
+<script>  
+//所使用图片的实际尺寸  
+var imgMsg  = {w:640,h:1138};  
+//所有图片的位置、宽高信息设置（根据图片 的实际尺寸 设置的），inX ， inY ， inW ， inH 中的值表示上一张图在本张图中（本张图片最终状态时全部显示时）的信息  
+var imgList = [  
+                {  
+                    imgsrc:'1.jpg',  
+                    inX:'',  
+                    inY:'',  
+                    inW:'',  
+                    inH:''  
+                },  
+                {  
+                    imgsrc:'2.jpg',  
+                    inX:470,  
+                    inY:50,  
+                    inW:118,  
+                    inH:210  
+                },  
+                {  
+                    imgsrc:'3.jpg?1.0',  
+                    inX:86,  
+                    inY:561,  
+                    inW:195,  
+                    inH:346  
+                },  
+                {  
+                    imgsrc:'4.jpg',  
+                    inX:266,  
+                    inY:472,  
+                    inW:118,  
+                    inH:210  
+                },  
+            ];  
+//所有图片声明的数组下标起始  
+var start = 0;  
+//所有图片声明的数组下标结束  
+var end   = imgList.length - 2;  
+//多少步完成起始至最终 状态的变化  
+var step  = 30;  
+//第1步数  
+var stepNum = 1;  
+//页面宽度  
+//var windowW = $(window).width();  
+var windowW = $('body').width();  
+//页面交互时，用户始终只看见两张图，在下面的那一张图片大，在上面的那一张图片小 ,  以下方法设置两张图片的 起始、最终 显示状态的 位置、大小 信息  
+function getPoint(start){  
+    /*  
+    start     ===> 第 1 张图（显示在上面的那一张图片），起始状态：其宽度 等于 页面宽度（显示全部），位置信息（左、上都是0）；  
+                                                    最终状态：与页面对比缩小的，位置信息（根据在第 2 张图中定义  的位置信息与页面宽度比例计算显示）  
+    start + 1 ===> 第 2 张图（显示在下面的那一张图片），起始状态：与页面对比放大的，位置信息（根据  第 1 张图最终缩小的位置信息与页面宽度比例计算显示）  
+                                                    最终状态：其宽度 等于 页面宽度（显示全部）,位置信息（左、上都是0）；  
+    以下定义的 x , y , w , h  => 在以上数组（imgList）中有设置，为图片对应实际尺寸，表示第 1 张图在第 2 张图中显示的位置及宽高  
+    */  
+    x = imgList[start + 1].inX;  
+    y = imgList[start + 1].inY;  
+    w = imgList[start + 1].inW;  
+    h = imgList[start + 1].inH;  
+    //第 2 张图的起始状态（放大）比例，也就是 第 1 张图 起始 与 最终 状态的比例 ：图片实际宽 / 图片实际缩小后的宽  
+    var fdbl = imgMsg.w / w;  
+    //第 1 张图的最终状态（缩小）比例，也就是 第 1 张图 最终 与 起始 状态的比例 ：图片实际缩小后的宽 / 图片实际宽  
+    var sxbl = w / imgMsg.w;  
+      
+    /******第 1 张图的 最终 状态的定位信息与宽度设置******/  
+    //页面中图片显示左距(minToX) / 页面宽(windowW) = 图片实际左距(x) / 图片实际宽(imgMsg.w)  
+    var minToX = x / imgMsg.w * windowW;  
+    //页面中图片显示上距(minToY) / 页面宽(windowW) = 图片实际上距(y) / 图片实际宽(imgMsg.w)  
+    var minToY = y / imgMsg.w * windowW;  
+    //其显示是缩小的，宽度 是页面宽度 * 缩小比例  
+    var minToW = windowW  * sxbl;  
+      
+    /******第 2 张图的 起始 状态的定位信息与宽度设置******/  
+    //此时第 1 张图的定位信息（左距(minToX)、上距(minToY)）相对于自身小图时要 * 放大比例(fdbl)，第 2 张图的定位信息（左距(maxStartX)、上距(maxStartY)） 等于 左距(minToX  * fdbl) 、 上距(minToY  * fdbl) 的负数值  
+    var maxStartX = minToX  * fdbl * -1;  
+    var maxStartY = minToY  * fdbl * -1;  
+    //其显示是放大的，宽度 是页面宽度 * 放大比例  
+    var maxStartW = windowW  * fdbl;  
+    //以下罗列两张图的起始、最终 显示位置、宽度 及 显示位置、宽度每一步变化的差值 信息  
+    var point = {  
+            minStartX : 0,  
+            minStartY : 0,  
+            minStartW : windowW,  
+              
+            minToX    : minToX,  
+            minToY    : minToY,  
+            minToW    : minToW,  
+              
+            minStepX  : minToX / step,  
+            minStepY  : minToY / step,  
+            minStepW  : (windowW - minToW) / step,  
+              
+            maxStartX : maxStartX,  
+            maxStartY : maxStartY,  
+            maxStartW : maxStartW,  
+              
+            maxToX    : 0,  
+            maxToY    : 0,  
+            maxToW    : windowW,  
+              
+            maxStepX  : maxStartX / step,  
+            maxStepY  : maxStartY / step,  
+            maxStepW  : (maxStartW - windowW) / step,  
+        };  
+    return point;  
+}  
+//配置初始图片显示状态  
+function setImgMsg(start){  
+    var ImgMsg = getPoint(start);  
+    $('#showImg2').css({'width':ImgMsg.maxStartW,'left':ImgMsg.maxStartX,'top':ImgMsg.maxStartY}).attr('src',imgList[start + 1].imgsrc);  
+    $('#showImg1').css({'width':ImgMsg.minStartW,'left':ImgMsg.minStartX,'top':ImgMsg.minStartY}).attr('src',imgList[start].imgsrc);  
+    return ImgMsg;  
+}  
+  
+$(function(){  
+    var pointMsg = setImgMsg(start);  
+    var imgTimer;  
+    document.getElementById('btn').addEventListener('touchstart',touchStart,false);  
+    document.getElementById('btn').addEventListener('mousedown',touchStart,false);  
+    function touchStart(e){  
+        e.preventDefault();  
+        clearInterval(imgTimer);  
+        imgTimer = setInterval(showDh,100);  
+    }  
+    document.getElementById('btn').addEventListener('touchend',touchEnd,false);  
+    document.getElementById('btn').addEventListener('mouseup',touchEnd,false);  
+    function touchEnd(e){  
+        clearInterval(imgTimer);  
+    }  
+    function showDh(){  
+        if(stepNum > step){  
+            if(start >= end){  
+                return;  
+            }else{  
+                start++;  
+                stepNum = 1;  
+                pointMsg = setImgMsg(start);  
+            }  
+            return;  
+        }else if(stepNum == step){  
+            setTimeout(function(){  
+                console.log(step);  
+                $('#showImg2 , #showImg1').removeClass('showDh');  
+            },100);  
+        }else if(stepNum == 1){  
+            $('#showImg2 , #showImg1').addClass('showDh')  
+        }  
+        console.log(stepNum , start , end);  
+        $('#showImg2').css({'width':pointMsg.maxStartW - stepNum * pointMsg.maxStepW,'left':pointMsg.maxStartX - stepNum * pointMsg.maxStepX,'top':pointMsg.maxStartY - stepNum * pointMsg.maxStepY});  
+        $('#showImg1').css({'width':pointMsg.minStartW - stepNum * pointMsg.minStepW,'left':pointMsg.minStartX + stepNum * pointMsg.minStepX,'top':pointMsg.minStartY + stepNum * pointMsg.minStepY});  
+        stepNum ++;  
+    }  
+})  
+</script>  
+</body>  
+</html>  

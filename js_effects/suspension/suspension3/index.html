@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="keywords" content="sidebar" />
+<meta name="description" content="sidebar" />
+<title>jQuery侧边栏固定层锚点定位代码</title>
+<link rel="stylesheet" href="css/reset.min.css" />
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>    
+<style type="text/css">
+/*侧边栏*/
+.hide {
+	display: none
+}
+.side_bar {
+	position: fixed;
+	left: 50%;
+	margin-left: 610px;
+	bottom: 20px;
+	width: 48px;
+	z-index: 10000;
+}
+.side_bar li {
+	margin: 3px 0;
+}
+.side_bar a {
+	display: inline-block;
+	padding: 10px 12px;
+	line-height: 14px;
+	color: #FFF;
+}
+.side_bar a:hover {
+	color: #000000;
+}
+
+</style>
+</head>
+<body>
+    <div style="height:900px;background-color: #ff6600;" id="header"></div>
+    <div style="height:900px;background-color: #a6ce39;" id="main1"></div>
+    <div style="height:900px;background-color: #cb3fd4;" id="main2"></div>
+    <div style="height:900px;background-color: #e62469;" id="main3"></div>
+    <div style="height:900px;background-color: #fed528;" id="foot"></div>
+    
+    <!--侧边漂浮边栏-->
+    <div class="side_bar hide">
+        <ul>
+            <li><a href="#foot" style="background-color: #fed528;">劲爆商品</a> </li>
+            <li><a href="#main1" style="background-color: #a6ce39;">最新特卖</a> </li>
+            <li><a href="#main2" style="background-color: #cb3fd4;">最后疯抢</a> </li>
+            <li><a href="#main3" style="background-color: #e62469;">即将开始</a> </li>
+            <li><a href="#header" style="background-color: #ff6600;">回到首部</a> </li>
+        </ul>
+    </div>
+	<script>
+		$(window).scroll(function() {
+			var scroll_len = $(window).scrollTop();
+			if (scroll_len > 10) {
+				$('.side_bar').fadeIn();
+			} else {
+				$('.side_bar').fadeOut();
+			};
+		});
+    </script>
+</body>
+</html>
+
+

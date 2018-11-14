@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>分页</title>
+
+<link rel="stylesheet" href="myPagination.css">
+
+<script src="myPagination.js"></script>
+
+</head>
+<body>
+
+<div id="pagination" class="pagination"></div>
+
+<script>
+window.onload = function () {
+    new myPagination({
+        id: 'pagination',
+        curPage:1, //初始页码
+        pageTotal: 50, //总页数
+		pageAmount: 10,  //每页多少条
+        dataTotal: 500, //总共多少条数据
+		pageSize: 5, //可选,分页个数
+        showPageTotalFlag:true, //是否显示数据统计
+        showSkipInputFlag:true, //是否支持跳转
+        getPage: function (page) {
+            //获取当前页数
+            console.log(page);
+        }
+    })
+	
+}
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

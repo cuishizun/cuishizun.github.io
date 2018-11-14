@@ -1,0 +1,22 @@
+* { margin: 0; padding: 0; }
+body { overflow: hidden; font-family: "Microsoft Yahei"; }
+#ipad { overflow: hidden; position: absolute; left: 30%; top: 20%; width: 200px; height: 300px; border-radius: 3px; background-color: #fcf9a5; background: -webkit-linear-gradient(top, #fdfdc7 0%, #fcf9a2 100%); background: -moz-linear-gradient(top, #fdfdc7 0%, #fcf9a2 100%); background: -o-linear-gradient(top, #fdfdc7 0%, #fcf9a2 100%); background: -ms-linear-gradient(top, #fdfdc7 0%, #fcf9a2 100%); background: linear-gradient(top, #fdfdc7 0%, #fcf9a2 100%); border-width: 0px;border: 1px solid #585858;  }
+#ipad .ipad-title { position: relative; z-index: 2; height: 40px; line-height: 40px; margin: 5px 5px 0 5px; cursor: move; text-align: center;background-color: #484848; color:#FFF }
+#ipad .ipad-title h1 { font-size: 18px; font-weight: normal; }
+#ipad .ipad-control { position: absolute; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; }
+#ipad .ipad-control span { position: absolute; }
+#ipad .ipad-control span.T { top: 0; width: 100%; height: 5px; cursor: n-resize; }
+#ipad .ipad-control span.R { right: 0; width: 5px; height: 100%; cursor: e-resize; }
+#ipad .ipad-control span.B { bottom: 0; width: 100%; height: 5px; cursor: s-resize; }
+#ipad .ipad-control span.L { left: 0; width: 5px; height: 100%; cursor: w-resize; }
+#ipad .ipad-control span.TR { top: 0; right: 0; width: 8px; height: 8px; cursor: ne-resize; }
+#ipad .ipad-control span.BR { bottom: 0; right: 0; width: 8px; height: 8px; cursor: se-resize; }
+#ipad .ipad-control span.BL { bottom: 0; left: 0; width: 8px; height: 8px; cursor: sw-resize; }
+#ipad .ipad-control span.LT { top: 0; left: 0; width: 8px; height: 8px; cursor: nw-resize; }
+#ipad .ipad-cont { overflow: hidden; position: relative; z-index: 2; margin: 6px; }
+#ipad .ipad-cont .textArea { line-height: 30px; padding-right: 12px; font-size: 14px; word-break: break-all; }
+#ipad .ipad-cont .textArea p { /*margin-bottom: 10px;*/
+}
+/* scrollBar */
+#ipad .ipad-bar { position: absolute; z-index: 999; right: 4px; top: 56px; width: 5px; height: 240px; background-color: #e2e2e2; border-radius: 10px; }
+#ipad .ipad-bar .bar { position: absolute; left: 0; top: 0; width: 100%; height: 0; background-color: #737373;}

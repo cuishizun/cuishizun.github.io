@@ -1,0 +1,60 @@
+/*-- Reset-Code --*/
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #FFF;
+	font-family: 'Open Sans', sans-serif;
+}
+
+/*-- //Reset-Code --*/
+
+/*-- Slider --*/
+
+.slider-w3layouts {
+	position: relative;
+	padding: 0;
+	background-color: #000;
+}
+
+.rslides-agileits {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+
+.rslides-agileits li {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	display: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.rslides-agileits li:first-child {
+	position: relative;
+	display: block;
+	float: left;
+}
+
+.rslides-agileits img {
+	display: block;
+	height: auto;
+	float: left;
+	width: 100%;
+	border: 0;
+}
+
+a.callbacks_nav {
+	display: none;
+}
+
+ul.callbacks_tabs {
+	display: none;
+}
+
+/*-- //Slider --*/

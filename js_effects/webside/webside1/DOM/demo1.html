@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>文字提示</title>
+    <!--   引入jQuery -->
+
+    <script src="../scripts/jquery-1.3.1.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #fff;
+            font: 80% Arial, Helvetica, sans-serif;
+            color: #555;
+            line-height: 180%;
+        }
+        p {
+            clear: both;
+            margin: 0;
+            padding: .5em 0;
+        }
+        /* tooltip */
+        #tooltip {
+            position: absolute;
+            border: 1px solid #333;
+            background: #f7f5d1;
+            padding: 1px;
+            color: #333;
+            display: none;
+        }
+    </style>
+    
+    //前两个a标签鼠标移入展示提示框（提示框可以直接用tooltip作为id），移除时提示框消失
+    <script type="text/javascript">
+        $(function () {
+            //var x = 10;
+            //var y = 20;
+            //$("a.tooltip")
+            // .mouseover(function (e) {
+            //    this.myTitle = this.title;
+            //    //this.title = "";
+            //    var tooltip = "<div id='tooltip'>" + this.myTitle + "</div>"
+            //    $("body").append(tooltip);
+            //    $("#tooltip").css(
+            //        {
+            //            "top": (e.pageY + y) + "px",
+            //            "left": (e.pageX + x) + "px"
+            //        });
+            //})
+            //.mouseout(function () {
+            //    this.title = this.myTitle;
+            //    $("#tooltip").remove();
+            //})
+
+            //超链接文本提示框
+
+            var x = 10;   //为它设置x坐标和y坐标，使它显示在鼠标位置的旁边。
+            var y = 20;
+            $("a.tooltip")
+                .mouseover(function (e) {
+                this.myTitle = this.title;  //为了不重复展示,移除a标签中的title提示效果
+                this.title = "";
+                // 当鼠标滑入超链接时， 创建一个div元素。
+                var tooltip = "<div id='tooltip'>" + this.myTitle + "</div>"//div元素的内容为title属性的值
+                $("body").append(tooltip);//将创建的元素追加到文档中。
+                $("#tooltip").css({ //对div的样式进行设置
+                    "top": (e.pageY + y) + "px",
+                    "left": (e.pageX + x) + "px"
+                }).show("fast");//设置x坐标和y坐标，并且显示
+
+            })
+                .mouseout(function () {
+                this.title = this.myTitle;//显示它原来的title
+                $("#tooltip").remove(); //移除 
+
+            })
+                .mousemove(function (e) {
+                $("#tooltip").css
+                    ({
+                    "top": (e.pageY + y) + "px",//随着鼠标移动
+                    "left": (e.pageX + x) + "px"
+                     });
+
+            });
+
+        })
+    </script>
+</head>
+<body>
+    <p><a href="#" class="tooltip" title="这是我的超链接提示1.">提示1.</a></p>
+    <p><a href="#" class="tooltip" title="这是我的超链接提示2.">提示2.</a></p>
+    <p><a href="#" title="这是自带提示1.">自带提示1.</a></p>
+    <p><a href="#" title="这是自带提示2.">自带提示2.</a> </p>
+</body>
+</html>

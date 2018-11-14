@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery点击弹出框城市选择器代码</title>
+	<link rel="stylesheet" type="text/css" media="all" href="css/tyle.css">
+	<script src="js/jquery-1.9.1.min.js"></script>
+	
+</head>
+
+<body>
+
+	<input type="text" placeholder="选择城市" id="place" name="">
+	<input type="text" placeholder="您要去哪？" id="destination" name="">
+	<!-- 城市 -->
+	<div id="in_city" style="display: none"></div>
+
+	<script type="text/javascript" src="js/cityTemplate.js"></script>
+	<script type="text/javascript">
+
+	    var cityA = $(".city_a_le1 a"); //城市
+	    var pla = $("#place");  //出发地
+	    var dest = $("#destination");  //目的地
+	    // 默认值
+	    inCity.width = "345";  //城市选择框  宽
+	    inCity.height = "auto";  //城市选择框  高
+	    inCity.id = "#in_city";  //城市选择框  父级ID
+	    inCity.Children = '.city_a_le1';  //城市名box
+	    // 初始化 城市HTML模板
+	    $(inCity.id).prepend(inCity._template.join(''));
+	    inCity.Hot(cityA);
+	    
+	    //城市 导航
+	    var apay = $(".screen a");
+
+	    var placeThis; //当前选择标签
+	    apay.click(function(obj){  //城市导航
+	        inCity.payment($(this));
+	    })
+
+	    inCity.place(pla); //出发地
+	    inCity.destination(dest);  //目的地
+	    inCity.cityClick(cityA); //显示赋值城市
+	</script>
+
+</body>
+</html>

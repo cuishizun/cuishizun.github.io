@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta-Tags -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<title>倒计时特效</title>
+
+	<!-- Bootstrap-CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+	<!-- Index-Page-CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+	<!-- Supportive-JavaScript -->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+</head>
+
+<body>
+	<div class="agilecountdown-timerwthree" style="margin-top: 140px;">
+		<div class="countdown-timer-w3laits">
+			<div class="container">
+
+				<h2>Our Next Project starts in</h2>
+
+				<section class="examples">
+					<div class="simply-countdown-losange" id="simply-countdown-losange"></div>
+				</section>
+
+			</div>
+		</div>
+	</div>
+
+	<!-- Countdown-Timer-JavaScript -->
+	<script src="js/simplyCountdown.js"></script>
+	<script>
+		var d = new Date(new Date().getTime() + 48 * 120 * 120 * 2000);
+
+		// default example
+		simplyCountdown('.simply-countdown-one', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate()
+		});
+
+		// inline example
+		simplyCountdown('.simply-countdown-inline', {
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate(),
+			inline: true
+		});
+
+		//jQuery example
+		$('#simply-countdown-losange').simplyCountdown({
+			year: d.getFullYear(),
+			month: d.getMonth() + 1,
+			day: d.getDate(),
+			enableUtc: false
+		});
+	</script>
+</body>
+
+</html>

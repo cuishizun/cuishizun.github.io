@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>jQuery音乐播放歌词同步显示代码</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  width: 400px;
+  margin: 100px auto;
+}
+#musicContent span {
+  display: block;
+  margin: 10px 0;
+  text-align: center;
+}
+#musicContent span.musicContent02 {
+  background: #ccc;
+  color: blue;
+}
+.name {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+</style>
+
+</head>
+<body>
+
+<div id="app">
+  <button class="btnpic">播放</button>
+  <audio src="mp3/cc.mp3" id="my-audio"></audio>
+  <!-- 存放歌词 -->
+  <p class="name">歌曲名：匆匆那年</p>
+  <div id="musicContent">
+    <span class="musicContent01"></span>
+    <span class="musicContent02"></span>
+    <!--<span class="musicContent03"></span>-->
+  </div>
+  <span class="now_time" id="now_time">00:00</span>
+</div>
+
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/song.js"></script>
+<script type="text/javascript">
+  $(function () {
+    var my_audio = document.getElementById("my-audio");
+    var now_time = document.getElementById("now_time");
+    // 暂停播放
+    function playPause() {
+      if (my_audio.paused) {
+        my_audio.play();
+        $('.btnpic').text('暂停');
+      } else {
+        my_audio.pause();
+        $('.btnpic').text('播放');
+      }
+    }
+    // 时间转换 00:00
+    var timeFormat = function(seconds){
+      var m = Math.floor(seconds/60)<10 ? "0"+Math.floor(seconds/60) : Math.floor(seconds/60);
+      var s = Math.floor(seconds-(m*60))<10 ? "0"+Math.floor(seconds-(m*60)) : Math.floor(seconds-(m*60));
+      return m+":"+s;
+    };
+    // 编译歌词 并显示
+    var lyric = parseLyric(songContent);
+    console.log(lyric);
+    var musicContent = document.getElementById("musicContent");
+    my_audio.ontimeupdate = function () {
+      // 音频播放时间
+      now_time.innerHTML = timeFormat(my_audio.currentTime);
+      for (var i = 0; i < lyric.length; i++) {
+        /*当前播放的时间*/
+        if (this.currentTime > lyric[i][0]) {
+          if (i >= 1) {
+            // lyric 二维数组 第一个span放当前歌词前一条，第二个span放当前显示歌词，第三个span放当前歌词后一条
+            $(".musicContent01").html(lyric[i - 1][1]);
+            $(".musicContent02").html(lyric[i][1]);
+//            $(".musicContent03").html(lyric[i + 1][1]);
+          } else {
+            $(".musicContent02").html(lyric[i][1]);
+            $(".musicContent03").html(lyric[i + 1][1]);
+          }
+        }
+      }
+    }
+    
+    $('.btnpic').click(function () {
+      playPause();
+    });
+    
+  })
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

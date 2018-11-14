@@ -1,0 +1,167 @@
+/*General styles for 10 advanced menus by VanKarWai - Themeforest.net*/
+
+/* Style Resset for "Cross Browsing" based in YUI-Yahoo!*/
+*, html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p,
+blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, font, img,
+ins, kbd, q, s, samp, small, strike,
+strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+center, u, b, i {margin: 0;padding: 0;border: 0;outline: 0;font-weight: normal;font-style: normal;font-size: 62,5%;font-family: inherit;vertical-align: baseline;}
+body {line-height: 1;}
+:focus {outline: 0;color: #0CA8E5;text-decoration: underline;}
+ol, ul {list-style: none}
+table {border-collapse: collapse;border-spacing: 0}
+blockquote:before, blockquote:after, q:before, q:after {content: ""}
+blockquote, q {quotes: "" ""}
+input, textarea {margin: 0;padding: 0}
+hr {margin: 0;padding: 0;border: 0;color: #000;background-color: #000;height: 1px}
+strong {font-size: 1.1em;font-weight: bold;color: #FFFFFF;}
+
+/******General Styles-Only for presentation//Don«t need to be modified//But You can use it as a menu too and custom it if you want!*******/
+body{background-image:url(../images/background.jpg);}
+div#wrapper{/*centering container in the middle of browser viewer*/
+	width:800px;
+	height:500px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-250px;
+	margin-left:-400px;
+	}
+h1,h2,p,a{font-family:Helvetica,arial,sans;font-weight:bold;color:#000;}
+h1{font-size:3em;letter-spacing:-5px;}
+h2{font-size:1.6em;letter-spacing:-1px;margin:-7px 0px 5px 5px;}
+.inner-shadow{text-shadow:#282828 1px 1px 1px;filter:progid:DXImageTransform.Microsoft.Shadow(color='#282828', Direction=135, Strength=1);
+}
+p.tag{
+	width:175px;
+	height:40px;
+	line-height:40px;
+	text-align:center;
+	font-size:1.1em;
+	text-shadow: none;
+	font-weight: normal;
+	font-style: italic;
+	color:#00d8af;
+	background-color:#000;
+	}
+div#big-buttons{width:800px;height:367px;margin-left: auto;margin-right: auto;margin-top:25px;}
+div#big-buttons span#btn-css,span#btn-js{
+	display:block;
+	width:370px;
+	height:367px;
+	background: url(../images/background-bigBtns.jpg) #000;
+	text-shadow: #282828 1px 1px 1px;
+	border-right: #282828 solid 1px;
+	border-bottom: #282828 solid 1px
+	}
+div#big-buttons span#btn-css{float:left;}
+div#big-buttons span#btn-js{float:right;}
+div#big-buttons span a{
+	display:block;
+	width:100%;
+	height:100%;
+	text-decoration:none;
+	font-size: 5.7em;
+	text-align:center;
+	line-height:4em;
+	letter-spacing:-8px;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color='#282828', Direction=135, Strength=1.5);
+	}
+div#big-buttons span#btn-css a:hover{background-color:#ff9f23;}
+div#big-buttons span#btn-js a:hover{background-color:#00d8af;}
+a:active{color:#000;}
+a:visited{color:#000;}
+.rounded-corners{/*properties that solves radius in all render engines // first property is the CSS3 specialy devoloped for this task*/
+	border-radius: 15px;
+	-ms-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-khtml-border-radius: 15px;
+	}
+.rounded-corners-r9{
+	border-radius: 9px;
+	-ms-border-radius: 9px;
+	-moz-border-radius: 9px;
+	-webkit-border-radius: 9px;
+	-khtml-border-radius: 9px;
+	}
+div#bottom-side{width:170px;position:relative;float: right;font-size:0.8em;margin:10px -20px 0px 0px;}
+div#bottom-side a{text-decoration:none;}
+
+/*****Styles for menu/list-items/section*****/
+p.tag-list{
+	position: absolute;
+	width:175px;
+	height:116px;
+	line-height:40px;
+	text-align:left;
+	font-size:3em;
+	text-shadow: none;
+	font-weight: normal;
+	font-style: italic;
+	letter-spacing:-2px;
+	color:#00d8af;
+	background-color:#000;
+	}
+div#item-list{width:800px;height:367px;margin-left: auto;margin-right: auto;margin-top:25px;}
+div#item-list ul{width:350px;height:360px;margin-left:auto;margin-right:auto;}
+div#item-list ul li{
+	display: block;
+	width:350px;
+	height:49px;
+	background:url(../images/background-list-btns.jpg) #000;
+	margin-bottom: 15px;
+	border-right: #282828 solid 1px;
+	border-bottom: #282828 solid 1px
+	}
+div#item-list ul li p{float:left;width:50px;height:55px;font-size:2.5em;line-height:1.5em;text-align:center;}
+div#item-list ul li a{float:right;text-decoration:none;font-size:1.5em;line-height:2.2em;letter-spacing:-1.5px;margin-right:15px;}
+/*in this point we need to fix IE7 trouble that not interpret float & heights normaly, let«s see new positioning for IE7 with a little hacks*/
+div#item-list ul li a{#float:none;#position:absolute;#width:350px;#height:360px;#letter-spacing:-1.5px;margin-left:-115px\9;#text-align:right;}
+
+/*select color in hover for each element in list*/
+div#item-list ul li#item1 a:hover{color:#3bf7d1;}
+div#item-list ul li#item2 a:hover{color:#3bf786;}
+div#item-list ul li#item3 a:hover{color:#c9f73b;}
+div#item-list ul li#item4 a:hover{color:#f7b73b;}
+div#item-list ul li#item5 a:hover{color:#f7753b;}
+/*bottons in bottom for back & plus*/
+div#back-plus-btns{position:absolute;z-index:10;left:445px;top:360px;_top:415px;width:135px;}
+div#back-plus-btns span{display:block;float:left;}
+div#back-plus-btns span a{
+	background-image:url(../images/background-bigBtns.jpg);
+	border-right: #282828 solid 1px;
+	border-bottom: #282828 solid 1px;
+	border-radius: 4px;
+	-ms-border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	text-decoration:none;
+	font-size:1.5em;
+	line-height:1.4em;
+	#line-height:1.2em;
+	text-align:center;
+	}
+div#back-plus-btns span a#btn-back-small{display:block;width:80px;height:30px;}
+div#back-plus-btns span a#btn-plus{display:block;width:40px;height:30px;margin-left:10px;}
+div#back-plus-btns span a#btn-back-small:hover{color:#3bf7d1;}
+div#back-plus-btns span a#btn-plus:hover{background-image: none; background-color:#3bf7d1;}
+div#extra{position:absolute;z-index:0;left:550px;top:340px;_top:410px;}
+div#extra span{display:block;width:94px;height:130px;}
+
+/*****Styles layout for each menu presentation // each menu also has it style own in it styles folder (root-->menus-->CSS or jQuery-->XX-menu-XX-->styles-->XX-menu-XX-styles.css*****/
+div.top-title p#asterisk{display:block;position:absolute;float:left;font-size:5em;margin:-20px;}
+div.top-title p#title{position:absolute;font-size:3.5em;letter-spacing:-5.5px;}
+div.top-title p#notes{position:absolute;font-weight:lighter;font-style:italic;font-size:0.6em;top:390px;color:#3bf7d1;}
+div.top-title p#expand-notes{position:absolute;font-weight:lighter;font-style:italic;font-size:0.6em;top:402px;color:#3bf7d1;}
+div#wrapper-menu{position:absolute;width:100%;height:250px;top:50%;margin-top:-125px;background-color:#3bf7d1;}
+div#wrapper div#btn-back-big{position:absolute;margin-top:420px;margin-left:600px;}
+div#wrapper div#btn-back-big a{text-decoration:none;font-size:6em;letter-spacing:-7px;}
+div#wrapper div#btn-back-big a:hover{color:#3bf7d1;}
+
+

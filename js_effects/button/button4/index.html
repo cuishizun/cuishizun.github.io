@@ -1,0 +1,89 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<meta content="IE=7.0000" http-equiv="X-UA-Compatible">
+<title>纯CSS3按钮悬停上下展开特效</title>
+<meta content="text/html; charset=utf-8" http-equiv=Content-Type>
+<style type="text/css" rel="stylesheet">
+	html,body,p{margin: 0; padding: 0;}
+	.bt-box{
+		width:200px;
+		height: 50px;
+		margin: 50px auto;
+		position: relative;
+	}
+	.bt-box .bg-1{background:#62aeff;}
+	.bt-box .bg-2{background:#fd933a;}
+	.bt-box .bg-3{background:#a851fa;}
+	.bt-box .xiaoA{
+		display:block;
+		width:200px;
+		height:50px;
+		position: absolute;
+		z-index: 2;
+		color: white;
+		font: 17px/50px Helvetica, Verdana, sans-serif;
+		text-decoration: none;
+		text-align: center;
+	}
+	.bt-box .xiaoA, .bt-box-p {
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		  
+		-webkit-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+		-moz-box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+		box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+		}
+	.bt-box .bt-box-p{
+		  background: #222 ;
+		  display: block;
+		  height: 40px;
+		  width: 180px; 
+		  margin: 0 0 0 10px;
+		  text-align: center;
+		  font: 12px/45px Helvetica, Verdana, sans-serif;
+		  color:#fff;
+		  position: absolute;
+		  z-index: 1;
+		  transition: margin 0.5s ease;
+		}
+	.bt-box:hover .bottom {
+		  margin: 40px 0 0 10px;
+		}
+	.bt-box:hover .top {
+		  margin: -30px 0 0 10px;
+		  line-height: 35px;
+		}
+	.bt-box .xiaoA:hover {
+			color: #fff;
+			background: #2f7fd5;
+			text-decoration: none;
+		}	
+	
+</style>
+</head>
+<body>
+
+<div class="bt-box">
+	<a href="#" class="xiaoA bg-1">前端学习交流群</a>
+	<p class="top bt-box-p">前端技术交流学习</p>
+	<p class="bottom bt-box-p">QQ群：123456789</p>
+</div>
+<div class="bt-box">
+	<a href="#" class="xiaoA bg-2">前端学习交流群</a>
+	<p class="top bt-box-p">前端技术交流学习</p>
+	<p class="bottom bt-box-p">QQ群：123456789</p>
+</div>
+<div class="bt-box">
+	<a href="#" class="xiaoA bg-3">前端学习交流群</a>
+	<p class="top bt-box-p">前端技术交流学习</p>
+	<p class="bottom bt-box-p">QQ群：123456789</p>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+

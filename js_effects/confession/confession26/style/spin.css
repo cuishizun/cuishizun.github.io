@@ -1,0 +1,138 @@
+*{margin:0; padding:0;}
+body{background:#eee;width:100%; height:100%;}
+.wrapper{
+	position: relative;
+	width: 800px;
+	height:450px;
+	margin:60px auto 0;
+}
+.wrapper .pin-layout{
+	position: absolute;
+	bottom: 0;
+	left: calc(50% - 20px);
+	width:40px;
+	height:280px;
+}
+.wrapper .pin-layout::after{
+	position:absolute;
+	bottom:0;
+	left: calc(50% - 20px);
+	content:"";
+	height:0;
+	width:10px;
+	border-width: 0px 15px 280px 15px;
+	border-style:solid;
+	border-color:transparent transparent #6B3500 transparent;
+}
+.wrapper .pin-layout .pillar{
+	position: absolute;
+	top: -18px;
+	left: calc(50% - 18px);
+	width:36px;
+	height:36px;
+	z-index: 9;
+	transform: rotateZ(45deg);
+	transition:all .9s linear;
+	animation: mypin 3s linear 0s infinite;
+}
+.pin-layout .control:hover::after{
+	position: absolute;
+	left: 0;
+	content: "";
+	width: 100%;
+	height:100%;
+	background: rgba(0,0,0,.3);
+}
+.pin-layout .control{
+	position: absolute;
+	bottom:0;
+	width: 80px;
+	height:30px;
+	line-height:30px;
+	border: 1px solid #ADADAD;
+	border-radius: 4px;
+	text-align:center;
+	text-decoration:none;
+	letter-spacing:2px;
+	color: white;
+	background: red;
+}
+.pin-layout .control:nth-of-type(1){
+	left: -100px;
+}
+.pin-layout .control:nth-of-type(3):focus ~ .pillar{
+	animation-duration:.8s;
+}
+.pin-layout .control:nth-of-type(4):focus ~ .pillar{
+	animation-duration:.2s;
+}
+.pin-layout .control:nth-of-type(2){
+	right: -100px;
+	background: green;
+}
+.pin-layout .control:nth-of-type(3){
+	bottom: -40px;
+	left: -100px;
+	background: #037862;
+}
+.pin-layout .control:nth-of-type(4){
+	bottom: -40px;
+	right: -100px;
+	background: #036B3E;
+}
+.pin-layout .control:nth-of-type(1):focus ~ .pillar{
+	animation-play-state:paused;
+}
+.pin-layout .control::nth-of-type(2):focus ~ .pillar{
+	animation-play-state:running;
+}
+ .pin-layout .pillar span[class^="item"]{
+	position: absolute;
+ 	top: calc(-200px + 18px);
+	left: 18px;
+	border-width:0px 80px 200px 0px;
+	border-style:solid;
+ }
+ .pin-layout .pillar span[class^="item"]:nth-of-type(1){
+	z-index:1;
+	border-color:transparent transparent gray transparent;
+	/*border-color:green red gray blue;*/
+}
+ .pin-layout .pillar span[class^="item"]:nth-of-type(2){
+	z-index:2;
+	border-color:transparent transparent red transparent;
+	transform-origin:left bottom;
+	transform: rotateZ(90deg);
+}
+ .pin-layout .pillar span[class^="item"]:nth-of-type(3){
+	z-index:3;
+	border-color:transparent transparent yellow transparent;
+	transform-origin:left bottom;
+	transform: rotateZ(180deg);
+}
+ .pin-layout .pillar span[class^="item"]:nth-of-type(4){
+	z-index:4;
+	border-color:transparent transparent lime transparent;
+	transform-origin:left bottom;
+	transform: rotateZ(270deg);
+}
+.wrapper .pin-layout .pillar .dot{
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-width: 19px;
+	border-style: solid;
+	border-color: #3C0505 transparent #3C0505 transparent;
+	border-radius:50%;
+	background:#F505EE;
+	z-index:1999;
+	box-shadow:0 0 2px #1A0505;
+}
+@keyframes mypin {
+	0%{
+		transform: rotate(0deg)
+	}
+	100%{
+		transform:rotate(360deg);
+	}
+}

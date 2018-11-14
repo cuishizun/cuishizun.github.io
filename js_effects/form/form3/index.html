@@ -1,0 +1,43 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>JavaScript与jQuery获取相邻控件</title>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript">
+        //JavaScript获取相邻的控件 
+        function P(obj) {
+            var prev = obj.previousSibling;
+            prev.value = "JavaScript获取上一个控件";
+        }
+
+        function N(obj) {
+            var next = obj.nextSibling;
+            next.value = "JavaScript获取下一个控件";
+        }
+        //jQuery获取相邻的控件 
+        $(function () {
+            $("P1").prev().val("jQuery获取上一个控件");
+            $("N1").next().val("jQuery获取下一个控件");
+            $("P2").prev().val("jQuery获取上一个控件");
+            $("N2").next().val("jQuery获取下一个控件");
+        });
+    </script>
+</head>
+
+<body>
+    <!-- JS 正常获取 -->
+    <input /><input type="button" value="P" onclick="P(this)" /><input type="button" value="N" onclick="N(this)" /><input />
+    <br />
+    <!-- JS 无法获取 -->
+    <input /> <input type="button" value="P" onclick="P(this)" /><input type="button" value="N" onclick="N(this)" />
+    <input />
+    <br />
+    <!-- jQuery 正常获取 -->
+    <input /><input type="button" id="P1" value="P" onclick="P(this)" /><input type="button" id="N1" value="N" onclick="N(this)" /><input />
+    <br />
+    <!-- jQuery 无法获取 -->
+    <input /> <input type="button" id="P2" value="P" onclick="P(this)" /><input type="button" id="N2" value="N" onclick="N(this)" />
+    <input />
+</body>
+
+</html>

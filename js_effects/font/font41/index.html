@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>4种纯CSS3炫酷文字动画特效</title>
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	<link rel="stylesheet" href="bower_components/material-design-lite/material.min.css">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	  <link rel="stylesheet" href="css/style.css" media="screen" charset="utf-8">
+	  <link rel="stylesheet" href="css/animations.css" media="screen" charset="utf-8">
+	  <link rel="stylesheet" href="css/animate-complement.css" media="screen" charset="utf-8">
+</head>
+<body>
+	<div class="htmleaf-container">
+		<header class="htmleaf-header">
+			<h1>4种纯CSS3炫酷文字动画特效 <span>Short and funny phrases using CSS3 to make the animation</span></h1>
+			<div class="htmleaf-links">
+				<a class="htmleaf-icon icon-htmleaf-home-outline" href="http://down.admin5.com/" title="A5源码" target="_blank"><span> A5源码</span></a>
+				<a class="htmleaf-icon icon-htmleaf-arrow-forward-outline" href="http://down.admin5.com/" title="返回下载页" target="_blank"><span> 返回下载页</span></a>
+			</div>
+		</header>
+	</div>
+	<controller ng-controller="mainCtrl">
+		    <div class="container-text">
+
+		      <div class="input">
+		        <div class="class-of-input mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+		          <input ng-model="textToAnimate" class="mdl-textfield__input" type="text" id="text" maxlength="30">
+		          <label class="mdl-textfield__label" for="text">insert your text here</label>
+		        </div>
+		      </div>
+
+		      <!-- Left aligned menu below button -->
+		      <button id="demo-menu-lower-left" class="mdl-button mdl-button--colored mdl-js-ripple-effect mdl-button--raised mdl-js-button">
+		        select style <span ng-show="animationStyle != false">(<i>{{animationStyle}}</i>)</span>
+		      </button>
+
+		      <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-left">
+		        <li class="mdl-menu__item" ng-class="{'mdl-button--accent' : animationStyle == 'style1'}" ng-click="showCode = false; animationStyle = 'style1'">Animation style 1</li>
+		        <li class="mdl-menu__item" ng-class="{'mdl-button--accent' : animationStyle == 'style2'}" ng-click="showCode = false; animationStyle = 'style2'">Animation style 2</li>
+		        <li class="mdl-menu__item" ng-class="{'mdl-button--accent' : animationStyle == 'style3'}" ng-click="showCode = false; animationStyle = 'style3'">Animation style 3</li>
+		        <li class="mdl-menu__item" ng-class="{'mdl-button--accent' : animationStyle == 'style4'}" ng-click="showCode = false; animationStyle = 'style4'">Animation style 4</li>
+		      </ul>
+
+		      <div class="button">
+		        <button ng-disabled="textToAnimate == undefined || animationStyle == false" ng-click="animate(textToAnimate)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+		          animate
+		        </button>
+		      </div>
+
+		    </div>
+
+		    <div ng-class="animationStyle" class="container-exibition-text is-animate text-center">
+
+		    </div>
+
+		    <div class="button text-center btn-generate-code" ng-show="showGenerate">
+		      <button ng-hide="showCode" ng-click="generateCode(animationStyle)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+		        generate code
+		      </button>
+		    </div>
+
+		    <div ng-show="showCode" class="centered-content">
+
+		      <!-- show code link on <head /> -->
+		      <pre ng-show="showCode" ng-bind-html="printHead" class="code"></pre>
+
+		      <!--show code css generate -->
+		      <pre ng-show="showCode" ng-bind-html="printCss" class="code"></pre>
+
+		      <!-- show code html generate -->
+		      <pre ng-show="showCode" ng-bind-html="printHtml" class="code"></pre>
+
+		      <!-- Colored raised button -->
+		      <div class="text-right">
+		        <a href="https://raw.githubusercontent.com/interaminense/letters-animated/gh-pages/css/animations.css" class="text-right mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect" download>
+		          download animations.css
+		        </a>
+		      </div>
+
+		      <br />
+
+		    </div>
+
+		  </controller>
+	
+	<!-- Material Design Lite -->
+	  <script src="bower_components/material-design-lite/material.min.js"></script>
+	  <!-- Angular JS -->
+	  <script src="bower_components/angular/angular.min.js"></script>
+	  <!-- angular sanitize -->
+	  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	  <!-- scripts -->
+	  <script type="text/javascript" src="js/script-animate.js"></script>
+</body>
+</html>

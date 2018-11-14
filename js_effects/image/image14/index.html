@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<title>jQuery图片文字联动切换代码</title>
+
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<link rel="stylesheet" type="text/css" href="css/home.css">
+
+</head>
+<body>
+
+<section class="aui-rotate-box">
+	<div class="aui-rotate-content">
+		<div class="function-wrapper">
+			<div class="function-content clearfix">
+				<div class="aui-module aui-rotate-left aui-info js_function-text">
+					<h4 class="aui-title-subtitle">APP全场景应用支持</h4>
+					<div class="aui-title-wrapper">
+						<h3 class="title first mui-enter mui-enter-active">通知栏消息</h3>
+						<h3 class="title mui-enter">应用内消息</h3>
+						<h3 class="title mui-enter">颗粒化用户</h3>
+					</div>
+					<div class="au-border-bottom"></div>
+					<div class="aui-text-wrapper">
+						<p class="desc first mui-enter mui-enter-active">
+							个性化去推送相对应的应用内容<br>
+							所推送的内容与应用相结合更实用<br>
+							提高使用应用的用户，带来更好的用户体验<br>
+						</p>
+						<p class="desc mui-enter" style="color:#fb9b9b">
+							应用内消息推广实时更新数据<br>
+							在应用内展示相对应的产品信息效果<br>
+							在规定时间内消息自动消失，提高用户体验<br>
+						</p>
+						<p class="desc mui-enter">
+							颗粒化用户的高级产品体验<br>
+							可以快速定位用户习惯和应用<br>
+							最快的速度帮您转化提现，效率更高<br>
+						</p>
+					</div>
+					<div class="control">
+						<span class="aui-icon aui-icon-arrow-fl" id="js_function-orbit-prev" title="上一个"></span>
+						<span class="aui-icon aui-icon-arrow-fr" id="js_function-orbit-next" title="下一个"></span>
+					</div>
+				</div>
+				<div class="aui-module aui-rotate-item-fr">
+					<div class="clearfix">
+						<div class="carousel present-screen-1">
+							<img class="function-iphone" src="img/aui-iphone.png" alt="">
+							<img class="function-screen screen-1" src="img/iphone-hd1.jpg" alt="">
+							<img class="function-screen screen-2" src="img/iphone-hd2.jpg" alt="">
+							<img class="function-screen screen-3" src="img/iphone-hd3.jpg" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	(function(){
+		var bannerIndex = 0;
+		var $bannerBgs = $('.js_banner-bg');
+		var $bannerNotifications = $('.js_banner-notification');
+		function changeTopBanner(index) {
+			$bannerBgs.removeClass('mui-enter-active');
+			$($bannerBgs[index]).addClass('mui-enter-active');
+
+			$bannerNotifications.removeClass('mui-enter-active');
+			$($bannerNotifications[index]).addClass('mui-enter-active');
+		}
+
+		setInterval(function(){
+			if (bannerIndex < 2) {
+				bannerIndex++;
+				changeTopBanner(bannerIndex);
+			} else {
+				bannerIndex = 0;
+				changeTopBanner(bannerIndex);
+			}
+		}, 6000);
+
+		// Function
+		var functionIndex = 1;
+		function presentScreen(index) {
+			$('.carousel').removeClass(
+				'present-screen-1 present-screen-2 present-screen-3'
+			).addClass(`present-screen-${functionIndex}`);
+		}
+
+		var $titles = $('.js_function-text .title');
+		var $descs = $('.js_function-text .desc');
+		function presentText(index) {
+			index = index - 1;
+			$titles.removeClass('mui-enter-active');
+			$($titles[index]).addClass('mui-enter-active');
+			$descs.removeClass('mui-enter-active');
+			$($descs[index]).addClass('mui-enter-active');
+		}
+
+		var $functionScreens = $('.carousel .function-screen');
+		for (var i = 0; i < $functionScreens.length; i++) {
+			(function (i) {
+				$($functionScreens[i]).click(function(){
+					functionIndex = i + 1;
+					presentScreen(functionIndex);
+					presentText(functionIndex);
+				})
+			})(i);
+		}
+		$('#js_function-orbit-prev').click(function(){
+			functionIndex > 1 ? functionIndex-- : functionIndex = 3;
+			presentScreen(functionIndex);
+			presentText(functionIndex);
+		});
+		$('#js_function-orbit-next').click(function(){
+			functionIndex < 3 ? functionIndex++ : functionIndex = 1;
+			presentScreen(functionIndex);
+			presentText(functionIndex);
+		});
+
+		var newsOrbit = new Foundation.Orbit($('#js_news-thumbnail'));
+
+
+	})()
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

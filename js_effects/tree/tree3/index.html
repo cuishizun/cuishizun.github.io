@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>jQuery树形菜单打开标签代码</title>
+
+<script class="jsbin" src="js/jquery-1.7.2.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/easyui.css">
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<!--[if IE]>
+    <script src="js/html5shiv.js"></script>
+    <![endif]-->
+<style>
+  article, aside, figure, footer, header, hgroup, 
+  menu, nav, section { display: block; }
+  .west{
+    width:200px;
+    padding:10px;
+  }
+  .north{
+    height:30px;
+  }
+</style>
+
+</head>
+<body class="easyui-layout">
+
+<div region="north" split="true" border="false" style="overflow: hidden; height: 30px;
+	background: url(images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
+	line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
+<span style="float:right; padding-right:20px;" class="head">
+欢迎 测柜员
+<a href="#" id="loginOut">安全退出</a>
+</span>
+<span style="padding-left:10px; font-size: 16px; ">
+<img src="images/blocks.gif" width="20" height="20" align="absmiddle" /> 实时报表系统
+</span>
+</div>
+<div region="center" title="">
+<div class="easyui-tabs" fit="true" border="false" id="tabs">
+  <div title="首页"></div>
+</div>
+</div>
+<div region="west" class="west" title="菜单">
+<ul id="tree"></ul>
+</div>
+
+<div id="tabsMenu" class="easyui-menu" style="width:120px;">  
+<div name="close">关闭</div>  
+<div name="Other">关闭其他</div>  
+<div name="All">关闭所有</div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

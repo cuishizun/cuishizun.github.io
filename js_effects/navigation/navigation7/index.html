@@ -1,0 +1,92 @@
+﻿<!doctype html>
+<html>
+
+<head>
+	<!-- Meta-Tags -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<!-- //Meta-Tags -->
+
+	<title>鼠标浮动变×锚点特效导航</title>
+
+
+	<!-- Back to top -->
+	<script type="application/x-javascript">
+		addEventListener("load", function () {
+			setTimeout(hideURLbar, 0);
+		}, false);
+
+		function hideURLbar() {
+			window.scrollTo(0, 1);
+		}
+	</script>
+	<!-- //Back to top -->
+
+	<!-- Bootstrap-CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all">
+	<!-- Nav-CSS -->
+	<link rel="stylesheet" href="css/nav.css" type="text/css" media="all">
+
+</head>
+
+<body style="background-color: #2b2030;">
+
+	<nav class="navbar container navbar-inverse navbar-default">
+
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+			 aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<!-- Logo -->
+			<div class="logo">
+				<a class="navbar-brand logo-w3l button" href="index.html">ESTATE</a>
+			</div>
+			<!-- //Logo -->
+		</div>
+
+		<div id="navbar" class="navbar-collapse navbar-right collapse">
+			<ul class="nav navbar-nav navbar-right cross-effect" id="cross-effect">
+				<li><a class="cross-effect scroll" href="#about">About</a></li>
+				<li><a class="cross-effect scroll" href="#details">Details</a></li>
+				<li><a class="cross-effect scroll" href="#projects">Projects</a></li>
+				<li><a class="cross-effect scroll" href="#portfolio">Portfolio</a></li>
+				<li><a class="cross-effect scroll" href="#booking">Booking</a></li>
+				<li><a class="cross-effect scroll" href="#contact">Contact</a></li>
+			</ul>
+		</div><!-- //Navbar-Collapse -->
+
+	</nav>
+	<div id="about" style="height:500px;color:#fff;">About</div>
+	<div id="details" style="height:500px;color:#fff;">Details</div>
+	<div id="projects" style="height:500px;color:#fff;">Projects</div>
+	<div id="portfolio" style="height:500px;color:#fff;">Portfolio</div>
+	<div id="booking" style="height:500px;color:#fff;">Booking</div>
+	<div id="contact" style="height:500px;color:#fff;">Contact</div>
+	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+	</div>
+	<!-- Supportive-JavaScript -->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+	<!-- Necessary-JS-File-For-Bootstrap -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+</body>
+
+</html>

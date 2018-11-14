@@ -1,0 +1,245 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>纯CSS3酷炫文字模糊效果特效</title>
+
+<style>
+html,
+body {
+  margin: 0;
+  background-color: #24262E;
+  height: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: -10vw;
+}
+
+p {
+  font-family: 'Monoton', cursive;
+  width: 9vw;
+  cursor: pointer;
+  text-shadow: .5vw .5vw 0 black;
+}
+
+.letter-b {
+  color: rgb(222, 233, 187);
+  font-size: 15vw;
+  z-index: 1;
+}
+
+.letter-l {
+  color: rgb(222, 233, 187);
+  font-size: 20vw;
+  z-index: 2;
+}
+
+.letter-u {
+  color: rgb(222, 233, 187);
+  font-size: 25vw;
+  z-index: 3;
+}
+
+.letter-r {
+  color: rgb(222, 233, 187);
+  font-size: 30vw;
+  margin-left: 8vw;
+  z-index: 4;
+}
+
+.letter-hover:hover {
+  color: rgb(241, 129, 129);
+  text-shadow: .5vw .5vw 0 black;
+}
+
+.letter-b {
+  animation: B 4s linear infinite;
+  -moz-animation: B 4s linear infinite;
+  /* Firefox */
+  -webkit-animation: B 4s linear infinite;
+  /* Safari and Chrome */
+  -o-animation: B 4s linear infinite;
+  /* Opera */
+}
+
+@keyframes B {
+  0% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+  16.6666666667% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  33.3333333334% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+  50% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+  }
+  66.6666666668% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+  83.3333333335% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  100% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+}
+
+.letter-l {
+  animation: L 4s linear infinite;
+  -moz-animation: L 4s linear infinite;
+  /* Firefox */
+  -webkit-animation: L 4s linear infinite;
+  /* Safari and Chrome */
+  -o-animation: L 4s linear infinite;
+  /* Opera */
+}
+
+@keyframes L {
+  0% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  16.6666666667% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+  33.3333333334% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  50% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+  66.6666666668% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  83.3333333335% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+  100% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+}
+
+.letter-u {
+  animation: U 4s linear infinite;
+  -moz-animation: U 4s linear infinite;
+  /* Firefox */
+  -webkit-animation: U 4s linear infinite;
+  /* Safari and Chrome */
+  -o-animation: U 4s linear infinite;
+  /* Opera */
+}
+
+@keyframes U {
+  0% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+  16.6666666667% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  33.3333333334% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+  50% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  66.6666666668% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+  83.3333333335% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  100% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+}
+
+.letter-r {
+  animation: R 4s linear infinite;
+  -moz-animation: R 4s linear infinite;
+  /* Firefox */
+  -webkit-animation: R 4s linear infinite;
+  /* Safari and Chrome */
+  -o-animation: R 4s linear infinite;
+  /* Opera */
+}
+
+@keyframes R {
+  0% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+  }
+  16.6666666667% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+  33.3333333334% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  50% {
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+  66.6666666668% {
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+  }
+  83.3333333335% {
+    -webkit-filter: blur(8px);
+    filter: blur(8px);
+  }
+  100% {
+    -webkit-filter: blur(12px);
+    filter: blur(12px);
+  }
+}
+</style>
+</head>
+<body>
+
+<link href="https://fonts.googleapis.com/css?family=Monoton" rel="stylesheet">
+
+<div>
+	<p class="letter-b letter-hover">a</p>
+	<p class="letter-l letter-hover">d</p>
+	<p class="letter-u letter-hover">m</p>
+	<p class="letter-r letter-hover">i</p>
+	<p class="letter-r letter-hover">n</p>
+	<p class="letter-r letter-hover">5</p>
+</div>
+
+</body>
+</html>
+

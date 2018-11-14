@@ -1,0 +1,1 @@
+## Typed.js - Type your heart out

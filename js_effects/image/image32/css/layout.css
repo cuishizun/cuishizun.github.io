@@ -1,0 +1,69 @@
+div,form,img,ul,ol,li,dl,dt,dd,p,tr,td,input,body,strong,span,pre{margin:0; padding:0; border:0; background-repeat:no-repeat;}
+
+h1,h2,h3,h4,h5,h6,p{ margin:0; padding:0; font-weight:normal;}
+
+body{font-size:14px;font-family:"Microsoft YaHei";margin:0px;padding:0px;color:#4c4c4c;line-height:23px;height:auto;clear:both;}
+
+img{border:0px;}
+
+ul,li{ list-style:none;}
+
+em,i{ font-style:normal;}
+
+a{ text-decoration:none;color:#000;}
+
+a:hover{ background-repeat:no-repeat;color:#005c71;}
+
+a,area{blr:expression(this.onFocus=this.blur())}
+
+.indx { width:100%;height:100%; overflow:hidden;_position: relative;}
+
+.del_float{ clear:both; line-height:0; height:0; font-size:0;}
+
+
+
+/*营销网络开始*/
+.std_topbox{ border:1px solid #cdcdcd; padding:19px 28px; background:#e8e8e8; width:1044px; height:auto; overflow:hidden; margin-bottom:47px;}
+.std_topbox .sp01{ font-size:18px; padding-left:45px; height:36px; line-height:36px; background:url(../images/ypic150.jpg) left center no-repeat; padding-right:18px; float:left; display:inline-block}
+.std_se_01{border:1px solid #cdcdcd; padding:5px; line-height:37px; height:37px; width:240px; float:left; margin-right:20px; }
+
+.std_search{ float:left; width:92px; height:36px; line-height:36px; text-align:center; background:#666; color:#fff; font-size:18px; cursor:pointer}
+
+.std_search:hover{background: #005c71;}
+
+.std_infobox{ background:#fff; border:1px solid #e6e6e6; position:relative; padding:55px;}
+
+.std_infobox .i01{ position:absolute; left:168px; top:-28px; width:41px; height:29px; background:url(../images/ypic151.jpg) no-repeat; display:inline-block}
+
+.std_xgbox{ width:990px; margin:0 auto; position:relative; height:auto; overflow:hidden; margin-bottom:13px;}
+
+.std_xgbox ul{ width:9900px}
+
+.std_xgbox ul li{ width:990px; float:left; height:552px;}
+
+.std_left_span,.std_right_span{ display:inline-block; width:44px; height:60px; position:absolute; top:246px; cursor:pointer}
+
+.std_left_span{ left:1px; background:url(../images/ypic154.png) no-repeat}
+
+.std_right_span{ right:0px; background:url(../images/ypic153.png) no-repeat}
+
+.std_icon{ width:100%; text-align:center; height:30px; position:absolute; bottom:15px; left:0; z-index:89}
+
+.std_icon a{ display:inline-block; width:11px; height:11px; margin-right:9px; background:url(../images/ypic155.png) no-repeat}
+
+.std_icon a.cur{ background:url(../images/ypic156.png) no-repeat}
+
+.std_list{ width:990px; margin: 0 auto; height:auto; overflow:hidden;}
+
+.std_list ul{ width:1050px; }
+
+.std_list ul li{ width:359px; height:144px; overflow:hidden; float:left; margin-right:30px; margin-bottom:30px; padding:39px 59px; border:1px solid #dbdbdb; background:#e8e8e8}
+
+.std_list ul li h5{ color:#005c71; font-size:24px; padding:13px 0; border-bottom:1px solid #d6d6d6; margin-bottom:16px;}
+
+.std_box01{ position:relative}
+
+.ypage02{ text-align:center; padding:66px 0}
+
+.std_cont{ width: 1200px; margin: 0 auto; padding-bottom:72px;}
+/*营销网络结束*/

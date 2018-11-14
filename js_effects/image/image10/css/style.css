@@ -1,0 +1,160 @@
+/*
+================================
+Service - Version 3
+================================
+*/
+
+.service-v3 {
+	background: #fff;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.service-v3 .heading {
+	margin-bottom: 50px;
+}
+
+.service-v3 .heading h2 {
+	font-size: 30px;
+	text-align: center;
+}
+
+.service-v3 .heading p {
+	font-size: 16px;
+	text-align: center;
+	color: #353535;
+}
+
+ul.service-v3-menu {
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+ul.service-v3-menu li {
+	display: inline-block;
+	padding: 6px 14px;
+	margin-right: 5px;
+	cursor: pointer;
+	border: 2px solid #fff;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+ul.service-v3-menu li:hover {
+	border: 2px solid #f57c05;
+	background: #f57c05;
+	color: #fff;
+}
+
+ul.service-v3-menu li.filter.active {
+	border: 2px solid #f57c05;
+	background: #f57c05;
+	color: #fff;
+}
+
+.service-v3 .mix {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 10px;
+	display: none;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);\
+}
+
+.service-v3 .mix .content-box {
+	position: relative;
+}
+
+.service-v3 .mix img {
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.service-v3 .inner {
+	border: 1px solid #e7e7e7;
+}
+
+.service-v3 .text {
+	background: #f3f3f3;
+	padding: 20px 20px;
+	overflow: hidden;
+}
+
+.service-v3 .text h3 {
+	text-align: left;
+	color: #353535;
+	font-weight: 700;
+	font-size: 18px;
+	margin-bottom: 10px;
+	text-transform: uppercase;
+}
+
+.service-v3 .text h3 a {
+	color: #353535;
+}
+
+.service-v3 .text h3 a:hover {
+	color: #f57c05;
+}
+
+.service-v3 .text h4 {
+	text-align: left;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+
+.service-v3 .text p {
+	text-align: left;
+}
+
+.service-v3 .text p.button {
+	margin-top: 20px;
+	float: left;
+}
+
+.service-v3 .text p.button a {
+	background: #838383;
+	color: #fff;
+	padding: 8px 14px 12px;
+	font-weight: bold;
+	text-transform: uppercase;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-box-shadow: inset 0 -5px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0 -5px rgba(0,0,0,0.2);
+	box-shadow: inset 0 -5px rgba(0,0,0,0.2);
+}
+
+.service-v3 .text p.button a:hover {
+	background: #f57c05;
+	-webkit-box-shadow: inset 0 -5px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0 -5px rgba(0,0,0,0.2);
+	box-shadow: inset 0 -5px rgba(0,0,0,0.2);
+}
+
+.service-v3 .thumb {
+	position: relative;
+	overflow: hidden;
+}
+
+.service-v3 .thumb img {
+	width: 100%;
+}

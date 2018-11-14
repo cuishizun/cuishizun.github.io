@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0;}
+body {font-family:'Microsoft YaHei';font-size:12px;}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote{padding:0; margin:0;}
+table,td,tr,th{font-size:12px;}
+li{list-style-type:none;}
+table{ margin:0 auto;}
+img{vertical-align:top;border:0;}
+ol,ul {list-style:none;}
+caption,th {text-align:left;}
+a{ text-decoration: none; color: #000;}
+a:hover{ color: #000; text-decoration: none;}
+
+.main1140{ width:1140px;margin:0 auto; overflow:hidden;}
+/*拍摄服务流程开始*/
+.process-box{ width: 1140px;height: 450px;}
+.process-box ul{width: 1140px;}
+.process-box ul li{
+  width: 196px;
+  height: 196px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+}
+.process-box ul li .kuang{
+  position: absolute;
+  width: 196px;
+  height: 196px;
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
+  transform:rotate(45deg);
+  border:1px solid #ddd;
+  margin-top: 42px;
+  margin-left: 42px;
+}
+.process-box ul li .kuang1{
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.process-box ul li .kuang2{
+  left: 5px;
+  top: 0px;
+  z-index: 2;
+}
+.process-box ul li .text1{ width: 276px; height: 276px; text-align:center;z-index: 3; position: absolute; left: 7px; top:2px;}
+.process-box ul li .text1 .bg{width: 276px; height: 276px; }
+.process-box ul li .text1 .bg1{ background: url(../images/process-img1.png) no-repeat;}
+.process-box ul li .text1 .bg2{ background: url(../images/process-img2.png) no-repeat;}
+.process-box ul li .text1 .bg3{ background: url(../images/process-img3.png) no-repeat;}
+.process-box ul li .text1 .bg4{ background: url(../images/process-img4.png) no-repeat;}
+.process-box ul li .text1 .bg5{ background: url(../images/process-img5.png) no-repeat;}
+.process-box ul li .text1 .bg6{ background: url(../images/process-img6.png) no-repeat;}
+.process-box ul li .text1 .bg7{ background: url(../images/process-img7.png) no-repeat;}
+.process-box ul li .text1 .num{ padding-top: 50px; font-size: 86px; color: #dacdc2; font-weight: 700; }
+.process-box ul li .text1 .title{ font-size: 15px; color: #422710; }
+.process-box ul li .text1 .eng{ font-size: 12px; color: #b4a078; }
+.process-box ul li .text2{ width: 276px; height: 276px; z-index: 4; position: absolute; left: 5px; top:0px;display: none; }
+.process-box ul li .text2 .mengban{ border:1px solid #533b26;
+  position: absolute;
+  z-index: 1;
+  width: 196px;
+  height: 196px;
+  -moz-transform:rotate(45deg);
+  -webkit-transform:rotate(45deg);
+  -o-transform:rotate(45deg);
+  transform:rotate(45deg);
+  background: #533b26;
+  margin-top: 42px;
+  margin-left: 42px;
+}
+.process-box ul li .text2 .desc{ position: absolute; z-index: 2; width: 140px; height: 110px; top: 88px; left:70px; font-size: 12px; color: #fff; text-align: center; line-height: 24px;}
+.process-box ul li{ margin-right: 89px; }
+.process-box ul.two li{ margin-top: -40px;}
+.process-box ul li:hover .text2{
+  display: block;
+}
+/*拍摄服务流程结束*/

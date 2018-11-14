@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery工作地点选择城市代码</title>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.5.1.min.js"></script>
+<script type="text/javascript">
+	var cityId = 0;	
+	$(function(){
+		$('.acity').click(function(){
+			$('.city').show();
+			$('.mask').show();
+		});
+		$('.cityul b').click(function(){
+			var test=$(this).html();
+		
+			if($(this).attr("city") == undefined){ $(this).attr("city", window.cityId++);}
+			var city = $(this).attr("city");
+			if( $('input[city="'+ city +'"]').size()){
+				$('input[city="'+ city +'"]').parent().remove();
+			} else {
+				var ml=$('.cityshow li').length;
+				if(ml>4){
+					alert('最多只能添加5个');
+				}else{
+					var test=$(this).html();
+					$('<li class="licity"><input  name="citychk" type="checkbox" checked="true" city="'+ city +'" class="check"><b>'+test+'</b></li>').appendTo('.cityshow ul');
+				}
+			}
+			
+			$('input[name=citychk]').click(function(){
+				$(this).parent('.licity').remove();
+			});
+			
+		});	
+		$('.ok').click(function(){
+				
+				var total="";
+				if($('.cityshow ul li').text()=='')
+				{
+					$('.city').hide();
+					$('.mask').hide();
+				}else{
+					$('.cityshow ul li').each(function(){
+						total += (total.length > 0 ? "+" : "" ) + $(this).text();
+					});
+					$('.acity').text(total);
+					$('.city').hide();
+					$('.mask').hide();
+				}
+				
+				
+			})
+	
+	})
+</script>
+</head>
+
+<BODY>
+<div class="mask"></div>
+<b class="acity">请选择城市</b>
+<div id="wrap">
+	
+	<div class="city">
+		<div class="top01-city"  >
+			<em class="ok">确定</em><b >请选择工作地点（最多五项）</b>
+		</div>
+		<div class="mid01-city">
+			<div class="cityshow" id="show">
+				<i>已选地点:</i>
+				<ul></ul>	
+			</div>
+
+			<div class="cityshow1" id="show1">
+			
+
+			<table>
+			<tr><td colspan="2"><i>主要城市:</i></td></tr>
+			<tr><td>
+			<ul class="cityul">
+			<li><strong>A</strong>
+			<a ><b>鞍山</b></a>
+			</li>
+			<li><strong>B</strong>
+				<a ><b>北京</b></a>
+				<a ><b>包头</b></a>
+				<a><b>保定</b></a></li>
+			<li><strong>C</strong>
+				<a ><b>长春</b></a>
+				<a><b>长沙</b></a>
+				<a><b>成都</b></a>
+				<a><b>重庆</b></a>
+				<a><b>常州</b></a>
+				<a><b>常德</b></a>
+				<a><b>常熟</b></a>
+			</li>
+			<li><strong>D</strong>
+				<a ><b>大连</b></a>
+				<a><a><b>东莞</b></a>
+				<a><a><b>丹东</b></a>
+				<a><a><b>大庆</b></a>
+			</li>
+			<li><strong>E</strong>
+				<a ><b>鄂尔多斯</b></a>
+			</li>
+			<li><strong>F</strong>
+				<a ><b>福州</b></a>
+				<a><a><b>佛山</b></a>
+				<a><a><b>抚顺</b></a>
+			
+			</li>
+			<li><strong>G</strong>
+				<a ><b>广州</b></a>
+				<a><a><b>贵阳</b></a>
+				<a><a><b>赣州</b></a>
+			
+			</li>
+			<li><strong>H</strong>
+				<a ><b>哈尔滨</b></a>
+				<a><a><b>杭州</b></a>
+				<a><a><b>合肥</b></a>
+			     <a><b>海口</b></a>
+				 <a><b>呼和浩特</b></a>
+			</li>
+
+			<li><strong>J</strong>
+				<a ><b>济南</b></a>
+				<a><a><b>嘉兴</b></a>
+				<a><a><b>金华</b></a>
+			     <a><b>吉林</b></a>
+				 <a><b>江门</b></a>
+				 <a><b>荆州</b></a>
+			</li>
+			<li><strong>K</strong>
+				<a ><b>昆明</b></a>
+				<a><a><b>昆山</b></a>
+			
+			</li>
+			</ul>
+			</td>
+			<td><ul class="cityul">
+			<li><strong>L</strong>
+			<a ><b>兰州</b></a>
+			<a ><b>廊坊</b></a>
+			<a ><b>临沂</b></a>
+			<a ><b>洛阳</b></a>
+			<a ><b>连云港</b></a>
+			<a ><b>柳州</b></a>
+		
+
+			</li>
+			<li><strong>M</strong>
+				<a ><b>绵阳</b></a>
+			</li>
+			<li><strong>N</strong>
+				<a ><b>南京</b></a>
+				<a><b>宁波</b></a>
+				<a><b>南昌</b></a>
+				<a><b>南通</b></a>
+				<a><b>南宁</b></a>
+			
+			</li>
+			<li><strong>Q</strong>
+				<a ><b>青岛</b></a>
+				<a><a><b>泉州</b></a>
+				<a><a><b>秦皇岛</b></a>
+				<a><a><b>清远</b></a>
+			</li>
+			<li><strong>S</strong>
+				<a ><b>上海</b></a>
+				<a ><b>深圳</b></a>
+				<a ><b>沈阳</b></a>
+				<a ><b>石家庄</b></a>
+				<a ><b>苏州</b></a>
+				<a ><b>三亚</b></a>
+				<a ><b>绍兴</b></a>
+			
+			</li>
+			<li><strong>T</strong>
+				<a ><b>天津</b></a>
+				<a><a><b>太原</b></a>
+				<a><a><b>台州</b></a>
+				<a><a><b>唐山</b></a>
+				<a><a><b>泰州</b></a>
+				<a><a><b>铁岭</b></a>
+			
+			</li>
+			<li><strong>W</strong>
+				<a ><b>武汉</b></a>
+				<a><b>无锡</b></a>
+				<a><b>温州</b></a>
+				<a><b>乌鲁木齐</b></a>
+				<a><b>芜湖</b></a>
+				<a><b>潍坊</b></a>
+				<a><b>威海</b></a>
+			
+			</li>
+			<li><strong>X</strong>
+				<a><b>西安</b></a>
+				<a><b>厦门</b></a>
+				<a><b>徐州</b></a>
+			     <a><b>襄阳</b></a>
+				 <a><b>湘潭</b></a>
+				  <a><b>咸阳</b></a>
+			</li>
+
+			<li><strong>Y</strong>
+				<a ><b>烟台</b></a>
+				<a><a><b>扬州</b></a>
+				<a><a><b>宜昌</b></a>
+			     <a><b>盐城</b></a>
+				 <a><b>义乌</b></a>
+				 <a><b>营口</b></a>
+				 <a><b>银川</b></a>
+			</li>
+			<li><strong>Z</strong>
+				<a ><b>漳州</b></a>
+				<a><b>郑州</b></a>
+				<a><b>中山</b></a>
+				<a><b>珠海</b></a>
+				<a><b>镇江</b></a>
+				<a><b>株洲</b></a>
+				<a><b>湛江</b></a>
+				
+			</li>
+			</ul></td>
+			</tr>
+	
+	</table>
+			</div>
+
+			
+			
+		</div>
+	</div>
+</div>
+
+<script>
+
+</script>
+<style>
+a:hover{
+ background-color: #ffa22e; color: #ffffff; text-decoration:none;;
+}
+
+.citychk{
+ background-color: #ffa22e; color: #ffffff;
+}
+</style>
+</BODY>
+</HTML>

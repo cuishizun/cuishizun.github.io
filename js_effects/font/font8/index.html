@@ -1,0 +1,85 @@
+﻿<!--Developed by ChristianSwift. All right reserved.-->
+<html style="background:url(assets/bg.png) ; background-repeat:repeat">
+
+<head>
+<!--Title and Favicon-->
+<meta charset="UTF-8">
+<title>jQuery 3D星球大战字幕引导特效</title>
+
+<!--Audio Play-->
+<audio autoplay>
+	<source src="assets/theme.mp3" type="audio/mpeg" />
+	Your browser does not support the audio element.
+</audio>
+
+<!--jQuery-->
+<script src="js/jquery-2.1.3.min.js"></script>
+
+<!--SweetAlert Files-->
+<script src="dist/sweetalert.min.js"></script>
+<link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
+
+<!--Star War Script CSS-->
+<link rel="stylesheet" type="text/css" href="css/starwar.css" />
+
+<!--Auto Finish-->
+<!--<script type="text/javascript"> 
+	setTimeout(window.location.href='http://www.baidu.com',3); 
+</script>-->
+</head>
+
+<body>
+
+<!--instruction-->
+<center><em style="color:rgba(255,255,255,0.3);font-size:2px;font-style:normal">点击任意位置进入首页！</em></center>
+
+<!--Click to jump-->
+<script>
+	document.onclick = redirect;
+
+	function redirect() {
+		swal({
+				title: "通知",
+				text: "是否进入首页？",
+				//type: "info",
+				showCancelButton: true,
+				closeOnConfirm: false,
+				showLoaderOnConfirm: true,
+			},
+			function() {
+				setTimeout(window.location.href = '#', 1);
+			});
+	}
+</script>
+
+<!--Blue font before all start-->
+<div style="overflow:hidden; position:absolute; left:0; top:0; width:50px; height:25px;"></div>
+
+<p id="start">A long time ago in a galaxy far,<br/> far away&hellip;</p>
+
+<!--title-->
+<h1>STAR WARS<sub>Simulation</sub></h1>
+
+<div id="titles">
+	<div id="titlecontent">
+
+		<!--subtitle-->
+		<p class="center">EPISODE III<br /> Lorem ipsum dolor</p>
+
+		<!--article-->
+		<p style="text-indent : 1em">适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+
+		<p style="text-indent : 1em">来源：<a href="http://down.admin5.com/" target="_blank">A5源码</a></p>
+
+		<p style="text-indent : 1em">Quisque ac arcu porta, iaculis libero sit amet, consequat leo. Duis bibendum, neque ac vestibulum tincidunt, dui nulla posuere erat, ut iaculis mi erat ac orci. Vestibulum est velit, imperdiet vel risus vel, luctus dignissim mi. Maecenas justo
+			turpis, pulvinar id ultricies vitae, convallis in purus. Etiam eu faucibus lacus. Maecenas sit amet imperdiet urna. Curabitur sit amet gravida dui. Sed id elit at lacus egestas lacinia vitae ac enim. In hac habitasse platea dictumst. Aenean
+			ut tellus mauris. Praesent justo erat, porta vel imperdiet at, tempus ac augue. Ut ac mauris eget felis vulputate interdum ac et turpis. Suspendisse maximus dictum libero a placerat.</p>
+
+		<p style="text-indent : 1em">Phasellus sed venenatis nunc, eu ultricies magna. Integer nec tortor vitae elit fermentum venenatis. Sed sollicitudin eros nec orci eleifend convallis. Aliquam tristique risus neque, id condimentum eros placerat et. Pellentesque interdum tincidunt
+			mauris in elementum. Sed varius dui quis elit molestie, non aliquet erat vestibulum. Cras fermentum tortor ut velit convallis luctus. Curabitur enim purus, aliquet ut dignissim sed, viverra in purus. Donec luctus vitae est sit amet ornare&hellip;</p>
+
+	</div>
+</div>
+
+</body>
+</html>

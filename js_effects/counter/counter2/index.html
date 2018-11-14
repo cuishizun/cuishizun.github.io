@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery拖到滑块选择数字插件</title>
+
+<style>
+	/* reset */
+	html,body,h1,h2,h3,h4,h5,h6,div,dl,dt,dd,ul,ol,li,p,blockquote,pre,hr,figure,table,caption,th,td,form,fieldset,legend,input,button,textarea,menu{margin:0;padding:0;} 
+	ul,li{list-style-type: none}
+	body{padding:100px;font-size: 14px;}
+	h1{font-size: 26px;}
+	p{font-size: 14px; margin-top: 10px;}
+	pre{background:#eee;border:1px solid #ddd;border-left:4px solid #f60;padding:15px;margin-top: 15px;}
+	h2{font-size: 20px;margin-top: 20px;}
+	.case{margin-top: 15px;}
+	#callback{float: left;margin-left: 12px;height:33px;line-height: 33px;border:1px solid #d7d7d7;padding:0 10px;}
+	 
+</style>
+
+<link rel="stylesheet" href="style.css" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/sider.jquery.min.js"></script>
+
+</head>
+<body>
+
+<h1>拖动滑块快速选择数字插件</h1>
+<p>
+	通过拖动滑块快速输入数值，并可以设置常用的数值快速选择
+</p>
+	
+<h2>案例一：默认无参数</h2>
+<div class="case">
+	 <div class="widget-sider" id='case1'></div>
+<pre>
+$("#case1").sider();</pre>
+</div>	 
+</div>
+<h2>案例二：自定义参数</h2>
+<div class="case">
+	 <div class="widget-sider" id='case2'></div>
+	 <pre>
+$("#case2").sider({min:10,max:50,step:5,quick:[5,25,45,50],value:20});</pre>
+</div>
+<h2>案例三：回调函数</h2>
+<div class="case" style="height:50px;">
+	 <div class="widget-sider" id='case3'  style="float:left"></div>
+	 <div id="callback">
+	 	
+	 </div>
+</div>
+<pre>
+$("#case3").sider({
+   callback:function(_this,value,status)
+   {
+      $("#callback").text(value);
+      if(status) 
+         $("#callback").css("border","1px solid #f60");
+      else
+         $("#callback").css("border","1px solid #d7d7d7");
+   }
+});			
+</pre>
+<h2>引用文件：</h2>
+	<pre>
+&lt;link rel="stylesheet" href="style.css" /&gt;
+&lt;script src="jQuery-2.1.4.min.js"&gt;&lt;/script&gt;
+&lt;script src="sider.jquery.min.js"&gt;&lt;/script&gt;
+	</pre>
+	<h2>调用代码：</h2>
+	<pre>
+&lt;div class="widget-sider"&gt;&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+   $(function(){
+      $(".widget-sider").sider({
+         min:0, //最小值
+         max:50, //最大值
+         step:5, //拖动步长
+         quick:[5,25,45,50], //快速选择列表
+         value:20, //默认值
+         callback:function(_this,value,status){ 
+            //回调函数， 反回3个参数，
+            //_this : 当前元素
+            //value : 选取的值
+            //status : 是否选择完毕
+            $("#callback").text(value);
+            if(status) 
+               $("#callback").css("border","1px solid #f60");
+            else
+               $("#callback").css("border","1px solid #d7d7d7");
+         }
+      });
+   })
+&lt;/script&gt;</pre>	  
+
+<script>
+	$(function(){
+		$("#case1").sider(); 
+		$("#case2").sider({
+			min:10,
+			max:50,
+			step:5,
+			quick:[5,25,45,50],
+			value:40
+		});
+		$("#case3").sider({
+			callback:function(_this,value,status){
+				$("#callback").text(value);
+				if(status) 
+					$("#callback").css("border","1px solid #f60");
+				else
+					$("#callback").css("border","1px solid #d7d7d7");
+			}
+		});		
+	})
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

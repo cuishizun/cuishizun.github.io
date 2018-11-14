@@ -1,0 +1,95 @@
+/*-- Reset-Code --*/
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #FFF;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/*-- //Reset-Code --*/
+
+/*-- Booking --*/
+
+.details-grid-w3lsagile button.btn, .send-button button.btn {
+	font-weight: 600;
+	color: #0c3b47;
+	padding: 10px 30px;
+	border: 1px solid #0c3b47;
+	border-right: none;
+	outline: none;
+	background-color: #FFF;
+	border-radius: 0;
+}
+
+.details-grid-w3lsagile button.btn:hover, .send-button button.btn:hover {
+	background-color: #0c3b47;
+	border-color: #0c3b47;
+	color: #FFF;
+}
+
+button i.fa {
+	margin-left: 10px;
+}
+
+.w3layoutsbooking {
+	padding: 100px 0;
+	background-color: #EEE;
+}
+
+.booking-form-aits {
+	background-color: #FFF;
+	-webkit-box-shadow: 0px 0px 30px 17px rgba(0,0,0,0.37);
+	-moz-box-shadow: 0px 0px 30px 17px rgba(0,0,0,0.37);
+	box-shadow: 0px 0px 30px 17px rgba(0,0,0,0.37);
+	padding: 100px;
+}
+
+.booking-form-aits input[type="text"], .booking-form-aits input[type="email"], .booking-form-aits textarea {
+	width: 49%;
+	float: left;
+	padding: 15px 0;
+	margin-bottom: 20px;
+	border: none;
+	border-bottom: 2px solid #777;
+	font-weight: 600;
+	outline: none;
+}
+
+input.margin-right {
+	margin-right: 18px;
+}
+
+.booking-form-aits textarea {
+	width: 100%;
+	height: 150px;
+	margin-bottom: 30px;
+}
+
+.booking-form-aits ::-webkit-input-placeholder {
+	color: #777;
+}
+
+.booking-form-aits ::-moz-placeholder {
+	color: #777;
+}
+
+.booking-form-aits ::-moz-placeholder {
+	color: #777;
+}
+
+.booking-form-aits ::-ms-input-placeholder {
+	color: #777;
+}
+
+.send-button.agileits.w3layouts {
+	text-align: center;
+}
+
+/*-- //Booking --*/

@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+
+html { 
+  height: 100%; 
+  background: var(--bgcol);  
+  color: #FFF; 
+}
+body {
+  font-family: Roboto, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  --bgcol: #1A2A3A;
+  position: relative;
+  box-sizing: border-box;
+}
+
+svg {
+  stroke: yellow;
+  fill: none;
+  stroke-width: 0px;
+  overflow:visible;
+  stroke-linecap: round;
+  stroke-dasharray: 320;
+  //outline: 3px solid green;
+}
+@media ( orientation: landscape ) {
+  svg {
+    width: 100vw;
+  }
+}
+@media ( orientation: portrait ) {
+  svg {
+    height: 100vh;
+  }
+}
+.group {
+  animation: rot 30s steps(10) infinite;
+  transform-origin:50% 50%;
+}
+path {
+  animation: fillit 6s infinite ease-in;
+}
+.p1 {
+  stroke-dasharray: 100;
+}
+.p3 {
+  stroke-dasharray: 150;
+}
+.p7, .p8 {
+  stroke-dasharray: 550;
+}
+@keyframes fillit {
+  0% {
+    stroke-dashoffset: 320;
+    stroke-width:0;
+    stroke: yellow;
+  }
+  50% {
+    stroke-dashoffset: 0;
+    stroke-width: 11;
+    stroke: yellow;
+  }
+  50.01% {
+    stroke-dashoffset: 320;
+    stroke-width: 0;
+    stroke:  var(--bgcol); 
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 11;
+    stroke:  var(--bgcol); 
+  }
+}
+circle.big {
+  fill: red;
+  animation: col 6s linear infinite;
+}
+@keyframes col {
+  0% {
+    fill: var(--bgcol); 
+  }
+  50% {
+    fill: var(--bgcol); 
+  }
+  50.01% {
+    fill:yellow;
+  }
+  100% {
+    fill:yellow;
+  }
+}
+
+@keyframes rot {
+  to {
+    transform: rotate(1350deg);
+  }
+}

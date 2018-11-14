@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>页角广告效果</title>
+<style type="text/css">
+body {
+	color: #777;
+	overflow: hidden;
+}
+ 
+img {
+	border: none;
+}
+ 
+h1 {
+	line-height: 1em;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
+}
+ 
+h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 20px 0 8px 0;
+	text-align: center;
+}
+ 
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 1.5em;
+	margin: 0 0 14px 0;
+	text-align: left;
+	padding: 5px;
+	text-align: center;
+}
+ 
+#corner-ad {
+	display: block;
+	width: 200px;
+	height: 200px;
+	background: green;
+	position: absolute;
+	top: -100px;
+	right: -100px;
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-o-transform: rotate(45deg);
+}
+
+/* Everything below would normally go in an IE-only stylesheet */
+
+#corner-ad {
+	top: -142px\9;
+	right: -60px\9;
+	*right: -140px;
+	filter:  progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)";
+	zoom: 1;
+}
+
+a:link, a:visited, a:focus, a:active {
+	outline: none;
+}
+</style>
+</head>
+
+<body style="width: 100%;">
+
+<div style="width: 615px; margin: 0 auto 0 auto;">
+
+<h1>页角广告效果 Demo</h1>
+
+<a href="#" id="corner-ad" onclick="alert(&#39;点的好&#39;);this.blur(); return false;"><img src="./page-corner.jpg" alt="Click the Corner" title="Click the Corner!" width="200" height="200"></a>
+
+<p><img src="./page-corner.jpg" alt="Click the Corner" title="Click the Corner!" width="200" height="200"></p>
+
+<h2>现在页面右上角的页角广告，只有三角区域可点击，而不是整个方块区域。</h2>
+
+</div>
+
+
+</body><link rel="stylesheet" type="text/css" href="data:text/css,"></html>

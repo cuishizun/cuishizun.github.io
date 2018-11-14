@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+
+<script src="../scripts/jquery-1.3.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+        //点击文本框时，文字消失；离开文本框时如果信息为空则输入信息改回请输入XXXX
+        
+        //获取文本信息
+        var txtName = $("#address").val();
+        $("#address").focus(function () {
+            if ($("#address").val() != "")
+                $("#address").val("");
+            
+        })
+        $("#address").blur(function () {
+            if ($("#address").val() == "") {
+                $("#address").val(txtName);
+            }
+        })
+	})
+</script>
+</head>
+
+<body>
+	<input type="text" id="address"  value="账号不能为空"/>
+	<input type="text"  id="password"  />	
+	<input id="btn" type="button" value="登录" />
+</body>
+</html>

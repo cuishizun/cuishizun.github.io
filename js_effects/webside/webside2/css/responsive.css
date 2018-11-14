@@ -1,0 +1,227 @@
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+}
+
+@media only screen and (max-width: 991px) {
+	.copyright {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+	.footer-menu {
+		width: 100%;
+	}
+	.footer-menu ul {
+		float: none;
+		text-align: center;
+	}
+	.footer-menu ul li {
+		float: none;
+		display: inline-block;
+	}
+	.prev a, .next a {
+		display: inline-block;
+	}
+	.prev, .next {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		overflow: hidden;
+		text-align: center;
+	}
+	.prev {
+		border-right: 0;
+		border-bottom: 1px solid #eae7e7;
+	}
+	.prev .inner,
+	.next .inner {
+		width: 100%;
+	}
+	.prev p, .next p {
+		text-align: center;
+		display: block;
+	}
+	.prev p {
+		padding-top: 10px;
+	}
+	.appointment-v1 .left {
+		text-align: center;
+	}
+	.appointment-v1 .col-md-4 {
+		text-align: center;
+	}
+	.appointment-v1 .right {
+		margin-top: 30px;
+		float: none;
+		display: inline-block;
+	}
+	.counter-v1 .counter-text {
+		margin-bottom: 15px;
+	}
+	header .logo {
+		float: none;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.about-v2 .col-md-4 {
+		margin-bottom: 20px;
+	}
+}
+@media only screen and (max-width: 767px) {
+	.footer-col h3 {
+		margin-top: 30px;
+	}
+	.testimonial-v1 .content .comment {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	.contact-v3 .item {
+		margin-bottom: 50px;
+	}
+}
+
+@media only screen and (min-width: 0) and (max-width: 750px) {
+	.top-bar-v1 .top-contact,
+	.top-bar-v2 .top-contact,
+	.top-bar-v1 .top-social,
+	.top-bar-v2 .top-social {
+		width: 100%;
+		text-align: center;
+	}
+	.top-bar-v1 .top-contact,
+	.top-bar-v2 .top-contact {
+		padding-bottom: 15px;
+		margin-bottom: 15px;
+		border-bottom: 1px solid #f57c05;
+	}
+	.top-bar-v1 .top-contact .list,
+	.top-bar-v2 .top-contact .list {
+		float: none;
+		display: inline-block;
+		font-size: 16px;
+	}
+	.top-bar-v1 .top-contact .list a,
+	.top-bar-v2 .top-contact .list a {
+		font-size: 16px;
+	}
+	.top-bar-v1 .top-social ul,
+	.top-bar-v2 .top-social ul {
+		float: none;
+		display: inline-block;
+	}
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+	.footer-col h3 {
+		margin-top: 30px;
+	}
+}
+
+@media only screen and (min-width: 751px) and (max-width: 991px) {
+	.top-bar-v1 .top-social,
+	.top-bar-v2 .top-social {
+		float: left;
+	}
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+	.menuzord-menu > li > a {
+		padding: 26px 9px!important;
+	}
+	header.sticky .menuzord {
+		margin-top: -10px!important;
+		float: none!important;
+	}
+	.widget-search input {
+		width: 165px;
+	}
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+	header.sticky .menuzord-menu > li > a {
+		padding: 26px 9px!important;
+	}
+	header.sticky .nav-wrapper {
+		float: none;
+	}
+	header.sticky .nav-wrapper ul {
+		float: none;
+		text-align: center;
+	}
+	header.sticky .menuzord-menu > li {
+		float: none;
+		display: inline-block;
+	}
+}
+
+
+@media only screen and (max-width: 768px) {
+	header.sticky .nav-wrapper {
+		margin-top: -53px;
+	}
+	header .nav-wrapper {
+		margin-top: -85px;
+	}
+}
+
+
+@media only screen and (min-width: 0px) and (max-width: 1199px) {
+	.slider ul li .tal,
+	.slider ul li .tar {
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 690px) and (max-width: 830px) {
+	.slider h2 {
+		font-size: 40px;
+	}
+	.slider h3 {
+		font-size: 22px;
+	}
+	.slider p {
+		font-size: 16px;
+	}
+}
+
+@media only screen and (min-width: 541px) and (max-width: 689px) {
+	.slider h2 {
+		font-size: 30px;
+	}
+	.slider h3 {
+		font-size: 16px;
+	}
+	.slider p {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 540px) {
+	.slider h2 {
+		font-size: 30px;
+	}
+	.slider h3 {
+		font-size: 16px;
+		line-height: 30px;
+	}
+	.slider p {
+		font-size: 14px;
+	}
+	.slider ul li .inner {
+		padding: 0 68px;
+	}
+}
+
+@media only screen and (min-width: 0px) and (max-width: 450px) {
+	header .logo {
+		text-align: left;
+	}
+	header .logo img {
+		max-height: 36px;
+	}
+	header .nav-wrapper {
+		margin-top: -66px;
+	}
+}

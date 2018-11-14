@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery点击按钮弹出窗口动画特效</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" />
+<link rel="stylesheet" type="text/css" href="css/reset.css">
+<style type="text/css">
+	.mt50{margin-top: 50px;}
+	.pt50{padding: 50px;}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+	<h3 class="center">点击下面的按钮查看效果：</h3>
+	<div class="row mt50 pt50">
+		<div class="col-md-4"><a id="btn" class="btn btn-lg btn-success">Demo 1</a></div>
+		<div class="col-md-4"><a id="btn2" class="btn btn-lg btn-success">Demo 2</a></div>
+		<div class="col-md-4"><a id="btn3" class="btn btn-lg btn-success">Demo 3</a></div>
+	</div>
+</div>
+
+<!--模态窗口中的内容-->
+<div id="sampledata1" class="bringins-content">
+	<h2>javascript</h2>
+	<p>JavaScript is a high-level, dynamic, untyped, and interpreted programming language. It has been standardized in the ECMAScript language specification. Alongside HTML and CSS, it is one of the three core technologies of World Wide Web content production; the majority of websites employ it and it is supported by all modern Web browsers without plug-ins. JavaScript is prototype-based with first-class functions, making it a multi-paradigm language, supporting object-oriented, imperative, and functional programming styles. It has an API for working with text, arrays, dates and regular expressions, but does not include any I/O, such as networking, storage, or graphics facilities, relying for these upon the host environment in which it is embedded.
+<br><br>
+Despite some naming, syntactic, and standard library similarities, JavaScript and Java are otherwise unrelated and have very different semantics. The syntax of JavaScript is actually derived from C, while the semantics and design are influenced by the Self and Scheme programming languages.
+<br><br>
+JavaScript is also used in environments that are not Web-based, such as PDF documents, site-specific browsers, and desktop widgets. Newer and faster JavaScript virtual machines (VMs) and platforms built upon them have also increased the popularity of JavaScript for server-side Web applications. On the client side, JavaScript has been traditionally implemented as an interpreted language, but more recent browsers perform just-in-time compilation. It is also used in game development, the creation of desktop and mobile applications, and server-side network programming with runtime environments such as Node.js</p>
+</div>
+
+<div id="sampledata2" class="bringins-content">
+<h2>jQuery</h2>
+<p>jQuery is a cross-platform JavaScript library designed to simplify the client-side scripting of HTML. jQuery is the most popular JavaScript library in use today, with installation on 65% of the top 10 million highest-trafficked sites on the Web. jQuery is free, open-source software licensed under the MIT License.
+<br><br>
+jQuery's syntax is designed to make it easier to navigate a document, select DOM elements, create animations, handle events, and develop Ajax applications. jQuery also provides capabilities for developers to create plug-ins on top of the JavaScript library. This enables developers to create abstractions for low-level interaction and animation, advanced effects and high-level, theme-able widgets. The modular approach to the jQuery library allows the creation of powerful dynamic web pages and Web applications.
+<br><br>
+The set of jQuery core features—DOM element selections, traversal and manipulation—enabled by its selector engine (named "Sizzle" from v1.3), created a new "programming style", fusing algorithms and DOM data structures. This style influenced the architecture of other JavaScript frameworks like YUI v3 and Dojo, later stimulating the creation of the standard Selectors API.
+<br><br>
+Microsoft and Nokia bundle jQuery on their platforms. Microsoft includes it with Visual Studio for use within Microsoft's ASP.NET AJAX and ASP.NET MVC frameworks while Nokia has integrated it into the Web Run-Time widget development platform. jQuery has also been used in MediaWiki since version 1.16.
+</p>
+</div>
+
+<div id="sampledata3" class="bringins-content">
+<h2>CSS</h2>
+<p>Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language. Although most often used to set the visual style of web pages and user interfaces written in HTML and XHTML, the language can be applied to any XML document, including plain XML, SVG and XUL, and is applicable to rendering in speech, or on other media. Along with HTML and JavaScript, CSS is a cornerstone technology used by most websites to create visually engaging webpages, user interfaces for web applications, and user interfaces for many mobile applications.
+<br><br>
+CSS is designed primarily to enable the separation of document content from document presentation, including aspects such as the layout, colors, and fonts. This separation can improve content accessibility, provide more flexibility and control in the specification of presentation characteristics, enable multiple HTML pages to share formatting by specifying the relevant CSS in a separate .css file, and reduce complexity and repetition in the structural content.
+<br><br>
+This separation of formatting and content makes it possible to present the same markup page in different styles for different rendering methods, such as on-screen, in print, by voice (when read out by a speech-based browser or screen reader) and on Braille-based, tactile devices. It can also be used to display the web page differently depending on the screen size or device on which it is being viewed. Readers can also specify a different style sheet, such as a CSS file stored on their own computer, to override the one the author has specified.
+<br><br>
+Changes to the graphic design of a document (or hundreds of documents) can be applied quickly and easily, by editing a few lines in the CSS file they use, rather than by changing markup in the documents.
+<br><br>
+The CSS specification describes a priority scheme to determine which style rules apply if more than one rule matches against a particular element. In this so-called cascade, priorities (or weights) are calculated and assigned to rules, so that the results are predictable.
+<br><br>
+The CSS specifications are maintained by the World Wide Web Consortium (W3C). Internet media type (MIME type) text/css is registered for use with CSS by RFC 2318 (March 1998). The W3C operates a free CSS validation service for CSS documents.
+</p>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/bringins.js"></script>
+<script>
+$(document).ready(function() {
+	$('#btn').click(function(){
+		$('#sampledata1').bringins();
+	});
+	$('#btn2').click(function(){
+		$('#sampledata2').bringins({
+			"position":"left",
+			"color":"#d2527f",
+			"width":"40%",
+			"closeButton":"white"
+		});
+	});
+	$('#btn3').click(function(){
+		$('#sampledata3').bringins({
+			"position":"center",
+			"color":"black",
+			"closeButton":"white",
+			"width":"100%"
+		});
+	});
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

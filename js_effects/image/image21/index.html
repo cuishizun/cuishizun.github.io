@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery单排图片翻转切换代码</title>
+</head>
+
+<!-- <script src='js.js'></script> -->
+<style>
+*{margin:0;padding:0;}
+ul{list-style: none;}
+#dv{
+	width:300px;
+	height:200px;
+	background: pink;
+}
+#box{width:1000px;height: 350px;margin:50px auto;position: relative;overflow: hidden;}
+ul li{width:250px;height: 300px;float:left;position: relative;border: 30px solid #fff;margin-left:-60px;}
+ul li img{width: 250px;height: 300px;position: absolute;}
+
+.left{position: absolute;width:100px;height: 50px;right:0px;background:orange;top:150px;text-align: center;line-height: 50px;font-size: 60px;opacity: 0.5;left:10px;}
+.right{position: absolute;right:10px;width:100px;height: 50px;background:orange;top:150px;text-align: center;line-height: 50px;font-size: 60px;opacity: 0.5}
+
+</style>
+
+<body>
+
+<div id="box">
+	<ul>
+		<li><img src="img/big1.jpg"></li>
+		<li><img src="img/big2.jpg"></li>
+		<li><img src="img/big3.jpg"></li>
+		<li><img src="img/big4.jpg"></li>
+	</ul>
+	<div class="buts">
+		<div class="left">&lt;</div>
+		<div class="right">&gt;</div>
+	</div>
+</div>
+<!-- transform 用来替代css3的简单动画，并且对浏览器有很好的支持 -->
+<!-- css3动画  transform  移动  缩放  旋转  倾斜 -->
+<script src="lib/jquery-1.7.1.js"></script>
+<script src='lib/jquery.transform.js'></script>
+<script src='js/script.js'></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

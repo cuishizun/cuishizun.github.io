@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS3爬虫样式进度条动画特效</title>
+
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+	.demo{
+		background: #22313f;
+		padding: 50px 0;
+	}
+	.progress-bar-outer{
+		background: #fff;
+		border-radius: 50px;
+		padding: 30px;
+		margin: 20px 0;
+		box-shadow: 0 0  10px rgba(209,219,231,0.7);
+	}
+	.progress{
+		height: 10px;
+		margin: 0;
+		overflow: visible;
+		border-radius: 50px;
+		background: #eaedf3;
+		box-shadow: inset 0 1px  10px rgba(0,0,0,0.1);
+	}
+	.progress .progress-bar{
+		border-radius: 50px;
+		position: relative;
+		animation: animate-positive 30s;
+	}
+	.progress .progress-bar:after{
+		content: "\f188";
+		font-family: fontawesome;
+		font-size: 30px;
+		color: #000077;
+		position: absolute;
+		top: -6px;
+		right: -24px;
+		transform: rotate(90deg);
+	}
+	@-webkit-keyframes animate-positive{
+		0%    { width: 0%;}
+		20%   { width: 3%;}
+		30%   { width: 9%;}
+		50%   { width: 15%;}
+		70%   { width: 25%;}
+		100%  { width: 90%;}
+	}
+	@keyframes animate-positive{
+		0%    { width: 0%;}
+		20%   { width: 3%;}
+		30%   { width: 9%;}
+		50%   { width: 15%;}
+		70%   { width: 25%;}
+		100%  { width: 90%;}
+	}
+</style>
+</head>
+<body>
+<div class="demo">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-3 col-md-6">
+				<div class="progress-bar-outer">
+					<div class="progress">
+						<div class="progress-bar progress-bar-info" style="width:90%;"></div>
+					</div>
+				</div>
+
+				<div class="progress-bar-outer">
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width:70%;"></div>
+					</div>
+				</div>
+
+				<div class="progress-bar-outer">
+					<div class="progress">
+						<div class="progress-bar progress-bar-warning" style="width:55%;"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

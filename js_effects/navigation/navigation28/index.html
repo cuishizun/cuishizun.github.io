@@ -1,0 +1,218 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3打开菜单3D倾斜特效</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700');
+body {
+  font-family: 'Roboto Condensed';
+  text-transform: uppercase;
+  background: #52D7DB;
+  height: 100%;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 35px;
+  text-align: center;
+  transition: all .1s ease;
+}
+
+input[type="checkbox"]#hamburger {
+  position: fixed;
+  top: -999%;
+  left: -999%;
+}
+
+label[for="hamburger"] {
+  display: block;
+  position: fixed;
+  top: 50px;
+  right: 5px;
+  height: 50px;
+  width: 50px;
+  background: #2F9AA9;
+  z-index: 1030;
+  cursor: pointer;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  box-shadow: 1px 2px 5px #464647;
+}
+
+label[for="hamburger"] > ul {
+  width: 100%;
+  height: 60%;
+  position: Absolute;
+  top: 20%;
+  left: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+label[for="hamburger"] > ul > li {
+  width: 25px;
+  height: 3px;
+  background: #464647;
+  margin: auto;
+  transition: all .4s ease;
+  position: relative;
+  top: 0;
+  bottom: 0;
+}
+
+input[type="checkbox"]:checked#hamburger + label + .front {
+  transform: perspective(700px) scale(0.5) translateX(-16.66%) rotateY(25deg);
+}
+
+input[type="checkbox"]:checked#hamburger + label + .front > h1 {
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked#hamburger + label > ul > li:first-child {
+  transform: rotate(45deg);
+  top: 30%;
+}
+
+input[type="checkbox"]:checked#hamburger + label > ul > li:nth-child(2) {
+  display: none;
+}
+
+input[type="checkbox"]:checked#hamburger + label > ul > li:last-child {
+  transform: rotate(-45deg);
+  bottom: 30%;
+  left: 0;
+}
+
+.layer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform .4s;
+  transform: perspective(800px) scale(1) translateX(0) rotateY(0);
+  transform-style: preserve-3d;
+}
+
+nav {
+  vertical-align: center;
+}
+
+nav ul {
+  padding-left: 66.66%;
+  font-size: larger;
+  line-height: 2;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+nav ul li label {
+  display: Block;
+  color: White;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 10%;
+}
+
+nav ul li label:hover {
+  color: black;
+}
+
+.front {
+  background: #FFFFFF;
+}
+
+.front > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .4s ease;
+}
+
+.front > div#One {}
+
+.front > div#Two {
+  box-shadow: inset 0 0 150px cornflowerblue;
+}
+
+.front > div#Three {
+  box-shadow: inset 0 0 150px green;
+}
+
+.front > div#Four {
+  box-shadow: inset 0 0 150px darkslategrey;
+}
+
+.front > div#Five {
+  box-shadow: inset 0 0 150px darkred;
+}
+
+input[type="radio"] {
+  position: fixed;
+  top: -999%;
+  left: -999%;
+}
+
+input[type="radio"]:checked + div {
+  opacity: 1;
+  pointer-events: initial;
+}
+</style>
+
+</head>
+<body>
+
+<nav class="layer">
+  <ul>
+    <li><label for="pageOne">Home</label></li>
+    <li><label for="pageTwo">About</label></li>
+    <li><label for="pageThree">Blog</label></li>
+    <li><label for="pageFour">Portfolio</label></li>
+    <li><label for="pageFive">Contact</label></li>
+  </ul>
+</nav>
+
+<input type="checkbox" name="hamburger" id="hamburger" />
+<label for="hamburger">
+  <ul><li></li><li></li><li></li></ul>
+</label>
+
+<section class="front layer home">
+  <h1>Would you like to </br>use a funky nav?</h1>
+
+  <input type="radio" name="nav" id="pageOne" class="home" />
+  <div id="One"></div>
+  <input type="radio" name="nav" id="pageTwo" />
+  <div id="Two"></div>
+  <input type="radio" name="nav" id="pageThree" />
+  <div id="Three"></div>
+  <input type="radio" name="nav" id="pageFour" />
+  <div id="Four"></div>
+  <input type="radio" name="nav" id="pageFive" />
+  <div id="Five"></div>
+
+</section>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

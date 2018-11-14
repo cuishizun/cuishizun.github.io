@@ -1,0 +1,40 @@
+/*****css-menu-02 styles*****/
+div#wrapper-menu{background-color:#66ccff;}
+div#wrapper-menu span#top-deco,div#wrapper-menu span#bottom-deco{
+	display:block;
+	position:absolute;
+	width:100%;
+	height:19px;
+	background:url(../images/top-deco.png) repeat-x;
+	top:0px;
+	z-index:100;
+	}
+div#wrapper-menu span#bottom-deco{background:url(../images/bottom-deco.png) repeat-x;top:238px;}
+div#wrapper-menu div#center-content{width:1020px;width:1100px\9;margin-left:auto;margin-right:auto;}/*div added for center the menu and the dummy content*/
+div#wrapper-menu ul#nav{
+	position:relative;
+	width:315px;
+	width:400px\9;/*hack for fix width in IE8 and below*/
+	height:207px;
+	float:left;
+	margin:16px 0px 15px 50px;
+	padding:10px 0 0 0px;
+	background-color:#FFF;
+	}
+
+div#wrapper-menu ul#nav li{display:block;width:209px;height:50px;}
+div#wrapper-menu ul#nav li a{display:block;width:209px;height:50px;line-height:43px;text-decoration:none;font-size:2em;font-weight:normal;letter-spacing:-2px; color:#40758f;margin-left:-8px;text-indent:20px;}
+div#wrapper-menu ul#nav li a:hover{background:url(../images/sprite-nav-btns.png) no-repeat 0px -54px;color: #fff;}
+div#wrapper-menu ul#nav li a.current{background:url(../images/sprite-nav-btns.png) no-repeat 0px 0px;color:#40758f;font-weight:bold;text-shadow:1px 1px 1.5px #d6f2ff;
+}
+/*In this case for the menu I will put the content inside of div#wrapper-menu div#content for mantein the consistence, but it will not be correct in a complete layout where the menu wrapper need to be in a side and the content wrapper in other with float or other technique*/
+div#wrapper-menu div#content{
+	position:relative;
+	width:600px;
+	height:233px;
+	float:right;
+	margin:16px 0px 15px 0px;
+	background-color:#FFF;
+	}
+div#wrapper-menu div#content h2{font-size:1.5em;color:#66ccff;margin:15px 0 10px 15px;}
+div#wrapper-menu div#content p{width:575px;font-size:0.9em;font-weight:normal;font-style:italic; margin:0px 0 10px 15px;color:#474747;}

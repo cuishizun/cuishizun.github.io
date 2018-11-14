@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head> 
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+        <title>jQuery+CSS3表单验证</title>
+        <meta name="keywords" content="表单验证" />
+        <meta name="description" content="一款不错的表单验证插件，分享给大家。" />
+        <link rel="stylesheet" type="text/css" href="css/common.css" />
+        <style type="text/css">
+            .input_tip{
+                font-size:16px;
+                height:18px;
+                padding:4px;
+                padding-left:22px;
+                transition: all 0.3s ease 0s;
+                -webkit-transition: all 0.5s ease-in-out 0s;
+            }
+            .focus_tip{color:#FF6600;background:url(images/tipv1.png) no-repeat 0 5px;}
+            .right_tip{color:#009828;background:url(images/tipv1.png) no-repeat 0 -20px;}
+            .error_tip{color:red;background:url(images/tipv1.png) no-repeat 0 -47px;}
+            .ajax_checking_tip{color:#009828;}
+            dt{margin:5px 0}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="demo">
+                <h2 class="title">jQuery+CSS3表单验证</h2>
+                <form id="ajax" action="#">
+                    <dl>
+                        <dt>用户名：</dt><dd><input type="text" name="name" class='input'/></dd>
+                        <dt>密码：</dt><dd><input type="text" name="pwd" class='input'/></dd>
+                        <dt>确认密码：</dt><dd><input type="text" name="pwd1" class='input'/></dd>
+                        <dt>电子邮件：</dt><dd><input type="text" name="email" class='input'/></dd>
+                        <dt>年龄：</dt><dd><input type="text" name="age" class='input'/></dd>
+                        <dt> </dt><dd><button type="submit" class='btn'>提交</button></dd>
+                    </dl>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="js/jquery.js"></script> 
+        <script type="text/javascript" src="js/checkInput.js"></script>
+        <script type="text/javascript">
+            dbg = function(text) {
+                $("#debug").html(text + "");
+            }
+            var inputs = [{
+                    name: "name",
+                    type: "chn",
+                    focusMsg: '中文',
+                    errorMsg: "您的大名",
+                    rightMsg: "填写正确",
+                    ajax: {
+                        url: "/home/ajax",
+                        errorMsg: "用户已存在",
+                        successMsg: "用户名可以注册！"
+                    }
+                }, {
+                    name: "pwd",
+                    type: 'eng',
+                    focusMsg: '英文',
+                    rightMsg: "填写正确",
+                }, {
+                    name: "pwd1",
+                    type: 'eq',
+                    errorMsg: "不匹配",
+                    eqto: 'pwd'
+                }, {
+                    name: "email",
+                    type: "email",
+                    focusMsg: '常用邮箱',
+                    rightMsg: "填写正确"
+                }, {
+                    name: "age",
+                    between: [18, 78],
+                    focusMsg: '18< >78'
+                }
+            ];
+
+            var regulars = {
+                "email": [/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/, "邮箱格式不对"],
+                "username": [/^[#]/, "不能这样写"],
+                "password": [/(lw)$/, "我要发火了"],
+                "eng": [/^[A-Za-z]+$/, "只能输入英文"],
+                "chn": [/^[\u0391-\uFFE5]+$/, "只能输入汉字"]
+            }
+
+            $("#ajax").checkInput({
+                inputs: inputs,
+                beforeSubmit: function() {
+                }
+            });
+        </script>
+    </body>
+</html>
+

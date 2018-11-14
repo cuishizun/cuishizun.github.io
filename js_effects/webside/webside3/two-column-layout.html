@@ -1,0 +1,291 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>简洁干净兼容IE6的后台管理系统模版JsAdmin_页面2列布局</title>
+	<link href="style.css" rel="stylesheet" media="all" />
+	<link href="" rel="stylesheet" title="style" media="all" />
+	<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="js/superfish.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.7.2.js"></script>
+	<script type="text/javascript" src="js/tooltip.js"></script>
+	<script type="text/javascript" src="js/tablesorter.js"></script>
+	<script type="text/javascript" src="js/tablesorter-pager.js"></script>
+	<script type="text/javascript" src="js/cookie.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<!--[if IE 6]>
+	<link href="css/ie6.css" rel="stylesheet" media="all" />
+	
+	<script src="js/pngfix.js"></script>
+	<script>
+	  /* EXAMPLE */
+	  DD_belatedPNG.fix('.logo, .other ul#dashboard-buttons li a');
+
+	</script>
+	<![endif]-->
+	<!--[if IE 7]>
+	<link href="css/ie7.css" rel="stylesheet" media="all" />
+	<![endif]-->
+</head>
+<body>
+	<div id="header">
+		<div id="top-menu">
+			<a href="#" title="My account">My account</a> |
+			<a href="#" title="Settings">Settings</a> |
+			<a href="#" title="Contact us">Contact us</a>
+			
+			<span>Logged in as <a href="#" title="Logged in as admin">admin</a></span>
+			| <a href="#" title="Edit profile">Edit profile</a>
+			| <a href="#" title="Logout">Logout</a>
+		</div>
+		<div id="sitename">
+			<a href="index.html" class="logo float-left" title="JsAdmin">JsAdmin</a>
+			<div class="button float-right">
+				<a href="#" id="dialog_link" class="btn ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>Open Dialog</a>
+				<a href="#" id="login_dialog" class="btn ui-state-default ui-corner-all"><span class="ui-icon ui-icon-image"></span>Open Login Box</a>
+			</div>
+			<div id="login" title="Members Login">
+				<form action="#" method="post" enctype="multipart/form-data" class="forms" name="form" >
+					<ul>
+						<li>
+							<label for="email" class="desc">
+								Email:
+							</label>
+							<div>
+								<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="email" id="email" />
+							</div>
+						</li>
+						<li>
+							<label for="password" class="desc">
+								Password:
+							</label>
+							<div>
+								<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="password" id="password" />
+							</div>
+						</li>
+					</ul>
+				</form>
+			</div>
+			<div id="dialog" title="Dialog Title">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+		</div>
+		<ul id="navigation" class="sf-navbar">
+			<li>
+				<a href="index.html">Dashboard</a>
+				<ul>
+					<li><a href="index.html">Administration</a></li>
+					<li><a href="forms.html">Forms</a></li>
+					<li><a href="tables.html">Tables</a></li>
+					<li><a href="msg.html">Response Messages</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Dummy menu</a>
+				<ul>
+					<li>
+						<a href="#">Menu item 1</a>
+						<ul>
+							<li><a href="#">Subitem 1</a></li>
+							<li><a href="#">Subitem 2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Menu item 2</a>
+					</li>
+					<li>
+						<a href="#">Menu item 3</a>
+					</li>
+					<li>
+						<a href="#">Menu item 4</a>
+						<ul>
+							<li><a href="#">Subitem 1</a></li>
+							<li>
+								<a href="#">Subitem 2</a>
+								<ul>
+									<li><a href="#">Subitem 1</a></li>
+									<li>
+										<a href="#">Subitem 2</a>
+										<ul>
+											<li><a href="#">Subitem 1</a></li>
+											<li>
+												<a href="#">Subitem 2</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Menu item 5</a>
+						<ul>
+							<li><a href="#">Subitem 1</a></li>
+							<li><a href="#">Subitem 2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Menu item 6</a>
+					</li>
+					<li>
+						<a href="#">Menu item 7</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Layout Options</a>
+				<ul>
+					<li>
+						<a href="three-columns-layout.html">Three columns</a>
+					</li>
+					<li>
+						<a href="two-column-layout.html">Two columns</a>
+					</li>
+					<li>
+						<a href="three-column-small-layout.html">One big, two small</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Available components</a>
+				<ul>
+					<li>
+						<a href="accordion.html">Accordion</a>
+					</li>
+					<li>
+						<a href="tabs.html">Tabs</a>
+					</li>
+					<li>
+						<a href="overlays.html">Overlays</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>	<div id="page-wrapper">
+		<div id="main-wrapper">
+			<div id="main-content">
+				<div class="two-column">
+					<div class="column">
+						<div class="portlet">
+							<div class="portlet-header">Feeds</div>
+							<div class="portlet-content">
+							asdasdasd
+							</div>
+						</div>
+						
+						<div class="portlet">
+							<div class="portlet-header">News</div>
+							<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+						</div>
+
+						<div class="portlet">
+							<div class="portlet-header">Shopping</div>
+							<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+						</div>
+					
+					</div>
+					
+					<div class="column">
+					
+						<div class="portlet">
+							<div class="portlet-header">Links</div>
+							<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+						</div>
+						
+						<div class="portlet">
+							<div class="portlet-header">Images</div>
+							<div class="portlet-content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+						</div>
+		
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div id="sidebar">
+			<div class="side-col ui-sortable">
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">Theme Switcher</div>
+					<div class="portlet-content">
+						<ul class="side-menu">
+							<li>
+								<a class="set_theme" id="default" href="javascript:void(0);" style="font-weight:bold;" title="Default Theme">Default Theme</a>
+							</li>
+							<li>
+								<a class="set_theme" id="light_blue" href="javascript:void(0);" title="Light Blue Theme">Light Blue Theme</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">Layout Options</div>
+					<div class="portlet-content">
+						<ul class="side-menu">
+							<li>
+								Here, you can set the page width, either fixed or fluid. You decide!<br /><br />
+							</li>
+							<li id="fluid_layout">
+								<a href="javascript:void(0);" title="Fluid Layout">Switch to <b>Fluid Layout</b></a>
+							</li>
+							<li id="fixed_layout">
+								<a href="javascript:void(0);" title="Fixed Layout">Switch to <b>Fixed Layout</b></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">Navigation Menu</div>
+					<div class="portlet-content">
+						<div id="accordion">
+							<div>
+								<h3><a href="#">Dashboard</a></h3>
+								<div>
+									<ul class="side-menu">
+										<li><a href="index.html" title="Administration">Administration</a></li>
+										<li><a href="forms.html" title="Forms">Forms Example</a></li>
+										<li><a href="tables.html" title="Tables">Tables example</a></li>
+									</ul>
+								</div>
+							</div>
+							<div>
+								<h3><a href="#">Dummy drop down</a></h3>
+								<div>
+									<ul class="side-menu">
+										<li><a href="index.html" title="Administration">Administration</a></li>
+										<li><a href="forms.html" title="Forms">Forms Example</a></li>
+										<li><a href="tables.html" title="Tables">Tables example</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="other-box yellow-box ui-corner-all">
+					<div class="cont tooltip ui-corner-all" title="Tooltips, tooltips, tooltips !">
+						<h3>Tooltip !</h3>
+						<p>This is a sample tooltip !</p>
+					</div>
+				</div>
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">Accordion</div>
+					<div class="portlet-content">
+						<div id="datepicker"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>	</div>
+	<div class="clearfix"></div>
+	<div id="footer">
+		<div id="menu">
+			<a href="#" title="Home">Home</a>
+			<a href="#" title="Administration">Administration</a>
+			<a href="#" title="Settings">Settings</a>
+			<a href="#" title="Contact">Contact</a>
+		</div>
+		Copyright &copy; 2009 - Horia Simon
+	</div>
+</body>
+</html>

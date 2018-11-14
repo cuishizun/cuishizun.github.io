@@ -1,0 +1,11 @@
+/*****jquery-menu-02 styles*****/
+div#wrapper-menu{background-color:#d30063;}
+/*First of all you need to fix a width for your menu. Is necesary if you want center it, with margin negatives you can solve vertical centering and with margins auto for left and right you solve horizontal centering*/
+div#wrapper-menu ul#nav{position:relative;width:610px;height:85px;margin-left: auto;margin-right:auto;top:50%;margin-top:-42px;}
+div#wrapper-menu ul#nav li{display:block;float:left;width:auto;height:auto;border-right: #700039 dotted 1px;padding:20px;}
+div#wrapper-menu ul#nav li:last-child{border:none;}/*last element of the list don´t set a border*/
+div#wrapper-menu ul#nav li a{display:block;text-decoration:none;}
+div#wrapper-menu ul#nav li a strong{display:block;font-family:Georgia,serif;font-size:1.5em;letter-spacing:-0.3px;}
+div#wrapper-menu ul#nav li a small{color:#690132;font-family:Georgia,serif;font-style:italic;}
+div#wrapper-menu ul#nav li a:hover{color:#FFF;}
+div#wrapper-menu ul#nav li a.current{color:#b4005b;}

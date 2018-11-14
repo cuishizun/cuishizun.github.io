@@ -1,0 +1,25 @@
+*{
+	margin: 0;padding: 0;
+}
+html {
+	font-family: "微软雅黑";font-size: 20px;
+}
+body {
+	background: #000;
+}
+p{
+	width: 80%;margin: 100px auto 30px;line-height: 1.5;
+}
+button{
+	width: 150px;
+	height: 50px;
+	background: orange;
+	outline: none;
+	border: none;
+	cursor: pointer;
+	border-radius: 10px;
+	margin: 0 auto;
+	display: block;
+	font-size: 20px;
+	font-family: "微软雅黑";
+}

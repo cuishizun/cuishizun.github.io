@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>瀑布流效果</title>
+<link rel="stylesheet" type="text/css" href="style/pubuliu.css"/></font><p style="line-height: 30px; text-indent: 2em;"></p><font size="2" face="Arial">
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+/**
+ * 瀑布流实现
+ */
+window.onload = function() {
+	imgLocation("container", "box");// 页面初始化布局
+	// 动态加载实现
+	window.onscroll = function() {
+		if (flag()) {
+			//模拟外部json数据传入
+			var imgdata = {
+				"data" : [ {
+					"src" : "http://img04.tooopen.com/images/20130102/tooopen_17422543.jpg"
+				}, {
+					"src" : "http://p.qq181.com/cms/1209/2012090403215682916.jpg"
+				}, {
+					"src" : "http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212808723.jpg"
+				}, {
+					"src" : "http://www.ludongpo.com/UpLoadFiles/Photo/sucai/beijin/021.jpg"
+				}, {
+					"src" : "http://p.qq181.com/cms/1209/2012090403215682916.jpg"
+				}, {
+					"src" : "http://www.ludongpo.com/UpLoadFiles/manhua/2012-6/2012060822395669644.jpg"
+				}, {
+					"src" : "http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212841385.jpg"
+				}, {
+					"src" : "http://www.ludongpo.com/UpLoadFiles/Photo/sucai/jiaoshi/12.jpg"
+				}, {
+					"src" : "http://p.qq181.com/cms/1209/2012090403215682916.jpg"
+				} ]
+			};
+			//页面元素添加
+			var cparentElement = document.getElementById("container");
+			for (var i = 0; i < imgdata.data.length; i++) {
+				var boxElement = document.createElement("div");
+				boxElement.className = "box";
+				cparentElement.appendChild(boxElement);
+				var boxImg = document.createElement("div");
+				boxImg.className = "box_img";
+				boxElement.appendChild(boxImg);
+				var img = document.createElement("img");
+				img.src =imgdata.data[i].src;
+				boxImg.appendChild(img);
+			}
+			imgLocation("container", "box");
+		}
+	}
+}
+// 一开始的瀑布流布局实现
+function imgLocation(parent, content) {
+	var cparent = document.getElementById(parent);
+	var ccontent = getChildElement(cparent, content);
+	var boxWidth = ccontent[0].offsetWidth;// offsetWidth=width+padding+border;取到的是box的宽包括它的border+padding+width
+	var totalWidth = document.documentElement.clientWidth
+			|| document.body.clientWidth;
+	var num = Math.floor(totalWidth / boxWidth);// clientWidth=width+padding
+	cparent.style.cssText = "width:" + boxWidth * num + "px";
+	var boxHeightArr = [];
+	for (var i = 0; i < ccontent.length; i++) {
+		if (i < num) {
+			boxHeightArr[i] = ccontent[i].offsetHeight;
+		} else {
+			var minHeight = Math.min.apply(null, boxHeightArr);
+			var minIndex = getMinHeightLoaction(boxHeightArr, minHeight);
+			ccontent[i].style.position = "absolute";
+			ccontent[i].style.top = minHeight + "px";
+			ccontent[i].style.left = /* boxWidth*minIndex+"px"; */ccontent[minIndex].offsetLeft
+					+ "px";
+			boxHeightArr[minIndex] = boxHeightArr[minIndex]
+					+ ccontent[i].offsetHeight;
+		}
+	}
+}
+// 判断是否加载
+function flag() {
+	var cparent = document.getElementById("container");
+	var ccontent = getChildElement(cparent, "box");
+	var lastContentHeight = ccontent[ccontent.length - 1].offsetTop;
+	var scrollTop = document.documentElement.scrollTop
+			|| document.body.scrollTop;
+	var pageHeight = document.documentElement.clientHeight
+			|| document.body.clientHeight;
+	/*
+	 * console.log(lastContentHeight+":"+pageHeight+":"+scrollTop);
+	 */if (lastContentHeight < scrollTop + pageHeight) {
+		/*
+		 * console.log("go");
+		 */return true;
+	}
+}
+// 取得box元素
+function getChildElement(parent, content) {
+	var contentArr = [];
+	var allcontent = parent.getElementsByTagName("*");
+	for (var i = 0; i < allcontent.length; i++) {
+		if (allcontent[i].className == content) {
+			contentArr.push(allcontent[i]);
+		}
+	}
+	return contentArr;
+}
+// 取得高度最小的列的index
+function getMinHeightLoaction(arr, minheight) {
+	for ( var i in arr) {
+		if (arr[i] == minheight) {
+			return i;
+		}
+	}
+}
+
+</script> 
+<style type="text/css">
+* {
+	padding: 0;
+	margin: 0;
+}
+#container {
+	position: relative;
+	margin: 0 auto;
+}
+.box {
+	float: left;
+	padding: 5px;
+}
+.box_img {
+	padding: 5px;
+	border: 1px solid gray;
+	box-shadow: 0 0 5px lightgray;
+	border-radius: 5px;
+}
+img {
+	width: 150px;
+	height: auto;
+}
+</style>
+</head>
+<body>
+	<div id="container">
+		<div class="box">
+			<div class="box_img"><img src="http://img04.tooopen.com/images/20130102/tooopen_17422543.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+　　　　　　	<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212808723.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/sucai/beijin/021.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/manhua/2012-6/2012060822395669644.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212841385.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/sucai/jiaoshi/12.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+				<div class="box">
+			<div class="box_img"><img src="http://img04.tooopen.com/images/20130102/tooopen_17422543.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+　　　　　　	<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212808723.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/sucai/beijin/021.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/manhua/2012-6/2012060822395669644.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212841385.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/sucai/jiaoshi/12.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+				<div class="box">
+			<div class="box_img"><img src="http://img04.tooopen.com/images/20130102/tooopen_17422543.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+　　　　　　	<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212808723.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/sucai/beijin/021.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/manhua/2012-6/2012060822395669644.jpg" alt="这里是图片"/></div>
+		</div>
+			<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/2009-11/20091114212841385.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://www.ludongpo.com/UpLoadFiles/Photo/sucai/jiaoshi/12.jpg" alt="这里是图片"/></div>
+		</div>
+		<div class="box">
+			<div class="box_img"><img src="http://p.qq181.com/cms/1209/2012090403215682916.jpg" alt="这里是图片"/></div>
+		</div>
+	</div>
+</body>
+</html>

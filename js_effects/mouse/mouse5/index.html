@@ -1,0 +1,29 @@
+﻿<div style="width: 400px;height: 400px;background-color: #678678;font:3em bold;" id="outDiv">
+    out
+    <div style="width: 200px;height: 200px;margin: 50px;background-color: #eaceac;font:1em bold;" id="inDiv">in</div>
+</div>
+
+<script>
+    inDiv.addEventListener('click', function (e) {
+        alert('in');
+        e.stopPropagation(); //��ֹ�¼�ð��
+    });
+    outDiv.addEventListener('click', function (e) {
+        alert('out');
+    });
+
+    /*
+    			//�����������ŵĽ������
+
+                var clickDiv = 'out';
+                inDiv.addEventListener('click',function(e){
+                    clickDiv = 'in';
+                    alert('in');
+                },false);
+                outDiv.addEventListener('click',function(e){
+                    if(clickDiv == 'out')
+                        alert('out');
+                    clickDiv = 'out'
+                },false);
+    */
+</script>

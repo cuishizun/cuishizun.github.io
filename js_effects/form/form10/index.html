@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery城市选择单选多选代码</title>
+
+<link href="css/hsCheckData.css" rel="stylesheet" />
+<style>
+	#demo{
+		margin:0 auto;
+		margin-top:100px;
+		width:700px;
+	}
+</style>
+
+</head>
+<body>
+
+<div id="demo">
+	<span>单选</span>
+	<div id="cityDanXuan" style="width:300px;">
+	</div>
+	<br />
+	<br />
+	<br />
+	<span>多选</span>
+	<div id="cityDuoXuan" style="width:300px;">
+	</div>
+	<br />
+	<br />
+	<br />
+	<span>默认值</span>
+	<div id="cityMR" style="width:300px;" data-id="11-12-1301">
+	</div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/cityData.js"></script>
+<script src="js/hsCheckData.js"></script>
+<script>
+$('#cityDanXuan').hsCheckData({
+	isShowCheckBox: false, //默认为false
+	data: cityData
+});
+$('#cityDuoXuan').hsCheckData({
+	isShowCheckBox: true, //默认为false
+	minCheck: 3,//默认为0，不限最少选择个数
+	maxCheck: 6,//默认为0，不限最多选择个数
+	data: cityData
+});
+$('#cityMR').hsCheckData({
+	isShowCheckBox: true,
+	data: cityData
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+
+

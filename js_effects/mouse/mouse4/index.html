@@ -1,0 +1,179 @@
+<style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        position: absolute;
+        left: 10px;
+        top: 60px;
+        cursor: move;
+        padding: 5px;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 5px #ddd;
+    }
+</style>
+<script type="text/javascript">
+    function clowin() {
+
+        window.opener = null;
+        //window.open(" ", "_self");   //IE7�����.     
+        window.close();
+    }
+</script>
+<script type="text/javascript">
+    //���¼�
+    function addEvent(obj, sType, fn) {
+        if (obj.addEventListener) {
+            obj.addEventListener(sType, fn, false);
+        } else {
+            obj.attachEvent('on' + sType, fn);
+        }
+    };
+    //��ӹ����¼�
+    function addWheelEvent(obj, callback) {
+        if (window.navigator.userAgent.toLowerCase().indexOf('firefox') != -1) {
+            addEvent(obj, 'DOMMouseScroll', wheel);
+        } else {
+            addEvent(obj, 'mousewheel', wheel);
+        }
+
+        function wheel(ev) {
+            var oEvent = ev || window.event;
+            var down = oEvent.detail ? oEvent.detail > 0 : oEvent.wheelDelta < 0;
+            callback && callback.call(oEvent, down);
+            if (oEvent.preventDefault) {
+                oEvent.preventDefault();
+            }
+            return false;
+        }
+    };
+    window.onload = function () {
+
+
+        var oImg = document.getElementById("img");
+        //��ק����
+        oImg.onmousedown = function (ev) {
+            var oEvent = ev || window.event;
+            var disX = oEvent.clientX - this.offsetLeft;
+            var disY = oEvent.clientY - this.offsetTop;
+
+            function fnMove(ev) {
+                var oEvent = ev || window.event;
+                var l = oEvent.clientX - disX;
+                var t = oEvent.clientY - disY;
+                //�����Ƿ����
+                if (l < 0 - oImg.offsetWidth + 10)
+                    l = 0 - oImg.offsetWidth + 10;
+                if (l > document.documentElement.clientWidth - 30)
+                    l = document.documentElement.clientWidth - 30;
+                if (t < 0 - oImg.offsetHeight + 10)
+                    t = 0 - oImg.offsetHeight + 10
+                if (t > document.documentElement.clientHeight - 30)
+                    t = document.documentElement.clientHeight - 30;
+                // l < 0 && (l = 0);
+                // l > document.documentElement.clientWidth - oImg.offsetWidth && (l = document.documentElement.clientWidth - oImg.offsetWidth);
+                //  t < 0 && (t = 0);
+                //  t > document.documentElement.clientHeight - oImg.offsetHeight && (t = document.documentElement.clientHeight - oImg.offsetHeight);
+
+                oImg.style.left = l + 'px';
+                oImg.style.top = t + 'px';
+            }
+
+            function fnUp() {
+                this.onmousemove = null;
+                this.onmouseup = null;
+                if (oImg.releaseCapture) {
+                    oImg.releaseCapture();
+                }
+            }
+            if (oImg.setCapture) { //IE FF
+                oImg.onmousemove = fnMove;
+                oImg.onmouseup = fnUp;
+                oImg.setCapture();
+            } else { //chrome
+                document.onmousemove = fnMove;
+                document.onmouseup = fnUp;
+            }
+            return false;
+        };
+        //��������ĵķŴ���
+        (function () {
+            var newX;
+            var newY;
+            var calc = false;
+            addEvent(oImg, 'mousemove', refresh);
+
+            function refresh(ev) {
+                var oEvent = ev || window.event;
+                newX = oEvent.clientX;
+                newY = oEvent.clientY;
+                calc = false;
+            }
+            addWheelEvent(oImg, function (down) {
+
+                var ratioL = (this.clientX - oImg.offsetLeft) / oImg.offsetWidth;
+
+                var ratioT = (this.clientY - oImg.offsetTop) / oImg.offsetHeight;
+
+                if (!calc) {
+                    ratioL = (newX - oImg.offsetLeft) / oImg.offsetWidth;
+                    ratioT = (newY - oImg.offsetTop) / oImg.offsetHeight;
+                    calc = true;
+                }
+
+                if (down) {
+                    if (oArcSize == 2 || oArcSize == 0) {
+                        var w = parseInt(oImg.offsetHeight * (1 - 0.1));
+                    } else {
+                        var w = parseInt(oImg.offsetWidth * (1 - 0.1));
+                    }
+
+                    oImg.style.width = w + 'px';
+                    var l = newX - oImg.offsetWidth * ratioL;
+                    var t = newY - oImg.offsetHeight * ratioT;
+                    oImg.style.left = l + 'px';
+                    oImg.style.top = t + 'px';
+                } else {
+                    if (oArcSize == 2 || oArcSize == 0) {
+                        var w = parseInt(oImg.offsetHeight * (1 + 0.1));
+                    } else {
+                        var w = parseInt(oImg.offsetWidth * (1 + 0.1));
+                    }
+                    oImg.style.width = w + 'px';
+                    var l = newX - oImg.offsetWidth * ratioL;
+                    var t = newY - oImg.offsetHeight * ratioT;
+                    oImg.style.left = l + 'px';
+                    oImg.style.top = t + 'px';
+                }
+            })
+        })()
+
+    };
+
+    function setImgSize(img, width, height) {
+        var MaxWidth = width; //����ͼƬ��Ƚ���
+        var MaxHeight = height; //����ͼƬ�߶Ƚ���
+        var HeightWidth = img.offsetHeight / img.offsetWidth; //���ø߿��
+        var WidthHeight = img.offsetWidth / img.offsetHeight; //���ÿ�߱�
+        if (img.offsetWidth > MaxWidth) {
+            img.width = MaxWidth;
+            img.height = MaxWidth * HeightWidth;
+        }
+        if (img.offsetHeight > MaxHeight) {
+            img.height = MaxHeight;
+            img.width = MaxHeight * WidthHeight;
+        }
+    }
+    var oArcSize = 1;
+
+    function imgRollLeft(id) {
+        var oImg = document.getElementById(id);
+        oImg.style.filter = 'Progid:DXImageTransform.Microsoft.BasicImage(Rotation=' + oArcSize + ')';
+        oArcSize += 1;
+        oArcSize = oArcSize == 4 ? 0 : oArcSize;
+
+    }
+</script>
+<img src="1.jpg" id="img">

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS鼠标拉动文字弹簧动画效果</title>
+
+<style type="text/css">
+  div {
+	width: 500px;
+	margin: 30px auto;
+  }
+</style>
+
+</head>
+<body>
+
+<div id="otext1"></div>
+<div id="otext2"></div>
+<div id="otext3"></div>
+<div id="otext4"></div>
+
+<script src="js/elasticText.js" type="text/javascript" charset="utf-8"></script>
+
+<script type="text/javascript">
+  elasticText({
+	id: 'otext1',
+	color: 'rgb(255, 87, 34)',
+	fontSize: '18px',
+	content: '你说帘外海棠，锦屏鸳鸯；后来庭院春深，咫尺画堂。'
+  }, {
+	id: 'otext2',
+	color: 'rgb(33, 150, 243)',
+	fontSize: 22,
+	content: '来源：A5源码'
+  },{
+	id: 'otext3',
+	color: 'rgb(255, 235, 59)',
+	fontSize: 20,
+	content: '适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗.'
+  },{
+	id: 'otext4',
+	color: 'rgb(255, 152, 0)',
+	fontSize: '16px',
+	content: '不支持Safari、IE8及以下浏览器。'
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="author" content"zhuyimiao" />
+    <title>两列弹性宽度；左列宽度不变，右列自适应；头部+导航+尾部</title>
+    <style type="text/css">
+        *{padding: 0;margin: 0;}
+    	body{width: 100%;margin: 0 auto; font:700 18px/20px Verdana;color: #fff;}
+    	.header{height: 100px;background-color: #C0C0C0;}
+    	.nav{height: 40px;background-color: #5E8E86;margin: 6px 0;}
+    	.content{overflow: hidden;zoom:1;margin-bottom: 6px;}
+        .left,.right{padding-bottom: 10000px;margin-bottom:-10000px;}
+    	.left{width: 200px; background-color: #7996DE;float: left;}
+    	.right{background-color:#6ABBDF;margin-left: 206px !important; margin-left: 203px;}
+    	.footer{height: 60px; background-color: #848484;}
+    </style>
+</head>
+<body>
+	<div class="header">header
+        <p>两列弹性宽度；左列宽度不变，右列自适应；头部+导航+尾部</p>
+    </div>
+	<div class="nav">navigation</div>
+	<div class="content">
+		<div class="left">left column
+        </div>
+		<div class="right">right column
+             <br/>
+            <p> CSS＋DIV是网站标准（或称“WEB标准”）中常用的术语之一，通常为了说明与HTML网页设计语言中的表格（table）定位方式的区别，因为XHTML网站设计标准中，不再使用表格定位技术，而是采用css+div的方式实现各种定位。应用DIV+CSS编码时很容易犯一些错误。本文列举了一些常见的错误：</p>
+            <p>1. 检查HTML元素是否有拼写错误、是否忘记结束标记即使是老手也经常会弄错div的嵌套关系。可以用dreamweaver的验证功能检查一下有无错误。</p>
+            <p>2. 检查CSS是否正确.检查一下有无拼写错误、是否忘记结尾的 } 等。可以利用CleanCSS来检查 CSS的拼写错误。CleanCSS本是为CSS减肥的工具，但也能检查出拼写错误。</p>
+            <p>3. 确定错误发生的位置。如果错误影响了整体布局，则可以逐个删除div块，直到删除某个div块后显示恢复正常，即可确定错误发生的位置。</p>
+            <p>4. 利用border属性确定出错元素的布局特性。使用float属性布局一不小心就会出错。这时为元素添加border属性确定元素边界，错误原因即水落石出。</p>
+            <p>5. float元素的父元素不能指定clear属性。MacIE下如果对float的元素的父元素使用clear属性，周围的float元素布局就会混乱。这是MacIE的著名的bug，倘若不知道就会走弯路。</p>
+            <p>6. float元素务必指定width属性</p>
+            <p>很多浏览器在显示未指定width的float元素时会有bug。所以不管float元素的内容如何，一定要为其指定width属性。另外指定元素时尽量使用em而不是px做单位。</p>
+            <p>7. float元素不能指定margin和padding等属性。IE在显示指定了margin和padding的float元素时有bug。因此不要对float元素指定margin和padding属性(可以在float元素内部嵌套一个div来设置margin和padding)。也可以使用hack方法为IE指定特别的值。</p>
+            <p>8. float元素的宽度之和要小于100%。如果float元素的宽度之和正好是100%，某些古老的浏览器将不能正常显示。因此请保证宽度之和小于99%。</p>
+            <p>9. 是否重设了默认的样式?某些属性如margin、padding等，不同浏览器会有不同的解释。因此最好在开发前首先将全体的margin、padding设置为0、列表样式设置为none等。</p>
+            <p>10. 是否忘记了写DTD?</p>
+        </div>
+	</div>
+	<div class="footer">footer</div>
+</body>

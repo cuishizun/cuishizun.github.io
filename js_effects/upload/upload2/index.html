@@ -1,0 +1,107 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery头像上传裁剪旋转放大代码</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<style>
+.boxCen {
+	text-align: center;
+}
+.file-clip {
+	width: 100%;
+	height: 300px;
+	background: #666;
+	display: inline-block;
+	vertical-align: bottom;
+}
+.file {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	vertical-align: middle;
+	margin: 20px 20px 0 0;
+}
+.boxCen .file {
+	vertical-align: bottom;
+}
+.service-file {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	opacity: 0;
+	bottom: 0;
+	cursor: pointer;
+}
+.file-btn {
+	margin: 5px 10px;
+padding::0 10px;
+	border: 1px solid #606060;
+	cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div id="tt"></div>
+
+<script type="text/javascript" src="js/iscroll-zoom.js"></script> 
+<script type="text/javascript" src="js/hammer.js"></script> 
+<script type="text/javascript" src="js/lrz.all.bundle.js"></script> 
+<script type="text/javascript" src="js/jquery.photoClip.js"></script> 
+<script>
+$(function(){
+	var html = '<div class="boxCen">';
+		html += '<div id="clipArea" class="file-clip"></div>';
+		html += '<div class="file">';
+        html += '<div class="file-btn">点击上传图片</div>';
+        html += '<input type="file" class="service-file" id="file">';
+        html += '</div>';
+		html += '<div class="file-btn" id="clipBtn">裁剪图片</div>';
+		html += '<div class="file-btn" id="rotaBtn">选转</div>';
+		html += '<div class="file-btn" id="bigImg" >放大</div>';
+		html += '<div class="file-btn" id="smallImg">缩小</div>';
+		html += '<div class="red">（鼠标滚轮为缩放，每次双击则顺时针旋转90度）</div>';
+		html += '</div>';
+		html += '<div id="imgHtml" class="clipEnd"></div>';	
+		$('#tt').html(html);
+		clip();
+		
+		
+});
+
+function clip(){
+	$("#clipArea").photoClip({
+		size: [200, 200],
+		file: "#file",
+		ok: "#clipBtn",
+		view:"#imgcav",
+		rotaBtn:'#rotaBtn',
+		bigBtn:'#bigImg',
+		smallBtn:'#smallImg',
+		outputSize:[200, 200],
+		loadStart: function() {
+			console.log("照片读取中");
+		},
+		loadComplete: function() {
+			console.log("照片读取完成");
+		},
+		clipFinish: function(dataURL) {
+			var img = '<img src="'+dataURL+'">';
+			$('#imgHtml').html(img);
+		}
+	});
+}
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+

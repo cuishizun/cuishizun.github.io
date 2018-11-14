@@ -1,0 +1,79 @@
+﻿ <!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="textml; charset=UTF-8" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<meta content="email=no" name="format-detection" />
+<title>周日历</title>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+
+<div  style="max-width: 500px;margin:0 auto;border: solid 1px #ccc;">
+<div class="bd_w jcalendar_week" id="jcalendar_week"></div>
+<div class="pop_bd" id="pop">
+	<div class="pop_con">
+		<span class="pop_close" onClick="$('#pop').hide();">&times;</span>
+		<h5>选择年份：</h5>
+		<div class="flex_i control">
+			<button onClick="$(this).next().val(parseInt($(this).next().val())-1)"><</button>
+			<input class="flex_auto control_val" type="text" id="setyear" value="- -" />
+			<button onClick="$(this).prev().val(parseInt($(this).prev().val())+1)">></button>
+		</div>
+		<h5>选择周：</h5>
+		<div class="flex_i control">
+			<button onClick="$(this).next().val(parseInt($(this).next().val())-1)"><</button>
+			<input class="flex_auto control_val" type="text" id="setweek" value="- -" />
+			<button onClick="$(this).prev().val(parseInt($(this).prev().val())+1)">></button>
+		</div>
+		<div class="flex_i">
+			<button class="setjc_btn nowweek_btn flex_auto" onClick="tonowweek()">本周</button>
+			<button class="setjc_btn flex_auto" onClick="jumpweek()">确定</button>
+		</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<script>
+//调用周日历
+var weekfn =  new jcalendar_week({
+	element: "#jcalendar_week",//填充日历的dom元素
+	dayaddclass:function(date){
+		//添加某天时给添加类名
+		return "";
+	},
+	dayclick:function(date,obj){
+		//day点击事件
+		$(obj).addClass("calendar_day_act").siblings().removeClass("calendar_day_act");
+	}
+});
+//获取周第一天
+console.log(weekfn.weekfirstdate(2018,36));
+//获取传入日期为当年第几周（注:这里的月份从0开始）
+console.log(weekfn.getweeknum(2018,0,16));
+//跳转到指定周
+function jumpweek(){
+	var getyear=parseInt($("#setyear").val());
+	var getweek=parseInt($("#setweek").val());
+	weekfn.confirmweek(getyear,getweek);
+	$('#pop').hide();
+}
+//跳转到本周
+function tonowweek(){
+	weekfn.nowweek();
+	$('#pop').hide();
+}
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

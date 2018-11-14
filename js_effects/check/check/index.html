@@ -1,0 +1,187 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>表单checkbox多选框选择特效</title>
+
+<style>
+body{
+   background-color: aliceblue;
+}
+.switch {
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.switch .slider {
+  position: relative;
+  display: inline-block;
+  height: 8px;
+  width: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #c5c5c5;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.switch .slider:after {
+  background: #eeeeee;
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  content: '';
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.switch label {
+  width: 200px;
+  margin-left: 25px;
+}
+.switch .input {
+  display: none;
+}
+.switch .input:checked ~ .slider:after {
+  left: 16px;
+}
+.switch .input:checked ~ .slider {
+  background: #fc5d9b;
+}
+.switch .input:checked ~ .slider:after {
+  background: #ef0460;
+}
+
+body {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.center {
+  font-family: 'Source Sans Pro', sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 300px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: normal;
+  font-size: 35px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+<div class="center">
+  <h1>多项选择</h1>
+
+  <div class="switch">
+    <input id="one" class="input" type="checkbox" />
+    <label for="one" class="slider"></label>
+    <label for="one" class="label">我报警了吗？</label>
+  </div>
+
+  <div class="switch">
+    <input id="two" class="input" type="checkbox" />
+    <label for="two" class="slider"></label>
+    <label for="two" class="label">计划工作，从明天开始。</label>
+  </div>
+
+  <div class="switch">
+    <input id="three" class="input" type="checkbox" />
+    <label for="three" class="slider"></label>
+    <label for="three" class="label">如果我现在睡着了，就计算出几个小时的睡眠。</label>
+  </div>
+
+  <div class="switch">
+    <input id="four" class="input" type="checkbox" />
+    <label for="four" class="slider"></label>
+    <label for="four" class="label">担心未来。</label>
+  </div>
+
+  <div class="switch">
+    <input id="five" class="input" type="checkbox" />
+    <label for="five" class="slider"></label>
+    <label for="five" class="label">想想我5年前做过的蠢事。</label>
+  </div>
+
+  <div class="switch">
+    <input id="six" class="input" type="checkbox" />
+    <label for="six" class="slider"></label>
+    <label for="six" class="label">终于决定了吗？</label>
+  </div>
+
+</div>
+
+<script>
+var checkboxes = document.querySelectorAll('input');
+
+for( var i = 0; i < checkboxes.length; i++ ) {
+
+  checkboxes[i].addEventListener("change", function() {
+    updateBugs(this);
+  });
+}
+
+function updateBugs(changedElement) {
+  var checkedCount = document.querySelectorAll('input:checked').length;
+
+  // No bugs, thats impossible!
+  if( checkedCount === 0 ) {
+    turnOnRandomBug(changedElement);
+    if( Math.random() >= 0.85 ) {
+      turnOnRandomBug(changedElement);
+    }
+  }
+}
+
+function turnOnRandomBug(excluding) {
+  turnOn = Math.floor(Math.random() * checkboxes.length);
+
+  if( checkboxes[turnOn] === excluding) {
+    turnOn = turnOn + 1;
+    if( turnOn > (checkboxes.length - 1)) {
+      turnOn = 0;
+    }
+  }
+
+  checkboxes[turnOn].checked = true;
+}
+
+setTimeout(function() {
+  turnOnRandomBug(null);
+}, 400)
+
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+

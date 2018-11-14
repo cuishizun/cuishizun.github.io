@@ -1,0 +1,123 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery多组效果滑动导航栏代码</title>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+<h1>左右滚动</h1>
+<div class="box">
+	  <ul class="f-nav" id='f-nav'>
+		<li>首页</li>
+		<li>分页一</li>
+		<li>分页二</li>
+		<li>分页三</li>
+		<li>分页四</li>
+		 <div class='sideline'></div>
+	</ul>
+</div>
+
+<h1>从上向下滚动</h1>
+<div class="box">
+<ul class="f-nav" id='f-nav2'>
+		<li>首页</li>
+		<li>分页一</li>
+		<li>分页二</li>
+		<li>分页三</li>
+		<li>分页四</li>
+	   <div class='sideline'></div>
+</ul>
+</div>
+
+<h1>从下向上滚动</h1>
+<div class="box">
+<ul class="f-nav" id='f-nav3'>
+		<li>首页</li>
+		<li>分页一</li>
+		<li>分页二</li>
+		<li>分页三</li>
+		<li>分页四</li>
+	  <div class='sideline'></div>
+</ul>
+</div>
+
+<h1>从左边缘向右边缘滚动</h1>
+<div class="box">
+<ul class="f-nav" id='f-nav4'>
+		<li>首页</li>
+		<li>分页一</li>
+		<li>分页二</li>
+		<li>分页三</li>
+		<li>分页四</li>
+	   <div class='sideline'></div>
+</ul>
+</div>
+
+
+
+<h1>从右边缘向左边缘滚动</h1>
+<div class="box">
+<ul class="f-nav" id='f-nav5'>
+		<li>首页</li>
+		<li>分页一</li>
+		<li>分页二</li>
+		<li>分页三</li>
+		<li>分页四</li>
+	<div class='sideline'></div>
+</ul>
+</div>
+
+
+<h1>从中间变大至填满</h1>
+<div class="box">
+<ul class="f-nav" id='f-nav6'>
+		<li>首页</li>
+		<li>分页一</li>
+		<li>分页二</li>
+		<li>分页三</li>
+		<li>分页四</li>
+	<div class='sideline'></div>
+</ul>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-nav.js"></script>
+<script type="text/javascript">
+$('#f-nav').tooltip({
+default: 2,       // 默认为空  --  选中默认值
+width: '200',     // 限制宽度
+height: '100',
+textList: ['首页','分页1','分页2','分页3'],   // 每个导航的内容
+type: 'slideMove',  // 必填, 选择内容
+success: function(ret){
+
+}   //初始化回调
+});
+$('#f-nav2').tooltip({
+default: 3,    
+type: 'fontUp',
+width: '150',
+});
+$('#f-nav3').tooltip({
+type: 'downUp'
+});
+$('#f-nav4').tooltip({
+type: 'edgeLeft'
+});
+$('#f-nav5').tooltip({
+type: 'edgeRight'
+});
+$('#f-nav6').tooltip({
+type: 'scaleChange'
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

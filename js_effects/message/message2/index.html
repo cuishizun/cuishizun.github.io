@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery确认提示框插件myAlert</title>
+
+<link rel="stylesheet" href="css/myAlert.css" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/myAlert.js" ></script>
+
+</head>
+<body>
+<center>
+<button onClick="$.myAlert('这里是提示框内的内容');">点击弹出提示框</button><br/><br/>
+<button onClick="$.myAlert({title:'Title',message:'message',callback:function(){alert(1)}});">点击弹出提示框(带有callback)</button><br/><br/>
+<button onClick="$.myConfirm({title:'确认框提示标题',message:'确认框提示内容',callback:function(){alert('callback')}})">点击弹出确认框</button><br/><br/>
+<button onClick="$.myToast('提示内容')">点击弹出自动消失的提示</button><br/><br/>
+</center>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

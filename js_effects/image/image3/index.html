@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+<title>js页面下拉左右浮动固定代码</title>
+
+<link rel="stylesheet" href="css/foundation.min.css">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/demo.css"><!--演示页面样式，使用时可以不引用-->
+
+<style>
+
+  body,
+  html {
+	height: auto;
+  }
+
+  body {
+	color: #2c3e50;
+	font: 300 1rem 'Ubuntu', sans-serif;
+  }
+
+  img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+
+	border: 0;
+  }
+
+  h1 {
+	margin-top: 0;
+	font-size: 3rem;
+  }
+
+  h2 {
+	font-size: 1.25rem;
+	font-weight: 300;
+  }
+
+  h3 {
+	margin: 3rem 0 1rem;
+  }
+
+  p:last-child {
+	margin-bottom: 0;
+  }
+
+  pre {
+	display: inline-block;
+	padding: 1rem 2rem;
+	margin-bottom: 2rem;
+
+	color: #2c3e50;
+	font-family: 'Ubuntu Mono', monospace;
+
+	background: #ecf0f1;
+	border-radius: 0.25rem;
+  }
+
+  h3 + pre {
+	margin-bottom: 0;
+  }
+
+  footer {
+	margin-top: 6rem;
+	color: #fff;
+	background: #34495e;
+	padding: 6rem 0;
+  }
+.top-bar{background: #fff;}
+  .container {
+	padding: 6rem 0;
+  }
+
+  .columns {
+	min-height: 1px;
+  }
+
+  .gh-fork {
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 4;
+  }
+
+  .gh-buttons {
+	margin: 1rem 0;
+	height: 1.6rem;
+  }
+
+  .github-button {
+	display: none;
+  }
+</style>
+</head>
+<body>
+
+<section class="container">
+  
+<div class="row" data-sticky-container>
+
+<div class="medium-3 columns show-for-medium">
+<img src="http://placehold.it/250x250" class="float-left" alt="Sticky" data-sticky data-margin-top="20">
+</div>
+
+<div class="small-12 medium-9 large-7 columns">
+<h1>Sticky-js</h1>
+<h2>
+	<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</h2>
+<div class="gh-buttons">
+  <a class="github-button" href="https://github.com/rgalus/sticky-js" data-icon="octicon-eye" data-count-href="rgalus/sticky-js/watchers" data-count-api="repos/rgalus/sticky-js#subscribers_count" data-count-aria-label="# watchers on GitHub" aria-label="Watch rgalus/sticky-js on GitHub">Watch</a>
+  <a class="github-button" href="https://github.com/rgalus/sticky-js" data-icon="octicon-star" data-count-href="rgalus/sticky-js/stargazers" data-count-api="repos/rgalus/sticky-js#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star rgalus/sticky-js on GitHub">Star</a>
+</div>
+<h3>Features</h3>
+<ul>
+  <li>Written in vanilla javascript, no dependencies needed</li>
+  <li>Lightweight (minified: ~6.08kb, gzipped: ~1.67kb)</li>
+  <li>It can be sticky to the entire page or to selected parent container</li>
+  <li>No additional CSS needed</li>
+</ul>
+<h3>Install</h3>
+<pre>npm install sticky-js</pre>
+<br>
+<pre>bower install sticky.js</pre>
+<h3>Usage</h3>
+<p><strong>Simply include</strong></p>
+<pre>&lt;script src="sticky.min.js"&gt;&lt;/script&gt;</pre>
+<p><strong>Then have element</strong></p>
+<pre>&lt;div class="selector"&gt;Sticky element&lt;/div&gt;</pre>
+<p><strong>Initialize with javascript</strong></p>
+<pre>var sticky = new Sticky('.selector');</pre>
+<p><strong>CommonJS</strong></p>
+<pre>var Sticky = require('sticky-js');<br><br>var sticky = new Sticky('.selector');</pre>
+<p><strong>Sticky to the nearest parent container with [data-sticky-container]</strong></p>
+<pre>&lt;div data-sticky-container&gt;<br>    &lt;div class="selector"&gt;Sticky element&lt;/div&gt;<br>&lt;/div&gt;</pre>
+<br>
+<p><a href="#" title="Sticky-js - License">MIT License</a></p>
+</div>
+
+
+<div class="large-2 columns show-for-large" style="padding-top: 10rem;">
+<img src="http://placehold.it/160x600" class="float-right" alt="Sticky" data-sticky data-margin-top="20">
+</div>
+
+
+</div>
+</section>
+
+ <script src="dist/sticky.compile.js"></script>
+ <script type="text/javascript">
+	var sticky = new Sticky('[data-sticky]');
+ </script>
+
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>jQuery点击弹窗图片放大预览查看</title>
+
+<link rel="stylesheet" href="css/pictureViewer.css">
+
+</head>
+<body>
+
+<div class="main-content">
+    <h4 class="title">点击任意图片使用插件</h4>
+    <h3 class="title">交互：ESC键关闭弹框，左键、右键和鼠标滚轮切换图片</h3>
+    <div class="image-list">
+        <div class="cover"><img src="images/0.png" alt=""></div>
+        <div class="cover"><img src="images/1.png" alt=""></div>
+        <div class="cover"><img src="images/2.png" alt=""></div>
+        <div class="cover"><img src="images/3.png" alt=""></div>
+        <div class="cover"><img src="images/4.png" alt=""></div>
+        <div class="cover"><img src="images/5.png" alt=""></div>
+    </div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.mousewheel.min.js"></script>
+<script src="js/pictureViewer.js"></script>
+<script>
+$(function () {
+	$('.image-list').on('click', '.cover', function () {
+		var this_ = $(this);
+		var images = this_.parents('.image-list').find('.cover');
+		var imagesArr = new Array();
+		$.each(images, function (i, image) {
+			imagesArr.push($(image).children('img').attr('src'));
+		});
+		$.pictureViewer({
+			images: imagesArr, //需要查看的图片，数据类型为数组
+			initImageIndex: this_.index() + 1, //初始查看第几张图片，默认1
+			scrollSwitch: true //是否使用鼠标滚轮切换图片，默认false
+		});
+	});
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

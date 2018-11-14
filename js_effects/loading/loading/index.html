@@ -1,0 +1,108 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>纯CSS3彩虹弹性加载动画特效</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #222;
+  height: 100vh;
+}
+
+.wrapper {
+  border-bottom: solid 2px #757575;
+  height: 100px;
+  left: 50%;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+}
+.wrapper .rainbow {
+  animation: spin 2s ease-in-out infinite;
+  height: 200px;
+  margin: 0 auto;
+  position: relative;
+  width: 200px;
+}
+.wrapper .rainbow:after {
+  background-color: #222;
+  bottom: 100px;
+  content: "";
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.wrapper .rainbow .arc {
+  border: solid 8px;
+  border-radius: 50%;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.wrapper .rainbow .arc.red {
+  border-color: red;
+}
+.wrapper .rainbow .arc.orange {
+  border-color: orange;
+  margin: 8px;
+}
+.wrapper .rainbow .arc.yellow {
+  border-color: yellow;
+  margin: 16px;
+}
+.wrapper .rainbow .arc.green {
+  border-color: yellowgreen;
+  margin: 24px;
+}
+.wrapper .rainbow .arc.blue {
+  border-color: skyblue;
+  margin: 32px;
+}
+.wrapper .rainbow .arc.violet {
+  border-color: violet;
+  margin: 40px;
+}
+.wrapper .rainbow .arc.purple {
+  border-color: mediumpurple;
+  margin: 48px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+  <div class="rainbow">
+    <div class="arc red"></div>
+    <div class="arc orange"></div>
+    <div class="arc yellow"></div>
+    <div class="arc green"></div>
+    <div class="arc blue"></div>
+    <div class="arc violet"></div>
+    <div class="arc purple"></div>
+  </div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+

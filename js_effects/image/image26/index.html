@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery拖动排序点击查看大图代码</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script id="script" src="js/jquery-2.0.3.min.js" iconfont="true"></script>
+<script id="script" src="js/Jsequencing.js" iconfont="true"></script>
+
+</head>
+<body>
+
+<h3>可拖动排序哦</h3>
+<div class="">
+	<button onClick="imgulp.datadel()" class="btn btn-danger radius">批量删除</button>
+	<button onClick="imgulp.getnewarr()" class="btn btn-primary radius">获取最新数组</button>
+	<button onClick="addimg()" class="btn btn-primary radius">增加图片</button>
+</div>
+<div class="cl imglist" id="img_ul"></div>
+
+<script>
+var imgulp = new Jsequencing({
+	listid:"img_ul",//页面图片列表ID
+	thumbherf:"img/Thumb/",//列表图片前缀
+	bigherf:"img/big/",//原图前缀[同列表图相同时，省略]
+	jsondata:true,
+	imgsrcarr:[//图片数据数组
+		{src:"a1.png?id=0",title:"客厅0"},
+		{src:"a2.png?id=1",title:"客厅1"},
+		{src:"a3.png?id=2",title:"客厅2"},
+		{src:"a4.png?id=3",title:"客厅3"},
+		{src:"a5.png?id=4",title:"客厅4"}
+	],
+});
+function addimg(){
+	imgulp.addimgarr([
+		{src:'a1.png?id=1'}
+	])
+}
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

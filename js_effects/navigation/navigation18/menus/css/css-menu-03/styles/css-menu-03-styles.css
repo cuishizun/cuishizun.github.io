@@ -1,0 +1,106 @@
+/*****css-menu-03 styles*****/
+div#wrapper-menu{background:url(../images/back-menu.jpg) repeat; color:#75a1bf;}
+div#wrapper-menu span#head-nav{
+	position:relative;
+	display:block;
+	width:359px;
+	height:67px;
+	background:url(../images/head-nav.png) no-repeat;
+	margin-left:auto;
+	left:-250px;
+	margin-right:auto;
+	margin-top:10px;
+	padding-right:26px;/*this line center the ribbon head with the rest of the navigation*/
+	}
+div#wrapper-menu ul#nav{
+	position:relative;
+	width:323px;/*size of the navigation bar*/
+	height:180px;
+	margin-left:auto;/*centering navigation*/
+	margin-right:auto;/*centering navigation*/
+	margin-top:-20px;
+	left:-250px;
+	background-color:#FFF;
+	}
+
+div#wrapper-menu ul#nav li{display:block;position:relative;width:100%;height:35px;margin-bottom:10px;}
+div#wrapper-menu ul#nav li a{
+	display:block;
+	background:url(../images/arrow.png) no-repeat 280px 10px;
+	width:100%;
+	height:35px;
+	line-height:40px;
+	text-decoration:none;
+	font-size:1.7em;
+	font-weight:bold;
+	letter-spacing:-2px;
+	text-indent:20px; 
+	color:#688ea8;
+	}
+div#wrapper-menu ul#nav li a:hover{background:url(../images/arrow.png) no-repeat 280px -10px #9ece04;border-bottom: #85af03 4px solid;color:#FFF;}
+div#wrapper-menu ul#nav li ul ul{
+	position:absolute;
+	display:none;
+	top: 0;
+	left: 0;
+	left: 100%;
+	width: 100%;
+	margin-left:2px;/*margin between main navigation and subhidden navigation*/
+}
+div#wrapper-menu ul#nav li ul li:hover ul{display:block;}
+/*hidden menu we are monsters*/
+div#wrapper-menu ul#nav li ul li ul#monsters{width:425px;height:180px;background-color:#FFF;}
+div#wrapper-menu ul#nav li ul li ul#monsters a{display:block;width:425px;height:180px;background:url(../images/monsters.jpg) no-repeat center center;text-indent:-9999px;}
+/*hidden menu our skills*/
+div#wrapper-menu ul#nav li ul li ul#skills{width:425px;height:175px;background-color:#FFF;top:-44px;padding:5px 0 0 20px;}
+div#wrapper-menu ul#nav li ul li ul#skills li{
+	display:inline-block;
+	float:left;
+	width:auto;
+	height:12px;
+	line-height:12px;
+	line-height:20px\9;
+	font-family:Helvetica,arial,sans;
+	font-size:1.3em;
+	font-weight:bold;
+	letter-spacing:-1px;
+	text-indent:5px; 
+	margin:5px 0 5px 0;
+	}
+div#wrapper-menu ul#nav li ul li ul#skills li.head{width:100%;margin-top:15px;color:#474747;}
+/*hidden menu what we make*/
+div#wrapper-menu ul#nav li ul li ul#portfolio{width:400px;height:100px;background-color:#FFF;top:-15px;padding:5px 0 0 20px;}
+div#wrapper-menu ul#nav li ul li ul#portfolio li{display:inline-block;float:left;width:auto;}
+div#wrapper-menu ul#nav li ul li ul#portfolio li a{
+	display:block;
+	width:100%;
+	height:100%;
+	line-height:100px;
+	padding:0px 0 0 5px;
+	font-size:1.3em;
+	letter-spacing:-1px;
+	}
+div#wrapper-menu ul#nav li ul li ul#portfolio li a:hover{background-color:#FFF;color:inherit;border:none;}
+/*hidden menu location*/
+div#wrapper-menu ul#nav li ul li ul#location{width:400px;height:50px;background-color:#FFF;top:-10px;padding:5px 0 0 20px;}
+div#wrapper-menu ul#nav li ul li ul#location li{display:inline-block;float:left;width:auto;}
+div#wrapper-menu ul#nav li ul li ul#location li a{
+	display:block;
+	width:100%;
+	height:50px;
+	line-height:50px;
+	padding:0px 0 0 17px;
+	font-size:1.3em;
+	letter-spacing:-1px;
+	}
+div#wrapper-menu ul#nav li ul li ul#location li a:hover{background-color:#FFF;color:inherit;border:none;}
+
+/*classes for coloring diferent skills from each "monster"*/
+.craig,div#wrapper-menu ul#nav li ul li ul li a.craig{color:#22b1b1;}
+.david,div#wrapper-menu ul#nav li ul li ul li a.david{color:#a0cf07;}
+.jane,div#wrapper-menu ul#nav li ul li ul li a.jane{color:#e31982;}
+.aux-color,div#wrapper-menu ul#nav li ul li ul li a.aux-color{color:#474747;}
+
+
+
+

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ripplet.js点击波插件</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="css/zzsc.css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:700,800" rel="stylesheet">
+<style type="text/css">
+	* {
+		box-sizing: border-box;
+	  }
+	  body {
+		 margin: 8px 16px; 
+		font-size: 14px;
+	  }
+	  h1.title {
+		font-family: Nunito, sans-serif;
+		font-weight: 800;
+		padding: 8px 12px;
+		margin: 0;
+		border-radius: 4px;
+	  }
+	  h3 {
+		font-family: Nunito, sans-serif;
+		font-weight: 700;
+		margin: 12px;
+	  }
+	  input {
+		font-family: Arial, Helvetica, sans-serif;
+		font-size: 13px;
+		border: none;
+		outline: none;
+		width: 144px;
+	  }
+	  input + .text-field-underline {
+		position: relative;
+		border-top: 1px solid #ccc;
+	  }
+	  input + .text-field-underline::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 2px;
+		transition: transform .3s ease-out;
+		transform: scale(0);
+		background-color: #666;
+	  }
+	  input:focus + .text-field-underline::before {
+		transform: scale(1);
+	  }
+	  .github-link {
+		padding: 8px;
+		border-radius: 50%;
+		transition: background-color .6s ease-in .2s;
+		margin-left: 8px;
+	  }
+	  .github-link:hover {
+		background-color: rgba(0, 224, 255, .2);
+	  }
+	  .github-link > img {
+		width: 40px;
+		height: 40px;
+	  }
+	  .description {
+		margin-left: 12px;
+	  }
+	  .buttons {
+		display: flex;
+		flex-wrap: wrap;
+	  }
+	  .buttons .default {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		font-family: Arial, sans-serif;
+		font-size: 16px;
+		width: 100px;
+		height: 80px;
+		background-color: white;
+		border: none;
+		outline: none;
+		border-radius: 4px;
+		border: 1px solid rgba(0, 0, 0, .1);
+		padding: 8px;
+		margin: 0 8px 8px 0;
+		text-align: center;
+		-webkit-tap-highlight-color: transparent;
+	  }
+	  .buttons .circle {
+		border-radius: 50%;
+		width: 80px;
+		height: 80px;
+	  }
+	  .buttons .btn {
+		height: 80px;
+		margin: 0 8px 8px 0;
+	  }
+	  .rainbow {
+		background-image: linear-gradient(
+		  -45deg,
+		  rgba(255,   0,   0, .3),
+		  rgba(255, 255,   0, .3),
+		  rgba(  0, 255, 255, .2),
+		  rgba(  0,   0, 255, .15),
+		  rgba(255,   0, 255, .2),
+		  rgba(255,   0,   0, .3)
+		);
+	  }
+	  .keep {
+		transition: background-color .4s ease-out;
+	  }
+	  .keep:hover {
+		transition: background-color .6s ease-in .2s;
+		background-color: rgba(0, 0, 0, .1);
+	  }
+	  .ripplet-image {
+		transition: background-color .4s ease-out, color .4s ease-out;
+	  }
+	  .ripplet-image:hover {
+		background-color: rgb(32, 32, 32);
+		color: transparent;
+	  }
+	  .ripplet-image--ripplet {
+		/* http://www.emstudio.jp/free/data1042/ */
+		background-image: url(fireworks.png);
+		background-repeat: no-repeat;
+		background-size: 64px;
+		background-position: center;
+	  }
+</style>
+</head>
+<body>
+<div class="zzsc-container">
+	<div  style="display: flex; align-items: center; ">
+		  <h1 class="title">ripplet.js</h1>
+		</div>
+<p class="description">Fully controllable vanilla-js material design ripple effect generator.</p>
+<div style="display: flex; flex-wrap: wrap;">
+  <div class="category">
+	<h3>Basic</h3>
+	<div class="buttons">
+	  <button type="button" class="default" onmousedown="ripplet(event)">Click me!</button>
+	  <button type="button" class="default circle" onmousedown="ripplet(event)">Circle!</button>
+	</div>
+  </div>
+  <div class="category">
+	<h3>Colors</h3>
+	<div class="buttons">
+	  <button type="button" class="default" onmousedown="ripplet(event, { color: 'rgba(255, 0, 0, .3)' })">Red!</button>
+	  <button type="button" class="default" onmousedown="ripplet(event, { color: null, className: 'rainbow' })">Rainbow!</button>
+	  <button type="button" class="default ripplet-image" onmousedown="ripplet(event, { color: null, className: 'ripplet-image--ripplet', spreadingTimingFunction: 'ease-out', clearingDuration: '.5s', clearingDelay: '.1s' })">Image!</button>
+	  <button type="button" class="btn btn-primary" onmousedown="ripplet(event, { className: 'bg-primary', opacity: '.5' })">External CSS theme<br>(Bootstrap primary)</button>
+	</div>
+  </div>
+  <div class="category">
+	<h3>Timings</h3>
+	<div class="buttons">
+	  <button type="button" class="default" onmousedown="ripplet(event, { spreadingDuration: '2s', clearingDelay: '1s', clearingDuration: '2s' })">Slow!</button>
+	  <button type="button" class="default" onmousedown="ripplet(event, { spreadingTimingFunction: 'cubic-bezier(0.5, 1.5, .6, -1)' })">Feint!</button>
+	</div>
+  </div>
+  <div class="category">
+	<h3>Events</h3>
+	<div class="buttons">
+	  <button type="button" class="default" onmouseenter="ripplet(event)">Enter mouse!</button>
+	  <button type="button" class="default" onmouseleave="ripplet(event)">Leave mouse!</button>
+	  <button type="button" class="default keep" onmouseenter="ripplet(event)">Hover mouse!</button>
+	</div>
+  </div>
+  <div class="category">
+	  <h3>Parameters</h3>
+	  <form onsubmit="return false" class="buttons" style="align-items: center;">
+		<table>
+		  <tr><td style="text-align: right; padding-right: 12px;">color :                   </td><td><input name="color"                   value="rgba(0, 0, 0, .1)"><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">opacity :                 </td><td><input name="opacity"                 value="1"                ><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">spreadingDuration :       </td><td><input name="spreadingDuration"       value=".4s"              ><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">spreadingDelay :          </td><td><input name="spreadingDelay"          value="0s"               ><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">spreadingTimingFunction : </td><td><input name="spreadingTimingFunction" value="linear"           ><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">clearingDuration :        </td><td><input name="clearingDuration"        value="1s"               ><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">clearingDelay :           </td><td><input name="clearingDelay"           value="0s"               ><div class="text-field-underline"></div></td></tr>
+		  <tr><td style="text-align: right; padding-right: 12px;">clearingTimingFunction :  </td><td><input name="clearingTimingFunction"  value="ease-in-out"      ><div class="text-field-underline"></div></td></tr>
+		</table>
+		<button type="button" class="default" style="margin-left: 20px;" onmousedown="ripplet(event, Array.from(this.form.elements).reduce(function (params, element) { params[element.name] = element.value; return params; }, {})); return false;">Click me!</button>
+	  </form>
+	</div>
+  </div>
+</div>
+
+<script type="text/javascript" src="js/ripplet.js"></script>
+<script>
+  // window.event polyfill for Gecko
+  if (!Object.prototype.hasOwnProperty.call(window, 'event')) {
+	['mousedown', 'mouseenter', 'onmouseleave'].forEach(function (eventType) {
+	  window.addEventListener(eventType, function (event) { window.event = event }, true);
+	});
+  }
+
+  // heading ripplet
+  window.addEventListener('load', function () {
+	setTimeout(function () {
+	  var heading = document.querySelector('h1.title');
+	  var headingRect = heading.getBoundingClientRect();
+	  headingRipplet();
+	  function headingRipplet() {
+		var spreadingDuration = Math.floor(4000 * Math.random() + 200);
+		ripplet(
+		  {
+			currentTarget: heading,
+			clientX: headingRect.left + Math.random() * headingRect.width,
+			clientY: headingRect.top + Math.random() * headingRect.height,
+		  },
+		  {
+			color: 'rgba('
+			  + Math.floor(Math.random() * 256) + ','
+			  + Math.floor(Math.random() * 256) + ','
+			  + Math.floor(Math.random() * 256) + ','
+			  + (Math.random() * .3 + .1)
+			  + ')',
+			spreadingDuration: spreadingDuration + 'ms',
+			clearingDelay:     Math.floor(spreadingDuration * .8) + 'ms',
+			clearingDuration:  Math.floor(spreadingDuration * .6) + 'ms',
+		  }
+		);
+		setTimeout(headingRipplet, Math.floor(4000 * Math.random() * Math.random()));
+	  }
+	});
+  });
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

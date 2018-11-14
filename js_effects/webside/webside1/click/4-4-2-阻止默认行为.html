@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    
+    <script src="../scripts/jquery-1.3.1.js"></script>
+    <script type="text/javascript">
+        //点击提交绑定事件（bind）
+        //获取文本元素的值
+        //判断值是否为空
+        //提示信息
+        $("#sub").bind("click",function () {
+            var name = $("#username").val();
+            alert(name);
+            if (name == "") {
+                $("#msg").html("<p>这是一个空文档</p>");
+                // event.preventDefault();
+                return false;
+            }
+            else {
+                return false;
+            }
+        })
+        //阻止默认行为 ( 表单提交 )
+    </script>
+</head>
+<body>
+    <form action="test.html">
+        用户名：<input type="text" id="username" />
+        <br />
+        <input type="submit" value="提交" id="sub" />
+    </form>
+
+    <div id="msg"></div>
+</body>
+</html>

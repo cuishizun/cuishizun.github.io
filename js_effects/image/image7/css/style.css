@@ -1,0 +1,118 @@
+@charset "utf-8";
+/*
+================================
+Import CSS and Google Fonts
+================================
+*/
+@import "../css/font-awesome.min.css";
+
+/*
+================================
+Top Bar - Version 1
+================================
+*/
+
+.top-bar-v1 {
+	background: #F2F3F3;
+	padding: 10px 0;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-top: 3px solid #f57c05;
+}
+
+.top-bar-v1 .top-contact {
+	float: left;
+	padding-top: 5px;
+}
+
+.top-bar-v1 .top-contact .list {
+	float: left;
+	color: #f57c05;
+	margin-right: 20px;
+}
+
+.top-bar-v1 .top-contact .list i {
+	margin-right: 5px;
+}
+
+.top-bar-v1 .top-contact .list a {
+	color: #f57c05;
+}
+
+.top-bar-v1 .top-social {
+	float: right;
+}
+
+.top-bar-v1 .top-social ul {
+	float: right;
+	margin-bottom: 0;
+}
+
+.top-bar-v1 .top-social ul li {
+	list-style-type: none;
+	float: left;
+	margin-right: 10px;
+}
+
+.top-bar-v1 .top-social ul li a {
+	width: 30px;
+	line-height: 30px;
+	color: #f57c05;
+	display: block;
+	text-align: center;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	transition: all 0.4s ease;
+	-webkit-transition: all 0.4s ease;
+	-moz-transition: all 0.4s ease;
+	font-size: 16px;
+}
+
+.top-bar-v1 .top-social ul li a:hover {
+	background: #f57c05;
+	color: #fff!important;
+}
+
+/*
+================================
+Footer - Social
+================================
+*/
+
+.footer-social {
+	width: 100%;
+	height: auto;
+	padding: 20px 0;
+	background: #f57c05;
+}
+
+.footer-social .item ul {
+	margin-bottom: 0;
+	text-align: center;
+}
+
+.footer-social .item ul li {
+	list-style-type: none;
+	display: inline-block;
+	margin-right: 5px;
+	background: #f57c05;
+}
+
+.footer-social .item ul li a {
+	color: #fff;
+	text-align: center;
+	display: block;
+	width: 42px;
+	height: 42px;
+	line-height: 42px;
+	border: 2px solid #f57c05;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	font-size: 20px;
+}
+
+.footer-social .item ul li:hover a {
+	border: 2px solid #fff!important;
+}

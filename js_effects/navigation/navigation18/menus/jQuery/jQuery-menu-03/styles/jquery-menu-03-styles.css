@@ -1,0 +1,176 @@
+/*****jquery-menu-03 styles*****/
+div#wrapper-menu{background:url(../images/background-menu-jquery-03.jpg) center no-repeat #d9d9d9;}
+/*menu width & height and positioning en the layout*/
+div#wrapper-menu ul#nav{
+	position:relative;
+	width:1280px;
+	height:90px;
+	background:url(../images/back-navigation.png) no-repeat center;
+	top:50%;
+	margin-top:-75px;
+	padding:35px 0 0 30px;
+	_padding-left:180px;
+	}
+/*Set the main navigation bar and each option*/
+/*for customize this menu the main thing is to note that to control the spacing between each option will have to do it with a combination of parameters. Basically you need to modify the margins and size of each button. First set the size and then the margin of separation from the following option*/
+div#wrapper-menu ul#nav li{display:block;float:left;width:auto;height:auto;}
+div#wrapper-menu ul#nav li:first-child{margin-left: 200px;}
+div#wrapper-menu ul#nav li a{
+	display:inline-block;
+	width:auto;/*general width for each option*/
+	height:50px;
+	text-decoration:none;
+	color:#FFF;
+	font-family: Helvetica, arial, sans;
+	font-size:1.5em;
+	letter-spacing:-0.5px;
+	line-height:50px;
+	text-align:center;
+	color:#474747;
+	padding:0 10px;
+	}
+div#wrapper-menu ul#nav li#item1 a{margin:0  58px 0 5px;_margin-left:130px;}/*space between this option and follow*/
+div#wrapper-menu ul#nav li#item2 a{margin:0  40px 0 0px;}/*space between this option and follow*/
+div#wrapper-menu ul#nav li#item3 a{
+	width:130px;/*special width for this option*/
+	margin:0 45px 0 0;/*space between this option and follow*/
+	text-align:left;
+	background:url(../images/arrow-down.png) no-repeat 128px;/*this set the arrow as a background*/
+	}
+div#wrapper-menu ul#nav li#item4 a{
+	width:140px;/*special width for this option*/
+	margin:0  70px 0 0px;/*space between this option and follow*/
+	text-align:left;
+	background:url(../images/arrow-down.png) no-repeat 135px;/*this set the arrow as a background*/
+	}
+div#wrapper-menu ul#nav li#item5 a{}
+div#wrapper-menu ul#nav li a:hover,div#wrapper-menu ul#nav li#item3 a:hover,div#wrapper-menu ul#nav li#item4 a:hover{background-color:#698800;color:#FFF;-moz-border-radius:5px;-webkit-border-radius:5px;}
+div#wrapper-menu ul#nav li a.current{color:#b4005b;}
+/*First of all we need to hide the big product and locate menu, establish a size for it and use some CSS3 properties for rounded corners. IE don´t show this*/
+div#wrapper-menu div#big-menu-hidden,div#big-menu-hidden-stores{
+ 	display:none;
+	text-align:left;
+	position:absolute;
+	background:url(../images/back-big.menu-hidden.png) no-repeat;
+	font-size:12px;
+	width:910px;
+	height:244px;
+	margin:95px 0 0 226px;
+	margin-left:220px\9;/*hack for IE8 and below*/
+	#margin-left:230px;/*hack for IE7*/
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+div#wrapper-menu div#big-menu-hidden-stores{
+	background:url(../images/back-big.menu-hidden-sotores.png) no-repeat;
+	margin:95px 0 0 194px;
+	margin-left:186px\9;/*hack for IE8 and below*/
+	#margin-left:197px;/*hack for IE7*/
+	}
+/*Set and positioning cart section in the big menu*/
+div#wrapper-menu div#big-menu-hidden div#cart{float:left;width:204px;_width:203px;height:245px;}
+div#wrapper-menu div#big-menu-hidden div#cart div#counter-cart{
+	width:122px;
+	height:auto;
+	margin:20px 0 0 35px; 
+	}
+div#wrapper-menu div#big-menu-hidden div#cart div#counter-cart p{
+	font-family:Helvetica,arial,sans;
+	font-size:1.7em;
+	font-weight:regular;
+	letter-spacing:-0.8px;
+	text-align:center;
+	line-height:25px;
+	color:#FFF; 
+	}
+div#wrapper-menu div#big-menu-hidden div#cart div#counter-cart p#btn-go-cart a{
+	display:block;
+	width:130px;
+	height:35px;
+	line-height:38px;
+	text-decoration:none;
+	color:#FFF;
+	margin-bottom:10px;
+	background-color:#698800;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+div#wrapper-menu div#big-menu-hidden div#cart div#counter-cart p#btn-go-cart a:hover{color:#263100;}
+/*Now let set the product-list with its size, positioning and type*/
+div#wrapper-menu div#big-menu-hidden div#product-list{float:right;width:706px;height:235px;padding-top:10px;}
+div#wrapper-menu div#big-menu-hidden div#product-list h2{
+	display:block;
+	position:absolute;
+	width:auto;
+	height:25px;
+	font-family:Helvetica,arial,sans;
+	font-size:1.1em;
+	font-style:normal;
+	font-weight: normal;
+	letter-spacing:-0.2px;
+	line-height:25px;
+	text-decoration:none;
+	color:#FFF;
+	margin-top:15px;
+	padding:0 10px 0 10px;
+	background-color:#698800;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+div#wrapper-menu div#big-menu-hidden div#product-list span.btn-close, div#big-menu-hidden-stores span.btn-close{display:block;position:absolute;left:875px;margin-top:12px;}
+div#wrapper-menu div#big-menu-hidden div#product-list span.btn-close a, div#big-menu-hidden-stores span.btn-close a{display:block;width:17px;height:18px;background:url(../images/btn-close.png) no-repeat;color:#474747;font-size:1em;line-height:15px; text-indent:-35px;}
+div#wrapper-menu div#big-menu-hidden div#product-list span.btn-close a:hover, div#big-menu-hidden-stores span.btn-close a:hover{color:#6C6E6E;}
+div#wrapper-menu div#big-menu-hidden div#product-list h2#li-item1{left: 210px;}
+div#wrapper-menu div#big-menu-hidden div#product-list h2#li-item2{left: 445px;}
+div#wrapper-menu div#big-menu-hidden div#product-list h2#li-item3{left: 680px;}
+/*starting with lists*/
+div#wrapper-menu div#big-menu-hidden div#product-list ul{float:left;width:214px;_width:200px;height:auto;margin:50px 0px 5px 20px;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li{
+	width:180px;
+	height:20px;
+	_height:15px;
+	background-color:#303030;
+	margin-bottom:4px;
+	list-style-type:circle;
+	list-style-image: url(../images/ico-list.png);
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li:last-child{list-style:none;background-color:transparent;text-align:right;color:#474747;text-decoration:underline;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li:last-child:hover{list-style:none;background-color:#2D2D2D;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li:hover{list-style-image: url(../images/ico-list-hover.png);#list-style:none;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li a{
+	display:block;
+	width:auto;
+	height:25px;
+	_height:20px;
+	line-height:25px;
+	_line-height:20px;
+	padding-left:10px;
+	font-size:1em;
+	color:#6e6e6e;
+	text-decoration:none;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li a:hover{background-color:#262626;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li:last-child a:hover{background-color:transparent;color:#698800;text-decoration:underline;}
+/*view-all class is needed because IE don´t interprets correctly pseudo class last-child for select last item in a list (in this case)*/
+/*Furthemore you can see some properties with a # caracter or _ They are ways to hack for IE7 and IE6 respectivly in cases that this browsers don´t render correctly the properties we are using in each case*/  
+div#wrapper-menu div#big-menu-hidden div#product-list ul li.view-all{#list-style-image:none;background-color:transparent;text-align:right;color:#474747;text-decoration:underline;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li.view-all:hover{#list-style-image:none;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li.view-all a:hover{#list-style-image:none;background-color:transparent;color:#698800;text-decoration:underline;}
+div#wrapper-menu div#big-menu-hidden div#product-list ul li span{display:block;list-style:none;}
+/*Styles for big-menu stores*/
+/*First we set width for each block with maps and data location*/
+div#wrapper-menu div#big-menu-hidden-stores div#stores{width:900px;height:230px;margin:10px 0 0 33px;}
+div#wrapper-menu div#big-menu-hidden-stores div#stores h2{font-size:1.6em;color:#191919;margin-top:10px;padding:15px 0 0px 0px;}
+div#wrapper-menu div#big-menu-hidden-stores div#stores div{width:290px;height:230px;float:left;margin-right:10px;margin-bottom:0px;}
+div#wrapper-menu div#big-menu-hidden-stores div#stores div span.map-loc a{display:block;width:228px;height:120px;text-indent:-9999px;background:url(../images/ico-map-general.png) center;}
+div#wrapper-menu div#big-menu-hidden-stores div#stores div span.map-loc a:hover{opacity:.9}
+div#wrapper-menu div#big-menu-hidden-stores div#stores p{color:#FFF;}
+div#wrapper-menu div#big-menu-hidden-stores div#stores span.view-map{display:block;float:right;margin-right:50px;}
+div#wrapper-menu div#big-menu-hidden-stores div#stores span.view-map a{display:block;width:60px;height:20px;text-align:center;line-height:20px;color:#191919;font-size:1em; }
+div#wrapper-menu div#big-menu-hidden-stores div#stores span.view-map a:hover{background-color:#698800;color:#FFF;-moz-border-radius:5px;-webkit-border-radius:5px;}
+a.change-style{color:#FFF;}
+

@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>jQuery拖动图片自定义排序代码</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+<style>
+	body{background-color: #232323}
+	h3{text-align: center;color: #606060}
+	.container{
+		width: 900px;
+		margin: 50px auto;
+	}
+	.demo li {
+		width: 250px;
+		height: 180px;
+		float: left;
+		margin-left: 20px;
+		margin-bottom: 20px;list-style-type: none;
+	}
+	.demo li>img {
+width: 250px;
+height: 180px;
+cursor: pointer;
+
+	}
+</style>
+
+</head>
+<body >
+
+<h3>拖动图片进行排序</h3>
+<div class="container">
+    <ul class="demo" >
+        <li><img src="images/a1.png"></li>
+        <li><img src="images/a2.png"></li>
+        <li><img src="images/a3.png"></li>
+        <li><img src="images/a4.png"></li>
+        <li><img src="images/a5.png"></li>
+        <li><img src="images/a6.png"></li>
+    </ul>
+</div>
+
+<!-- 页面js -->
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.1.1.js"></script>
+<script type="text/javascript" src="js/jquery.dragsort-0.5.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	try{
+		$(".demo").dragsort({
+			dragSelector: "img",
+			dragBetween: true ,
+			dragEnd:function(){
+
+			   console.log('此处可放拖动结束后的方法。')
+			}
+		});
+	}catch(e){
+	}
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗。</p>
+</div>
+</body>
+</html>

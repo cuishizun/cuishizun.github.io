@@ -1,0 +1,112 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>DNA螺旋粒子动画CSS3特效</title>
+
+<style>
+body {
+  background:#f7f7f7;
+}
+.site-canvas {
+  position:relative;
+}
+.dna {
+  position:fixed;
+  top:50%;
+  left:50%;
+  -webkit-transform:translate(-50%,-50%);
+          transform:translate(-50%,-50%);
+  width:90%;
+  height:250px;
+  text-align:center;
+  overflow:hidden;
+}
+.dna_section {
+  position:relative;
+  margin:0 5px;
+  width:50px;
+  height:250px;
+  display:inline-block;
+}
+.dna_section .node {
+  position:absolute;
+  top:0;
+  left:0;
+  width:50px;
+  height:50px;
+  border-radius:100%;
+  background:#5E0035;
+  -webkit-animation:4s topNode ease-in-out infinite;
+          animation:4s topNode ease-in-out infinite;
+}
+@-webkit-keyframes topNode {
+  0% {-webkit-transform:scale(0.5);transform:scale(0.5);top:0;z-index:10;opacity:0.75;}
+  25% {-webkit-transform:scale(1);transform:scale(1);opacity:1;}
+  50% {-webkit-transform:scale(0.5);transform:scale(0.5);top:200px;z-index:0;opacity:0.75;}
+  75% {-webkit-transform:scale(0.25);transform:scale(0.25);opacity:0.5;}
+  100% {-webkit-transform:scale(0.5);transform:scale(0.5);top:0;opacity:0.75;}
+}
+@keyframes topNode {
+  0% {-webkit-transform:scale(0.5);transform:scale(0.5);top:0;z-index:10;opacity:0.75;}
+  25% {-webkit-transform:scale(1);transform:scale(1);opacity:1;}
+  50% {-webkit-transform:scale(0.5);transform:scale(0.5);top:200px;z-index:0;opacity:0.75;}
+  75% {-webkit-transform:scale(0.25);transform:scale(0.25);opacity:0.5;}
+  100% {-webkit-transform:scale(0.5);transform:scale(0.5);top:0;opacity:0.75;}
+}
+.dna_section .node.bottom {
+  top:auto;
+  bottom:0;
+  background:#5C80BC;
+  -webkit-animation:4s bottomNode ease-in-out infinite;
+          animation:4s bottomNode ease-in-out infinite;
+}
+@-webkit-keyframes bottomNode {
+  0% {-webkit-transform:scale(0.5);transform:scale(0.5);bottom:0; opacity:0.75;}
+  25% {-webkit-transform:scale(0.25);transform:scale(0.25);opacity:0.5;}
+  50% {-webkit-transform:scale(0.5);transform:scale(0.5);bottom:200px; opacity:0.75;}
+  75% {-webkit-transform:scale(1);transform:scale(1); opacity:1;}
+  100% {-webkit-transform:scale(0.5);transform:scale(0.5);bottom:0; opacity:0.75;}
+}
+@keyframes bottomNode {
+  0% {-webkit-transform:scale(0.5);transform:scale(0.5);bottom:0; opacity:0.75;}
+  25% {-webkit-transform:scale(0.25);transform:scale(0.25);opacity:0.5;}
+  50% {-webkit-transform:scale(0.5);transform:scale(0.5);bottom:200px; opacity:0.75;}
+  75% {-webkit-transform:scale(1);transform:scale(1); opacity:1;}
+  100% {-webkit-transform:scale(0.5);transform:scale(0.5);bottom:0; opacity:0.75;}
+}
+</style>
+
+</head>
+<body>
+
+<script type="text/javascript" src="js/vue.min.js"></script>
+
+<div class="site-canvas" id="app">
+  <div class="dna">
+    <div class="dna_section" v-for="(dna,i) in sequence">
+      <div class="node top" v-bind:style="{'animation-delay' : -(i * 300) + 'ms' }"></div>
+      <div class="node bottom" v-bind:style="{'animation-delay' : -(i * 300) + 'ms' }"></div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+(function(){
+  var app = new Vue({
+    el: '#app',
+    data: {
+      sequence: [] 
+    },
+    mounted() {
+      this.sequence = new Array(Math.round(document.body.clientWidth/70)); 
+    }
+  });
+})();
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

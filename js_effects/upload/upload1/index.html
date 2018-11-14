@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery图片上传压缩预览代码</title>
+</head>
+
+<style>
+*{
+	padding: 0;
+	margin: 0;
+}
+ul{
+	width: 1200px;
+	margin: 30px auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+}
+ul li{
+	background: #00a2d4;
+	list-style: none;
+	flex-grow:10;
+	width: 300px;
+	height: 300px;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	border: 1px solid #f2f2f2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background-repeat: no-repeat;
+	background-size: cover;
+	box-sizing: border-box;
+}
+</style>
+
+<script src="js/jquery.min.js"></script>
+
+<body>
+
+<!--上传控件-->
+<input type="file" style="display: none">
+<ul>
+	<li>上传图片</li>
+</ul>
+
+<script>
+  (function ($) {
+    $.extend({
+      //压缩图片，参数1：file对象，参数2：压缩比例
+      compress(file,scale) {
+        return new Promise(function (resolve,reject) {
+          let _scale=scale || 1;
+          let cvs = document.createElement('canvas');
+          let ctx = cvs.getContext('2d');
+          let img = new window.Image();
+          let imgType=file.type;
+          img.src = URL.createObjectURL(file);
+          img.onload=function () {
+            cvs.width = img.width*_scale;
+            cvs.height = img.height*_scale;
+            ctx.drawImage(img, 0, 0, cvs.width, cvs.height);
+            resolve(cvs.toDataURL(imgType));
+          }
+        });
+      }
+    });
+    $.fn.extend({
+
+      //复制节点
+      cloneNode(num){
+        let p=this.parent();
+        for (let i=0;i<num;i++){
+          p.append(this.clone(true))
+        }
+      }
+    });
+    $(function () {
+      $('li').cloneNode(6);//复制66个节点
+      //点击触发input
+      $('li').each(function (i) {
+        $(this).click(function () {
+          $('input').attr("name",'input_'+i).click();
+        })
+      });
+
+      $("input").change(function () {
+        let files=$(this)[0].files[0];//获取files对象
+        let index=parseInt(($(this).attr('name')).split("_")[1]);
+         //0.5为当前压缩比
+        $.compress(files,0.5).then((url)=>{
+          $('li').eq(index).css({"background-image": "url("+url+")"});
+		  //上传到服务器
+		  $.post('url',{base64:url},()=>{
+			
+		  })
+        })
+      })
+    })
+  })(jQuery)
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

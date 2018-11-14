@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>jQuery分类下拉选择搜索框代码</title>
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+  <div class="searchbox">
+    <div class="mod_select">
+        <div class="select_box">
+            <span class="select_txt">服装</span>
+            <span class="select-icon"></span>
+            <ul class="option">
+                <li>服装</li>
+                <li>电器</li>
+                <li>家用</li>
+            </ul>
+        </div>
+    </div>
+    <form action="" >
+        <input type="hidden" name="" value="服装" id="select_value">
+        <input type="text" name="" id="searchPlaceholder" class="import" placeholder="请输入服装名称">
+        <input type="submit" value="搜   索" class="btn-search">
+    </form>
+  </div>
+  <script src="js/jquery.min.js"></script>
+  <script>
+    $(function(){
+        $(".select_box").click(function(event){   
+            event.stopPropagation();
+            $(this).find(".option").toggle();
+            $(this).parent().siblings().find(".option").hide();
+        });
+        $(document).click(function(event){
+            var eo=$(event.target);
+            if($(".select_box").is(":visible") && eo.attr("class")!="option" && !eo.parent(".option").length)
+            $('.option').hide();                                    
+        });
+        $(".option li").click(function(){
+            var check_value=$(this).text();
+            var zlValue = $('.option li:eq(1)').html();
+            var bqValue = $('.option li:eq(2)').html();
+            $(this).parent().siblings(".select_txt").text(check_value);
+            $("#select_value").val(check_value);
+            if(check_value == zlValue) {
+                $('#searchPlaceholder').prop('placeholder','请输入电器名称');
+            }else if(check_value == bqValue) {
+                $('#searchPlaceholder').prop('placeholder','请输入家用名称');
+            }else {
+                $('#searchPlaceholder').prop('placeholder','请输入服装名称');
+            }
+        });
+    })
+  </script>
+
+ <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

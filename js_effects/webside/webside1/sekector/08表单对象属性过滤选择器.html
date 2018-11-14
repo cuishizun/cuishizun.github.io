@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>表单对象属性</title>
+    <!--   引入jQuery -->
+    <script src="../scripts/jquery-1.3.1.js" type="text/javascript"></script>
+
+    <script src="../scripts/assist.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/selectstyle.css" />
+    <style type="text/css">
+        /*body{
+         background-color:#59e9f6;
+        }*/
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //1、对表单内可用input赋值操作.
+            $("#btn1").click(function () {
+                $("#form1 input:enable").val("变化");
+                return false;
+            });
+            //2、对表单内不 可用input 赋值操作.
+            $("#btn2").click(function () {
+                $("#form1 input:disabled").val("不可用变化");
+                return false;
+            });
+
+            //3点击多选框时，找到索引值为0的div展示多选框选中的个数
+            //文字内容为（有n个多选框被选中了），且加粗展示
+            //使用:checked选择器，来操作多选框.
+       
+
+                countChecked();//页面默认加载的方法
+
+                $(":checkbox").click(countChecked);//点击checkbox的时候触发的方法
+      
+                //获取被选中的checkbox框的数量，加载到第一个div中
+                function countChecked()
+                {         
+                    var n = $("input:checked").length;
+                    $("div").eq(0).html("有" + n + "个被选择");
+                }
+
+
+            //4
+
+               $(":select").change(function () {
+                    var str = "";
+                    //匹配所有选中的option元素,each循环遍历出来 
+                    $("select option:selected").each(function () {
+                        str += $(this).text();
+                    
+                    });
+                    //放到一个字符串中
+                    $("div").eq(1).html(str + ",");
+                }).trigger("change");//默认的时候加载这个方法
+
+            //5
+
+
+        })
+    </script>
+</head>
+<body>
+    <h3> 表单对象属性过滤选择器.</h3>
+    <form id="form1" action="#">
+        <button type="reset">
+            重置所有表单元素
+        </button>
+        <br /><br />
+        <button id="btn1">
+            对表单内 可用input 赋值操作.
+        </button>
+        <button id="btn2">
+            对表单内 不可用input 赋值操作.
+        </button>
+        <br /><br />
+
+        可用元素：<input name="add" value="可用文本框" />  <br />
+        不可用元素：<input name="email" disabled="disabled" value="不可用文本框" /><br />
+        可用元素： <input name="che" value="可用文本框" /><br />
+        不可用元素：<input name="name" disabled="disabled" value="不可用文本框" /><br />
+        <br />
+        多选框：<br />
+        <input type="checkbox" name="newsletter" checked="checked" value="test1" />ADC
+        <input type="checkbox" name="newsletter" value="test2" />辅助
+        <input type="checkbox" name="newsletter" value="test3" />法师
+        <input type="checkbox" name="newsletter" checked="checked" value="test4" />打野
+        <input type="checkbox" name="newsletter" value="test5" />战士
+        //展示多选框选中的个数
+        <div></div>
+        <br /><br />
+        下拉列表ADC：<br />
+        <select name="test" multiple="multiple" style="height:100px">
+            <option>女警</option>
+            <option selected="selected">金克斯</option>
+            <option>EZ</option>
+            <option selected="selected">奥巴马</option>
+            <option>飞机</option>
+            <option>寒冰</option>
+         </select>
+
+                <br />
+                <br />
+                下拉列表辅助：
+                <br />
+        <select name="test2">
+            <option>宝石</option>
+            <option>风女</option>
+            <option selected="selected">机器人</option>
+            <option>唤潮鲛姬</option>
+            <option>众星之子</option>
+            <option>琴女</option>
+       </select>
+       <br /><br />
+       <div></div>
+     
+    </form>
+>
+</body>
+</html>

@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="UTF-8">  
+<title>原生JS点击小图弹出大图代码</title>
+
+<style>
+html,body,div,img,button{margin:0;padding:0;box-sizing:border-box;}
+img{border:0;}
+li{list-style:none;}
+#imgModule{display:none;}
+#imgDefault{cursor:pointer;}
+.imgItem{width:100px;height:80px;}
+.mask{background:#000;opacity:.8;filter:alpha(opacity=80);position:absolute;left:0;top:0;width:100%;height:100%;}
+.lightBoxContent{width:800px;height:530px;position:absolute;left:50%;top:50%;background:#fff;margin:-265px 0 0 -400px;}
+#imgLoader{width:32px;height:32px;position:absolute;left:50%;top:50%;margin:-16px 0 0 -16px;display:none;}
+#imgLight{width:800px;height:530px;-webkit-animation:change 1s;animation:change 1s;}
+#imgModule .btn{width:40px;height:50px;position:absolute;top:50%;margin-top:-25px;cursor:pointer;}
+.lightBoxSprite{background-image:url(images/imgIcons.png);background-repeat:no-repeat;}
+#lightBoxPrev{left:10px;background-position:2px center;}
+#lightBoxNext{right:10px;background-position:-42px center;}
+.closeBtn{width:35px;height:35px;background-position:-100px center;position:absolute;top:15px;right:15px;cursor:pointer;}
+.lightBoxPagination{position:absolute;left:0;bottom:50px;width:100%;text-align:center;}
+.lightBoxPagination span{display:inline-block;width:10px;height:10px;border:1px solid #fff;-webkit-border-radius:50%;border-radius:50%;margin-right:8px;}
+.lightBoxPagination span.current{background:#fff;}
+@keyframes change{
+    0%{opacity:0;}
+    100%{opacity:1;}
+}
+</style>
+
+</head>  
+<body>
+<center><br><br><br>
+<div id="imgDefault">
+    <img class="imgItem" data-src="images/tooopen_sy_209068589482.jpg" src="images/photoA.jpg">
+    <img class="imgItem" data-src="images/tooopen_sy_241631031241.jpg" src="images/photoB.jpg">
+    <img class="imgItem" data-src="images/tooopen_sy_241630585832.jpg" src="images/photoC.jpg">
+    <img class="imgItem" data-src="images/tooopen_sy_241629694524.jpg" src="images/photoD.jpg">
+</div>
+</center>
+
+<script>
+(function(){
+    var LightBox = function(options){
+        this.imgListParent = document.getElementById(options.imgListParent);   //图片列表的父元素
+        this.imgItemClass = options.imgItemClass;   //图片的className
+        this.idx = 0;  //图片的索引，初始值为0
+        this.isShowPage = options.isShowPage || false;    //是否显示分页，默认不显示
+        this.init();
+    };
+    //初始化
+    LightBox.prototype.init = function(){
+        this.renderDOM();
+        this.imgListClick();
+        this.nextBtnClick();
+        this.prevBtnClick();
+        this.closeBtnClick();
+    };
+    //渲染弹窗
+    LightBox.prototype.renderDOM = function(){
+        var imgModule = document.createElement("div");
+        imgModule.id = "imgModule";
+
+        var oHtml = "";
+        oHtml += '<div class="mask"></div>';
+        oHtml +=    '<div class="lightBox">';
+        oHtml +=        '<div class="lightBoxContent">';
+        oHtml +=            '<img src="images/loading.gif" alt="" id="imgLoader">';
+        oHtml +=            '<img alt="" id="imgLight">';
+        oHtml +=        '</div>';
+        oHtml +=        '<span class="btn lightBoxSprite" id="lightBoxPrev"></span>';
+        oHtml +=        '<span class="btn lightBoxSprite" id="lightBoxNext"></span>';
+        oHtml +=        '<span class="closeBtn lightBoxSprite" id="closeBtn"></span>';
+        oHtml +=        '<div class="lightBoxPagination" id="lightBoxPagination"></div>';
+        oHtml +=    '</div>';
+
+        imgModule.innerHTML = oHtml;
+        document.body.appendChild(imgModule);
+    };
+    //分页
+    LightBox.prototype.pagination = function(idx){
+        var imgList = this.getByClass(this.imgListParent, this.imgItemClass);
+        var pagination = document.getElementById("lightBoxPagination");
+        var page = "";
+
+        for(var i = 0; i < imgList.length; i++){
+            if(idx == i){
+                page += '<span class="current"></span>';
+            }else{
+                page += '<span></span>';
+            }            
+        }
+        if(this.isShowPage){
+            pagination.innerHTML = page;
+        }        
+    };
+    //点击图片弹出弹窗
+    LightBox.prototype.imgListClick = function(){
+        var imgList = this.getByClass(this.imgListParent, this.imgItemClass);
+        var imgModule = document.getElementById("imgModule");
+        var self = this;
+
+        for(var i = 0; i < imgList.length; i++){
+            imgList[i].index = i;
+
+            imgList[i].onclick = function(){
+                imgModule.style.display = "block";
+                var src = this.getAttribute("data-src");
+                self.idx = this.index;
+
+                self.imgLoad(src);
+                self.pagination(self.idx);
+            }
+        }
+    };
+    //上一张
+    LightBox.prototype.prevBtnClick = function(){
+        var prevBtn = document.getElementById("lightBoxPrev");
+        var self = this;
+
+        prevBtn.onclick = function(){
+            var imgList = self.getByClass(self.imgListParent, self.imgItemClass);
+            
+            self.idx--;
+
+            if(self.idx < 0){  
+                self.idx = imgList.length - 1;  
+            }
+
+            var src = imgList[self.idx].getAttribute("data-src");
+            self.imgLoad(src);
+            self.pagination(self.idx);
+        }
+    };
+    //下一张
+    LightBox.prototype.nextBtnClick = function(){
+        var nextBtn = document.getElementById("lightBoxNext");
+        var self = this;
+        
+        nextBtn.onclick = function(){
+            var imgList = self.getByClass(self.imgListParent, self.imgItemClass);
+
+            self.idx++;            
+
+            if(self.idx >= imgList.length){  
+                self.idx = 0;  
+            }
+
+            var src = imgList[self.idx].getAttribute("data-src");
+            self.imgLoad(src);
+            self.pagination(self.idx);
+        }
+    };
+    //图片预加载
+    LightBox.prototype.imgLoad = function(src, callback){
+        var imgLight = document.getElementById("imgLight");
+        var loader = document.getElementById("imgLoader");
+        loader.style.display = "block";
+        // imgLight.src = "";
+
+        var img = new Image();
+        img.onload = function(){
+            loader.style.display = "none";
+            imgLight.src = src;
+        };
+        img.src = src;
+    };
+    //关闭弹窗
+    LightBox.prototype.closeBtnClick = function(){
+        var closeBtn = document.getElementById("closeBtn");
+        var imgModule = document.getElementById("imgModule");
+        
+        closeBtn.onclick = function(){
+            imgModule.style.display = "none"; 
+        }
+    };
+    //封装获取元素函数
+    LightBox.prototype.getByClass = function(oParent, oClass){
+        var oEle = oParent.getElementsByTagName("*");
+        var oResult = [];
+
+        for(var i = 0; i < oEle.length; i++){
+            if(oEle[i].className == oClass){
+                oResult.push(oEle[i]);
+            }
+        }
+        return oResult;
+    };
+    window.LightBox = LightBox;
+})();
+
+new LightBox({
+    imgListParent: "imgDefault",
+    imgItemClass: "imgItem",
+    isShowPage: true
+});
+</script>
+
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>  
+</html>  

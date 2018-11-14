@@ -1,0 +1,40 @@
+/*****css-menu-01 styles*****/
+div#wrapper-menu{background-color:#f8db3a;}
+/*First of all you need to fix a width for your menu. Is necesary if you want center it, with margin negatives you can solve vertical centering and with margins auto for left and right you solve horizontal centering*/
+div#wrapper-menu ul#nav{
+	position:relative;
+	width:915px;/*this is the complete width of the menu*/
+	width:980px\9;/*hack for fix width in IE8 and below*/
+	height:55px;
+	margin-left:auto;
+	margin-right:auto;
+	top:50%;
+	margin-top:-27px;
+	}
+div#wrapper-menu ul#nav li{display:inline-block;float:left;width:auto;height:100px;margin-right:4px;}/*size for each list element*/
+div#wrapper-menu ul#nav li#item7{margin-left:10px;}/*special margin for cart option*/
+div#wrapper-menu ul#nav li.current{background:url(../images/black-arrow-current-navigation.png) no-repeat center 40px;}/*each li element in the html code that is assigned to the current class will put the arrow on the button when representing the active section*/
+div#wrapper-menu ul#nav li a{
+	display:inline-block;
+	width:auto;
+	height:40px;
+	text-decoration:none;
+	font-family:helvetica,arial,sans;
+	font-style:italic;
+	font-weight:normal;
+	font-size:1.5em;
+	letter-spacing:-1px;
+	line-height:40px;
+	text-align:center;
+	padding:0 20px 0 20px;
+	border-radius: 8px;/*Only for advanced browsers*/
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	}
+div#wrapper-menu ul#nav li#item7 a{font-size:1em;}
+div#wrapper-menu ul#nav li#item7 a:hover{background-color:#000;color:#ffe509;}
+div#wrapper-menu ul#nav li a:hover{color:#252525;background-color:#dec23d;}
+div#wrapper-menu ul#nav li a.current{color:#f8db3a;background-color:#252525;}/*to represent the active section you need to used the current class in list tag (li) and in the anchor tag (a), in both.*/
+div#wrapper-menu ul#nav li.last-child a{background-color:#222222;color:#f8db3a}
+div#wrapper-menu ul#nav li span{display:block;width:48px;height:18px;float:left;background:url(../images/icon-cart.png) center center #f8db3a;margin:10px 0 0 30px;}
+

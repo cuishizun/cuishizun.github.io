@@ -1,0 +1,18 @@
+body {
+            margin: 0;
+            padding: 0;
+            font-family: monospace;
+            background: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-449086.jpg') #000 no-repeat;
+            background-size: 100%;
+        }
+        #slogan {
+            text-align: center;
+            font-size: 36px;
+            margin-top: 20%;
+            color: #fff;
+        }
+        #slogan span { color: #ff0 }
+        #slogan span.selected {
+            background: #09f;
+            color: #fff;
+        }

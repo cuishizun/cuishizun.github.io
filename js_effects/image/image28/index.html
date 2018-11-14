@@ -1,0 +1,185 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS3商品图片网格布局动画特效</title>
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" /><!--CSS RESET-->
+<link rel="stylesheet" type="text/css" href="css/demo.css"><!--演示页面样式，使用时可以不引用-->
+<style type="text/css">
+.demo{padding:3em 0;}
+.product-grid{ text-align: center; }
+.product-grid .product-image{
+	overflow: hidden;
+	position: relative;
+	display:block;
+}
+.product-grid .product-image:before{
+	content: "";
+	background: rgba(0,0,0,0.02);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+}
+.product-grid .product-image img{
+	width: 100%;
+	height: auto;
+}
+.product-grid .pic-1{
+	opacity: 1;
+	transform: rotateY(0);
+	transition: all 0.5s ease-out 0s;
+}
+.product-grid:hover .pic-1{
+	opacity: 0;
+	transform: rotateY(-90deg);
+}
+.product-grid .pic-2{
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	transform: rotateY(-90deg);
+	transition: all 0.5s ease-out 0s;
+}
+.product-grid:hover .pic-2{
+	opacity: 1;
+	transform: rotateY(0deg);
+}
+.product-grid .discount{
+	width: 100%;
+	padding: 15px;
+	background: #e4f6ff;;
+	font-size: 18px;
+	font-weight: 700;
+	color: #000;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.product-grid .product-content{ padding: 15px 0; }
+.product-grid .title{
+	font-size: 20px;
+	font-weight: 600;
+	color: #000;
+	text-transform: capitalize;
+	margin: 0 0 5px 0;
+}
+.product-grid .price{
+	font-size: 16px;
+	font-weight: 600;
+	color: #d15f21;
+	margin-bottom: 5px;
+}
+.product-grid .price span{
+	display: inline-block;
+	color: #999;
+	text-decoration: line-through;
+	margin-right: 2px;
+}
+.product-grid .rating{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.product-grid .rating li{
+	display: inline-block;
+	font-size: 10px;
+	color: #ffc000;
+}
+@media only screen and (max-width:990px){
+	.product-grid{ margin-bottom: 30px; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="demo">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-sm-6">
+					<div class="product-grid">
+						<a href="#" class="product-image">
+							<img class="pic-1" src="images/img-1.jpg">
+							<img class="pic-2" src="images/img-2.jpg">
+							<div class="discount">20% Off</div>
+						</a>
+						<div class="product-content">
+							<h3 class="title">Jacket</h3>
+							<div class="price">
+								<span>$45.00</span>
+								$36.00
+							</div>
+							<ul class="rating">
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="product-grid">
+						<a href="#" class="product-image">
+							<img class="pic-1" src="images/img-3.jpg">
+							<img class="pic-2" src="images/img-4.jpg">
+							<div class="discount">25% Off</div>
+						</a>
+						<div class="product-content">
+							<h3 class="title">Shorts</h3>
+							<div class="price">
+								<span>$60.00</span>
+								$45.00
+							</div>
+							<ul class="rating">
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="far fa-star"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-4 col-sm-6">
+					<div class="product-grid">
+						<a href="#" class="product-image">
+							<img class="pic-1" src="images/img-5.jpg">
+							<img class="pic-2" src="images/img-6.jpg">
+							<div class="discount">35% Off</div>
+						</a>
+						<div class="product-content">
+							<h3 class="title">Women's Top</h3>
+							<div class="price">
+								<span>$80.00</span>
+								$52.00
+							</div>
+							<ul class="rating">
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="fas fa-star"></li>
+								<li class="far fa-star"></li>
+								<li class="far fa-star"></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div style="text-align:center;margin:-10px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

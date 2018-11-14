@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+	<title>ElementUI三级联动菜单代码</title>
+	<!--css类引用-->
+	<link rel="stylesheet" href="plugins/eleme-ui/index.css" />
+
+</head>
+
+<body>
+	<div id="myVue">
+		<el-form ref="form" :model="form" label-width="100px">
+			<el-form-item label="">
+				一.此地区插件基于element-ui编写
+			</el-form-item>
+			<el-form-item label="">
+				二.此地区插件功能如下：1.可以查询搜索 2.可以清楚输入框内的记录
+			</el-form-item>
+			<el-form-item label="所在地区：">
+				<el-cascader :options="CityInfo" v-model="form.selectedOptions" :change-on-select="true" :clearable="true"
+				 :filterable="true" @change="handleChange">
+				</el-cascader>
+				<span>所选地区：{{form.city | myAddressCity}}{{form.erae | myAddressErae}}{{form.minerae | myAddressMinerae}}</span>
+			</el-form-item>
+		</el-form>
+	</div>
+	<!--js类引用-->
+	<script type="text/javascript" src="plugins/vue/vue.min.js"></script>
+	<script type="text/javascript" src="plugins/eleme-ui/index.js"></script>
+	<script type="text/javascript" src="plugins/city-picker/city-data.js"></script>
+	<script type="text/javascript" src="js/CivilMilitaryIntegration/ShoppingCart.js"></script>
+</body>
+
+</html>

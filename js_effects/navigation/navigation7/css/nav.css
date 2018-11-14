@@ -1,0 +1,300 @@
+/*-- Reset-Code --*/
+
+body {
+	padding: 0;
+	margin: 0;
+	background: #FFF;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body a {
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	-ms-transition: 0.5s all;
+	text-decoration: none;
+}
+
+body a:hover {
+	text-decoration: none;
+}
+
+body a:focus,
+a:hover {
+	text-decoration: none;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+/*-- //Reset-Code --*/
+
+/*-- Index-Page-Styling --*/
+
+/*-- Navbar --*/
+.navbar-inverse {
+	background-color: transparent;
+	border: none;
+	margin-bottom: 0;
+}
+
+.navbar-brand {
+	padding: 0;
+}
+
+a.logo-w3l {
+	font-family: 'Neuton', serif;
+	font-size: 60px;
+	font-weight: 700;
+	color: #FFF;
+	letter-spacing: 2px;
+	line-height: 1;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #FFF;
+}
+
+ul.nav {
+	margin-top: 10px;
+}
+
+a.cross-effect {
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #EEE;
+}
+
+.cross-effect {
+	position: relative;
+	z-index: 1;
+}
+
+.cross-effect a {
+	-webkit-transition: color 0.3s;
+	-moz-transition: color 0.3s;
+	transition: color 0.3s;
+}
+
+.cross-effect a::before,
+.cross-effect a::after {
+	position: absolute;
+	width: 100%;
+	left: 0;
+	top: 50%;
+	height: 2px;
+	margin-top: -1px;
+	background: #EEE;
+	content: '';
+	z-index: -1;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	-moz-transition: -moz-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+	pointer-events: none;
+}
+
+.cross-effect a::before {
+	-webkit-transform: translateY(-20px);
+	-moz-transform: translateY(-20px);
+	transform: translateY(-20px);
+}
+
+.cross-effect a::after {
+	-webkit-transform: translateY(20px);
+	-moz-transform: translateY(20px);
+	transform: translateY(20px);
+}
+
+.cross-effect a:hover,
+.cross-effect a:focus {
+	color: #fff;
+}
+
+.cross-effect a:hover::before,
+.cross-effect a:hover::after,
+.cross-effect a:focus::before,
+.cross-effect a:focus::after {
+	opacity: 0.7;
+}
+
+.cross-effect a:hover::before {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.cross-effect a:hover::after {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 991px) {
+	.container {
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	a.cross-effect {
+		letter-spacing: 0;
+	}
+}
+
+@media screen and (max-width: 853px) {
+	a.logo-w3l {
+		font-size: 50px;
+	}
+}
+
+
+@media screen and (max-width: 800px) {
+	.nav>li>a {
+		padding: 10px 10px;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	a.logo-w3l {
+		font-size: 48px;
+		letter-spacing: 1px;
+	}
+
+	ul.nav {
+		margin-top: 8px;
+	}
+}
+
+@media screen and (max-width: 767px) {
+
+	.logo {
+		margin-left: 0;
+	}
+
+	.navbar-toggle {
+		margin-right: 0;
+		margin-bottom: 0;
+		background-color: #EEE;
+		border: 1px solid rgba(0, 0, 0, 0.75);
+	}
+
+	.navbar-inverse .navbar-toggle .icon-bar {
+		background-color: #000;
+	}
+
+	.navbar-inverse .navbar-toggle:hover,
+	.navbar-inverse .navbar-toggle:focus {
+		background-color: #FFF;
+	}
+
+	.container>.navbar-header,
+	.container-fluid>.navbar-header,
+	.container>.navbar-collapse,
+	.container-fluid>.navbar-collapse {
+		margin: 0;
+		padding: 0;
+		border: none;
+		box-shadow: none;
+	}
+
+	ul.nav {
+		margin: 0;
+		float: right;
+		width: 100%;
+		text-align: center;
+		background-color: #000;
+	}
+
+	.nav>li {
+		display: inline-block;
+		margin: 20px 0;
+	}
+
+	.nav>li>a {
+		padding: 10px 20px;
+	}
+}
+
+@media screen and (max-width: 667px) {
+
+	.logo-w3l h1 a {
+		font-size: 55px;
+		letter-spacing: 3px;
+	}
+
+	.nav>li>a {
+		padding: 10px 18px;
+	}
+
+	.container {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	a.logo-w3l {
+		font-size: 50px;
+		margin-top: -3px;
+	}
+
+	.nav>li>a {
+		padding: 10px 16px;
+	}
+}
+
+
+@media screen and (max-width: 603px) {
+	ul.nav {
+		width: 50%;
+	}
+
+	.nav>li {
+		display: block;
+		margin: 20px auto;
+		width: 40%;
+	}
+}
+
+@media screen and (max-width: 568px) {
+	ul.nav {
+		width: 60%;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	a.logo-w3l {
+		font-size: 35px;
+		margin-top: 7px;
+	}
+
+	.nav>li {
+		width: 50%;
+	}
+
+	.nav>li>a {
+		padding: 5px 15px;
+	}
+}
+
+@media screen and (max-width: 384px) {
+	ul.nav {
+		width: 70%;
+	}
+}
+
+@media screen and (max-width: 320px) {
+	ul.nav {
+		width: 100%;
+	}
+}
+
+/*-- //Responsive-Code --*/

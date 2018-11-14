@@ -1,0 +1,42 @@
+﻿
+<input type="checkbox" /><label>check box</label>
+<input type="checkbox" id="checkbox_a1" class="chk_1" checked /><label for="checkbox_a1"></label>
+<input type="checkbox" id="checkbox_a2" class="chk_1" /><label for="checkbox_a2"></label>
+<input type="checkbox" id="checkbox_a3" class="chk_1" /><label for="checkbox_a3"></label>
+<input type="checkbox" id="checkbox_a4" class="chk_1" /><label for="checkbox_a4"></label>
+
+<style>  
+.chk_1{
+    display: none;
+}
+ 
+/*******STYLE 1*******/
+.chk_1 + label {
+	background-color: #FFF;
+	border: 1px solid #b5b5b5;
+	padding: 9px;
+	display: inline-block;
+	position: relative;
+	margin-right: 30px;
+}
+
+/*.chk_1:checked + label {
+	background-color: #FFF;
+	border: 1px solid #b5b5b5;
+	color: #333;
+}*/
+
+.chk_1:checked + label:after {
+	content: '\2713';
+	position: absolute;
+	top: -10px;
+	left: 0px;
+	color: red;
+	width: 100%;
+	text-align: center;
+	font-size: 1.4em;
+	padding: 1px 0 0 0;
+	vertical-align: text-top;
+}
+
+</style>

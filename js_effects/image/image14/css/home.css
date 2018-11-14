@@ -1,0 +1,222 @@
+.aui-rotate-content {
+    width: 1100px;
+    margin: 0 auto;
+}
+
+.function-wrapper {
+    position: relative;
+    padding: 10px 0;
+}
+
+.function-wrapper .function-content {
+    max-width: 1200px;
+}
+
+.aui-rotate-left {
+    width: 290px;
+}
+
+.function-wrapper .aui-title-subtitle {
+    font-size: 28px;
+    letter-spacing: 1px;
+    color: #ff6b6b;
+    margin: 0;
+    padding: 80px 0 100px 0;
+    font-weight: normal;
+    height: 40px;
+    line-height: 40px;
+}
+
+.function-wrapper .aui-info .aui-title-wrapper {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.function-wrapper .title {
+    font-size: 26px;
+    letter-spacing: 4px;
+    margin: 0;
+    height: 50px;
+    font-weight: normal;
+    line-height: 50px;
+}
+
+.function-wrapper .aui-info .title {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.function-wrapper .aui-info .title.mui-enter {
+    transition-duration: 250ms;
+    transition-timing-function: linear;
+    transition-duration: 0.5s;
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.function-wrapper .aui-info .title.first {
+    position: relative;
+}
+
+.function-wrapper .aui-info .title.mui-enter.mui-enter-active {
+    opacity: 1;
+}
+
+.function-wrapper .aui-info .aui-text-wrapper {
+    position: relative;
+    margin-bottom: 80px;
+    height: 84px;
+}
+
+.function-wrapper .aui-info .desc {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.function-wrapper .aui-info .desc.mui-enter {
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.function-wrapper .aui-info .desc.first {
+    position: relative;
+}
+
+.function-wrapper .aui-info .desc.mui-enter.mui-enter-active {
+    opacity: 1;
+}
+
+.function-wrapper .desc {
+    font-size: 14px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+    color: #999;
+    margin: 0;
+    font-weight: normal;
+}
+
+.function-wrapper .aui-info .desc.mui-enter {
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.function-wrapper .control {
+    font-size: 24px;
+}
+
+.aui-rotate-item-fr {
+    width: 400px;
+}
+
+.function-wrapper .function-iphone {
+    width: 300px;
+    padding-top: 0px;
+    position: relative;
+    z-index: 3;
+}
+
+.function-wrapper .function-screen {
+    position: absolute;
+    width: 179px;
+    top: 50%;
+    transform: translateY(-50%) translateX(30px);
+    transition: transform 1s;
+    z-index: 1;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+.function-wrapper .carousel.present-screen-1 .screen-1 {
+    transform: translateY(-50%) translateX(-240px) scale(1.29);
+    z-index: 2;
+}
+
+.function-wrapper .carousel.present-screen-1 .screen-3 {
+    transform: translateY(-50%) translateX(290px)
+}
+
+.function-wrapper .carousel.present-screen-2 .screen-2 {
+    transform: translateY(-50%) translateX(-240px) scale(1.29);
+    z-index: 2;
+}
+
+.function-wrapper .carousel.present-screen-2 .screen-1 {
+    transform: translateY(-50%) translateX(290px)
+}
+
+.function-wrapper .carousel.present-screen-3 .screen-3 {
+    transform: translateY(-50%) translateX(-238px) scale(1.29);
+    z-index: 2;
+}
+
+.function-wrapper .carousel.present-screen-3 .screen-2 {
+    transform: translateY(-50%) translateX(290px)
+}
+
+.feature-wrapper {
+    position: relative;
+    background-color: #f4f6fb;
+    line-height: 0
+}
+
+.feature-box {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 5%;
+    width: 60%;
+    background-color: #fff;
+    line-height: 1.15;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    border-radius: 4px;
+    overflow: hidden
+}
+
+.aui-icon {
+    width: 30px;
+    height: 30px;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: block;
+    float: left;
+    cursor: pointer;
+    opacity: 0.6;
+    margin-right: 80px;
+}
+
+.aui-icon:hover {
+    opacity: 1;
+}
+
+.aui-icon-arrow-fl {
+    background-image: url("../img/row-left.png");
+}
+
+.aui-icon-arrow-fr {
+    background-image: url("../img/row-right.png");
+}
+
+.au-border-bottom {
+    width: 70px;
+    border-top: 3px solid #ed4040;
+    margin-bottom: 20px;
+}
+
+.aui-icon-arrow-fl:hover {
+    background-image: url("../img/row-left-h.png");
+}
+
+.aui-icon-arrow-fr:hover {
+    background-image: url("../img/row-right-h.png");
+}
+
+.aui-rotate-content .aui-module {
+    float: left;
+}

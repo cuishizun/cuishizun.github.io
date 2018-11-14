@@ -1,0 +1,139 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery+CSS3下划线动画导航特效</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #1A1E23;
+  font-family: "Lato", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+nav {
+  position: relative;
+  padding-bottom: 12px;
+}
+nav .line {
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  margin: 10px 0 0 0;
+  background: #FF1847;
+}
+nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+nav ul li {
+  margin: 0 40px 0 0;
+  opacity: 0.4;
+  transition: all 0.4s ease;
+}
+nav ul li:hover {
+  opacity: 0.7;
+}
+nav ul li.active {
+  opacity: 1;
+}
+nav ul li:last-child {
+  margin-right: 0;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  font-size: 14px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50vh;
+}
+</style>
+
+</head>
+<body>
+<nav>
+  <ul>
+    <li class="active"><a href="">网站首页</a></li>
+    <li><a href="">关于我们</a></li>
+    <li><a href="">产品介绍</a></li>
+  </ul>
+</nav>
+
+<script>
+var nav = $('nav');
+var line = $('<div />').addClass('line');
+
+line.appendTo(nav);
+
+var active = nav.find('.active');
+var pos = 0;
+var wid = 0;
+
+if(active.length) {
+  pos = active.position().left;
+  wid = active.width();
+  line.css({
+    left: pos,
+    width: wid
+  });
+}
+
+nav.find('ul li a').click(function(e) {
+  if(!$(this).parent().hasClass('active')) {
+    e.preventDefault();
+
+    var _this = $(this);
+
+    nav.find('ul li').removeClass('active');
+
+    var position = _this.parent().position();
+    var width = _this.parent().width();
+
+    if(position.left >= pos) {
+      line.animate({
+        width: ((position.left - pos) + width)
+      }, 300, function() {
+        line.animate({
+          width: width,
+          left: position.left
+        }, 150);
+        _this.parent().addClass('active');
+      });
+    } else {
+      line.animate({
+        left: position.left,
+        width: ((pos - position.left) + wid)
+      }, 300, function() {
+        line.animate({
+          width: width
+        }, 150);
+        _this.parent().addClass('active');
+      });
+    }
+
+    pos = position.left;
+    wid = width;
+  }
+});
+</script>
+
+</body>
+</html>
+

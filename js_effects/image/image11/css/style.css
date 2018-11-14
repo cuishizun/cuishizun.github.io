@@ -1,0 +1,199 @@
+@charset "utf-8";
+
+/*
+================================
+Import CSS and Google Fonts
+================================
+*/
+
+@import "../css/font-awesome.min.css";
+
+/*
+================================
+Gallery
+================================
+*/
+
+.gallery {
+	background: #fff;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.gallery .heading {
+	margin-bottom: 50px;
+}
+
+.gallery .heading h2 {
+	font-size: 30px;
+	text-align: center;
+}
+
+.gallery .heading p {
+	font-size: 16px;
+	text-align: center;
+	color: #353535;
+}
+
+ul.gallery-menu {
+	text-align: center;
+	margin-bottom: 25px;
+}
+
+ul.gallery-menu li {
+	display: inline-block;
+	margin-right: -4px;
+	padding: 6px 34px;
+	cursor: pointer;
+	border: 2px solid #efeded;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+	border-radius: 6px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 14px;
+	background: #efeded;
+	color: #f57c05;
+}
+
+ul.gallery-menu li:hover {
+	border: 2px solid #f57c05;
+	background: #f57c05;
+	color: #fff!important;
+}
+
+ul.gallery-menu li.filter.active {
+	border: 2px solid #f57c05;
+	background: #f57c05;
+	color: #fff!important;
+}
+
+ul.gallery-menu li {
+	border-radius: 0;
+}
+
+ul.gallery-menu li.filter:nth-of-type(1) {
+	border-radius: 0;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-moz-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+ul.gallery-menu li.filter:nth-last-of-type(1) {
+	border-radius: 0;
+	-webkit-border-top-right-radius: 6px;
+	-moz-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	-moz-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.gallery .mix {
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-bottom: 10px;
+	display: none;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-webkit-transform: translate3d(0,0,0);
+	-moz-transform: translate3d(0,0,0);
+	-ms-transform: translate3d(0,0,0);\
+}
+
+.gallery .mix .content-box {
+	position: relative;
+}
+
+.gallery .mix img {
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+	-webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+}
+
+.gallery .mix .inner {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+}
+
+.gallery .inner .overlay {
+	position: absolute;
+	display: inline-block;
+	vertical-align: middle;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background-color: #353535;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: opacity 0.4s ease-in-out;
+	-o-transition: opacity 0.4s ease-in-out;
+	transition: opacity 0.4s ease-in-out;
+}
+.gallery .inner:hover .overlay {
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+.gallery .inner .icons {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-left: -40px;
+	margin-top: -20px;
+	display: inline-block;
+	vertical-align: middle;
+	width: auto;
+	height: 36px;	
+	z-index: 200;
+	-webkit-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.gallery .inner .icons-inner {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+.gallery .inner .icons-inner a {
+	background: #f57c05;
+	color: #fff;
+	width: 40px;
+	height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    display: inline-block;
+	opacity: 0;
+	filter: alpha(opacity=0);
+	-webkit-transition: all 0.6s ease;
+	-o-transition: all 0.6s ease;
+	transition: all 0.6s ease;
+}
+.gallery .inner .icons-inner a:hover {
+	background: #353535;
+}
+.gallery .inner .icons-inner a i {
+	font-size: 16px;
+}
+.gallery .inner:hover .icons-inner a {
+	opacity: 1;
+	filter: alpha(opacity=1);
+}

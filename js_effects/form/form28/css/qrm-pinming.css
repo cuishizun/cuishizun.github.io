@@ -1,0 +1,133 @@
+
+.clearfix:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.clearfix{zoom:1}
+ul,li{
+    list-style:none;
+}
+.qrm-input{
+    outline: none;
+    border:none;
+    height: 30px;
+}
+
+.qrm-pinming{
+    height: 38px;
+    line-height: 40px;
+    border:1px solid #dddddd;
+    position: relative;
+    width: 385px;
+    background-image: url("../images/qrm-arrow-down.png");
+    background-repeat: no-repeat;
+    background-position: 363px;
+}
+.qrm-pinming:hover{
+    cursor: pointer;
+}
+.qrm-pinming input:hover{
+    cursor: pointer;
+}
+.qrm-pinming-panel{
+    position: absolute;
+    top: 37px;
+    left: -1px;
+    z-index: 99999;
+    width: 540px;
+    height: 210px;
+    border: 1px solid #ee7700;
+    background: #ffffff;
+}
+.qrm-border{
+    float: left;
+    width: 25%;
+    height: 208px;
+    overflow-y: scroll;
+    /*margin-left: 5px;*/
+}
+.qrm-lev{
+    float: left;
+    width: 95%;
+    margin:0;
+    padding:0;
+    font-size: 12px;
+}
+.qrm-lev>li{
+    width: 100%;
+    position: relative;
+    display: block;
+    padding-left: 4px;
+}
+.qrm-lev>li:hover{
+    background: #ff9022;
+    color: #ffffff;
+}
+
+.qrm-arrow-right{
+    display: inline-block;
+    width: 4px;
+    height: 7px;
+    background: url("../images/qrm-arrow-right.png") no-repeat;
+    position: absolute;
+    right: 5px;
+    top: 12.5px;
+}
+
+.qrm-lev-1>li.active{
+    background: #ff9022;
+    color: #ffffff;
+}
+.qrm-lev-2>li.active{
+    background: #ff9022;
+    color: #ffffff;
+}
+.qrm-lev-3>li.active{
+    background: #ff9022;
+    color: #ffffff;
+}
+.qrm-lev-4>li.active{
+    background: #ff9022;
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

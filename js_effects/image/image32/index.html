@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery关联店面查询表单代码</title>
+
+<link href="css/layout.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+</head>
+<body>
+<!--营销网络开始-->
+<div class="std_cont">
+	<div class="std_topbox">
+		<span class="sp01">店铺查询</span>
+		<input type="text" id="txtprovince" style="display:none;" />
+		<input type="text" id="txtcity" style="display:none;" />
+		<select id="province" name="province" class="std_se_01" onchange="cityName(this.selectedIndex);"></select>
+		<select id="city" name="city" class="std_se_01" onchange="citychange(this.value);"></select>
+		<input type="button" id="btnSearchData" value="搜索" class="std_search" />
+	</div>
+	<div class="std_infobox">
+		<i class="i01"></i>
+		<div class="std_box01">
+				<div class="std_xgbox">
+					<ul>
+						<li><img src="images/2015080614475855.png" width="990" height="557" /></li>
+						<li><img src="images/2015080614392953.jpg" width="990" height="557" /></li>
+						<li><img src="images/2015080614400320.jpg" width="990" height="557" /></li>
+						<li><img src="images/2015080614404293.jpg" width="990" height="557" /></li>
+					</ul>
+				</div>
+				<span class="std_left_span"></span>
+				<span class="std_right_span"></span>
+				<div class="std_icon"></div>
+			</div>
+		<div class="std_list">
+				<ul id="dataContent">
+					<li>
+						<a href=""><h5>福建省厦门市某某某连锁企业</h5></a>
+						<p>地址：福建省厦门市莲前街道</p>
+						<p>电话：13800138000</p>
+						<p>传真：</p>
+					</li>
+					<li>
+						<a href=""><h5>福建省厦门市某某某连锁企业</h5></a>
+						<p>地址：福建省厦门市莲前街道</p>
+						<p>电话：13800138000</p>
+						<p>传真：</p>
+					</li>
+					<li>
+						<a href=""><h5>福建省厦门市某某某连锁企业</h5></a>
+						<p>地址：福建省厦门市莲前街道</p>
+						<p>电话：13800138000</p>
+						<p>传真：</p>
+					</li>
+					<li>
+						<a href=""><h5>福建省厦门市某某某连锁企业</h5></a>
+						<p>地址：福建省厦门市莲前街道</p>
+						<p>电话：13800138000</p>
+						<p>传真：</p>
+					</li>
+					<li>
+						<a href=""><h5>福建省厦门市某某某连锁企业</h5></a>
+						<p>地址：福建省厦门市莲前街道</p>
+						<p>电话：13800138000</p>
+						<p>传真：</p>
+					</li>
+					<li>
+						<a href=""><h5>福建省厦门市某某某连锁企业</h5></a>
+						<p>地址：福建省厦门市莲前街道</p>
+						<p>电话：13800138000</p>
+						<p>传真：</p>
+					</li>
+				</ul>
+			</div>
+	</div>
+</div>
+<!--营销网络结束-->
+
+<script type="text/javascript" src="js/layout.js"></script>
+<script type="text/javascript" src="js/diqu.js"></script>
+<script type="text/javascript" src="js/LocalStore.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

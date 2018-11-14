@@ -1,0 +1,69 @@
+/*****jquery-menu-05 styles*****/
+div#wrapper-menu{background:url(../images/bg-menu-jquery-05.jpg) left repeat-x #d7d7d7;}
+div#wrapper-menu div#claim{position:absolute;left:50%;margin-left:-250px;top:50%;margin-top:-90px;}
+div#wrapper-menu ul.side-nav {
+	float: left;
+	width: 315px;
+	height:235px;
+	list-style: none;
+	margin:10px 0 0 5%;
+	}
+
+div#wrapper-menu ul.side-nav li {
+	position: relative;
+	width:153px;
+	height: 44px;
+	margin-bottom:2px;
+	#margin-bottom:-2px;
+	}
+
+div#wrapper-menu ul.side-nav li a{
+	position: relative;
+	display: block;
+	width:153px;
+	height: 44px;
+	background:url(../images/bg-btns-nav-jquery-menu-05.png) no-repeat top;
+	font-family:Georgia, serif;
+	font-size:1em;
+	font-style:italic;
+	font-weight:normal;
+	letter-spacing:-1.2px;
+	color: #616161;
+	line-height:44px;
+	text-align:left;
+	text-indent:15px;
+	text-decoration: none;
+	z-index: 2; /*with this parameter we allow the pop up will appear underneath of each option*/
+	}
+
+div#wrapper-menu ul.side-nav li a:hover {
+	background:url(../images/bg-btns-nav-jquery-menu-05.png) no-repeat bottom;
+	color:#FFF;
+	height: 44px;
+	}
+	
+div#wrapper-menu ul.side-nav li div{
+	visibility:hidden;
+	position: absolute;
+	margin:0px;
+	top: 0px;
+	left: 0px;
+	width: 225px;
+	height:43px;
+	font-size: 0.5em;
+	}
+div#wrapper-menu ul.side-nav li div.blue{background: url(../images/bg-btns-slide-hover-blue.png) no-repeat center;color:#035d70;}
+div#wrapper-menu ul.side-nav li div.magenta{background: url(../images/bg-btns-slide-hover-magenta.png) no-repeat center;color:#920052;}
+div#wrapper-menu ul.side-nav li div p {
+	margin: 0px;
+	width:225px;
+	height: 44px;
+	font-family:Georgia, serif;
+	font-size:1.7em;
+	font-style:italic;
+	font-weight:normal;
+	letter-spacing:-0.2px;
+	line-height:44px;
+	text-align:center;
+	text-indent:10px;
+	}

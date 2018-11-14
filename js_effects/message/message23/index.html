@@ -1,0 +1,170 @@
+﻿<html>
+<head>
+<title>jQuery仿QQ音乐弹幕愿望代码</title>
+<meta charset="UTF-8">
+
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/swiper.min.js" type="text/javascript"></script>
+
+<link href="js/swiper.min.css" rel="stylesheet" type="text/css">
+<style>
+	#audio_btn{
+		position:absolute;
+		top:0px;
+		left:0px;
+		z-index:999999;
+	}
+	#reply-write{
+		display: block;
+		width: 100%;
+		border: none;
+		font-size: 1em;
+		line-height: 20px;
+		margin: 0;
+		padding: 0.3em;
+		resize: none;
+		font-family: inherit;
+		color: inherit;
+		box-sizing: border-box;
+		border:1px solid #FE0002;
+		border-radius:4px 0 0 4px;
+	}
+	.send-btn {
+		float: left;
+	}
+	#conts p{
+		display:inline-block;
+		padding:3px 0px 3px 0px;
+		margin:0px;
+	}
+
+	.dm .d_screen 
+	.d_del{width:38px;height:38px;background:#600;display:block;text-align:center;line-height:38px;
+		   text-decoration:none;font-size:20px;color:#fff;border-radius:19px;border:1px solid #fff;position:absolute;top:10px;right:20px;z-index:3;display:none;}
+	.dm .d_screen .d_del:hover{background:#f00;}
+	.dm .d_screen .d_mask{width:255px;height:200px;position:absolute;top:0;left:0;opacity:0.5;
+						  filter:alpha(opacity=50) ;z-index:1;}
+	.dm .d_screen .d_show{position: relative;z-index:2;}
+	.dm .d_screen .d_show div{color:#fff; background:rgba(1,1,1,.4);border-radius:5px; margin:5px; }
+	#showmeg p{
+		font-weight:bold;
+		text-align:center;
+	}
+	.d_show div{
+		width:230px;font-size:12px;color:#fff; line-height:20px;
+	}
+	.d_show img{width:20px; height:20px;border-radius:50%; padding:2px;}
+	.d_show p{
+		text-overflow:ellipsis	;
+	}
+#audio_btn{
+		position:absolute;
+		top:0px;
+		left:0px;
+		z-index:999999;
+	}
+.NYwishes{width:255px; height:300px; position:fixed; bottom:0; right:0; background:rgba(0,0,0,.6);}
+.NYwishes h2{ margin:5px 0; font-family:"微软雅黑"; font-size:18px; text-align:center; color:#fff;}
+.NYwishes .swiper-container{ height:250px;}
+#conts{margin:0 auto ;padding-left:2%;padding-right:2%;height:280px;}
+.NYwishes .send{position: absolute;left:0%;bottom:0px;height:40px;width:100%;z-index:99999;}
+.NYwishes .send .input{width:155px;;float:left;margin-left:5%;}
+.NYwishes .send-btn a{background-color:#FE0000;color:#fff;width:80px;height:30px;display: inline-block;text-align: center;line-height:30px;cursor:pointer; border-radius:0 4px 4px 0;}
+</style>
+
+</head>
+<body style="padding:0px;margin:0px;" > 
+<div class="NYwishes">
+<h2>新年愿望墙</h2>
+<div class="swiper-container">
+	<div  id="conts"> 
+		<div class="dm">
+			<!--d_screen start-->
+			<div class="d_screen">
+				<div class="d_mask"></div>
+				<div class="d_show">
+					<div></div>
+                    <div></div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div> 
+<div class="send">
+			<div class="input">
+				<input id="reply-write" name="content" type="text" value="" placeholder="说出你的愿望" >
+			</div>
+			<div class="send-btn" >
+				<a onClick="send_reply2()">发送</a>
+			</div>
+	</div>
+</div>		
+<script>
+
+function send_reply2() {
+var content = $("#reply-write").val();
+if ($.trim(content) == "") {
+	alert("亲，请说出你的新年愿望！");
+	return false;
+}
+	var text=$("#reply-write").val();
+	input(text)
+	$("#reply-write").val("");
+   	init_screen();  
+   	if($(".d_show").height()>180){
+		$($(".d_show").children("div").get(0)).toggle(1000);
+		$($(".d_show").children("div").get(0)).remove();
+	}
+}
+$(function(){
+	var date=[{'id':1,'val':'A5源码'},{'id':2,'val':'新年花枝俏'},{'id':3,'val':'俏也不争春'},{'id':4,'val':'只报福来报'},{'id':4,'val':'冬雪静静飘'},{'id':4,'val':'祝福悄悄到'},{'id':4,'val':'快乐在你身边绕'},{'id':4,'val':'好运相伴不会少'},{'id':4,'val':'sc.chinaz.com'}];
+	var i=0;
+	setInterval(function(){
+		if($(".d_show").height()<100){
+			if(i<date.length){
+				input(date[i].val)
+				i++;
+			}else{
+				i=0	
+				input(date[i].val)
+				i++;
+			}
+		}else{
+			init_screen();
+			$($(".d_show").children("div").get(0)).remove();
+			if(i<date.length){
+				input(date[i].val)
+				i++;
+			}else{
+				i=0	
+				input(date[i].val)
+				i++;
+			}
+		}
+	},1000);
+	
+	$("#reply-write").keyup(function(ev){
+		var ev=ev||event;
+		if(ev.keyCode==13){
+			send_reply2();
+		}
+	});
+})
+function init_screen(){
+	$(".d_show").find("div").show().each(function () {
+		setInterval(function(){
+		 $($(".d_show").children("div").get(0)).toggle(1000);
+		},1000);
+	});
+}	
+function input(val){
+	var div=$("<div><img src='bg.png'>"+val+"</div>");
+	$(".d_show").append(div.fadeIn(1000));
+}
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

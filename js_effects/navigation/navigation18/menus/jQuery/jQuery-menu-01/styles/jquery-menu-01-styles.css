@@ -1,0 +1,18 @@
+/*****jquery-menu-01 styles*****/
+div#wrapper-menu{z-index: 0;}
+div#wrapper-menu ul#nav{position:relative;width:900px;height:185px;margin-left: auto;margin-right:auto;top:50%;margin-top:-92px;}
+div#wrapper-menu ul#nav li{display:block;float:left;width:auto;height:185px;margin-left:30px;line-height:185px;}
+div#wrapper-menu ul#nav li span{display:block; position:absolute;}
+/*Next lines manages span hidden position for each menu. If you change menu size you´ll need change this values. In addition is possible that you may need to modify the images from the psd file*/
+div#wrapper-menu ul#nav li#item1 span{left:29px;_left:60px;top:10px;z-index:-1;}
+div#wrapper-menu ul#nav li#item2 span{left:184px;_left:215px;top:0px;z-index: -1;}
+div#wrapper-menu ul#nav li#item3 span{left:424px;_left:450px;top:-2px;z-index:-1;}
+div#wrapper-menu ul#nav li#item4 span{left:660px;_left:685px;top:-1px;z-index:-1;}
+/*if it is the active section the background image (from the span.hidden) option remains fixed*/
+div#wrapper-menu ul#nav li.current-m1{background:url(../images/home-big-ico-current.gif) center 10px no-repeat;z-index:5;}
+div#wrapper-menu ul#nav li.current-m2{background:url(../images/who-big-ico-current.gif) center 0px no-repeat;z-index:5;}
+div#wrapper-menu ul#nav li.current-m3{background:url(../images/what-big-ico-current.gif) center -2px no-repeat;z-index:5;}
+div#wrapper-menu ul#nav li.current-m4{background:url(../images/hello-big-ico-current.gif) center -1px no-repeat;z-index:5;}
+div#wrapper-menu ul#nav li a{text-decoration:none;font-size:3em;letter-spacing:-3px;word-spacing:-2px;color:#FFF;z-index:10;}
+div#wrapper-menu ul#nav li a:hover{color:#FFF;}
+div#wrapper-menu ul#nav li a.current{color:#1c7e6a;}

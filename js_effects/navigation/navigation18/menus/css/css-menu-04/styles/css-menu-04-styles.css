@@ -1,0 +1,36 @@
+/*****css-menu-04 styles*****/
+div#wrapper-menu{background-color:#e4e4e4;}
+div#wrapper-menu ul#nav{
+	position:relative;
+	display:block;
+	width:335px;
+	height:31px;
+	margin-left:auto;
+	margin-right:auto;
+	top:50%;
+	margin-top:-15px;
+/*playing with this technique (sprites images) you can set the entire image in 'ul' element and after in each 'a' element to move it for simulate the hover effect*/
+	background:url(../images/sprite-menu.png) no-repeat;/*this is the entire image with all the icons*/
+}
+div#wrapper-menu ul#nav li{display:block;float:left;width:32px;height:31px;margin:0 35px 0 0;}
+div#wrapper-menu ul#nav li a{display:block;text-indent:-9999px;width:32px;height:31px;text-decoration:none;}
+/*this span contains the hidden title for each option*/
+div#wrapper-menu ul#nav li a span{
+	position:absolute;
+	display:none;
+	text-indent:0px;
+	text-decoration:none;
+	top:-25px;
+	margin-left:-4px;
+	font-size:1em;
+	font-family:Georgia,serif;
+	font-style:italic;
+	}
+div#wrapper-menu ul#nav li a:hover span{display:block;}
+/*next lines positioning in hover event each option. Method consist in moving the sprite image in background anchor element*/
+/*icon set is for free distribution and i found it in --> http://www.tutorial9.net/resources/108-mono-icons-huge-set-of-minimal-icons/*/
+div#wrapper-menu ul#nav li#item1 a:hover{background:url(../images/sprite-menu.png) 0px -33px}
+div#wrapper-menu ul#nav li#item2 a:hover{background:url(../images/sprite-menu.png) -67px -33px}
+div#wrapper-menu ul#nav li#item3 a:hover{background:url(../images/sprite-menu.png) -134px -33px}
+div#wrapper-menu ul#nav li#item4 a:hover{background:url(../images/sprite-menu.png) -201px -33px}
+div#wrapper-menu ul#nav li#item5 a:hover{background:url(../images/sprite-menu.png) -268px -36px}

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta-Tags -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<title>返回顶部</title>
+	<!-- Index-Page-CSS -->
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+	<!-- Supportive-JavaScript -->
+	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+</head>
+
+<body>
+	<!-- Slide-To-Top JavaScript -->
+	<div style="height: 2000px;"></div>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var defaults = {
+				containerID: 'toTop', // fading element id
+				containerHoverID: 'toTopHover', // fading element hover id
+				scrollSpeed: 100,
+				easingType: 'linear'
+			};
+			$().UItoTop({
+				easingType: 'easeOutQuart'
+			});
+		});
+	</script>
+	<a href="#" class="W3layoutsw3lts Agileitsaits" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 0;">
+		</span></a>
+	<!-- //Slide-To-Top JavaScript -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+</body>
+
+</html>

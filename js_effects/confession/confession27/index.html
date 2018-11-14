@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>纯css3圆形从中心向四周扩散动画效果</title>
+    <style>
+        @keyframes warn {
+            0% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.5);
+				-webkit-transform: scale(0.5);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.8);
+				-webkit-transform: scale(0.8);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(1);
+				-webkit-transform: scale(1);
+                opacity: 0.0;
+            }
+        }
+        @keyframes warn1 {
+            0% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.0;
+            }
+            25% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.1;
+            }
+            50% {
+                transform: scale(0.3);
+				-webkit-transform: scale(0.3);
+                opacity: 0.3;
+            }
+            75% {
+                transform: scale(0.5);
+				-webkit-transform: scale(0.5);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0.8);
+				-webkit-transform: scale(0.8);
+                opacity: 0.0;
+            }
+        }
+        @-webkit-keyframes "warn" {
+            0% {
+				transform: scale(0);
+                -webkit-transform: scale(0);
+                opacity: 0.0;
+            }
+            25% {
+				transform: scale(0);
+                -webkit-transform: scale(0);
+                opacity: 0.1;
+            }
+            50% {
+				transform: scale(0.1);
+                -webkit-transform: scale(0.1);
+                opacity: 0.3;
+            }
+            75% {
+				transform: scale(0.5);
+                -webkit-transform: scale(0.5);
+                opacity: 0.5;
+            }
+            100% {
+				transform: scale(1);
+                -webkit-transform: scale(1);
+                opacity: 0.0;
+            }
+        }
+
+        .container {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            /*border: 1px solid #000;*/
+        }
+        /* 保持大小不变的小圆圈  */
+        .dot {
+            position: absolute;
+            width: 92px;
+            height: 92px;
+            left: 120px;
+            top: 120px;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border: 2px solid red;
+            border-radius: 50%;
+            z-index: 2;
+        }
+        /* 产生动画（向外扩散变大）的圆圈  */
+        .pulse {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            left: 2px;
+            top: 2px;
+            border: 6px solid red;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            -webkit-animation: warn 2s ease-out;
+            -moz-animation: warn 2s ease-out;
+            animation: warn 2s ease-out;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            box-shadow: 1px 1px 30px red;
+
+        }
+        .pulse1 {
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            left: 2px;
+            top: 2px;
+            border: 6px solid red;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            z-index: 1;
+            opacity: 0;
+            -webkit-animation: warn1 2s ease-out;
+            -moz-animation: warn1 2s ease-out;
+            animation: warn1 2s ease-out;
+            -webkit-animation-iteration-count: infinite;
+            -moz-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+            box-shadow: 1px 1px 30px red;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="dot"></div>
+    <div class="pulse"></div>
+    <div class="pulse1"></div>
+</div>
+</body>
+</html>  

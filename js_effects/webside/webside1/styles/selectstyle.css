@@ -1,0 +1,21 @@
+  div,span,p {
+    width:200px;
+    height:230px;
+    margin:5px;
+    background:#aaa;
+	border:#000 1px solid;
+    float:left;
+    font-size:17px;
+    font-family:Arial;
+    font-family:Verdana;
+  }
+  div.mini { 
+    width:80px;
+    height:80px;
+    background-color: #aaa;
+    font-size:12px;
+    font-family:Arial;
+  }
+  div.hide { 
+    display:none;
+  }

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>树形结构菜单之jQuery版</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-family: "\5FAE\8F6F\96C5\9ED1", Helvetica, sans-serif;
+            color: #424242;
+        }
+        html,body{
+            overflow: hidden;
+        }
+        ul,li{
+            list-style: none;
+        }
+        .menu{
+            max-height: 600px;
+            overflow: auto;
+            margin: 30px;
+            padding: 20px;
+            width: 300px;
+            border: 1px solid green;
+            background: lightgoldenrodyellow;
+
+            border-radius: 10px;
+            box-shadow: 3px 3px 10px 0px #444;
+        }
+        .menu li{
+            position: relative;
+        }
+        .menu span{
+            padding-left: 20px;
+            display: block;
+            height: 35px;
+            line-height: 35px;
+            cursor: pointer;
+        }
+        .two{
+            margin-left: 20px;
+        }
+        .three{
+            margin-left: 40px;
+        }
+        .four{
+            margin-left: 50px;
+        }
+        .two,.three,.four{
+            display: none;
+        }
+        .menu em{
+            position: absolute;
+            left: 0;
+            top: 9px;
+            display: block;
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+            background: url("icon.png") no-repeat;
+            background-position: -59px -28px;
+        }
+        .menu em.bg{
+            background-position: -42px -28px;
+        }
+    </style>
+</head>
+<body>
+<div class="menu" id="menu">
+    <ul class="fir">
+        <li>
+            <em></em><span>服装服饰</span>
+            <ul class="two">
+                <li><span>短裤</span></li>
+                <li>
+                    <em></em><span>男装</span>
+                    <ul class="three">
+                        <li><span>男西装</span></li>
+                        <li><span>休闲裤</span></li>
+                        <li><span>皮鞋</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>女装</span>
+                    <ul class="three">
+                        <li>
+                            <em></em><span>裙子</span>
+                            <ul class="four">
+                                <li><span>长裙</span></li>
+                                <li><span>迷你裙</span></li>
+                                <li><span>连衣裙</span></li>
+                            </ul>
+                        </li>
+                        <li><span>太阳帽</span></li>
+                        <li><span>墨镜</span></li>
+                        <li><span>高跟鞋</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <em></em><span>服装服饰</span>
+            <ul class="two">
+                <li><span>短裤</span></li>
+                <li>
+                    <em></em><span>男装</span>
+                    <ul class="three">
+                        <li><span>男西装</span></li>
+                        <li><span>休闲裤</span></li>
+                        <li><span>皮鞋</span></li>
+                    </ul>
+                </li>
+                <li>
+                    <em></em><span>女装</span>
+                    <ul class="three">
+                        <li>
+                            <em></em><span>裙子</span>
+                            <ul class="four">
+                                <li><span>长裙</span></li>
+                                <li><span>迷你裙</span></li>
+                                <li><span>连衣裙</span></li>
+                            </ul>
+                        </li>
+                        <li><span>太阳帽</span></li>
+                        <li><span>墨镜</span></li>
+                        <li><span>高跟鞋</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+    $("#menu").find("span").each(function(){
+        var $pre=$(this).prev();
+        if($pre[0] && $pre[0].tagName.toLowerCase()==="em"){
+            $(this).css("cursor","pointer")
+        }
+    })
+
+    function fn(){
+        var $par=$(this).parent();
+        var $ul=$($par.children('ul')[0]);
+        var $em=$($par.children('em')[0]);
+        if($ul.length>0){
+            var isBlock=$ul.css("display")=="block"?true:false;
+            $ul.toggle();
+            $em.toggleClass("bg");
+            if(isBlock){
+                $ul.slideUp();
+                $em.removeClass("bg");
+
+                $par.find('ul').css("display","none");
+                $par.find('em').removeClass("bg");
+            }else{
+                $ul.slideDown();
+                $em.addClass('bg');
+            }
+        }
+    }
+    $("#menu").delegate('em', 'click', fn);
+    $("#menu").delegate('span', 'click', fn);
+</script>
+</body>
+</html>

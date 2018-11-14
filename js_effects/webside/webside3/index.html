@@ -1,0 +1,622 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>简洁干净兼容IE6的后台管理系统模版JsAdmin</title>
+	<link href="style.css" rel="stylesheet" media="all" />
+	<link href="" rel="stylesheet" title="style" media="all" />
+	<script type="text/javascript" src="js/jquery-1.3.2.js"></script>
+	<script type="text/javascript" src="js/superfish.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.7.2.js"></script>
+	<script type="text/javascript" src="js/tooltip.js"></script>
+	<script type="text/javascript" src="js/tablesorter.js"></script>
+	<script type="text/javascript" src="js/tablesorter-pager.js"></script>
+	<script type="text/javascript" src="js/cookie.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<!--[if IE 6]>
+	<link href="css/ie6.css" rel="stylesheet" media="all" />
+	
+	<script src="js/pngfix.js"></script>
+	<script>
+	  /* EXAMPLE */
+	  DD_belatedPNG.fix('.logo, .other ul#dashboard-buttons li a');
+
+	</script>
+	<![endif]-->
+	<!--[if IE 7]>
+	<link href="css/ie7.css" rel="stylesheet" media="all" />
+	<![endif]-->
+</head>
+<body>
+	<div id="header">
+		<div id="top-menu">
+			<a href="#" title="My account">我的账号</a> |
+			<a href="#" title="Settings">设置</a> |
+			<a href="#" title="Contact us">联系我们</a>
+			
+			<span>你好，<a href="#" title="Logged in as admin">admin</a></span>
+			| <a href="#" title="Edit profile">编辑资料</a>
+			| <a href="#" title="Logout">退出</a>
+		</div>
+		<div id="sitename">
+			<a href="index.html" class="logo float-left" title="JsAdmin">JsAdmin</a>
+			<div class="button float-right">
+				<a href="#" id="dialog_link" class="btn ui-state-default ui-corner-all"><span class="ui-icon ui-icon-newwin"></span>打开对话框</a>
+				<a href="#" id="login_dialog" class="btn ui-state-default ui-corner-all"><span class="ui-icon ui-icon-image"></span>登录框</a>
+			</div>
+			<div id="login" title="Members Login">
+				<form action="#" method="post" enctype="multipart/form-data" class="forms" name="form" >
+					<ul>
+						<li>
+							<label for="email" class="desc">
+								邮箱:
+							</label>
+							<div>
+								<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="email" id="email" />
+							</div>
+						</li>
+						<li>
+							<label for="password" class="desc">
+								密码:
+							</label>
+							<div>
+								<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="password" id="password" />
+							</div>
+						</li>
+					</ul>
+				</form>
+			</div>
+			<div id="dialog" title="Dialog Title">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+			</div>
+		</div>
+		<ul id="navigation" class="sf-navbar">
+			<li>
+				<a href="index.html">控制台</a>
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="forms.html">表单</a></li>
+					<li><a href="tables.html">表格</a></li>
+					<li><a href="msg.html">消息</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">菜单</a>
+				<ul>
+					<li>
+						<a href="#">菜单1</a>
+						<ul>
+							<li><a href="#">子菜单1</a></li>
+							<li><a href="#">子菜单2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">二级菜单1</a>
+					</li>
+					<li>
+						<a href="#">三级菜单3</a>
+					</li>
+					<li>
+						<a href="#">Menu item 4</a>
+						<ul>
+							<li><a href="#">Subitem 1</a></li>
+							<li>
+								<a href="#">Subitem 2</a>
+								<ul>
+									<li><a href="#">Subitem 1</a></li>
+									<li>
+										<a href="#">Subitem 2</a>
+										<ul>
+											<li><a href="#">Subitem 1</a></li>
+											<li>
+												<a href="#">Subitem 2</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Menu item 5</a>
+						<ul>
+							<li><a href="#">Subitem 1</a></li>
+							<li><a href="#">Subitem 2</a></li>
+						</ul>
+					</li>
+					<li>
+						<a href="#">Menu item 6</a>
+					</li>
+					<li>
+						<a href="#">Menu item 7</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">布局选项</a>
+				<ul>
+					<li>
+						<a href="three-columns-layout.html">三列</a>
+					</li>
+					<li>
+						<a href="two-column-layout.html">两列</a>
+					</li>
+					<li>
+						<a href="three-column-small-layout.html">一大两小布局</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">可用组件</a>
+				<ul>
+					<li>
+						<a href="accordion.html">手风琴特效</a>
+					</li>
+					<li>
+						<a href="tabs.html">Tabs选项卡</a>
+					</li>
+					<li>
+						<a href="overlays.html">弹出层</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>	<!--<div id="welcome" title="Welcome to JsAdmin">
+		<p><b>JsAdmin</b> is a <b>lightweight</b>, fully and easily customisable <b>administration user interface</b>. Please proceed to the actual demo by clicking the button below. Enjoy !</p>
+	</div>-->
+
+	<div id="page-wrapper">
+		<div id="main-wrapper">
+			<div id="main-content">
+				<div class="other-box yellow-box ui-corner-all">
+					<div class="cont tooltip ui-corner-all" title="Tooltip example - this is an example for the tooptip plugin! - You can add tooltips to any element">
+						<h3>欢迎光临 !</h3>
+						<p><b>JsAdmin</b> 是个简洁轻量级易用的后台管理系统模版，欢迎使用！ </p>
+
+					</div>
+				</div>
+				<div class="page-title ui-widget-content ui-corner-all">
+					<h1>控制台快捷按钮</h1>
+					<div class="other">
+						<div class="float-left">你可以放些按钮或文字到这里面.</div>
+						<div class="button float-right">
+
+							<a href="#"  class="btn ui-state-default"><span class="ui-icon ui-icon-circle-plus"></span>列子</a>
+						</div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="page-title ui-widget-content ui-corner-all">
+					<h1>管理员选项</h1>
+					<div class="other">
+
+						<ul id="dashboard-buttons">
+							<li>
+								<a href="#" class="Book_phones tooltip" title="Book phones">
+									通讯薄
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Books tooltip" title="Books">
+									书籍
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Box_recycle tooltip" title="Box recycle">
+									回收站
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Books tooltip" title="Books">
+									书籍
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Box_content tooltip" title="Box content">
+									收纳箱
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Briefcase_files tooltip" title="Briefcase files">
+									文件夹
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Chart_4 tooltip" title="Chart 4">
+									图表
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Clipboard_3 tooltip" title="Clipboard 3">
+									剪贴板
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Chart_5 tooltip" title="Chart 5">
+									图表
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Glass tooltip" title="Glass">
+									放大镜
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Globe tooltip" title="Globe">
+									地球
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Mail_compose tooltip" title="Mail compose">
+									邮件箱
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Mail_open tooltip" title="Mail open">
+									收邮件
+								</a>
+							</li>
+							<li>
+								<a href="#" class="Monitor tooltip" title="Monitor">
+									监控
+								</a>
+
+							</li>
+							<li>
+								<a href="#" class="Star tooltip" title="Star">
+									星星
+								</a>
+								<div class="clearfix"></div>
+							</li>
+						</ul>
+						<div class="clearfix"></div>
+					</div>
+					
+
+				</div>
+				<div class="title title-spacing">
+					<h2>控制台网格布局实例</h2>
+					You can put whatever you like in these containers. I've mode some examples using accordions, buttons, news, tabs and forms. For more grid examples, visit <a href="#" title="More layout examples">this page</a>.
+				</div>
+				<div class="three-column">
+					<div class="column">
+						<div class="portlet form-bg">
+
+							<div class="portlet-header">表单实例</div>
+							<div class="portlet-content">
+								<form action="#" method="post" enctype="multipart/form-data" class="forms" name="form" >
+									<ul>
+										<li>
+											<label class="desc">
+												邮箱:
+											</label>
+											<div>
+
+												<input type="text" tabindex="1" maxlength="255" value="" class="field text full" name="" />
+												<span class="red">提示的信息 ...</span>
+											</div>
+										</li>
+										<li>
+											<label class="desc">
+												密码:
+											</label>
+											<div>
+
+												<input type="password" tabindex="1" maxlength="255" value="" class="field text full" name="" />
+												<label>These inputs have class="full", which means that they have 100% width.</label>
+											</div>
+										</li>
+										<li class="buttons">
+											<button type="submit" value="Submit" class="ui-state-default ui-corner-all" id="saveForm">登录</button>
+										</li>
+									</ul>
+
+								</form>
+								<div class="linetop clearfix"></div>
+								<p>Added class="form-bg" to obtain the light gray background.</p>
+							</div>
+						</div>
+						<div class="portlet">
+							<div class="portlet-header">一些其他 ...</div>
+							<div class="portlet-content">
+
+								<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+								
+								<p> Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+								
+								<p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+								
+								<p> Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex </p>
+							</div>
+
+						</div>
+					</div>
+					
+					<div class="column">
+						<div class="portlet">
+							<div class="portlet-header">选项卡,消息,表格</div>
+							<div class="portlet-content">
+								<div id="tabs">
+									<ul>
+
+										<li><a href="#tabs-1">选项卡1</a></li>
+										<li><a href="#tabs-2">选项卡2</a></li>
+										<li><a href="#tabs-3">选项卡3</a></li>
+									</ul>
+									<div id="tabs-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+									<div id="tabs-2">Phasellus mattis tincidunt nibh. Cras orci urna, blandit id, pretium vel, aliquet ornare, felis. Maecenas scelerisque sem non nisl. Fusce sed lorem in enim dictum bibendum.</div>
+
+									<div id="tabs-3">Nam dui erat, auctor a, dignissim quis, sollicitudin eu, felis. Pellentesque nisi urna, interdum eget, sagittis et, consequat vestibulum, lacus. Mauris porttitor ullamcorper augue.</div>
+								</div>
+								<div class="other-box gray-box float-left width50 ui-corner-all">
+									<div class="cont ui-corner-all">
+										<h3>Grey Box</h3>
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+									</div>
+
+								</div>
+								<div class="other-box yellow-box float-right width50 ui-corner-all">
+									<div class="cont ui-corner-all">
+										<h3>Notice Box</h3>
+										<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+
+								<i class="note">* Table example below: </i>
+								<div class="hastable">
+									<table cellspacing="0">
+										<thead>
+											<tr>
+												<td><input type="checkbox" class="checkbox" value=""/></td>
+												<td>Name</td>
+												<td>Email</td>
+
+												<td>Options</td>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>  	  	
+												<td>
+													<input type="checkbox" class="checkbox" value=""/>
+												</td>
+												<td>
+
+													John 
+												</td>
+												<td>
+													Lorem .
+												</td>
+												<td>
+													Options
+												</td>
+											</tr>
+											<tr class="alt">  	  	
+												<td>
+
+													<input type="checkbox" class="checkbox" value=""/>
+												</td>
+												<td>
+													John 
+												</td>
+												<td>
+													Lorem .
+												</td>
+												<td>
+													Options
+												</td>
+
+											</tr>
+											<tr>  	  	
+												<td>
+													<input type="checkbox" class="checkbox" value=""/>
+												</td>
+												<td>
+													John 
+												</td>
+												<td>
+													Lorem .
+												</td>
+
+												<td>
+													Options
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
+					<div class="column">
+						<div class="portlet">
+							<div class="portlet-header">按钮</div>
+							<div class="portlet-content">
+								<p>JsAdmin contains a total of more than 180 icons. I only added a few for demonstration. In the theme package you will find a page that contains all buttons you have at your disposal (buttons.html)</p>
+								<ul id="icons" class="ui-widget ui-helper-clearfix">
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-star"><span class="ui-icon ui-icon-star"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-link"><span class="ui-icon ui-icon-link"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-cancel"><span class="ui-icon ui-icon-cancel"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-plus"><span class="ui-icon ui-icon-plus"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-plusthick"><span class="ui-icon ui-icon-plusthick"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-minus"><span class="ui-icon ui-icon-minus"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-minusthick"><span class="ui-icon ui-icon-minusthick"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-close"><span class="ui-icon ui-icon-close"></span></li>
+
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-script"><span class="ui-icon ui-icon-script"></span></li>
+									<li class="ui-state-default ui-corner-all" title=".ui-icon-alert"><span class="ui-icon ui-icon-alert"></span></li>
+
+								</ul>
+								<div class="clearfix"></div>
+								<p>You can transform those icons into links.See the examples below.</p>
+								
+								<div class="clearfix"></div>
+									<a href="#" class="btn ui-state-default ui-corner-all">
+										<span class="ui-icon ui-icon-grip-dotted-horizontal"></span>
+										Button 1
+									</a>
+									<a href="#" class="btn ui-state-default ui-corner-all">
+
+										<span class="ui-icon ui-icon ui-icon-gripsmall-diagonal-se"></span>
+										Button 2
+									</a>
+									<a href="#" class="btn ui-state-default ui-corner-all">
+										<span class="ui-icon ui-icon-grip-solid-horizontal"></span>
+										Button 3
+									</a>
+									<a href="#" class="btn ui-state-default ui-corner-all">
+										<span class="ui-icon ui-icon-grip-solid-vertical"></span>
+										Button 3
+									</a>
+
+								<div class="clearfix"></div>
+								<p class="title-spacing linetop">Here is a pagination example:</p>
+								<ul class="pagination">
+									<li class="previous-off">&laquo;Previous</li>
+									<li class="active">1</li>
+									<li><a href="#">2</a></li>
+									<li><a href="#">3</a></li>
+
+									<li><a href="#">4</a></li>
+									<li><a href="#">5</a></li>
+									<li><a href="#">6</a></li>
+									<li><a href="#">7</a></li>
+									<li><a href="#">8</a></li>
+									<li><a href="#">9</a></li>
+
+									<li><a href="#">10</a></li>
+									<li class="next"><a href="#">Next &raquo;</a></li>
+								</ul>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+						<div class="portlet">
+							<div class="portlet-header">提示信息</div>
+							<div class="portlet-content">
+								<p>JsAdmin contains a total of more than 180 icons. I only added a few for demonstration. In the theme package you will find a page that contains all buttons you have at your disposal (buttons.html)</p>
+								<div class="title">
+									<h3>Response messages</h3>
+									Below you will find <b>JsAdmin</b> response messages.
+								</div>
+								<div class="response-msg error ui-corner-all">
+									<span>Error message</span>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+								</div>
+								<div class="response-msg notice ui-corner-all">
+									<span>Notice message</span>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+								</div>
+							
+								<div class="response-msg inf ui-corner-all">
+									<span>Information message</span>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+								</div>
+							
+								<div class="response-msg success ui-corner-all">
+									<span>Success message</span>
+									Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+								</div>
+								<div class="clearfix"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div id="sidebar">
+			<div class="side-col ui-sortable">
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">主题切换</div>
+					<div class="portlet-content">
+						<ul class="side-menu">
+							<li>
+								<a class="set_theme" id="default" href="javascript:void(0);" style="font-weight:bold;" title="Default Theme">默认主题</a>
+							</li>
+							<li>
+								<a class="set_theme" id="light_blue" href="javascript:void(0);" title="Light Blue Theme">淡蓝主题</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">布局选项</div>
+					<div class="portlet-content">
+						<ul class="side-menu">
+							<li>
+								Here, you can set the page width, either fixed or fluid. You decide!<br /><br />
+							</li>
+							<li id="fluid_layout">
+								<a href="javascript:void(0);" title="Fluid Layout">Switch to <b>Fluid Layout</b></a>
+							</li>
+							<li id="fixed_layout">
+								<a href="javascript:void(0);" title="Fixed Layout">Switch to <b>Fixed Layout</b></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">Navigation Menu</div>
+					<div class="portlet-content">
+						<div id="accordion">
+							<div>
+								<h3><a href="#">控制台</a></h3>
+								<div>
+									<ul class="side-menu">
+										<li><a href="index.html" title="Administration">管理中心</a></li>
+										<li><a href="forms.html" title="Forms">表单实例</a></li>
+										<li><a href="tables.html" title="Tables">表格实例</a></li>
+									</ul>
+								</div>
+							</div>
+							<div>
+								<h3><a href="#">下拉菜单</a></h3>
+								<div>
+									<ul class="side-menu">
+										<li><a href="index.html" title="Administration">Administration</a></li>
+										<li><a href="forms.html" title="Forms">Forms Example</a></li>
+										<li><a href="tables.html" title="Tables">Tables example</a></li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="other-box yellow-box ui-corner-all">
+					<div class="cont tooltip ui-corner-all" title="Tooltips, tooltips, tooltips !">
+						<h3>提示!</h3>
+						<p>This is a sample tooltip !</p>
+					</div>
+				</div>
+				<div class="portlet ui-widget ui-widget-content ui-helper-clearfix ui-corner-all">
+					<div class="portlet-header ui-widget-header">手风琴</div>
+					<div class="portlet-content">
+						<div id="datepicker"></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div id="footer">
+		<div id="menu">
+			<a href="#" title="Home">Home</a>
+			<a href="#" title="Administration">Administration</a>
+			<a href="#" title="Settings">Settings</a>
+			<a href="#" title="Contact">Contact</a>
+		</div>
+		Copyright &copy; 2009 - Horia Simon - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+	</div>
+</body>
+</html>

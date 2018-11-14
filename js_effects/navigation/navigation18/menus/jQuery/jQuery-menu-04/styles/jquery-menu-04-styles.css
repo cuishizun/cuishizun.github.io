@@ -1,0 +1,27 @@
+/*****jquery-menu-04 styles*****/
+/*background image is property of vankarwai(me). Use is allowed for any purchaser.*/
+div#wrapper-menu{background:url(../images/back-menu-vankarwai-image.jpg) 120px; repeat-x #FFF;}
+div#wrapper-menu ul#nav li {
+	display:block;
+	list-style:none;
+}
+div#wrapper-menu ul#nav li a {
+	display:inline-block;
+	width: auto;
+	height:40px;
+	padding:5px 60px 5px 10px;
+	border-left:10px #ddd solid;
+	background:#e5e5e5;
+	font-size:2.6em;
+	line-height:40px;
+	color:#666;
+	text-decoration:none;
+	border-left-color:#474747;
+}
+/*You can set color for each option and its hover color here (see functions.js too)*/
+div#wrapper-menu ul#nav li#item1 a{background-color:#c0306a;color:#9b2c4f;border-left-color:#9b2c4f;}
+div#wrapper-menu ul#nav li#item2 a{background-color:#8cc837;color:#69942c;border-left-color:#69942c;}
+div#wrapper-menu ul#nav li#item3 a{background-color:#23c1a3;color:#32785f;border-left-color:#32785f;}
+div#wrapper-menu ul#nav li#item4 a{background-color:#8a30c2;color:#5f267f;border-left-color:#5f267f;}
+div#wrapper-menu ul#nav li#item5 a{background-color:#cfa72c;color:#967102;border-left-color:#967102;}
+div#wrapper-menu ul#nav li#item1 a:hover,div#wrapper-menu ul#nav li#item2 a:hover,div#wrapper-menu ul#nav li#item3 a:hover,div#wrapper-menu ul#nav li#item4 a:hover,div#wrapper-menu ul#nav li#item5 a:hover{color:#FFF;}

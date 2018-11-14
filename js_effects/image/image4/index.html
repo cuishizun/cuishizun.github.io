@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- Meta-Tags -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <!-- //Meta-Tags -->
+  <title>图片循环淡入淡出效果</title>
+  <!-- Nav-CSS -->
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
+  <!-- Supportive-JavaScript -->
+  <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+</head>
+
+<body>
+  <div class="slider-w3layouts">
+    <ul class="rslides-agileits" id="slider1">
+      <li>
+        <img src="images/slide-1.jpg" alt="W3layouts Agileits">
+      </li>
+      <li>
+        <img src="images/slide-2.jpg" alt="W3layouts Agileits">
+      </li>
+      <li>
+        <img src="images/slide-3.jpg" alt="W3layouts Agileits">
+      </li>
+      <li>
+        <img src="images/slide-4.jpg" alt="W3layouts Agileits">
+      </li>
+      <li>
+        <img src="images/slide-5.jpg" alt="W3layouts Agileits">
+      </li>
+    </ul>
+  </div>
+  <!-- Slider-JavaScript -->
+  <script src="js/responsiveslides.min.js"></script>
+  <script>
+    $(function () {
+      $("#slider1").responsiveSlides({
+        auto: true,
+        nav: true,
+        speed: 1500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>
+</body>
+
+</html>

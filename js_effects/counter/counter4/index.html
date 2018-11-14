@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery数字滚动更新次数代码</title>
+<style type="text/css">
+	#total {
+		width: 300px;
+		height: 40px;
+		line-height: 40px;
+		margin: 80px auto 20px auto;
+		font-size: 20px;
+	}
+
+	#total .t_num {
+		display: inline-block;
+		line-height: 13px;
+		margin: 2px 4px 0 4px;
+	}
+
+	#total .t_num i {
+		width: 15px;
+		height: 23px;
+		display: inline-block;
+		background: url(images/number.png) no-repeat;
+		background-position: 0 0;
+		text-indent: -999em;
+	}
+</style>
+<script src="js/jquery-1.7.1.js"></script>
+<script src="js/animateBackground-plugin.js"></script>
+<script type="text/javascript">
+	$(function () {
+		getdata();
+		setInterval('getdata()', 3000);
+	});
+
+	function getdata() {
+		//var num = $("#cur_num").val();
+		//$.ajax({
+		//    url: 'data.html',
+		//    type: 'POST',
+		//    dataType: "json",
+		//    data: { 'total': num },
+		//    cache: false,
+		//    timeout: 10000,
+		//    error: function () { },
+		//    success: function (data) {
+		//        show_num(data.count);
+		//    }
+		//});
+		show_num("123456789");
+	}
+
+	function show_num(n) {
+		var it = $(".t_num i");
+		var len = String(n).length;
+		for (var i = 0; i < len; i++) {
+			if (it.length <= i) {
+				$(".t_num").append("<i></i>");
+			}
+			var num = String(n).charAt(i);
+			var y = -parseInt(num) * 30;
+			var obj = $(".t_num i").eq(i);
+			obj.animate({
+				backgroundPosition: '(0 ' + String(y) + 'px)'
+			}, 'slow', 'swing', function () { }
+			);
+		}
+		//$("#cur_num").val(n);
+	}
+</script>
+</head>
+<body>
+
+<div id="total">
+	下载量：<span class="t_num"></span>次
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>
+

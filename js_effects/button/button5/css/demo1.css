@@ -1,0 +1,80 @@
+.btn{
+    border: 2px solid transparent;
+    border-radius: 0;
+    text-transform: uppercase;
+    position: relative;
+    transition: all 0.3s ease 0s;
+}
+.btn:before{
+    content: "";
+    height: 6px;
+    border-bottom: 2px solid transparent;
+    border-left: 2px solid transparent;
+    position: absolute;
+    bottom: -8px;
+    left: 4px;
+    right: -8px;
+    transition: all 0.3s ease 0s;
+}
+.btn.btn-sm:before{
+    height: 5px;
+    bottom: -7px;
+    left: 4px;
+    right: -6px;
+}
+.btn:hover:before{
+    bottom: -2px;
+    left: -2px;
+    right: 2px;
+    border-color: #e16b47;
+}
+.btn:after{
+    content: "";
+    width: 6px;
+    border-right: 2px solid transparent;
+    border-top: 2px solid transparent;
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    top: 4px;
+    transition: all 0.3s ease 0s;
+}
+.btn.btn-sm:after{
+    width: 5px;
+    bottom: -7px;
+    top: 2px;
+    right: -7px;
+}
+.btn:hover:after{
+    bottom: 2px;
+    right: -2px;
+    top: -2px;
+    border-color: #e16b47;
+}
+.btn.red,
+.btn.red:before,
+.btn.red:after{
+    border-color: #ff6e6e;
+    color: #ff6e6e;
+}
+.btn.blue,
+.btn.blue:before,
+.btn.blue:after{
+    border-color: #5cbcf6;
+    color: #5cbcf6;
+}
+.btn.orange,
+.btn.orange:before,
+.btn.orange:after{
+    border-color: #ef965c;
+    color: #ef965c;
+}
+.btn.green,
+.btn.green:before,
+.btn.green:after{
+    border-color: #7ad79a;
+    color: #7ad79a;
+}
+@media only screen and (max-width: 767px){
+    .btn{ margin-bottom: 25px; }
+}

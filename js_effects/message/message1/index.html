@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JS点击触发右下角消息通知代码</title>
+
+<!--可无视-->
+<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.min.css" /><!--CSS RESET-->
+<link rel="stylesheet" type="text/css" href="css/demo.css"><!--演示页面样式，使用时可以不引用-->
+
+<!--必要样式-->
+<link rel="stylesheet" href="css/naranja.min.css">
+
+</head>
+<body>
+
+<div class="container">
+	<div class="row" style="padding:2em 0">
+		<div class="col-md-2">
+			<button class="btn btn-error"  onclick="narn('log')">默认（log）</button>
+		</div>
+		<div class="col-md-2"><button class="btn btn-success" onClick="narn('success')">成功（success）</button></div>
+		<div class="col-md-2"><button class="btn btn-warning"  onclick="narn('warn')">警告（warn）</button></div>
+		<div class="col-md-2"><button class="btn btn-danger"  onclick="narn('error')">危险（error）</button></div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/naranja.js"></script>
+<script type="text/javascript">
+	function narn (type) {
+		naranja()[type]({
+		  title: '新消息提示',
+		  text: '单击“接受”以创建新通知',
+		  timeout: 'keep',
+		  buttons: [{
+			text: '接受',
+			click: function (e) {
+			  naranja().success({
+				title: '通知',
+				text: '通知被接受'
+			  })
+			}
+		  },{
+			text: '取消',
+			click: function (e) {
+			  e.closeNotification()
+			}
+		  }]
+		})
+	  }
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

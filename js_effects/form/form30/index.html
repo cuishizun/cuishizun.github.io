@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery便签效果可自由拖动特效</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<div id="ipad">
+<div class="ipad-title"><h1>jQuery-Pad</h1></div>
+<div class="ipad-control">
+  <span class="T"></span>
+  <span class="R"></span>
+  <span class="B"></span>
+  <span class="L"></span>
+  <span class="TR"></span>
+  <span class="BR"></span>
+  <span class="BL"></span>
+  <span class="LT"></span>    </div>
+<div class="ipad-cont">
+  <div class="textArea">
+	<p>1. 基于 jQuery 的便签效果（原创）</p>
+	<p>2. 支持：自定义宽高，缩小的最小宽高、拖拽范围限制</p>
+	<p>3. 功能：头部拖拽、四角四边的放大缩小，自定义滚动条</p>
+	<p>4. 请在转载时保留作者信息，更多我的效果可移步至: http://sc.chinaz.com/jiaoben/</p>
+	<p>5. 如有问题可留言或发邮件给我</p>
+  </div>
+</div>
+<div class="ipad-bar"><i class="bar"></i></div>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/ipad.js"></script>
+<script src="js/scrollBar.js"></script>
+<script>
+$(function () {
+  $('#ipad').ipad({
+	width: 200,
+	height: 300,
+	limitedWidth: 200,
+	limitedHeight: 300,
+	dragLimited: true
+  });
+
+  ipadScrollBar();
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

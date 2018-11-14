@@ -1,0 +1,105 @@
+﻿<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>CSS3 仿iPhone中的返回按钮</title>
+
+  <style>
+    .btn-back {
+
+      font: 14px/27px Arial, Helvetica, sans-serif;
+
+      color: #fff;
+
+      text-decoration: none;
+
+      position: relative;
+
+      display: block;
+
+      margin-top: 11px;
+
+    }
+
+    /*按钮主体*/
+
+    .btn-back span {
+
+      display: inline-block;
+
+      font-size: 13px;
+
+      line-height: 27px;
+
+      height: 27px;
+
+      padding: 0 10px 0 5px;
+
+      background: -moz-linear-gradient(top, #5bbfd8, #449fb6);
+
+      background: -webkit-linear-gradient(top, #5bbfd8, #449fb6);
+
+      border: 1px solid #2c96b2;
+
+      border-left: 0;
+
+      border-radius: 2px 5px 5px 2px;
+
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, .4);
+
+      margin-left: 12px;
+
+      position: relative;
+
+      z-index: 2;
+
+    }
+
+    /*左边的小三角*/
+
+    .btn-back:before {
+
+      content: '';
+
+      display: inline-block;
+
+      width: 20px;
+
+      height: 20px;
+
+      background: -moz-linear-gradient(-45deg, #5bbfd8, #449fb6);
+      /*背景旋转-45°*/
+
+      background: -webkit-linear-gradient(-45deg, #5bbfd8, #449fb6);
+
+      border: 1px solid #2c96b2;
+
+      -webkit-transform-origin: 0 0;
+      /*设置基点为0,0*/
+
+      -moz-transform-origin: 0 0;
+
+      -webkit-transform: scaleX(0.8) rotate(45deg);
+      /*X轴压缩，旋转45°*/
+
+      -moz-transform: scaleX(0.8) rotate(45deg);
+
+      border-radius: 3px 2px;
+
+      position: absolute;
+
+      left: 13px;
+
+      top: -1px;
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <a href="#" class="btn-back"> <span>首页</span></a>
+</body>
+
+</html>

@@ -1,0 +1,495 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS3单选多选按钮美化特效</title>
+
+<link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="http://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+<link async rel="stylesheet" href="https://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css">
+<link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+<link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/typicons/2.0.7/typicons.min.css">
+<link async rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+
+<link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="css/demo.css">
+<link rel="stylesheet" type="text/css" href="src/pretty.min.css">
+
+</head>
+<body>
+
+<div class="container">
+	<h3 id="checkbox">基本的Checkbox</h3>
+	<div class="pretty">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Square</label>
+	</div>
+	<div class="pretty curvy">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Curvy</label> 
+	</div>
+	<div class="pretty circle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Circle</label>
+	</div>
+	<h3>自定义图标</h3>
+	<div class="pretty">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-texture"></i> Include</label>
+	</div>
+	<div class="pretty curvy">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-star"></i> Favorite</label>
+	</div>
+	<div class="pretty circle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-record"></i> Add</label>
+	</div>
+	<h3>checkbox的颜色</h3>
+	<div class="pretty primary">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Primary</label>
+	</div>
+	<div class="pretty success">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Success</label>
+	</div>
+	<div class="pretty warning">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Warning</label>
+	</div>
+	<div class="pretty info">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Info</label>
+	</div>
+	<div class="pretty danger">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Danger</label>
+	</div>
+	<h3>checkbox边框颜色</h3>
+	<div class="pretty o-primary">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Primary</label>
+	</div>
+	<div class="pretty o-success">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Success</label>
+	</div>
+	<div class="pretty o-warning">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Warning</label>
+	</div>
+	<div class="pretty o-info">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Info</label>
+	</div>
+	<div class="pretty o-danger">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Danger</label>
+	</div>
+	<h3>鼠标滑过效果</h3>
+	<div class="pretty primary hover">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Solid</label>
+	</div>
+	<div class="pretty o-success hover">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Outline</label>
+	</div>
+	<h3>不带边框的checkbox</h3>
+	<div class="pretty o-success plain">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Include</label>
+	</div>
+	<div class="pretty o-danger plain">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-close"></i> Ignore</label>
+	</div>
+	<h3>平滑的动画效果</h3>
+	<div class="pretty smooth">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Jan</label>
+	</div>
+	<div class="pretty o-info circle smooth">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check-all"></i> Feb</label>
+	</div>
+	<div class="pretty danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-close"></i> Mar</label>
+	</div>
+	<div class="pretty success circle smooth">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Apr</label>
+	</div>
+	<h3>另类的checkbox动画效果</h3>
+	<div class="pretty info circle a-bounce">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Bounce</label>
+	</div>
+	<div class="pretty info circle a-jelly">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Jelly</label>
+	</div>
+	<div class="pretty info curvy a-tada">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Tada</label>
+	</div>
+	<div class="pretty info curvy a-vibrate">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Vibrate</label>
+	</div>
+	<div class="pretty info curvy a-rotate">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> Rotate</label>
+	</div>
+	<h3>禁用checkbox</h3>
+	<div class="pretty inline">
+	  <input type="checkbox" disabled> 
+	  <label><i class="mdi mdi-check"></i> Disabled</label>
+	</div>
+	<div class="pretty circle">
+	  <input type="checkbox" disabled> 
+	  <label><i class="mdi mdi-check"></i> Disabled</label>
+	</div>
+	<div class="pretty success">
+	  <input type="checkbox" checked disabled> 
+	  <label><i class="mdi mdi-check"></i> Disabled</label>
+	</div>
+	<hr>
+	<h2>checkbox切换效果</h2>
+	<h3>切换图标</h3>
+	<div class="pretty toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-microphone"></i> ON</label>
+	  <label><i class="mdi mdi-microphone-off"></i> OFF</label>
+	</div>
+	<h3>不带边框</h3>
+	<div class="pretty plain toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-wifi"></i> WIFI ON</label>
+	  <label><i class="mdi mdi-wifi-off"></i> WIFI OFF</label>
+	</div>
+	<h3>黑白色</h3>
+	<div class="pretty plain toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-eye"></i> Preview</label>
+	  <label><i class="mdi mdi-eye-off"></i> Preview</label>
+	</div>
+	<div class="pretty plain toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-play"></i> Play</label>
+	  <label><i class="mdi mdi-pause"></i> Pause</label>
+	</div>
+	<div class="pretty plain toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-email-outline"></i> Read</label>
+	  <label><i class="mdi mdi-email-open-outline"></i> Unread</label>
+	</div>
+	<h3>切换时改变颜色</h3>
+	<div class="pretty plain toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-thumb-up success"></i> Good</label>
+	  <label><i class="mdi mdi-thumb-down danger"></i> Bad</label>
+	</div>
+	<div class="pretty plain toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-reply info"></i> Reply</label>
+	  <label><i class="mdi mdi-share warning"></i> Forward</label>
+	</div>
+	<hr>
+	<h2>单选按钮</h2>
+	<h3>基本的单选按钮</h3>
+	<div class="pretty circle">
+	  <input type="radio" name="radio1"> 
+	  <label><i class="default"></i> Male</label>
+	</div>
+	<div class="pretty circle">
+	  <input type="radio" name="radio1"> 
+	  <label><i class="default"></i> Female</label>
+	</div>
+	<div class="pretty circle">
+	  <input type="radio" name="radio1"> 
+	  <label><i class="default"></i> Special</label>
+	</div>
+	<h3>单选按钮颜色</h3>
+	<div class="pretty circle primary">
+	  <input type="radio" name="radio19"> 
+	  <label><i class="default"></i> Primary</label>
+	</div>
+	<div class="pretty circle success">
+	  <input type="radio" name="radio19"> 
+	  <label><i class="default"></i> Success</label>
+	</div>
+	<div class="pretty circle info">
+	  <input type="radio" name="radio19"> 
+	  <label><i class="default"></i> Info</label>
+	</div>
+	<div class="pretty circle warning">
+	  <input type="radio" name="radio19"> 
+	  <label><i class="default"></i> Warning</label>
+	</div>
+	<div class="pretty circle danger">
+	  <input type="radio" name="radio19"> 
+	  <label><i class="default"></i> Danger</label>
+	</div>
+	<h3>带矩形边框的单选按钮</h3>
+	<div class="pretty inline">
+	  <input type="radio" name="radio2"> 
+	  <label><i class="mdi mdi-check"></i> Male</label>
+	</div>
+	<div class="pretty inline">
+	  <input type="radio" name="radio2"> 
+	  <label><i class="mdi mdi-check"></i> Female</label>
+	</div>
+	<div class="pretty inline">
+	  <input type="radio" name="radio2"> 
+	  <label><i class="mdi mdi-check"></i> Special</label>
+	</div>
+	<h3>带矩形边框和颜色的单选按钮</h3>
+	<div class="pretty primary">
+	  <input type="radio" name="radio18"> 
+	  <label><i class="default"></i> Primary</label>
+	</div>
+	<div class="pretty success">
+	  <input type="radio" name="radio18"> 
+	  <label><i class="default"></i> Success</label>
+	</div>
+	<div class="pretty info">
+	  <input type="radio" name="radio18"> 
+	  <label><i class="default"></i> Info</label>
+	</div>
+	<div class="pretty warning">
+	  <input type="radio" name="radio18"> 
+	  <label><i class="default"></i> Warning</label>
+	</div>
+	<div class="pretty danger">
+	  <input type="radio" name="radio18"> 
+	  <label><i class="default"></i> Danger</label>
+	</div>
+	<h3>边框颜色变化的单选按钮</h3>
+	<div class="pretty circle o-primary">
+	  <input type="radio" name="radio4"> 
+	  <label><i class="mdi mdi-check"></i> $10</label>
+	</div>
+	<div class="pretty circle o-success">
+	  <input type="radio" name="radio4"> 
+	  <label><i class="mdi mdi-check"></i> $50</label>
+	</div>
+	<div class="pretty circle o-info">
+	  <input type="radio" name="radio4"> 
+	  <label><i class="mdi mdi-check"></i> $100</label>
+	</div>
+	<div class="pretty circle o-warning">
+	  <input type="radio" name="radio4"> 
+	  <label><i class="mdi mdi-check"></i> $500</label>
+	</div>
+	<div class="pretty circle o-danger">
+	  <input type="radio" name="radio4"> 
+	  <label><i class="mdi mdi-check"></i> $1000</label>
+	</div>
+	<h3>不带边框的单选按钮</h3>
+	<div class="pretty circle plain o-primary">
+	  <input type="radio" name="radio5"> 
+	  <label><i class="mdi mdi-human"></i> Single</label>
+	</div>
+	<div class="pretty circle plain o-success">
+	  <input type="radio" name="radio5"> 
+	  <label><i class="mdi mdi-human-male-female"></i> Married</label>
+	</div>
+	<div class="pretty circle plain o-info">
+	  <input type="radio" name="radio5"> 
+	  <label><i class="mdi mdi-heart"></i> In relationship</label>
+	</div>
+	<h3>单选按钮的平滑动画</h3>
+	<div class="pretty circle smooth o-primary">
+	  <input type="radio" name="radio44"> 
+	  <label><i class="mdi mdi-emoticon-cool"></i> Cool</label>
+	</div>
+	<div class="pretty circle smooth o-success">
+	  <input type="radio" name="radio44"> 
+	  <label><i class="mdi mdi-emoticon"></i> Emotion</label>
+	</div>
+	<div class="pretty circle smooth o-info">
+	  <input type="radio" name="radio44"> 
+	  <label><i class="mdi mdi-emoticon-happy"></i> Happy</label>
+	</div>
+	<div class="pretty circle smooth o-warning">
+	  <input type="radio" name="radio44"> 
+	  <label><i class="mdi mdi-emoticon-neutral"></i> Neutral</label>
+	</div>
+	<div class="pretty circle smooth o-danger">
+	  <input type="radio" name="radio44"> 
+	  <label><i class="mdi mdi-emoticon-devil"></i> Devil</label>
+	</div>
+	<h3>另类动画的单选按钮</h3>
+	<div class="pretty circle a-tada smooth o-primary">
+	  <input type="radio" name="radio66"> 
+	  <label><i class="mdi mdi-weather-lightning"></i> Lightning</label>
+	</div>
+	<div class="pretty circle a-rotate smooth o-success"> 
+	  <input type="radio" name="radio66"> 
+	  <label><i class="mdi mdi-weather-partlycloudy"></i> Cloudy</label>
+	</div>
+	<div class="pretty circle a-bounce smooth o-info">
+	  <input type="radio" name="radio66"> 
+	  <label><i class="mdi mdi-weather-pouring"></i> Raining</label>
+	</div>
+	<div class="pretty circle a-jelly smooth o-warning">
+	  <input type="radio" name="radio66"> 
+	  <label><i class="mdi mdi-weather-snowy"></i> Snowy</label>
+	</div>
+	<div class="pretty circle a-vibrate smooth o-danger">
+	  <input type="radio" name="radio66"> 
+	  <label><i class="mdi mdi-weather-windy-variant"></i> Windy</label>
+	</div>
+	<h3>禁用单选按钮</h3>
+	<div class="pretty circle">
+	  <input type="radio" name="radio6" disabled> 
+	  <label><i class="mdi mdi-gender-male"></i> Today</label>
+	</div>
+	<div class="pretty circle info">
+	  <input type="radio" name="radio6" checked disabled> 
+	  <label><i class="mdi mdi-check"></i> Tomorrow</label>
+	</div>
+	<div class="pretty circle">
+	  <input type="radio" name="radio6" disabled> 
+	  <label><i class="mdi mdi-gender-male-female"></i> Next week</label>
+	</div>
+	<h3>切换单选按钮图标</h3>
+	<div class="pretty circle plain toggle">
+	  <input type="radio" name="radio8"> 
+	  <label><i class="mdi mdi-bluetooth-off"></i> Bluetooth</label>
+	  <label><i class="mdi mdi-bluetooth success"></i> Bluetooth</label>
+	</div>
+	<div class="pretty circle plain toggle">
+	  <input type="radio" name="radio8"> 
+	  <label><i class="mdi mdi-wifi-off"></i> Wifi</label>
+	  <label><i class="mdi mdi-wifi info"></i> Wifi</label>
+	</div>
+	<div class="pretty circle plain toggle">
+	  <input type="radio" name="radio8"> 
+	  <label><i class="mdi mdi-ethernet-cable-off"></i> Ethernet</label>
+	  <label><i class="mdi mdi-ethernet-cable danger"></i> Ethernet</label>
+	</div>
+	<h3>不带labels</h3>
+	<div class="pretty circle plain toggle">
+	  <input type="radio" name="radio9" checked> 
+	  <label><i class="mdi mdi-microphone-off"></i></label>
+	  <label><i class="mdi mdi-microphone danger"></i></label>
+	</div>
+	<div class="pretty circle plain toggle">
+	  <input type="radio" name="radio9"> 
+	  <label><i class="mdi mdi-microphone-off"></i></label>
+	  <label><i class="mdi mdi-microphone danger"></i></label>
+	</div>
+	<hr>
+	<h2>自定义字体图标</h2>
+	<h3>FONTAWESOME</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="fa fa-check"></i> fa-check</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="fa fa-close"></i> fa-close</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="fa fa-heart-o"></i> fa-heart-o</label>
+	  <label><i class="fa fa-heart info"></i> fa-heart</label>
+	</div>
+	<h3>BOOTSTRAP GLYPHICONS</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="glyphicon glyphicon-ok"></i> glyphicon-ok</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="glyphicon glyphicon-remove"></i> glyphicon-remove</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="glyphicon glyphicon-heart-empty"></i> glyphicon-heart-empty</label>
+	  <label><i class="glyphicon glyphicon-heart info"></i> glyphicon-heart</label>
+	</div>
+	<h3>MATERIAL DESIGN ICONS (MDI)</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-check"></i> mdi-check</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-close"></i> mdi-close</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="mdi mdi-heart-outline"></i> mdi-heart-outline</label>
+	  <label><i class="mdi mdi-heart info"></i> mdi-heart</label>
+	</div>
+	<h3>MATERIAL DESIGN ICONS (ZMDI)</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="zmdi zmdi-check"></i> zmdi-check</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="zmdi zmdi-close"></i> zmdi-close</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="zmdi zmdi-favorite-outline"></i> zmdi-favorite-outline</label>
+	  <label><i class="zmdi zmdi-favorite info"></i> zmdi-favorite</label>
+	</div>
+	<h3>TYPICONS</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="typcn typcn-tick"></i>typcn-tick</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="typcn typcn-times"></i> typcn-times</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="typcn typcn-heart-outline"></i> typcn-heart-outline</label>
+	  <label><i class="typcn typcn-heart info"></i> typcn-heart</label>
+	</div>
+	<h3>IONICONS</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="ion-checkmark-round"></i> ion-checkmark-round</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="ion-close-round"></i> ion-close-round</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="ion-ios-heart-outline"></i> ion-ios-heart-outline</label>
+	  <label><i class="ion-ios-heart info"></i> ion-ios-heart</label>
+	</div>
+	<h3>GOOGLE MATERIAL DESIGN ICONS</h3>
+	<div class="pretty success smooth">
+	  <input type="checkbox"> 
+	  <label><i class="g-mdi" data-icon="done"></i> done</label>
+	</div>
+	<div class="pretty circle plain o-danger smooth">
+	  <input type="checkbox"> 
+	  <label><i class="g-mdi" data-icon="clear"></i> clear</label>
+	</div>
+	<div class="pretty plain smooth toggle">
+	  <input type="checkbox"> 
+	  <label><i class="g-mdi" data-icon="favorite_border"></i> favorite_border</label>
+	  <label><i class="g-mdi info" data-icon="favorite"></i> favorite</label>
+	</div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

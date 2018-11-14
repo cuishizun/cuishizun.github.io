@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<title>jQuery左侧流程图菜单列表代码</title> 
+
+<link href="styles/css.css" type="text/css" rel="stylesheet" />
+
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script> 
+
+ </head> 
+ <body> 
+<div id="sss">aaaa</div> 
+  <div id="img_bag" class="ztb_nav"> 
+   <a href="javascript:void(0)" onmousedown="moveTop()" style="display:block; width:30px; margin:0 auto"> <img src="images/ztb_up.png" border="0" /></a> 
+   <div id="img" class="ztb_content"> 
+    <div style="position:relative;"> 
+     <div class="online"></div> 
+     <div class="ztb_main_01"> 
+      <ul class="ztb_content_01"> 
+       <li class="ztb_over"><a href="#" class="ztb_con_text" onclick="clickli(this);">场景用例 <span class="ztb_time">2017-05-25</span></a>
+        <ul class="ztb_content_02"> 
+         <li class="ztb_end"><a href="#">1.下拉类表测试</a></li> 
+         <li class="ztb_end"><a href="#">2.单选框列表测试</a></li> 
+        </ul> </li> 
+       <li class="ztb_on"><a href="#" class="ztb_con_text" onclick="clickli(this);">组件测试</a> 
+        <ul class="ztb_content_02" id="zb" style="display:block"> 
+         <li class="ztb_end"><a href="#">1.下拉类表测试</a></li> 
+         <li class="ztb_end"><a href="#">2.单选框列表测试</a></li> 
+         <li class="ztb_active"><a href="#">3.下拉类表测试</a></li> 
+         <li><a href="#">4.单选框列表测试</a></li> 
+        </ul> </li> 
+       <li><a href="#" class="ztb_con_text" onclick="clickli(this);">场景用例</a> 
+        <ul class="ztb_content_02"> 
+         <li><a href="#">1.下拉类表测试</a></li>
+         <li> <a href="#">2.单选框列表测试</a></li> 
+        </ul> </li>
+       <li> <a href="#" class="ztb_con_text" onclick="clickli(this);">组件测试</a> 
+        <ul class="ztb_content_02"> 
+         <li><a href="#">1.下拉类表测试</a></li> 
+         <li><a href="#">2.单选框列表测试</a></li> 
+         <li><a href="#">3.下拉类表测试</a></li> 
+         <li><a href="#">4.单选框列表测试</a></li> 
+        </ul> </li> 
+       <li><a href="#" class="ztb_con_text" onclick="clickli(this);">场景用例</a> 
+        <ul class="ztb_content_02"> 
+         <li><a href="#">1.下拉类表测试</a></li>
+         <li> <a href="#">2.单选框列表测试</a></li> 
+        </ul> </li> 
+       <li> <a href="#"></a><a href="#" class="ztb_con_text" onclick="clickli(this);">组件测试</a> 
+        <ul class="ztb_content_02"> 
+         <li><a href="#">1.下拉类表测试</a></li>
+         <li> <a href="#">2.单选框列表测试</a></li> 
+        </ul> </li> 
+       <li> <a href="#"></a><a href="#" class="ztb_con_text" onclick="clickli(this);">组件测试</a> 
+        <ul class="ztb_content_02"> 
+         <li><a href="#">1.下拉类表测试</a></li>
+         <li> <a href="#">2.单选框列表测试</a></li> 
+        </ul> </li> 
+       <li> <a href="#"></a><a href="#" class="ztb_con_text" onclick="clickli(this);">组件测试</a> 
+        <ul class="ztb_content_02"> 
+         <li class="ztb_online"><a href="#">1.下拉类表测试</a></li>
+         <li> <a href="#">2.单选框列表测试</a></li> 
+        </ul> </li> 
+      </ul> 
+     </div> 
+    </div> 
+   </div> 
+   <a href="javascript:void(0)" onmousedown="moveBottom()" style="position:absolute; bottom:0px; right:110px"> <img src="images/ztb_down.png" border="0" /></a> 
+  </div> 
+  <script type="text/javascript">
+		 $(function(){
+				$('ul.ztb_content_02 li').click(function(){
+				
+						$(this).addClass('ztb_online').siblings('li.ztb_online').removeClass('ztb_online');
+						$(this).parents('li').siblings('li').children('ul').find('li.ztb_online').removeClass('ztb_online');		
+					})	
+								})
+   </script> 
+   <script>
+   	function clickli(dom){
+				var ul = $(dom).next('ul');
+				if (ul.is(":hidden")) {
+					ul.css('display','block')
+				}else{
+					ul.css('display','none')
+				}
+				
+			}
+   
+   </script>
+  
+  <script type="text/javascript">
+	function js(obj){return document.getElementById(obj)}
+var maxHeight=js("img").getElementsByTagName("ul")[0].getElementsByTagName("li").length*105;
+//滚动图片的最大高度
+var targety = 211;
+//一次滚动距离
+var dx;
+var a=null;
+function moveTop(){
+ var le=parseInt(js("img").scrollTop);
+ if(le>211){
+ targety=parseInt(js("img").scrollTop)-211;
+ }else{
+ targety=parseInt(js("img").scrollTop)-le-1;
+ }
+ scTop();
+}
+function scTop(){
+ dx=parseInt(js("img").scrollTop)-targety;
+ js("img").scrollTop-=dx*.3;
+ clearScroll=setTimeout(scTop,50);
+ if(dx*.3<1){
+ clearTimeout(clearScroll);
+ }
+}
+function moveBottom(){
+ var le=parseInt(js("img").scrollTop)+211;
+ var maxL=maxHeight-600;
+ if(le<maxL){
+ targety=parseInt(js("img").scrollTop)+211;
+ }else{
+ targety=maxL
+ }
+ scBottom();
+}
+function scBottom(){
+ dx=targety-parseInt(js("img").scrollTop);
+ js("img").scrollTop+=dx*.3;
+ a=setTimeout(scBottom,50);
+ if(dx*.3<1){
+ clearTimeout(a)
+ }
+}
+</script> 
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>
