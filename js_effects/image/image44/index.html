@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="keywords" content="JS代码,焦点图,JS广告代码,JS特效代码" />
+<title>FLASH 3D BANNER展示代码</title>
+</head>
+<script src="js/AC_RunActiveContent.js" type="text/javascript"></script>
+<body style="text-align:center">
+
+<script type=text/javascript>
+var varText = ""
+	function addInfo(title,photourl,sphotourl){
+		if(varText!=""){
+			varText+="|||";
+		}
+		varText+=title+"|_|"+photourl+"|_|"+sphotourl;
+	}
+addInfo("","images/1.jpg","images/spic1.jpg");
+addInfo("","images/2.jpg","images/spic2.jpg");
+addInfo("","images/3.jpg","images/spic3.jpg");
+//
+document.write('<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" width="932" height="316" id="01" align="middle">')
+	document.write('<param name="allowScriptAccess" value="sameDomain" />')
+	document.write('<param name="movie" value="images/main.swf?info='+varText+'" />')
+	document.write('<param name="quality" value="high" />')
+	document.write('<param name="bgcolor" value="#ffffff" /><param name="wmode" value="transparent" />')
+	document.write('<embed src="images/main.swf?info='+varText+'"" quality="high" bgcolor="#ffffff" width="932" height="316" name="01" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />')
+	document.write('</object>')
+</script>
+
+<p><p>FLASH 3D BANNER展示代码，无链接。</p></p>
+<p></p>
+</body>
+</html>

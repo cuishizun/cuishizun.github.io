@@ -1,0 +1,101 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;       /* This is so we can position our slides absolutely off screen and we won't get any horizontal scroll bars */
+  background: #120103;
+  color: #fff;
+  text-align: center;
+}
+
+header {
+  background: #3E474F;
+  box-shadow: 0 .5em 1em #111;
+  position: absolute;    /* We position it absolutely to the top-left corner */
+  top: 0;
+  left: 0;
+  z-index: 900;   /*And give it a z-index of 900 so that we are sure that's on top of the rest of the content.*/
+  width: 100%;
+}
+
+header label {
+  color: #788188;
+  cursor: pointer;
+  display: inline-block;   /* This way our labels will be side-by-side and centered in the middle of our header. Inline-block also allows for our line-height to be respected */
+  line-height: 4.25em;    /* This gives us a larger clickable area*/
+  font-size: .667em;
+  font-weight: bold;
+  padding: 0 1em;
+}
+
+header label:hover {
+  background: #2e353b;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  position:absolute;
+  top: 0;
+  left: 100%;     /* With these styles, we are pushing all of our slides off to the side of the window. */
+  z-index: 10;
+  padding: 8em 1em 0;
+  background-color: #120103;
+  background-position: 50% 50%;
+  background-size:cover;     /* now our images fill up the entire slide */
+  transition: left 0s .75s;   /* duration to 0.  delay it by 0.75 seconds. So these transition styles have the new slide coming in and afterwards our old slides, slides back out.*/
+}
+
+
+
+.slide-one {
+  background-image: url('../images/starryFarm.jpg');
+}
+.slide-two {
+  background-image: url('../images/campusDarkDays.jpg');
+}
+.slide-three {
+  background-image: url('../images/autumn.jpg');
+}
+.slide-four {
+  background-image: url('../images/lakehouse.jpg');
+}
+
+
+/* So all that is left to do is to target this text state.
+We are going to use an attribute selector to select any input that has an ID that starts with slide.
+Then we will further qualify the selector by adding the pseudo-class of "checked" */
+
+/* This will target any of our radio inputs as they all begin with "slide" Then by using the adjacent sibling combinator which is the "+" sign, we can finally target our slide.*/
+
+[id^="slide"]:checked + .slide {
+  left: 0;       /* When our radio element is checked, we want to position our slide back on the left corner of our wrapper, so we will set left to zero */
+  z-index: 100;   /* we wanna raise the z-index to 100, to be sure our slide is on top of the previous one. */
+  transition: left .65s ease-out;
+}
+
+
+
+.slide h1 {
+  opacity: 0;
+  transform: translateY(100%);
+  transition: transform .5s .5s, opacity .5s;    /* This transition will allow us to see the opacity go down to zero, but it will delay the transform until the next slide is already covering it.*/
+}
+
+[id^="slide"]:checked + .slide h1 {  /* Now we target our headline when our input is in its checked state */
+  opacity: 1;
+  transform: translateY(0);
+  transition: all .5s .5s;   /* This will have our headline appearing and rising as the slide is coming onto the screen. */
+}
+
+
+
+

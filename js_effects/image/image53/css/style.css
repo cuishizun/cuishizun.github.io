@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+html {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  font-size: 16px; 
+  font-weight: normal;
+  line-height: 1.4;
+}
+
+*,
+*:before,
+*:after  { box-sizing: inherit; }
+
+
+h1 { 
+  color: #fff;
+  font-family: "Audiowide", cursive;
+  font-size: 2em;
+  font-size: 6vw;
+  line-height: 1.2;
+  margin: 0.5em 0 3em;
+  text-shadow: 1px 1px 1px #333;
+}
+
+@media (min-width: 1075px) {
+  h1 { font-size: 4em; }
+}
+
+

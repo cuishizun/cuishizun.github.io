@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>可全屏可触控的jQuery幻灯片</title>
+<!-- <link rel="stylesheet" type="text/css" href="css/reset.css" /> -->
+<link rel="stylesheet" type="text/css" href="css/royalslider.css" />
+<link rel="stylesheet" type="text/css" href="css/rs-default.css" />
+<style type="text/css">
+	*{margin:0; padding:0;}
+
+	.rsDefault .rsFullscreenIcn{background:url('img/rs-default.png') 0 0;}
+	.rsDefault .rsArrowIcn{background:url('img/rs-default.png');}
+	#gallery-1 {width:100%; -webkit-user-select: none; -moz-user-select: none; user-select: none;}
+	.rsDefault .rsThumb{width:200px; height:60px;}
+</style>
+</head>
+
+<body>
+<div id="gallery-1" class="royalSlider rsDefault">
+	<a class="rsImg bugaga" data-rsbigimg="img/1.jpg" href="img/1.png">
+		<img class="rsTmb" src="img/1.png">
+	</a>
+	<a class="rsImg" data-rsbigimg="img/2.png" href="img/2.png">
+		<img class="rsTmb" src="img/2.png">
+	</a>
+	<a class="rsImg" data-rsbigimg="img/3.png" href="img/3.png">
+		<img class="rsTmb" src="img/3.png">
+	</a>
+	<a class="rsImg" data-rsbigimg="img/4.jpg" href="img/4.png">
+		<img class="rsTmb" src="img/4.png">
+	</a>
+</div>
+<script src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/jquery.royalslider.min.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+	  $('#gallery-1').royalSlider({
+		fullscreen: {
+		  enabled: true,
+		  nativeFS: true
+		},
+		controlNavigation: 'thumbnails',
+		autoScaleSlider: true, 
+		autoScaleSliderWidth: 2560,     
+		autoScaleSliderHeight: 750,
+		loop: false,
+		imageScaleMode: 'fit-if-smaller',
+		navigateByClick: true,
+		numImagesToPreload:2,
+		arrowsNav:true,
+		arrowsNavAutoHide: true,
+		arrowsNavHideOnTouch: true,
+		keyboardNavEnabled: true,
+		fadeinLoadedSlide: true,
+		globalCaption: false,
+		globalCaptionInside: false,
+		thumbs: {
+		  appendSpan: true,
+		  firstMargin: true,
+		  paddingBottom: 0
+		}
+	  });
+	});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
+

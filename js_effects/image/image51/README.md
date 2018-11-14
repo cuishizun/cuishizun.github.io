@@ -1,0 +1,1 @@
+## terseBanner-简洁优雅的jquery轮播图插件

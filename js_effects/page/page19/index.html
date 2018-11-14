@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gbk">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="x5-orientation" content="portrait">
+<meta name="x5-fullscreen" content="true">
+<meta name="screen-orientation" content="portrait">
+<meta name="full-screen" content="yes">
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<title>2345阅读王jQuery全屏幻灯片</title>
+<link rel="stylesheet" id="globalStyle" href="css/responsive-website.css">
+<!--[if gte IE 6]>
+<link rel="stylesheet" href="css/responsive-ie-website.css" type="text/css"/>
+<![endif]-->
+</head>
+<body>
+<!-- 主面板层 -->
+<div id="view">
+<!-- 背景 -->
+<div id="background"></div>
+<!-- 背景 end -->
+<!-- 页面内容 -->
+<div id="page-content">
+<!-- 第一屏 -->
+<div id="page1" class="page" >
+<div id="page1-text" class="page-text">
+<h1 class="title">A5源码</h1>
+<h2 class="sub-title">全网小说等你来看 </h2>
+<p class="summary">适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。<br>来源：<a href="http://down.admin5.com/" target="_blank">A5源码</a></p>
+<div class="page-download">
+<div class="qrcode"><div class="qrcode-in"></div><p style="font-size:14px; text-align:center; padding-top:6px;">扫码高速下载阅读王</p></div>
+<a href="javascript:;" class="btn-android"><img src="img/down-android.png" alt=""></a>
+<a href="javascript:;" class="btn-ios"><img src="img/down-iphone.png" alt=""></a>
+</div>
+</div>
+<a href="#" target="_blank" class="page-download-button" id="page1-download-button">
+<div class="page-download-button-top" id="page1-download-button-top">
+<div class="page-download-mobile-iPhone" id="page1-download-mobile-iPhone"></div>
+<div class="page-download-mobile-android" id="page1-download-mobile-android"></div>
+</div>
+</a>
+<div class="page-download-pc-button" id="page1-download-pc-button">
+<a href="http://down.admin5.com/" target="_blank" class="page-download-pc-iPhone">
+<div class="page-download-pc-top">
+<div class="pc-iPhone"></div>
+</div>
+</a>
+<a href="http://down.admin5.com/" target="_blank" class="page-download-pc-android">
+<div class="page-download-pc-top">
+<div class="pc-android"></div>
+</div>
+</a>
+</div>
+<div id="hand" class="hand">
+<div class="hand-in">
+<div class="hand-img"></div>
+<div class="iphone">
+<div class="in"></div>
+<div class="iphone-screen"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 第一屏 end -->
+<!-- 第二屏 -->
+<div id="page2" class="page">
+<div id="page2-text" class="page-text">
+<h1 id="page2-text-title" class="title">海量精选小说</h1>
+<p id="page2-text-summary" class="summary">精选万本优质小说，青春校园、总裁豪门、玄幻武侠、 都市异能、图书名著，各种类型，你想要的全都有。</p>
+</div>
+<div id="page2-iphone" class="iphone">
+<div class="in"></div>
+<div class="iphone-screen"></div>
+<div id="page2-screen-expand" class="iphone-screen screen-expand"></div>
+<div id="page2-iphone-flip-zoom" class="iphone-flip-zoom"><div class="zoom-in"></div></div>
+</div>
+</div>
+<!-- 第二屏 end -->
+<!-- 第三屏 -->
+<div id="page3" class="page">
+<div id="page3-text" class="page-text">
+<h1 id="page3-text-title" class="title">一键离线下载</h1>
+<p id="page3-text-summary" class="summary">一键轻松下载到本地，没网也能看，超省流量。地铁公交、 餐厅排队、睡前阅读，随时随地，想看就看。 </p>
+</div>
+<div id="page3-iphone" class="iphone">
+<div class="in"></div>
+<div class="iphone-screen"></div>
+<div id="page3-iphone-flip-zoom" class="iphone-flip-zoom"><div class="zoom-in"></div></div>
+</div>
+</div>
+<!-- 第三屏 end -->
+<!-- 第四屏 -->
+<div id="page4" class="page">
+<div id="page4-text" class="page-text">
+<h1 id="page4-text-title" class="title">全局护眼模式</h1>
+<p id="page4-text-summary" class="summary">智能过滤蓝光，减轻双眼负担，看再久都不用担心眼睛疲劳了。小说虽精彩，可不要上瘾哦！ </p>
+</div>
+<div id="page4-iphone" class="iphone">
+<div class="in"></div>
+<div class="iphone-screen"></div>
+<div id="page4-screen-expand" class="iphone-screen screen-expand"></div>
+<div id="page4-iphone-flip-zoom" class="iphone-flip-zoom"><div class="zoom-in"></div></div>
+</div>
+</div>
+<!-- 第四屏 end -->
+<!-- 第五屏 -->
+<div id="page5" class="page">
+<div id="page5-text" class="page-text">
+<h1 id="page5-text-title" class="title">多平台云同步</h1>
+<p id="page5-text-summary" class="summary">不同设备自由切换，一键登录，无需手动设置， 云书架自动同步，至爱小说轻松转移。 </p>
+</div>
+<div id="page5-devices-demo">
+<div id="page5-android" class="android"><div class="in"></div></div>
+<div id="page5-mac" class="mac"><div class="in"></div></div>
+<div id="page5-iphone" class="iphone">
+<div class="in"></div>
+<div class="iphone-screen"></div>
+</div>
+</div>
+</div>
+<!-- 第五屏 end -->
+<!-- 第六屏 -->
+<div id="page6" class="page">
+<div id="page6-wrap">
+<div id="page6-text" class="page-text">
+<h1 id="page6-text-title" class="title">爱读书不寂寞</h1>
+<p id="page6-text-sub" class="sub-title">全网小说等你来看</p>
+<span class="line"></span>
+</div>
+<div class="page-download" id="page6-download">
+<div class="qrcode"><div class="qrcode-in"></div></div>
+<a href="javascript:;" class="btn-android"><img src="img/down-android.png" alt=""></a>
+<a href="javascript:;" class="btn-ios"><img src="img/down-iphone.png" alt=""></a>
+</div>
+</div>
+<a href="#" target="_blank" class="page-download-button" id="page6-download-button">
+<div class="page-download-button-top" id="page6-download-button-top">
+<div class="page-download-mobile-iPhone" id="page6-download-mobile-iPhone"></div>
+<div class="page-download-mobile-android" id="page6-download-mobile-android"></div>
+</div>
+</a>
+<div class="page-download-pc-button" id="page6-download-pc-button">
+<a href="http://down.admin5.com/" target="_blank" class="page-download-pc-iPhone">
+<div class="page-download-pc-top">
+<div class="pc-iPhone"></div>
+</div>
+</a>
+<a href="http://down.admin5.com/" target="_blank" class="page-download-pc-android">
+<div class="page-download-pc-top">
+<div class="pc-android"></div>
+</div>
+</a>
+</div>
+</div>
+<!-- 第六屏 end -->
+
+</div>
+<!-- 页面内容 end -->
+<!-- 控制器 -->
+<div id="page-control" class="animatePageControlIn">
+<div id="pageControl-btn1" class="pageControl animateControlFocus"></div>
+<div id="pageControl-btn2" class="pageControl"></div>
+<div id="pageControl-btn3" class="pageControl"></div>
+<div id="pageControl-btn4" class="pageControl"></div>
+<div id="pageControl-btn5" class="pageControl"></div>
+<div id="pageControl-btn6" class="pageControl"></div>
+</div>
+<!-- 控制器 end -->
+</div>
+<!-- 主面板层 end -->
+
+<!-- Logo -->
+<div id="logo"><a href="http://down.admin5.com/"><div class="logo-in"></div></a></div>
+<!-- Logo end -->
+
+<!-- 箭头控制器 -->
+<div id="arrow-left">
+<div id="arrow-left-height"></div>
+</div>
+<div id="arrow-right">
+<div id="arrow-right-height"></div>
+</div>
+<div id="arrow-down" class="animateArrowDown"><div id="arrow-down-height"></div></div>
+<!-- 箭头控制器 end -->
+
+<script src="js/jquery1.8.3.min.js"></script>
+<script src="js/app.responsive.website.min.js" charset="utf-8"></script>
+
+</body>
+</html>

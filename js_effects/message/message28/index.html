@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery从页面右上角弹出的浮层代码</title>
+	<link href="css/zzsc.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".showdiv").click(function () {
+				var box = 300;
+				var th = $(window).scrollTop() + $(window).height() / 1.6 - box;
+				var h = document.body.clientHeight;
+				var rw = $(window).width() / 2 - box;
+				$(".showbox").animate({ top: th, opacity: 'show', width: 600, height: 340, right: rw }, 500);
+				$("#zhezhao").css({
+					display: "block", height: $(document).height()
+				});
+				return false;
+			});
+			$(".showbox .close").click(function () {
+				$(this).parents(".showbox").animate({ top: 0, opacity: 'hide', width: 0, height: 0, right: 0 }, 500);
+				$("#zhezhao").css("display", "none");
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<a class="showdiv" href="http://sc.chinaz.com/jiaoben">点击我弹出浮层</a>
+	<div class="showbox">
+		<h2>A5源码简介<a class="close" href="#">关闭</a></h2>
+		<div class="mainlist">
+			<p>站长网旗下A5源码创立于2008年末，包含源码、软件、素材、字体、教程等站长资源，致力于建成海量可靠的站长资源下载站。
+
+				经过数年努力，在众多合作伙伴和站长朋友的帮助下，A5源码早已跻身国内最优秀的站长下载站行列，可喜的是，我们仍然保持很高的增长势头。
+			</p>
+		</div>
+	</div>
+	<div id="zhezhao"></div>
+	<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+	</div>
+</body>
+
+</html>
