@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jQuery日期时间选择器集合插件  </title>
+<!--时间css start-->
+<link href="css/bootstrap-datetimepicker.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+<!--时间css end-->
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/prettify-1.0.css" rel="stylesheet">
+<link href="css/base.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/default.css">
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+ <!--时间js start-->
+<script src="js/moment-with-locales.js"></script>
+<script src="js/bootstrap-datetimepicker.js"></script>
+<!--时间js end-->
+
+</head>
+
+<body style="overflow-x:hidden;">
+
+<div class="htmleaf-container">
+<header class="htmleaf-header">
+	<h1>日期时间选择器集合demo</span></h1>
+   
+</header>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+<ul class="nav bs-sidenav">
+
+<li class="main active"><a href="#bootstrap-3-datepicker-v4-docs">时间列表选择</a></li>
+
+<li><a href="#a1">单选年</a></li>
+
+	<li><a href="#a2">单选年月</a></li>
+
+	<li><a href="#a3">单选年月日</a></li>
+
+	<li><a href="#a4">单选年月日时</a></li>
+
+	<li><a href="#a5">单选时</a></li>
+
+	<li><a href="#a6">双选时与时</a></li>
+
+	<li><a href="#a7">双选年与年</a></li>
+
+	<li><a href="#a8">双选年月与年月</a></li>
+
+	<li><a href="#a9">双选年月日与年月日</a></li>
+
+	<li><a href="#a10">双选年月日与年月日时</a></li>
+
+
+
+
+</ul>
+</div></div>
+				<div class="col-md-9" role="main">
+
+<h3 id="a1">单选年</h3>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker1' />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar">
+                      </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker({
+               viewMode: 'years',
+			   format: 'YYYY'
+            });
+        });
+    </script>
+</div>
+</div>
+<h4 id="code">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class='col-sm-6'&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class='input-group date'&gt;
+                    &lt;input type='text' class=&quot;form-control&quot;  id='datetimepicker1' /&gt;
+                    &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(function () {
+                $('#datetimepicker1').datetimepicker({ viewMode: 'years', format: 'YYYY'});
+            });
+        &lt;/script&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr />
+<h3 id="a2">单选年月</h3>
+
+
+
+<div class="container">
+			<div class="row">
+             <div class="col-sm-6">
+		 <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker2' />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar">
+                      </span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker2').datetimepicker({
+			   locale: 'zh-cn',
+               viewMode: 'months',
+			   format: 'YYYY/MM'
+            });
+        });
+    </script>
+</div>    
+</div>
+
+<h4 id="code_1">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class='col-sm-6'&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class='input-group date' &gt;
+                    &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker2' /&gt;
+                    &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'zh-cn',viewMode: 'months',format: 'YYYY/MM'
+                });
+            });
+        &lt;/script&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr />
+<h3 id="a3">单选年月日</h3>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' >
+                    <input type='text' class="form-control" id='datetimepicker3'/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                 locale: 'zh-cn',
+                 viewMode: 'days',
+			     format: 'YYYY/MM/DD'
+                });
+            });
+        </script>
+    </div>
+</div>
+
+<h4 id="code_2">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class='col-sm-6'&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;div class='input-group date' &gt;
+                    &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker3'/&gt;
+                    &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-time&quot;&gt;&lt;/span&gt;
+                    &lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(function () {
+                $('#datetimepicker3').datetimepicker({
+                    locale: 'zh-cn',viewMode: 'days',format: 'YYYY/MM/DD'
+                });
+            });
+        &lt;/script&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr />
+<h3 id="a4">单选年月日时</h3>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <input type='text' class="form-control" id='datetimepicker4'/>
+         </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4').datetimepicker({locale: 'zh-cn'});
+            });
+        </script>
+    </div>
+</div>
+
+<h4 id="code_3">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class='col-sm-6'&gt;
+            &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker4'/&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(function () {
+                $('#datetimepicker4').datetimepicker({locale: 'zh-cn'});
+            });
+        &lt;/script&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr />
+
+<h3 id="a5">单选时</h3>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <input type='text' class="form-control" id='datetimepicker4a'/>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker4a').datetimepicker({locale: 'zh-cn',format: 'LT'});
+            });
+        </script>
+    </div>
+</div>
+
+<h4 id="code_4">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+        &lt;div class='col-sm-6'&gt;
+            &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker4a'/&gt;
+        &lt;/div&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+            $(function () {
+                $('#datetimepicker4a').datetimepicker({locale: 'zh-cn',format: 'LT'});
+            });
+        &lt;/script&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+<hr />
+<h3 id="a6">双选时与时</h3>
+<div class="container">
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker6'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker7'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker({locale: 'zh-cn', format: 'LT'});
+        $('#datetimepicker7').datetimepicker({locale: 'zh-cn', format: 'LT'});
+        $("#datetimepicker6").on("dp.change",function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change",function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+<h4 id="code_5">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker6'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker7'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function () {
+        $('#datetimepicker6').datetimepicker({locale: 'zh-cn', format: 'LT'});
+        $('#datetimepicker7').datetimepicker({locale: 'zh-cn', format: 'LT'});
+        $(&quot;#datetimepicker6&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker7').data(&quot;DateTimePicker&quot;).minDate(e.date);
+        });
+        $(&quot;#datetimepicker7&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker6').data(&quot;DateTimePicker&quot;).maxDate(e.date);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+<hr />
+
+<h3 id="a7">双选年与年</h3>
+<div class="container">
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker8'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker9'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker8').datetimepicker({viewMode: 'years', format: 'YYYY'});
+        $('#datetimepicker9').datetimepicker({viewMode: 'years', format: 'YYYY'});
+        $("#datetimepicker8").on("dp.change",function (e) {
+            $('#datetimepicker9').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker9").on("dp.change",function (e) {
+            $('#datetimepicker8').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+<h4 id="code_6">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker8'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker9'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function () {
+        $('#datetimepicker8').datetimepicker({viewMode: 'years', format: 'YYYY'});
+        $('#datetimepicker9').datetimepicker({viewMode: 'years', format: 'YYYY'});
+        $(&quot;#datetimepicker8&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker9').data(&quot;DateTimePicker&quot;).minDate(e.date);
+        });
+        $(&quot;#datetimepicker9&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker8').data(&quot;DateTimePicker&quot;).maxDate(e.date);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+<hr />
+
+
+
+<h3 id="a8">双选年月与年月</h3>
+<div class="container">
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker10'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker11'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker10').datetimepicker({locale: 'zh-cn', viewMode: 'months', format: 'YYYY/MM'});
+        $('#datetimepicker11').datetimepicker({locale: 'zh-cn', viewMode: 'months', format: 'YYYY/MM'});
+        $("#datetimepicker10").on("dp.change",function (e) {
+            $('#datetimepicker11').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker11").on("dp.change",function (e) {
+            $('#datetimepicker10').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+<h4 id="code_7">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker10'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker11'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function () {
+        $('#datetimepicker10').datetimepicker({locale: 'zh-cn', viewMode: 'months', format: 'YYYY/MM'});
+        $('#datetimepicker11').datetimepicker({locale: 'zh-cn', viewMode: 'months', format: 'YYYY/MM'});
+        $(&quot;#datetimepicker10&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker11').data(&quot;DateTimePicker&quot;).minDate(e.date);
+        });
+        $(&quot;#datetimepicker11&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker10').data(&quot;DateTimePicker&quot;).maxDate(e.date);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+<hr />
+
+<h3 id="a9">双选年月日与年月日</h3>
+<div class="container">
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker12'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker13'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker12').datetimepicker({locale: 'zh-cn', viewMode: 'days', format: 'YYYY/MM/DD'});
+        $('#datetimepicker13').datetimepicker({locale: 'zh-cn', viewMode: 'days', format: 'YYYY/MM/DD'});
+        $("#datetimepicker12").on("dp.change",function (e) {
+            $('#datetimepicker13').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker13").on("dp.change",function (e) {
+            $('#datetimepicker12').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+<h4 id="code_8">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker12'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker13'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function () {
+        $('#datetimepicker12').datetimepicker({locale: 'zh-cn', viewMode: 'days', format: 'YYYY/MM/DD'});
+        $('#datetimepicker13').datetimepicker({locale: 'zh-cn', viewMode: 'days', format: 'YYYY/MM/DD'});
+        $(&quot;#datetimepicker12&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker13').data(&quot;DateTimePicker&quot;).minDate(e.date);
+        });
+        $(&quot;#datetimepicker13&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker12').data(&quot;DateTimePicker&quot;).maxDate(e.date);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+<hr />
+
+<h3 id="a10">双选年月日与年月日时</h3>
+<div class="container">
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker14'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div class='input-group date' >
+                <input type='text' class="form-control" id='datetimepicker15'/>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker14').datetimepicker({locale: 'zh-cn'});
+        $('#datetimepicker15').datetimepicker({locale: 'zh-cn'});
+        $("#datetimepicker14").on("dp.change",function (e) {
+            $('#datetimepicker15').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker15").on("dp.change",function (e) {
+            $('#datetimepicker14').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
+
+<h4 id="code_9">代码</h4>
+<pre><code>&lt;div class=&quot;container&quot;&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker14'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class='col-md-4'&gt;
+        &lt;div class=&quot;form-group&quot;&gt;
+            &lt;div class='input-group date' &gt;
+                &lt;input type='text' class=&quot;form-control&quot; id='datetimepicker15'/&gt;
+                &lt;span class=&quot;input-group-addon&quot;&gt;&lt;span class=&quot;glyphicon glyphicon-calendar&quot;&gt;&lt;/span&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+    $(function () {
+        $('#datetimepicker14').datetimepicker({locale: 'zh-cn'});
+        $('#datetimepicker15').datetimepicker({locale: 'zh-cn'});
+        $(&quot;#datetimepicker14&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker15').data(&quot;DateTimePicker&quot;).minDate(e.date);
+        });
+        $(&quot;#datetimepicker15&quot;).on(&quot;dp.change&quot;,function (e) {
+            $('#datetimepicker14').data(&quot;DateTimePicker&quot;).maxDate(e.date);
+        });
+    });
+&lt;/script&gt;
+</code></pre>
+
+
+</div>
+ </div>
+ </div>
+
+<script src="js/base.js">    </script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

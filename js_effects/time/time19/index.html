@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery自定义时间秒倒计时代码</title>
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	function timeout(obj){
+		if(obj<10){
+
+		}else{
+			var times = obj * 100; // 60秒
+			countTime = setInterval(function() {
+				times = --times < 0 ? 0 : times;
+				var ms = Math.floor(times / 100).toString();
+
+				if(ms.length <= 1) {
+					ms = "0" + ms;
+				}
+				var hm = Math.floor(times % 100).toString();
+				if(hm.length <= 1) {
+					hm = "0" + hm;
+				}
+				if(times == 0) {
+					//alert("游戏结束");
+					clearInterval(countTime);
+				}
+				// 获取分钟、毫秒数
+				$(".a").html(ms);
+				$(".b").html(hm);
+			}, 10);
+		}
+
+	    
+	}
+	$(function () {
+		$('.start').click(function () {
+			var a = $('.a').html();
+			timeout(a);
+		})
+		$('.end').click(function () {
+			$('.a').html(10);
+			$('.b').html('00');
+			clearInterval(countTime);
+		})
+	})
+</script>
+<style>
+	html,body{margin:0;padding: 0;width: 100%;height: 100%;}
+	body{background: #ef4036;color: #fff;}
+	.main{
+		display: -webkit-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	    -webkit-justify-content: center;
+	    justify-content: center;
+	    -webkit-box-align: center;
+	    -ms-flex-align: center;
+	    -webkit-align-items: center;
+	    align-items: center;
+	    height: 100%;
+	}
+	.warp{
+		width: 670px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 260px;
+		font-family: "微软雅黑";
+		font-weight: 300;
+		overflow: hidden;
+	}
+	.warp span{width:300px;display: block;text-align: center;float: left;}
+	.warp font{display:block;margin-top: -20px;float: left;width: 70px;}
+	.btn{text-align: center;margin-top: 60px;}
+	.btn span{display: inline-block;padding: 30px 60px;border-radius: 5px;cursor: pointer;background: #000;margin: 0 35px;font-size: 20px;width: 150px;text-align: center;}
+	.btn span.end{background: #ffb200;}
+	.btn font{display: inline-block;width: 20px;}
+</style>
+</head>
+
+<body>
+<div class="main">
+	<div>
+		<div class="warp">
+			<span class="a">10</span><font>:</font><span class="b">00</span>
+		</div>
+		<div class="btn">
+			<span class="start">开始</span>
+			<span class="end">重置</span>
+		</div>
+	</div>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

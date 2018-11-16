@@ -1,0 +1,252 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>HTML5 SVG多边形粒子时钟动画特效</title>
+
+<style>
+svg {
+  position: absolute;
+  width: 80vh;
+  height: 80vh;
+  max-width: 80vw;
+  max-height: 80vw;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0px);
+          transform: translate3d(-50%, -50%, 0px);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-feature-settings: 'tnum';
+  -moz-font-feature-settings: 'tnum';
+  -ms-font-feature-settings: 'tnum';
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  stroke-width: 0;
+}
+
+body {
+  background: #F3F6F7;
+}
+body .f1 {
+  fill: #181F22;
+}
+body .f2 {
+  fill: #F3F6F7;
+}
+body.frog {
+  background: #181F22;
+}
+body.frog .f1 {
+  fill: #0EF998;
+}
+body.frog .s1 {
+  stroke: #0EF998;
+}
+body.frog .f2 {
+  fill: #181F22;
+}
+body.frog .s2 {
+  stroke: #181F22;
+}
+body.sol {
+  background: #181F22;
+}
+body.sol .f1 {
+  fill: #F90E5A;
+}
+body.sol .s1 {
+  stroke: #F90E5A;
+}
+body.sol .f2 {
+  fill: #181F22;
+}
+body.sol .s2 {
+  stroke: #181F22;
+}
+body.wasp {
+  background: #181F22;
+}
+body.wasp .f1 {
+  fill: #FFF532;
+}
+body.wasp .s1 {
+  stroke: #FFF532;
+}
+body.wasp .f2 {
+  fill: #181F22;
+}
+body.wasp .s2 {
+  stroke: #181F22;
+}
+body.terra {
+  background: #E76054;
+}
+body.terra .f1 {
+  fill: #ECF1CC;
+}
+body.terra .s1 {
+  stroke: #ECF1CC;
+}
+body.terra .f2 {
+  fill: #E76054;
+}
+body.terra .s2 {
+  stroke: #E76054;
+}
+</style>
+</head>
+
+<script src="js/snap.svg-min.js"></script>
+
+<body class="wasp">
+
+  <svg id="clock" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+      text { font-family: 'Helvetica Bold', 'Helvetica', sans-serif; font-weight: bold; }
+    </style>
+  </svg>
+
+
+<script>
+// Utilities
+function clamp(n, min, max) {
+  return Math.min(max, Math.max(min, n));
+}
+
+function lerp(o, t, p) {
+  return o + (t - o) * p;
+}
+
+function rad(deg) {
+  return deg * Math.PI / 180;
+}
+
+function pos(x, y, r, deg) {
+  return {
+    x: (x - r * Math.sin(rad(deg))).toString(),
+    y: (y - r * Math.cos(rad(deg))).toString()
+  };
+}
+
+function stringPos(obj) {
+  return obj.x + "," + obj.y;
+}
+
+// Easings
+function oscillate(t) {
+  return Math.sin(rad(180 * t));
+}
+
+var c = Snap("#clock"),
+  i;
+
+var poly = [];
+for (i = 0; i < 12; i++) {
+  var p = pos(256, 256, 256, i * 30);
+  poly.push(p.x, p.y);
+}
+c.polygon(poly).addClass("f1");
+
+var seconds = [];
+for (i = 0; i < 60; i++) {
+  var p = pos(256, 256, 192, i * -6);
+  seconds.push({
+    l: c.circle(p.x, p.y, i % 5 === 0 ? 8 : 4).addClass("f2"),
+    r: 0
+  });
+}
+
+var minutes = [];
+for (i = 0; i < 10; i++) {
+  var p = pos(256, 256, 16 * i, 0);
+  minutes.push({ l: c.circle(p.x, p.y, i === 0 ? 4 : 4).addClass("f2"), r: 0 });
+}
+
+var hours = [];
+for (i = 0; i < 5; i++) {
+  var p = pos(256, 256, 24 * i, 0);
+  hours.push({ l: c.circle(p.x, p.y, 8).addClass("f2"), r: 0 });
+}
+
+// Drawing
+var delta,
+  lastSecond,
+  last = new Date();
+function draw() {
+  var now = new Date();
+  delta = (now.getTime() - last.getTime()) / 1000;
+  last = now;
+
+  // Get Times
+  var h = now.getHours();
+  var m = now.getMinutes();
+  var s = now.getSeconds();
+  var ms = now.getMilliseconds();
+
+  // Progress
+  var prog = { ms: ms / 1000 },
+    p,
+    target;
+  prog.s = (s + prog.ms) / 60;
+  prog.m = (m + prog.s) / 60;
+  prog.h = (h + prog.m) / 12;
+
+  for (i = 0; i < seconds.length; i++) {
+    var sec = seconds[i];
+    var pp = clamp((prog.s - i * 1 / 60) / (1 / 60), 0, 1);
+
+    if (pp === sec.r) {
+      continue;
+    }
+    p = pos(
+      256,
+      256,
+      192 + 32 * oscillate(pp) * (i % 2 === 0 ? -1 : 1),
+      i * -6
+    );
+    sec.r = pp;
+
+    sec.l.attr({ cx: p.x, cy: p.y });
+  }
+
+  var len = minutes.length;
+  for (i = 0; i < len; i++) {
+    var min = minutes[i];
+    target = m + m * 60;
+    if (target === 0 && min.r > 300) {
+      min.r = -61;
+    } // Wrapping
+    min.r = lerp(min.r, target, delta * (5 + (len - i) / len * 5));
+
+    p = pos(256, 256, 16 * i, min.r / 60 * -360);
+    min.l.attr({ cx: p.x, cy: p.y });
+  }
+
+  len = hours.length;
+  for (i = 0; i < len; i++) {
+    var hou = hours[i];
+    var hh = h * 5 + Math.round(m / 12);
+    target = hh + hh * 60;
+    if (target === 0 && hou.r > 300) {
+      hou.r = -61;
+    } // Wrapping
+    hou.r = lerp(hou.r, target, delta * (5 + (len - i) / len * 5));
+
+    p = pos(256, 256, 24 * i, hou.r / 60 * -360);
+    hou.l.attr({ cx: p.x, cy: p.y });
+  }
+
+  window.requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+
+<div style="text-align:center;margin:5px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

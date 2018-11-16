@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML5 Canvas创意时钟特效</title>
+</head>
+<body>
+
+<style type="text/css">
+	.relogio{width:550px;height:550px;margin:40px auto 0 auto;}
+</style>
+
+<div class="relogio"></div>
+<div>
+	<center>
+		<span id="todaydatetime"></span>
+	</center>
+</div>
+<script type="text/javascript" src="js/index.js"></script>
+
+<script>
+	function displayTime() {
+		var elt = document.getElementById("todaydatetime");
+		var now = new Date();
+		var h = now.getHours();
+		var m = now.getMinutes();
+		var s = now.getSeconds();
+		var ms = now.getMilliseconds();
+		elt.innerHTML =h + "小时:" + m + "分:" + s + "秒:" + ms;
+		setTimeout(displayTime, 100);
+	}
+	displayTime();
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>	
+</html>

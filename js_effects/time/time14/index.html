@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>jQuery日期时间轴自动播放代码  </title>
+
+<link rel="stylesheet" type="text/css" href="css/timePlay.css">
+
+</head>
+<body>
+
+<button id="pause">渲染未完成延迟动画</button>
+<button id="play">渲染完成继续动画</button>
+<div id="timePlay"></div>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/timePlay.js" type="text/javascript" charset="utf-8"></script>
+<!--<script src="js/timePlay.min.js" type="text/javascript" charset="utf-8"></script>-->
+<script type="text/javascript">
+var timeplay = new TimePlay({
+	speed: 2000,//播放速度
+	startDate: 20180701,//开始日期
+	endDate: 20190131,//结束日期
+	timeUnitControl: true,//是否显示时/天切换控件
+	onClickChangeEnd: function(){//点击后回调
+		//获取点击的时间
+		var hour = timeplay.curr_day.hour,//小时
+				day  = timeplay.curr_day.day,//日
+				mon  = timeplay.curr_day.mon,//月
+				year = timeplay.curr_day.year;//年
+		console.log(year+"年" + mon + "月" + day + "日" + hour + "时");
+	},
+	onAnimateEnd: function(){//时间轴动画每次结束回调
+		var hour = timeplay.curr_day.hour,//小时
+				day  = timeplay.curr_day.day,//日
+				mon  = timeplay.curr_day.mon,//月
+				year = timeplay.curr_day.year;//年
+		console.log(year+"年" + mon + "月" + day + "日" + hour + "时");
+	}
+});
+
+$("#pause").click(function(){
+	timeplay.delayAnimation();//延迟动画
+})
+
+$("#play").click(function(){
+	timeplay.continueAnimation();//继续动画
+})
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

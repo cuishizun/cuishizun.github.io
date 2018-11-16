@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jQuery宽屏Banner图文切换代码</title>
+
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="banner-engine">
+
+	<ul class="banner-ul clearfix" id="slider-back">
+		<li class="banner-cloudapp"></li>
+		<li class="banner-cps"></li>
+		<li class="banner-trust"></li>
+	</ul>
+	<!-- 对应banner文字 -->
+	<div class="slider-main">
+		<div class="banner-text">
+			<div class="slider-text" data-start_top="30" data-to_top="0" data-start_left="0" data-to_left="0">
+				<p class="banner-text1" >云应用正式公测</p>
+				<p class=" banner-text2" >提供跨云多平台一站式批量云服务器安全管理服务</p>
+				<a class="banner-link-button" href="#">参与公测</a>
+			</div>
+		</div>
+		<div class="banner-text">
+			<div class="slider-text" data-start_top="30" data-to_top="0" data-start_left="0" data-to_left="0">
+				<p class="banner-text1" >CPS推广</p>
+				<p class=" banner-text2" ><span style="color: #ffd400;">5日结算随时提现</span>   现在加入共赢云计算市场蓝海</p>
+				<a class="banner-link-button" href="#">立即加入</a>
+			</div>
+		</div>
+		<div class="banner-text">
+			<div class="slider-text" data-start_top="30" data-to_top="0" data-start_left="0" data-to_left="0">
+				<p class="banner-text1" >信任中心</p>
+				<p style="line-height: 36px;" class=" banner-text2" >严格经过16+2维度测试<br/>为您提供合规、可用、安全、可信的云计算服务</p>
+				<a class="banner-link-button" href="#">立即查看</a>
+			</div>
+		</div>
+	</div>
+	<!-- banner索引 -->
+	<div class="banner-point">
+		<div class="auto">
+			<ul class="banner-area" id="slider-btn">
+				<li class="active" data-delay="12000"></li>
+				<li data-delay="8000"></li>
+				<li data-delay="8000"></li>
+			</ul>
+		</div>
+	</div>
+	
+</div> 
+
+<script type="text/javascript">
+$(function() {
+    var d = $("#slider-btn li");
+    var j = $("#slider-back li");
+    var a = $(".banner-text");
+    var h = $(".slider-text");
+    var e = $(".banner-txt a");
+    var i = 0;
+    d.each(function(l) {
+        $(this).mouseover(function() {
+            f(l)
+        });
+        $(this).data("index")
+    });
+    function f(l) {
+        i = l;
+        d.eq(l).addClass("active").siblings().removeClass();
+        var m = a.eq(l);
+        var n = m.children();
+        m.siblings(".banner-text").stop(true).fadeOut(100);
+        m.show();
+        n.each(function() {
+            var o = $(this);
+            o.css({
+                display: "block",
+                opacity: 0,
+                top: o.data("start_top") || 0,
+                left: o.data("start_left") || 0
+            });
+            o.stop(true).delay(400).animate({
+                display: "none",
+                opacity: 1,
+                top: o.data("to_top"),
+                left: o.data("to_left")
+            },
+            1200);
+            if (o.data("class") !== undefined) {
+                o.removeClass(o.data("class"));
+                setTimeout(function() {
+                    o.addClass(o.data("class"))
+                },
+                0)
+            }
+        });
+        j.eq(l).siblings().stop().animate({
+            opacity: 0
+        },
+        600);
+        j.eq(l).stop().animate({
+            opacity: 1
+        },
+        600)
+    }
+    function g() {
+        i++;
+        if (i == d.length) {
+            i = 0
+        }
+        f(i)
+    }
+    var c = null;
+    var b = $("#slider-btn");
+    var k = function() {
+        var l = b.find(".active");
+        c = setTimeout(function() {
+            g();
+            k()
+        },
+        l.data("delay") || 8000)
+    };
+    k();
+    d.hover(function() {
+        clearInterval(c)
+    },
+    function() {
+        k()
+    });
+    f(0)
+});
+</script>
+ 
+<div style="text-align:center;margin:10px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

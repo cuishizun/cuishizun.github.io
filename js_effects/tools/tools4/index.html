@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>jQuery时间戳转换倒计时代码</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+</head>
+<body>
+
+<div class="input">
+    <input type="text " id="input1" value="2018-06-15 11:23:39">
+    <span class="input-btn" id="btn1">转换时间戳</span>
+    <input type="text " id="input1-1">
+</div>
+<div class="input">
+    <input type="text " id="input2" value="1529033019000">
+    <span class="input-btn" id="btn2">转换时间</span>
+    <input type="text " id="input2-1">
+</div>
+<div class="input">
+    <input type="text " id="input3" value="2018/12/12 23:59:59">
+    <span class="input-btn" id="btn3">倒计时</span>
+    <input type="text " id="input3-1">
+</div>
+<div class="input">
+    <input type="text " id="input4" value="123456789">
+    <span class="input-btn" id="btn4">转汉字</span>
+    <input type="text " id="input4-1">
+</div>
+
+<script src="js/datatime.js"></script>
+
+<script>
+    $("#btn1").click(function () {
+        $("#input1-1").val(DateToUnix($("#input1").val()));
+    });
+    $("#btn2").click(function () {
+        $("#input2-1").val(UnixToDate(Number($("#input2").val()),2));
+    });
+    $("#btn3").click(function () {
+        setInterval(function () {
+            $("#input3-1").val(DownTime($("#input3").val()));
+        },1000);
+    });
+    $("#btn4").click(function () {
+        $("#input4-1").val(NumBerToHanZi($("#input4").val()));
+    });
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>
