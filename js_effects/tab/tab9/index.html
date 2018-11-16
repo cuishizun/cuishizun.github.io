@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="zh-CN">
+<title>jQuery标签TAB控制图片切换代码</title>
+
+<link href="css/style.css" rel="stylesheet" />
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.js"></script>
+
+</head>
+<body>
+
+<div class="m-slide" style="margin:30px auto">
+  <ul class="img" style="position: relative; width: 490px; height: 200px;">
+    <li style="position: absolute; width: 490px; left: 0px; top: 0px; display: list-item;"> <a href="#" target="_blank"><img src="images/1.jpg"></a></li>
+    <li style="position: absolute; width: 490px; left: 0px; top: 0px; display: none;"> <a href="#" target="_blank"><img src="images/2.jpg"></a></li>
+    <li style="position: absolute; width: 490px; left: 0px; top: 0px; display: none;"> <a href="#" target="_blank"><img src="images/3.jpg"></a></li>
+    <li style="position: absolute; width: 490px; left: 0px; top: 0px; display: none;"> <a href="#" target="_blank"><img src="images/4.jpg"></a></li>
+  </ul>
+  <ul class="tab">
+    <li class="  on"><a href="#"><b></b> <span class="title">Picture info 1 </span></a> </li>
+    <li><a href="#"><b></b><span class="title">Picture info 2 </span></a></li>
+    <li class=" "><a href="#"><b></b><span class="title"> Picture info 3 </span></a></li>
+    <li class=" "><a href="#"><b></b><span class="title"> Picture info 4 </span></a></li>
+  </ul>
+ </div>
+ 
+<script type="text/javascript">jQuery(".m-slide").slide({ titCell:".tab li", mainCell:".img",effect:"fold", autoPlay:true});</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';color:#ffffff">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery点击切换Tab标签选项卡代码</title>
+
+<style>
+*{padding:0; margin:0}
+.clear{clear:both;}
+.container{
+	width:1100px;
+	margin:50px auto 0;
+}
+.container .nav{width:1101px;border:1px solid #ccc;}
+.container .nav span{display: block; width:219px; border-left:1px solid #ccc; text-align:center; line-height:40px; color:#666; float:left; cursor:pointer;}
+.container .nav span.active{background:#666666; color:#fff;}
+
+.container .nav span:first-child{border:0px}
+
+.content{ margin-top:20px; width:1101px;position:relative; overflow:hidden;height:200px;} /*定位一般设置为relative，overflow设置为hidden来隐藏外面的内容*/
+.content .box{position:absolute;width:1101px;height:200px;} /*这个定位设置为absolute, 因为要操作这个的位置来切换内容*/
+.content ul{float:left; width:1101px;}
+.content ul li{display: block; height:198px; width:219px; float:left; border:1px solid #aaa; text-align:center; line-height:218px;}
+.content ul li+li{margin-left:-1px;}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="nav">
+        <span class="active">盒子1</span>
+        <span>盒子2</span>
+        <span>盒子3</span>
+        <span>盒子4</span>
+        <span>盒子5</span>
+        <div class="clear"></div>
+    </div>
+    <div class="content">
+        <div class="box">
+            <ul>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <li>1</li>
+                <!--数量自己定义,只要总宽度跟content的宽度一样就好-->
+            </ul>
+            <ul>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <!--数量自己定义,只要总宽度跟content的宽度一样就好-->
+            </ul>
+            <ul>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+                <li>3</li>
+                <!--数量自己定义,只要总宽度跟content的宽度一样就好-->
+            </ul>
+            <ul>
+                <li>4</li>
+                <li>4</li>
+                <li>4</li>
+                <li>4</li>
+                <li>4</li>
+                <!--数量自己定义,只要总宽度跟content的宽度一样就好-->
+            </ul>
+            <ul>
+                <li>5</li>
+                <li>5</li>
+                <li>5</li>
+                <li>5</li>
+                <li>5</li>
+                <!--数量自己定义,只要总宽度跟content的宽度一样就好-->
+            </ul>
+            <!--ul可以只有一个，也就是把li放同一个里面，这里放了很多个是为了分类，比如不同的ul里面放不同的内容-->
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+	var width = 1101; //跟外面盒子的宽度一样，或者写成 var width = $(".content").width();
+	var ulNum = $(".content ul").length; //获取ul的个数
+	var contentWidth = width * ulNum; //获取整个box应该的长度，刚开始box设置成了1100，但是应该把所有的ul防到一行里面去，这样box向左移动的时候才是无缝滚动
+
+	$(".box").width(contentWidth); //给box设置宽度  .width() 是获取宽度  .width(value)是设置宽度
+
+	$(".nav span").click(function(){
+
+		//$(this)表示点击的这个元素 ，.addClass()表示添加的样式名称，.siblings()表示这个元素的所有兄弟级元素，此处表示span，
+		// .removeClass()表示删除的样式名称
+		$(this).addClass('active').siblings().removeClass('active');
+
+		var clickNum = $(this).index(); //判断点击的是第几个span .index()方法返回第几个，从0开始算起
+		//alert(clickNum);
+
+		var moveLeft = clickNum * width * -1; //应该向左移动的距离
+
+		$(".box").animate({'left':moveLeft}, 600);  //通过操作box的left来使box向左移动， .animate 是动画函数
+													//第一个参数用{}包含起来，里面的内容形式为 {'left':100,'top':100}，多个用逗号隔开，
+													// 表示从当前位置移动到left为100px、top为100px的位置（即left:100px;top:100px处），
+													//第二个参数为时间，表示从当前位置移动到第一个参数用时，单位为ms，1000ms=1秒
+													//点击的时候一定要点开审查元素，查看box元素的行内样式
+	})
+
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. 不支持IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

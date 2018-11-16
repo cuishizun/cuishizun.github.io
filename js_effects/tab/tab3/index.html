@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>可多次使用的TAB选项卡代码</title>
+
+<style type="text/css"> 
+*{ margin:0; padding:0;}
+body { font:12px/1.8 Arial; color:#666;}
+h1.tit-h1 { font-size:38px; text-align:center; margin:30px 0 15px; color:#f60;}
+.wrap{border:1px dashed #ccc; background:#f8f8f8; padding:20px;}
+
+/* 本案例需要的css样式 */
+ul,li{ list-style:none;}
+.tab{ width:450px; margin:0 auto 50px;}
+.tab-hd { background:#F93; overflow:hidden; zoom:1;}
+.tab-hd li{ float:left; width:150px; color:#fff; text-align:center; cursor:pointer;}
+.tab-hd li.active{ background:#F60;}
+.tab-bd li{display:none; padding:20px; border:1px solid #ddd; border-top:0 none; font-size:24px;}
+.tab-bd li.thisclass{ display:list-item;}
+</style> 
+
+</head>
+<body>
+
+<h1 class="tit-h1">jQuery tab选项卡插件(可多次使用)</h1> 
+
+<div class="wrap">
+
+	<div class="tab">
+		<ul class="tab-hd"><li class="active">选项1</li><li>选项2</li><li>选项3</li></ul>
+		<ul class="tab-bd"><li class="thisclass">内容1</li><li>内容2</li><li>内容3</li></ul>
+	</div>
+
+	<div class="tab">
+		<ul class="tab-hd"><li class="active">选项4</li><li>选项5</li><li>选项6</li></ul>
+		<ul class="tab-bd"><li class="thisclass">内容4</li><li>内容5</li><li>内容6</li></ul>
+	</div>
+
+    
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+        $(tabTit).children().hover(function(){
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+           	$(tabCon).children().eq(index).show().siblings().hide();
+    	});
+	};
+    tabs(".tab-hd","active",".tab-bd");
+});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body> 
+</html>

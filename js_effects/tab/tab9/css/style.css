@@ -1,0 +1,21 @@
+/* css 重置 */*{margin:0; padding:0; list-style:none; }body{ background:#fff; font:normal 12px/22px 宋体; }img{ border:0; }a{ text-decoration:none; color:#ffffff; }a:hover{ color:#1974A1; }
+/* 本例子css */
+.m-slide{ position: relative; width:683px; height: 200px; 
+                background: #fff }
+.m-slide .bottom-shadow{ position: absolute;  bottom: -3px; left: 0; width: 100%; height: 1px; overflow: hidden;
+    border-top: 1px solid #e0e0e0; background: #e6e6e6; border-bottom: 1px solid #ececec }
+.m-slide .img { float: left; position: relative }
+.m-slide .img li, .m-slide .img a, .m-slide .img img { display: block; width: 490px; height: 200px }
+.m-slide .img li { display: none; position: absolute; left: 0; top: 0 }
+.m-slide .img .first { display: block }.m-slide .tab { float: right }
+.m-slide .tab li { *margin-bottom: -3px; border-top: 1px solid #e5e5e5; width: 193px }
+.m-slide .tab .first { border-top: 0 }
+.m-slide .tab a { text-decoration: none; display: block; position: relative; width: 190px; height: 49px; border-left: 3px solid #fff; }
+.m-slide .tab a b { position: absolute; left: 0; top: 20px; width: 4px; height: 11px; overflow: hidden }
+.m-slide .tab a span { position: absolute; overflow: hidden }
+.m-slide .tab a .title { left: 17px; top: 6px; height: 49px; line-height: 40px; font-size: 14px; font-weight: bold; color: #666 }
+.m-slide .tab a .des { left: 18px; top: 26px; height: 16px; line-height: 16px; color: #999 }.m-slide .tab .first a { height: 50px }
+.m-slide .tab .on a { border-left: 3px solid #41a1f2 }.m-slide .tab .on a b { background: url(../images/dot.png) no-repeat}
+.m-slide .tab .on a span { color: #41a1f2 }
+
+body{background-color: #272727}
