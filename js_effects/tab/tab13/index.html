@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>jQuery带导航全屏页面切换代码</title>
+
+<style type="text/css">
+*{margin:0;padding:0;list-style: none;}
+a{text-decoration: none;color: #fff;}
+.page{width:100%;height:100%;background: pink;}
+.page1{background: orange;}
+.page2{background: yellow;}
+.page3{background: green;}
+.page4{background: cyan;}
+.containter{width:100%;height:100%;position:absolute;left:0;top:0;}
+body,html{height:100%;overflow: hidden;}
+.dian{position:absolute;right:20px;top:50%;text-align: center;}
+.dian ul{text-align:center;width:14px;}
+.dian li{width:10px;height:10px;border-radius: 50%;background: #fff;text-align: center;margin:0 auto;margin-bottom: 10px;cursor:pointer;}
+.dian .da{width:14px;height:14px;}
+.nav{width:100%;height:100px;background:purple;position:absolute;left:0;top:0;z-index: 111;}
+.nav li{float: left;width:100px;height:30px;margin:35px 30px;background: black;cursor:pointer;border-radius: 5px;text-align: center;line-height: 30px;color:#fff;}
+.nav li a{width:100px;height:30px;display:block;}
+.nav .bg{background: yellow;color:#000;}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+<script type="text/javascript">
+$(function() {
+  var nowpage=0;
+  var lock=true;
+  function donghua(){
+    $('.containter').animate({'top': -100*nowpage+'%'}, 500);
+    $('.page').eq(nowpage).addClass('current').siblings().removeClass('current');
+    $('.dian ul li').eq(nowpage).addClass('da').siblings().removeClass('da');
+    $('.nav ul li').eq(nowpage).addClass('bg').siblings().removeClass('bg');
+  }
+  $(document).mousewheel(function (event,delta) {
+    if(lock){ 
+      nowpage=nowpage-delta;
+      if(nowpage<0){nowpage=0;}
+      if(nowpage>4){nowpage=4;}
+       donghua();
+      lock=false;
+      setTimeout(function  () {
+        // body...
+        lock=true;
+      },1000);
+    }
+  })
+  $('.nav ul li').click(function(event) {
+    nowpage=$(this).index();
+    if(nowpage<=4){donghua();}
+  });
+  $('.dian ul li').click(function(event) {
+    nowpage=$(this).index();
+    donghua();
+  });
+});
+</script>
+
+</head>
+<body>
+<div class="nav">
+<ul>
+	<li class='bg'>首页0</li>
+	<li>首页1</li>
+	<li>首页2</li>
+	<li>首页3</li>
+	<li>首页4</li>
+</ul>
+</div>
+
+<div class="containter">
+<div class="page current">0</div>
+<div class="page page1">1</div>
+<div class="page page2">2</div>
+<div class="page page3">3</div>
+<div class="page page4">4</div>
+</div>
+<div class="dian">
+<ul>
+	<li class='da'></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</div>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

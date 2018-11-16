@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>tab选项卡切换不同图片代码</title>
+
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.SuperSlide.2.1.1.js"></script>
+
+</head>
+<body>
+
+<div class="slideGroup" style="">
+	<!--tab导航开始-->
+	<div class="parHd">
+		<ul>
+			<li>●&nbsp;A5源码系列</li>
+			<li>●&nbsp;骨法系列</li>
+			<li>●&nbsp;功效系列</li>
+			<li>●&nbsp;精品系列</li>
+		</ul>
+	</div>
+	<!--tab导航结束-->
+	<!--轮播主体内容开始-->
+	<div class="parBd">
+		<div class="slideBox">
+			<a class="sPrev" href="javascript:void(0)"></a>
+			<ul>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang1.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品1.1</h4>
+						<p>品名：李华堂前凉茶</p>
+								<p>规格：36.25KG/支</p>
+								<p>原料：安化优质毛茶</p>
+								<p><a href="#">更多</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang2.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品1.2</h4>
+						<p>品名：李华堂前凉茶</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="#">更多</a></p>
+					</div>
+				</li>
+			</ul>
+			<a class="sNext" href="javascript:void(0)"></a>
+		</div>
+		<!-- tab1内容结束 -->
+
+		<div class="slideBox">
+			<a class="sPrev" href="javascript:void(0)"></a>
+			<ul>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang3.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品2.1</h4>
+						<p>品名：李华堂前凉茶</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="#">更多</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang4.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品2.2</h4>
+						<p>品名：李华堂前凉茶</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="#">更多</a></p>
+					</div>
+				</li>
+			</ul>
+			<a class="sNext" href="javascript:void(0)"></a>
+		</div>
+		<!-- tab2内容结束 -->
+
+		<div class="slideBox">
+			<a class="sPrev" href="javascript:void(0)"></a>
+			<ul>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang5.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品3.1</h4>
+						<p>品名：李华堂前凉茶</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="#">更多</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang6.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品3.2</h4>
+						<p>品名：李华堂前凉茶</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="http://www.datouwang.com/">更多</a></p>
+					</div>
+				</li>
+			</ul>
+			<a class="sNext" href="javascript:void(0)"></a>
+		</div>
+		<!-- tab3内容结束 -->
+
+		<div class="slideBox">
+			<a class="sPrev" href="javascript:void(0)"></a>
+			<ul>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang7.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品4.1</h4>
+						<p>品名：A5源码</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="#">更多</a></p>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="#" target="_blank"><img src="img/datouwang8.png" /></a>
+					</div>
+					<div class="description">
+						<h4>产品4.2</h4>
+						<p>品名：李华堂前凉茶</p>
+						<p>规格：36.25KG/支</p>
+						<p>原料：安化优质毛茶</p>
+						<p><a href="#">更多</a></p>
+					</div>
+				</li>
+			</ul>
+			<a class="sNext" href="javascript:void(0)"></a>
+		</div>
+		<!-- tab4内容结束 -->
+	</div>
+	<!-- 主体内轮播结束 -->
+</div>
+
+<script type="text/javascript">
+	/* 内层图片滚动切换 */
+	jQuery(".slideGroup .slideBox").slide({
+		mainCell: "ul",
+		vis: 1,
+		prevCell: ".sPrev",
+		nextCell: ".sNext",
+		effect: "leftLoop"
+	});
+	/* 外层tab切换 */
+	jQuery(".slideGroup").slide({
+		titCell: ".parHd li",
+		mainCell: ".parBd",
+		trigger: "click"
+	});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>

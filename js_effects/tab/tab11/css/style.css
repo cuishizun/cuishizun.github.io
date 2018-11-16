@@ -1,0 +1,118 @@
+/* css 重置 */
+
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+body {
+	background: #fff;
+	font: normal 12px/22px 微软雅黑;
+}
+a{text-decoration: none;}
+img {
+	border: 0;
+}
+/* 本例子css */
+
+.slideGroup {
+	margin:0 auto;
+	width: 1000px;
+	height: 500px;
+}
+
+.slideGroup .parHd {
+	position: relative;
+	height: 100px;
+	line-height: 100px;
+	padding: 0 20px;
+}
+
+.slideGroup .parHd ul {
+	display:table; margin:0 auto;
+}
+
+.slideGroup .parHd ul li {
+	float: left;
+	padding: 0 15px;
+	cursor: pointer;
+}
+
+.slideGroup .parHd ul li.on {
+	height: 30px;
+	background: #fff;
+	color: green;
+}
+
+.slideGroup .slideBox {
+	overflow: hidden;
+	zoom: 1;
+	padding: 10px 0 10px 100px;
+	position: relative;
+}
+
+.slideGroup .sPrev,
+.slideGroup .sNext {
+	position: absolute;
+	left: 5px;
+	top: 10px;
+	display: block;
+	width: 54px;
+	height: 385px;
+	background: url(../img/icoLeft.png) center center no-repeat;
+}
+
+.slideGroup .sNext {
+	left: auto;
+	right: 5px;
+	background: url(../img/icoRight.png) center center no-repeat;
+}
+
+.slideGroup .parBd ul {
+	overflow: hidden;
+	zoom: 1;
+}
+
+.slideGroup .parBd ul li {
+	margin: 0 8px;
+	float: left;
+	width: 800px;
+	position: relative;
+}
+
+.slideGroup .parBd ul li .pic {
+	text-align: center;
+}
+
+.slideGroup .parBd ul li .pic img {
+	width: 450px;
+	height: 385px;
+	display: block;
+	padding: 2px;
+}
+
+
+.slideGroup .parBd ul li .description {
+	position: absolute;
+	width: 280px;
+	height: 145px;
+	background: #372d2b;
+	padding: 20px 10px 10px 20px;
+	top:120px;
+	left: 420px;
+	color:#fff
+}
+.slideGroup .parBd ul li .description h4{
+	color: #cca552;
+	height: 40px;
+	line-height: 40px;
+}
+.slideGroup .parBd ul li .description a{
+	color: #fff;
+	float: right;
+	margin-top: 10px;
+	background: #7c0002;
+	border-radius: 5px;
+	padding: 3px 10px;
+}
