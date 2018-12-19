@@ -1,0 +1,37 @@
+.container {
+	text-align: left; position: relative;
+}
+.kwicks {
+	list-style: none; width: 660px; color: rgb(0, 0, 0); padding-left: 0px; position: relative;
+}
+.kwicks li {
+	padding: 0px; width: 120px; height: 120px; overflow: hidden; margin-right: 9px; float: left; background-color: rgb(196, 220, 246);
+}
+.kwicks li.last {
+	margin-right: 0px;
+}
+.kwicks li a{}
+.kwicks li img {
+	border: 5px solid rgb(198, 198, 198); width: 110px; height: 110px; float: left;
+}
+.kwicks li .extension {
+	background: url("star_5.gif") no-repeat right top #3c3c3c; height: 120px;
+}
+.kwicks li dl {
+	padding: 5px 0px 0px 10px; width: 230px; height: 93px; overflow: hidden; margin-left: 0px;
+}
+.kwicks li dd {
+	color: rgb(204, 204, 204);
+}
+.kwicks li dt a {
+	color: rgb(204, 204, 204);
+}
+.kwicks li dt a {
+	font-size: 14px; font-weight: bold;
+}
+.kwicks li .meta {
+	text-align: right; color: rgb(204, 204, 204); padding-right: 10px;
+}
+.kwicks li .meta a {
+	color: rgb(204, 204, 204);
+}

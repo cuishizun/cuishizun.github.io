@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>jquery抽屉式图片展示效果</title>
+<link type="text/css" rel="stylesheet" href="css/zzsc.css" />
+<script type="text/javascript" src="js/jquery.js"></script>
+<!--[if lt IE 9]>
+  <script type="text/javascript" src="images/html5.js"></script>
+<![endif]-->
+<script type="text/javascript" src="js/index_slide.js"></script>
+<script type="text/javascript">
+    $().ready(function() {
+      $('.kwicks').kwicks({
+        max:400,//控制.extension区块的宽度
+        spacing:10//控制图片之间的距离
+      });
+    });
+</script>
+<body>
+<div class="box">
+	<!--代码开始-->
+	<ul class="kwicks">
+		<li>
+			<a href="http://down.admin5.com/" target="_blank"><img src="images/01.gif"></a>
+			<div class="extension" style="background-image:url(images/star_1.gif);">
+				<dl>
+					<dt><a href="http://down.admin5.com/" target="_blank">Everything's Getting Older</a></dt>
+					<dd><a href="http://down.admin5.com/" target="_blank">Aidan Moffat</a></dd>
+					<dd>2011</dd>
+				</dl>
+				<div class="meta">
+					<span><a href="http://down.admin5.com/" target="_blank">Shoegazer</a> 评价</span>
+					<span>1星</span>
+				</div>
+			</div>
+		</li>
+		<li>
+			<a href="http://down.admin5.com/" target="_blank"><img src="images/02.jpg"></a>
+			<div class="extension" style="background-image:url(images/star_5.gif);">
+				<dl>
+					<dt><a href="http://down.admin5.com/" target="_blank">Minsk</a></dt>
+					<dd><a href="http://down.admin5.com/" target="_blank">Concerto for Constantine</a></dd>
+					<dd>2008</dd>
+				</dl>
+				<div class="meta">
+					<span><a href="http://down.admin5.com/" target="_blank">Shoegazer</a> 评价</span>
+					<span>5星</span>
+				</div>
+			</div>
+		</li>
+		<li>
+			<a href="http://down.admin5.com/" target="_blank"><img src="images/03.jpg"></a>
+			<div class="extension" style="background-image:url(images/star_2.gif);">
+				<dl>
+					<dt><a href="http://down.admin5.com/" target="_blank">A+E</a></dt>
+					<dd><a href="http://down.admin5.com/" target="_blank">Graham Coxon</a></dd>
+					<dd>2012</dd>
+				</dl>
+				<div class="meta">
+					<span><a href="http://down.admin5.com/" target="_blank">Shoegazer</a> 评价</span>
+					<span>2星</span>
+				</div>
+			</div>
+		</li>
+		<li>
+			<a href="http://down.admin5.com/" target="_blank"><img src="images/04.jpg"></a>
+			<div class="extension" style="background-image:url(images/star_4.gif);">
+				<dl>
+					<dt><a href="http://down.admin5.com/" target="_blank">Lullaby</a></dt>
+					<dd><a href="http://down.admin5.com/" target="_blank">James Walsh</a></dd>
+					<dd>2012</dd>
+				</dl>
+				<div class="meta">
+					<span><a href="http://down.admin5.com/" target="_blank">Shoegazer</a> 评价</span>
+					<span>4星</span>
+				</div>
+			</div>
+		</li>
+		<li>
+			<a href="http://down.admin5.com/" target="_blank"><img src="images/05.jpg"></a>
+			<div class="extension" style="background-image:url(images/star_3.gif);">
+				<dl>
+					<dt><a href="http://down.admin5.com/" target="_blank">Wreckorder</a></dt>
+					<dd><a href="http://down.admin5.com/" target="_blank">Fran Healy</a></dd>
+					<dd>2010</dd>
+				</dl>
+				<div class="meta">
+					<span><a href="http://down.admin5.com/" target="_blank">Shoegazer</a> 评价</span>
+					<span>3星</span>
+				</div>
+			</div>
+		</li>
+	</ul>
+	<!--代码结束-->
+</div>
+<div style="text-align:center;clear:both">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+</div>
+</body>
+</html>

@@ -1,0 +1,1128 @@
+body {
+	margin: 0px; padding: 0px;
+}
+h1 {
+	margin: 0px; padding: 0px;
+}
+h2 {
+	margin: 0px; padding: 0px;
+}
+h3 {
+	margin: 0px; padding: 0px;
+}
+h4 {
+	margin: 0px; padding: 0px;
+}
+h5 {
+	margin: 0px; padding: 0px;
+}
+h6 {
+	margin: 0px; padding: 0px;
+}
+hr {
+	margin: 0px; padding: 0px;
+}
+p {
+	margin: 0px; padding: 0px;
+}
+blockquote {
+	margin: 0px; padding: 0px;
+}
+dl {
+	margin: 0px; padding: 0px;
+}
+dt {
+	margin: 0px; padding: 0px;
+}
+dd {
+	margin: 0px; padding: 0px;
+}
+ul {
+	margin: 0px; padding: 0px;
+}
+ol {
+	margin: 0px; padding: 0px;
+}
+li {
+	margin: 0px; padding: 0px;
+}
+pre {
+	margin: 0px; padding: 0px;
+}
+form {
+	margin: 0px; padding: 0px;
+}
+fieldset {
+	margin: 0px; padding: 0px;
+}
+legend {
+	margin: 0px; padding: 0px;
+}
+button {
+	margin: 0px; padding: 0px;
+}
+input {
+	margin: 0px; padding: 0px;
+}
+select {
+	margin: 0px; padding: 0px;
+}
+textarea {
+	margin: 0px; padding: 0px;
+}
+th {
+	margin: 0px; padding: 0px;
+}
+td {
+	margin: 0px; padding: 0px;
+}
+figure {
+	margin: 0px; padding: 0px;
+}
+body {
+	font: 12px/1.5 arial, ËÎÌå; color: rgb(77, 77, 77); letter-spacing: 1px; font-size-adjust: none; font-stretch: normal;
+}
+button {
+	font: 12px/1.5 arial, ËÎÌå; color: rgb(77, 77, 77); letter-spacing: 1px; font-size-adjust: none; font-stretch: normal;
+}
+input {
+	font: 12px/1.5 arial, ËÎÌå; color: rgb(77, 77, 77); letter-spacing: 1px; font-size-adjust: none; font-stretch: normal;
+}
+select {
+	font: 12px/1.5 arial, ËÎÌå; color: rgb(77, 77, 77); letter-spacing: 1px; font-size-adjust: none; font-stretch: normal;
+}
+textarea {
+	font: 12px/1.5 arial, ËÎÌå; color: rgb(77, 77, 77); letter-spacing: 1px; font-size-adjust: none; font-stretch: normal;
+}
+h1 {
+	font-size: 100%;
+}
+h2 {
+	font-size: 100%;
+}
+h3 {
+	font-size: 100%;
+}
+h4 {
+	font-size: 100%;
+}
+h5 {
+	font-size: 100%;
+}
+h6 {
+	font-size: 100%;
+}
+address {
+	font-style: normal;
+}
+cite {
+	font-style: normal;
+}
+dfn {
+	font-style: normal;
+}
+em {
+	font-style: normal;
+}
+var {
+	font-style: normal;
+}
+code {
+	font-family: courier new,courier,monospace;
+}
+kbd {
+	font-family: courier new,courier,monospace;
+}
+pre {
+	font-family: courier new,courier,monospace;
+}
+samp {
+	font-family: courier new,courier,monospace;
+}
+.small {
+	font-size: 12px;
+}
+.big {
+	font: 24px/normal Î¢ÈíÑÅºÚ; margin-top: 50px; margin-left: 100px; font-size-adjust: none; font-stretch: normal;
+}
+ul {
+	list-style: none;
+}
+ol {
+	list-style: none;
+}
+a {
+	color: rgb(247, 176, 102); text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+sup {
+	vertical-align: text-top;
+}
+sub {
+	vertical-align: text-bottom;
+}
+legend {
+	color: rgb(0, 0, 0);
+}
+fieldset {
+	border: 0px currentColor;
+}
+img {
+	border: 0px currentColor;
+}
+button {
+	font-size: 100%;
+}
+input {
+	font-size: 100%;
+}
+select {
+	font-size: 100%;
+}
+textarea {
+	font-size: 100%;
+}
+table {
+	border-collapse: collapse; border-spacing: 0;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.clearfix::after {
+	height: 0px; clear: both; display: block; content: "\20";
+}
+.clearfix {
+	
+}
+.clear {
+	height: 0px; clear: both; font-size: 0px;
+}
+.logo a {
+	background: url("assets/logo.png?v=1") no-repeat;
+}
+.btn {
+	background: url("assets/component.png?v=2") no-repeat;
+}
+.regbtn {
+	background: url("assets/registerlogin.gif?v=1") no-repeat;
+}
+.new {
+	background: url("assets/new.gif?v=1") no-repeat;
+}
+.dropdown {
+	background: url("assets/dropdown.png?v=1") no-repeat;
+}
+.attention-list {
+	background: url("assets/attention.png?v=1") no-repeat;
+}
+.col-main {
+	width: 100%; float: left; min-height: 1px;
+}
+.col-sub {
+	float: left;
+}
+.col-extra {
+	float: left;
+}
+.grid-ms .main-wrap {
+	margin-right: 268px;
+}
+.grid-ms .col-sub {
+	width: 235px; margin-left: -235px;
+}
+.wrap {
+	margin: 0px auto; width: 906px; padding-top: 32px;
+}
+.wrap1 {
+	margin: 0px auto; width: 906px; padding-top: 25px;
+}
+.wrap2 {
+	margin: 0px auto; width: 946px; padding-top: 32px; padding-left: 10px;
+}
+.wrap-set {
+	margin: 0px auto; width: 820px; padding-top: 32px;
+}
+.inner-wrap {
+	width: 730px; margin-left: 100px;
+}
+.inner-wrap .talk-list .msg {
+	width: 650px;
+}
+.inner-wrap .talk-list .msg .mix .text {
+	width: 537px;
+}
+.btn {
+	width: 109px; height: 24px; display: inline-block; cursor: pointer;
+}
+.talk-btn:hover {
+	background-position: 0px -25px;
+}
+.comment-btn {
+	background-position: 0px -50px;
+}
+.comment-btn:hover {
+	background-position: 0px -75px;
+}
+.cancel {
+	padding: 2px 5px; border: 1px solid rgb(95, 95, 95); float: left;
+}
+.cancel .vline {
+	padding: 0px 7px;
+}
+.cancel .cancel-link {
+	color: rgb(109, 109, 109); cursor: pointer;
+}
+.fav-btn {
+	background-position: 0px -150px;
+}
+.fav-btn:hover {
+	background-position: 0px -175px;
+}
+.focus-btn {
+	background-position: 0px -100px; width: 99px;
+}
+.focus-btn:hover {
+	background-position: 0px -125px;
+}
+.offer-btn {
+	background-position: 0px -200px; width: 128px; height: 31px;
+}
+.offer-btn:hover {
+	background-position: 0px -232px;
+}
+.regbtn {
+	border: 0px currentColor; width: 236px; height: 46px; text-indent: -9999em; margin-top: 40px; margin-bottom: 40px; display: block; cursor: pointer;
+}
+.login-btn:hover {
+	background-position: 0px -46px;
+}
+.reg-btn {
+	background-position: 0px -92px; margin-bottom: 20px;
+}
+.reg-btn:hover {
+	background-position: 0px -138px;
+}
+.textarea {
+	padding: 4px 6px; border: 1px solid rgb(97, 124, 228); width: 573px; height: 85px; overflow: auto; resize: vertical;
+}
+.textnotice {
+	color: orange; font-size: 12px; margin-top: 5px; margin-right: 10px;
+}
+.textsuccess {
+	color: rgb(204, 204, 204); font-size: 12px; margin-top: 5px; margin-right: 10px;
+}
+.dropdown {
+	width: 31px; height: 27px; display: inline-block; cursor: pointer;
+}
+#expansion {
+	background-position: 0px -28px;
+}
+.u-name {
+	color: rgb(247, 176, 102);
+}
+.album-name {
+	color: rgb(247, 176, 102);
+}
+.timestamp {
+	color: rgb(109, 109, 109);
+}
+.del {
+	color: rgb(109, 109, 109);
+}
+.forget {
+	color: rgb(153, 153, 153); font-size: 12px;
+}
+.act {
+	padding: 0px 10px 0px 0px;
+}
+.new {
+	width: 23px; height: 9px; display: inline-block;
+}
+.star-level {
+	top: 0px; right: 0px; position: absolute;
+}
+.quote {
+	top: 0px; right: 0px; position: absolute;
+}
+.entity {
+	font-family: ËÎÌå;
+}
+.preview {
+	width: 70px; height: 70px; margin-top: 10px; margin-left: 95px;
+}
+.loading.preview {
+	background: url("assets/loading.gif") no-repeat 5px 28px;
+}
+.loading.preview img {
+	display: none;
+}
+.header {
+	background: url("assets/navbg.gif") repeat-x rgb(50, 50, 50); height: 47px;
+}
+.inner-header {
+	margin: 0px auto; width: 960px;
+}
+.logo {
+	padding: 0px 10px; float: left;
+}
+.logo a {
+	width: 142px; height: 45px; display: block;
+}
+.nav {
+	float: left;
+}
+.nav li {
+	font-size: 14px; margin-left: 30px; float: left;
+}
+.nav li a {
+	color: rgb(204, 204, 204); line-height: 47px;
+}
+.login li a {
+	color: rgb(204, 204, 204); line-height: 47px;
+}
+.login li .vline {
+	color: rgb(204, 204, 204); line-height: 47px;
+}
+.right li a {
+	color: rgb(204, 204, 204); line-height: 47px;
+}
+.login {
+	float: right;
+}
+.right {
+	float: right;
+}
+.login {
+	margin-right: 50px;
+}
+.login li {
+	line-height: 47px; margin-left: 10px; float: left;
+}
+.right li {
+	line-height: 47px; margin-left: 10px; float: left;
+}
+.right li a {
+	position: relative;
+}
+.right li .new {
+	top: -8px; right: -10px; position: absolute;
+}
+.right .droplist {
+	line-height: 0px; margin-top: 10px;
+}
+.nav-layer {
+	padding: 3px 15px; top: 37px; position: absolute; background-color: rgb(88, 88, 88);
+}
+.nav-layer li {
+	margin: 0px; float: none;
+}
+.nav-layer li a {
+	color: rgb(204, 204, 204); line-height: 22px; display: block;
+}
+.guild-text {
+	font-size: 16px; margin-bottom: 50px;
+}
+.title {
+	font-size: 14px; font-weight: normal; margin-bottom: 20px;
+}
+.page-nav {
+	margin-right: 5px; margin-bottom: 10px;
+}
+.page-nav li {
+	margin-left: 10px; float: left;
+}
+.page-nav li a {
+	color: rgb(247, 176, 102);
+}
+.mod {
+	margin-bottom: 25px;
+}
+.mod .hd {
+	margin-bottom: 10px;
+}
+.mod .hd h3 {
+	font-size: 14px; font-weight: normal; vertical-align: middle; display: inline-block;
+}
+.mod .hd .btn {
+	margin-left: 20px; vertical-align: middle;
+}
+.talk-list {
+	padding-top: 1px;
+}
+.talk-list li {
+	margin-bottom: 17px;
+}
+.talk-list .avatar {
+	float: left;
+}
+.talk-list .msg {
+	float: left;
+}
+.talk-list .avatar {
+	width: 50px; margin-right: 10px;
+}
+.talk-list .avatar img {
+	width: 50px; height: 50px;
+}
+.talk-list .msg {
+	padding: 5px 10px; width: 555px; position: relative; background-color: rgb(64, 64, 64);
+}
+.talk-list .msg p {
+	line-height: 22px;
+}
+.talk-list .msg .text {
+	letter-spacing: 1px; margin-top: 5px;
+}
+.talk-list .msg .u-name {
+	margin-right: 10px; display: inline-block;
+}
+.talk-list .msg .timestamp {
+	margin-right: 18px; display: inline-block;
+}
+.talk-list .msg .meta .timestamp {
+	margin-right: 18px;
+}
+.talk-list .msg .mix .text {
+	width: 445px; margin-right: 23px; float: left;
+}
+.talk-list .msg .mix .cover {
+	padding-top: 5px; float: left;
+}
+.talk-list .msg .mix .cover img {
+	width: 70px; height: 70px;
+}
+.talk-list .meta .del {
+	margin-right: 18px; display: inline-block;
+}
+.rec-list {
+	padding: 8px 10px; margin-bottom: 10px; background-color: rgb(64, 64, 64);
+}
+.rec-list li {
+	margin-bottom: 3px;
+}
+.person-list {
+	padding: 7px 0px 7px 7px; background-color: rgb(64, 64, 64);
+}
+.album-list {
+	padding: 7px 0px 7px 7px; background-color: rgb(64, 64, 64);
+}
+.attention-list {
+	padding: 7px 0px 7px 7px; background-color: rgb(64, 64, 64);
+}
+.person-list li {
+	margin-right: 7px; float: left;
+}
+.person-list li.last {
+	margin: 0px;
+}
+.album-list li.last {
+	margin: 0px;
+}
+.person-list li img {
+	width: 50px; height: 50px; display: block;
+}
+.album-list li {
+	margin-bottom: 15px;
+}
+.album-list .album-cover {
+	float: left;
+}
+.album-list .album-detail {
+	float: left;
+}
+.album-list .album-cover img {
+	width: 110px; height: 110px; display: block;
+}
+.album-list .album-cover {
+	margin-right: 10px;
+}
+.album-list .album-detail {
+	width: 100px;
+}
+.album-list .album-detail .album-name {
+	color: rgb(204, 204, 204);
+}
+.album-list dt {
+	color: rgb(204, 204, 204); font-size: 14px; font-weight: bold; margin-bottom: 5px;
+}
+.album-list dt a {
+	color: rgb(204, 204, 204);
+}
+dd a {
+	color: rgb(204, 204, 204);
+}
+.attention-list {
+	height: 48px;
+}
+.attention-list li {
+	width: 73px; text-align: center; border-right-color: rgb(108, 108, 108); border-right-width: 1px; border-right-style: solid; float: left;
+}
+.attention-list li.last {
+	border-right-color: currentColor; border-right-width: 0px; border-right-style: none;
+}
+.attention-list li a {
+	color: rgb(204, 204, 204); font-size: 17px; display: block; position: relative;
+}
+.attention-list li span {
+	font-size: 12px; display: block;
+}
+.attention-list li .new {
+	top: -4px; right: 10px; position: absolute; z-index: 999;
+}
+.tab-list {
+	margin-bottom: 20px; margin-left: 27px;
+}
+.tab-list li {
+	font-size: 14px; float: left;
+}
+.tab-list li a {
+	color: rgb(204, 204, 204); position: relative;
+}
+.tab-list li a.active {
+	color: rgb(247, 176, 102); font-weight: bold;
+}
+.tab-list li .vline {
+	margin: 0px 20px;
+}
+.tab-list li .new {
+	top: -8px; right: -10px; position: absolute;
+}
+body {
+	font: 12px/1.5 arial, sans-serif; color: rgb(204, 204, 204); word-break: break-all; word-wrap: break-word; font-size-adjust: none; font-stretch: normal; background-color: rgb(68, 68, 68);
+}
+.album-page h1 {
+	font: 100 22px/normal "Times New Roman"; margin-bottom: 10px; font-size-adjust: none; font-stretch: normal;
+}
+.album-info {
+	padding-bottom: 25px;
+}
+.album-info .album-cover {
+	float: left;
+}
+.album-info .album-detail {
+	float: left;
+}
+.album-info .album-cover {
+	border: 5px solid rgb(97, 97, 97); margin-right: 15px;
+}
+.album-info .album-cover img {
+	width: 200px; height: 200px; display: block;
+}
+.album-info .album-detail {
+	width: 400px;
+}
+.album-info .album-detail li {
+	line-height: 22px;
+}
+.album-info .album-detail li.star {
+	margin-bottom: 10px;
+}
+.album-action {
+	margin-top: 20px;
+}
+.album-action .btn {
+	float: left;
+}
+.album-action .feedback {
+	padding-top: 3px; float: right;
+}
+.album-action .share {
+	padding-top: 3px; float: right;
+}
+.album-action .feedback {
+	color: rgb(109, 109, 109);
+}
+.album-action .share {
+	margin-right: 10px;
+}
+.album-evaluate {
+	padding: 8px 12px; width: 614px; overflow: hidden; margin-bottom: 30px; position: relative; word-break: break-all; word-wrap: break-word; background-color: rgb(61, 61, 61);
+}
+.album-evaluate .title {
+	width: 570px; color: rgb(109, 109, 109); padding-bottom: 4px; font-size: 12px; margin-bottom: 8px; border-bottom-color: rgb(71, 71, 71); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.album-evaluate .content {
+	letter-spacing: 2px;
+}
+.album-evaluate .content p {
+	line-height: 22px; text-indent: 32px; padding-left: 3px; font-size: 14px;
+}
+.album-evaluate .meta {
+	text-align: right; margin-top: 3px;
+}
+.album-evaluate .meta a {
+	margin-right: 10px; display: inline-block;
+}
+.sendpost {
+	padding: 0px 25px 30px; position: relative;
+}
+.sendpost .meta {
+	margin-top: 3px;
+}
+.sendpost .meta .fl {
+	display: block;
+}
+.sendpost .meta input {
+	padding: 3px 28px; font-size: 14px; cursor: pointer;
+}
+.mark {
+	color: rgb(109, 109, 109);
+}
+.mark a {
+	color: rgb(153, 153, 153);
+}
+.offer-history {
+	padding-top: 10px;
+}
+.offer-history a {
+	color: rgb(204, 204, 204);
+}
+.offer-history .vline {
+	padding: 0px 9px 0px 10px;
+}
+.user-info {
+	padding-bottom: 25px;
+}
+.user-info .user-face {
+	float: left;
+}
+.user-info .user-detail {
+	float: left;
+}
+.user-info .user-face {
+	margin-right: 15px;
+}
+.user-info .user-face img {
+	width: 150px; height: 150px;
+}
+.user-info .user-detail {
+	width: 450px;
+}
+.user-info .user-detail .user-name {
+	font-size: 14px; font-weight: bold; margin-bottom: 10px;
+}
+.user-info .user-detail dd {
+	color: rgb(187, 186, 186); line-height: 22px;
+}
+.user-info .user-detail a {
+	color: rgb(187, 186, 186);
+}
+.user-action {
+	margin-top: 20px;
+}
+.user-action .btn {
+	float: left;
+}
+.user-action .msg {
+	padding-top: 3px; float: right;
+}
+.user-action .share {
+	padding-top: 3px; float: right;
+}
+.user-action .share {
+	margin-right: 10px;
+}
+.user-panel {
+	border-width: 1px 0px; border-style: solid; border-color: rgb(75, 75, 75); padding: 20px 0px 0px; margin-bottom: 20px;
+}
+.user-panel li {
+	height: 90px;
+}
+.user-panel li.last {
+	margin-bottom: 0px;
+}
+.user-panel .txt {
+	width: 120px; font-size: 14px; margin-top: 24px; float: left;
+}
+.user-panel a {
+	margin-right: 20px; float: left;
+}
+.user-panel img {
+	width: 70px; height: 70px; display: block;
+}
+.user-panel .more {
+	color: rgb(204, 204, 204); margin-top: 24px;
+}
+.content-panel {
+	margin-top: 100px; border-bottom-color: currentColor; border-bottom-width: 0px; border-bottom-style: none;
+}
+.my-panel {
+	margin: 0px; padding: 0px 0px 20px; border: 0px currentColor;
+}
+.my-info {
+	margin-bottom: 20px;
+}
+.my-info .my-face {
+	float: left;
+}
+.my-info .my-detail {
+	float: left;
+}
+.my-info .my-face {
+	margin-right: 15px;
+}
+.my-info .my-face img {
+	width: 50px; height: 50px;
+}
+.my-info .my-detail {
+	width: 160px;
+}
+.my-info .my-detail dl {
+	color: rgb(187, 186, 186);
+}
+.my-info .my-detail dl a {
+	color: rgb(187, 186, 186);
+}
+.my-info .my-detail dt {
+	font-size: 14px; font-weight: bold; margin-bottom: 8px;
+}
+.my-info .my-detail dd {
+	line-height: 22px;
+}
+.input-field {
+	font-size: 14px; margin-bottom: 20px;
+}
+.input-field span {
+	width: 90px; line-height: 30px; vertical-align: middle; display: inline-block;
+}
+.input-field .txt {
+	padding: 4px 3px 2px; width: 260px; height: 22px; vertical-align: middle;
+}
+.input-field .tip {
+	padding-left: 30px;
+}
+.input-field .error-tip {
+	color: red;
+}
+.input-field .left-pad {
+	padding-left: 95px;
+}
+.input-field .login-opt {
+	width: 272px; margin-top: -10px;
+}
+.input-field .shorter {
+	width: 90px;
+}
+#pic_code {
+	margin-left: 30px; vertical-align: middle; display: inline-block;
+}
+.input-field .system-btn {
+	padding: 10px 0px; width: 470px; text-align: center; -webkit-appearance: normal;
+}
+.direct {
+	font-size: 16px; margin-bottom: 45px;
+}
+.step {
+	margin-top: 20px; display: block;
+}
+.complete-list li {
+	font-size: 14px; margin-bottom: 25px;
+}
+.complete-list .tip {
+	padding-left: 30px;
+}
+.complete-list .mood-choose {
+	width: 560px;
+}
+.complete-list .mood {
+	margin: 15px 10px 0px 20px; width: 100px; display: inline-block;
+}
+.complete-list .mood input {
+	margin-right: 5px; vertical-align: middle;
+}
+.complete-list .mood label {
+	vertical-align: middle;
+}
+#addDemos {
+	margin: 20px 0px 50px; padding-left: 20px; position: relative;
+}
+#addDemos .input-field span {
+	width: 120px;
+}
+#addDemos .input-field .left-pad {
+	padding-left: 120px;
+}
+#addDemos .try {
+	margin-right: 20px;
+}
+#addDemos #preview {
+	width: 90px; height: 35px;
+}
+#addDemos .example {
+	padding-right: 10px; font-size: 12px;
+}
+#addDemos .help {
+	color: rgb(233, 158, 77); font-size: 12px;
+}
+#addDemos .stream {
+	left: 450px; bottom: 0px; position: absolute;
+}
+#recAlbum {
+	
+}
+#recAlbum li {
+	padding: 10px; border: 1px solid rgb(76, 76, 76); width: 415px; height: 110px; margin-left: 20px; float: left; position: relative; background-color: rgb(60, 60, 60);
+}
+#recAlbum li dl {
+	width: 270px; float: left;
+}
+#recAlbum li .meta {
+	right: 10px; bottom: 6px; color: rgb(110, 110, 110); position: absolute;
+}
+#recAlbum li .vline {
+	padding: 0px 5px;
+}
+#commentAlbum {
+	margin-top: 10px;
+}
+#commentAlbum textarea {
+	height: 370px; font-size: 14px;
+}
+#commentAlbum span {
+	font-size: 14px;
+}
+#commentAlbum .meta {
+	margin-top: 15px;
+}
+#commentAlbum .meta input {
+	margin-right: 10px; vertical-align: middle;
+}
+#sub_form textarea {
+	font-size: 14px;
+}
+#star {
+	display: inline;
+}
+#star img {
+	padding-bottom: 4px; vertical-align: middle;
+}
+#target {
+	font-size: 14px; margin-left: 20px; display: inline;
+}
+#mask {
+	left: 0px; top: 0px; width: 100%; height: 100%; display: none; position: absolute; z-index: 9998;
+}
+.input-field .normal-btn {
+	padding: 3px 28px; font-size: 14px; vertical-align: middle; cursor: pointer;
+}
+.input-field .radio {
+	margin-right: 5px;
+}
+.input-field .boy {
+	margin-right: 10px;
+}
+#intro {
+	width: 310px; height: 80px; overflow: auto; vertical-align: text-top;
+}
+.wrap-set .tab-list {
+	margin-bottom: 40px;
+}
+.wrap-set .tab-list a {
+	font-size: 14px;
+}
+.wrap-set .tab-list .current {
+	color: rgb(247, 176, 102); font-weight: bold;
+}
+.suc {
+	width: 200px; color: rgb(204, 204, 204); padding-left: 10px;
+}
+.nosuc {
+	width: 200px; color: orange; padding-left: 10px;
+}
+.setting {
+	padding-left: 70px;
+}
+.face-tip {
+	padding-top: 10px;
+}
+.face-uploader {
+	margin: 10px 0px; font-size: 14px;
+}
+.preview_icon {
+	width: 150px; height: 150px; margin-bottom: 10px;
+}
+.loading.preview_icon {
+	background: url("file:///C|/Users/Administrator/Desktop/±¦±´-20121215/images/assets/loading.gif") no-repeat 45px 67px;
+}
+.loading.preview_icon img {
+	display: none;
+}
+.search-box {
+	margin: 0px auto 65px; width: 460px;
+}
+.search-box .tab-list {
+	margin-bottom: 10px;
+}
+.search-box .txt {
+	padding: 3px 5px 5px; width: 350px; font-size: 16px; vertical-align: middle;
+}
+.search-go {
+	background-position: 0px -264px; border: 0px currentColor; width: 74px; height: 32px; margin-left: 10px; vertical-align: middle;
+}
+.search-go:hover {
+	background-position: 0px -297px;
+}
+#userRet {
+	margin: 0px auto; width: 640px;
+}
+#albumRet {
+	margin: 0px auto; width: 700px;
+}
+#albumRetList li {
+	width: 350px; height: 100px;
+}
+#albumRetList li .cover {
+	border: 1px solid rgb(97, 97, 97); width: 70px; height: 70px; float: left;
+}
+#albumRetList li dl {
+	width: 260px; margin-left: 80px;
+}
+#albumRetList li dt a {
+	color: rgb(204, 204, 204); line-height: 18px; font-size: 13px; font-weight: bold;
+}
+.search-ret h3 {
+	font-size: 14px; font-weight: normal; margin-bottom: 30px;
+}
+.list li {
+	float: left;
+}
+#userRetList li {
+	width: 210px; height: 80px;
+}
+#userRetList li .avatar {
+	width: 50px; height: 50px; float: left;
+}
+#userRetList li .avatar img {
+	width: 50px; height: 50px;
+}
+#userRetList li dl {
+	width: 150px; margin-left: 60px;
+}
+#userRetList li dt a {
+	top: -3px; color: rgb(204, 204, 204); line-height: 18px; font-size: 13px; font-weight: bold; position: relative;
+}
+.fav-list {
+	padding: 16px 0px 6px 18px; border: 1px solid rgb(76, 76, 76); background-color: rgb(60, 60, 60);
+}
+.fav-list li {
+	width: 122px; height: 122px; float: left;
+}
+.topcover {
+	height: 126px;
+}
+.topcover img {
+	border: 1px solid rgb(73, 73, 73); width: 903px; height: 124px;
+}
+#indexWrap .mod {
+	margin-bottom: 40px;
+}
+#indexWrap .mod .hd {
+	margin-bottom: 20px;
+}
+.mod h2 {
+	background: url("assets/sprite.png") no-repeat; width: 94px; height: 18px; text-indent: -9999em; overflow: hidden; float: left;
+}
+.mod .hd .fl {
+	color: rgb(204, 204, 204); font-size: 13px; margin-left: 18px;
+}
+#recentNew h2 {
+	background-position: 0px -19px;
+}
+#copyWriters h2 {
+	background-position: 0px -38px; width: 130px;
+}
+#radioUpdate {
+	margin-top: 30px;
+}
+#radioUpdate h2 {
+	background-position: 0px -57px;
+}
+#copyWriters li {
+	height: 90px; margin-right: 33px;
+}
+#copyWriters li.last {
+	margin-right: 0px;
+}
+#copyWriters .avatar {
+	width: 50px; height: 50px; overflow: hidden; display: block;
+}
+#copyWriters .avatar img {
+	width: 50px; height: 50px;
+}
+#copyWriters .writer {
+	margin: 5px -10px 0px; width: 70px; height: 20px; text-align: center; overflow: hidden; text-overflow: ellipsis;
+}
+#copyWriters .writer a {
+	color: rgb(204, 204, 204);
+}
+#radioUpdate .bd img {
+	border: 5px solid rgb(198, 198, 198); width: 110px; height: 110px; display: block;
+}
+#notice .bd p {
+	line-height: 20px;
+}
+#notice h2 {
+	background-position: 0px -76px;
+}
+#bossArea .bd li {
+	margin-bottom: 3px;
+}
+#bossArea .bd a {
+	color: rgb(204, 204, 204);
+}
+#bossArea h2 {
+	background-position: 0px -95px; width: 104px;
+}
+.grid-ms-i .main-wrap {
+	margin-top: 30px; margin-right: 234px;
+}
+.grid-ms-i .col-sub {
+	width: 180px; margin-left: -180px;
+}
+.page-footer {
+	background: url("assets/foot-line.gif") repeat-x left top; padding-top: 15px; margin-top: 20px;
+}
+.inner-footer {
+	margin: 10px auto 45px; width: 906px; position: relative;
+}
+.inner-footer p {
+	margin-bottom: 3px;
+}
+.inner-footer .links a {
+	color: rgb(204, 204, 204);
+}
+.inner-footer .vline {
+	padding: 0px 8px;
+}
+.inner-footer .quotation {
+	background: url("assets/sprite.png") no-repeat 0px -115px; top: 0px; width: 340px; height: 68px; right: 0px; line-height: 21px; padding-left: 33px; position: absolute;
+}
+.links {
+	width: 500px;
+}
+#pw-forget {
+	padding: 20px; border: 5px solid rgb(198, 198, 198); left: 50%; top: 40%; width: 300px; height: 150px; margin-top: -100px; margin-left: -150px; display: none; position: fixed; z-index: 1000; background-color: rgb(255, 255, 255);
+}
+#artistAlbum {
+	padding: 0px;
+}
+#artistAlbum li {
+	padding: 10px; border: 1px solid rgb(76, 76, 76); width: 515px; float: left; position: relative; background-color: rgb(60, 60, 60);
+}
+#artistAlbum li dl {
+	width: 395px; float: left;
+}
+#artistAlbum li .meta {
+	right: 10px; bottom: 6px; color: rgb(110, 110, 110); position: absolute;
+}
+#artistAlbum li .vline {
+	padding: 0px 5px;
+}
+#artistAlbum li dl .desc {
+	margin-top: 5px; margin-bottom: 3px;
+}

@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jQuery表格列表拖动排序代码</title>
+
+<style type="text/css">
+	.highlight{
+		color: #FFFFFF;
+		background-color: #4472C4;
+	}
+	/*li:nth-child(3n)*/
+	/*tr:nth-child(odd){
+		background: #CCCCCC;
+	}*/
+	tr{
+		width: 700px;
+		height: 30px;
+		background: #f2f2f2;
+		
+	}
+	td{padding-left: 5px;}
+</style>
+
+</head>
+<body>
+
+<div style=" margin:100px;height: 500px;">
+    <table id="table" width="700" border="0" cellspacing="1" cellpadding="0" style="background-color: #000000 ">
+            <tr id="row_1">
+                <td style="">1</td>
+                <td>我是第一行第二列</td>
+                <td>moveRow 1</td>
+                <td>我是第一行第四列</td>
+            </tr>
+            <tr id="row_2">
+                <td style=" ">2</td>
+                <td>我是第二行第二列</td>
+                <td>moveRow 2</td>
+                <td>我是第二行第四列</td>
+            </tr>
+            <!--nodrag 不可以拖动 但是位置可以被占据
+            	nodrop 位置不可以被占据  但是可以拖动
+            -->
+            <tr id="row_3" class="nodrag">
+                <td style=" ">3</td>
+                <td>特殊特殊---特殊特殊</td>
+                <td>特殊特殊---特殊特殊</td>
+                <td>特殊特殊---特殊特殊</td>
+            </tr>
+            <tr id="row_4">
+                <td style=" ">4</td>
+                <td>我是第四行第二列</td>
+                <td>moveRow 4</td>
+                <td>我是第四行第四列</td>
+            </tr>
+            <tr  id="row_5">
+                <td style="">5</td>
+                <td>这一行不可以拖动</td>
+                <td>moveRow 5</td>
+                <td>我是第五行第四列</td>
+            </tr>
+            <tr id="row_6">
+                <td style=" ">6</td>
+                <td>我是第四行第二列</td>
+                <td>moveRow 6</td>
+                <td>我是第四行第四列</td>
+            </tr>
+            <tr  id="row_7">
+                <td style="">7</td>
+                <td>这一行不可以拖动</td>
+                <td>moveRow 7</td>
+                <td>我是第五行第四列</td>
+            </tr>
+    </table>
+    
+</div>
+	
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.tablednd_0_5.js" ></script>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+		$("#table").tableDnD({
+			//滚动的速度
+			scrollAmount:10,
+			onDragClass:'highlight',
+			//当拖动排序完成后
+			onDrop: function(table,row) {
+				//获取id为table的元素
+				var table = document.getElementById("table");
+				//获取table元素所包含的tr元素集合
+				var tr = table.getElementsByTagName("tr");
+				//遍历所有的tr
+				for (var i = 0; i < tr.length; i++) {
+					//获取拖动排序结束后新表格中，row id的结果
+					var rowid = tr[i].getAttribute("id");
+					//console.log("排序完成后表格的第 " + (i+1) + " 行id为 : " + rowid);
+				}
+			   
+				//console.log( $('#table').tableDnDSerialize());
+			},
+			onDragStart:function(table,row){
+				//console.log(row.id);
+			},
+		});
+	});
+</script>
+
+<div style="text-align:center;margin:-250px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>
+

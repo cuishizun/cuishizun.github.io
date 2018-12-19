@@ -1,0 +1,262 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">   
+<head>  
+<title>jQuery表格导出excel文件代码</title>  
+<meta charset='utf-8'>
+
+<link rel="stylesheet" href="css/jquery.datatables.min.css" />
+<link rel="stylesheet" href="css/buttons.dataTables.min.css" />
+<style>
+tbody td{
+	text-align: center;
+}
+</style>
+
+</head>
+<body>
+
+<h1>日程事件导出</h1>
+<table id="example" class="display" role="grid" aria-describedby="example_info">
+	<thead>
+		<tr>
+			<th>事件ID</th>
+			<th>员工ID</th>
+			<th>标题</th>
+			<th>URL</th>
+			<th>开始时间</th>
+		</tr>
+	</thead>
+	<tbody>
+		
+	</tbody>
+	<tfoot>
+		<tr>
+			<th>事件ID</th>
+			<th>员工ID</th>
+			<th>标题</th>
+			<th>URL</th>
+			<th>开始时间</th>
+		</tr>
+	</tfoot>
+</table>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.datatables.min.js"></script>
+<script src="js/dataTables.buttons.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/buttons.html5.min.js"></script>
+<script src="js/buttons.flash.min.js"></script>
+<script src="js/pdfmake.min.js"></script>
+<script src="js/vfs_fonts.js"></script>
+<script src="js/buttons.print.min.js"></script>
+<script>  
+$(document).ready(function(){ 
+	var xx=[
+		{
+			id: 1,
+			emptyid:"1",
+			title: '早班',
+			start: '2018-03-01'
+		},
+		{
+			id: 2,
+			emptyid:"2",
+			title: '中班',
+			start: '2018-03-07'
+		},
+		{
+			id: 3,
+			emptyid:"3",
+			title: '晚班',
+			start: '2018-03-09'
+		},
+		{
+			id: 4,
+			emptyid:"4",
+			title: '其他',
+			start: '2018-03-16'
+		},
+		{
+			id: 5,
+			emptyid:"5",
+			title: '早班',
+			start: '2018-03-11',
+		},
+		{
+			id: 6,
+			emptyid:"6",
+			title: '晚班',
+			start: '2018-03-12'
+		},
+		{
+			id: 7,
+			emptyid:"7",
+			title: '中班',
+			start: '2018-03-12'
+		},
+		{
+			id: 8,
+			emptyid:"8",
+			title: '其他',
+			start: '2018-03-12'
+		},
+		{
+			id: 9,
+			emptyid:"9",
+			title: '早班',
+			start: '2018-03-12'
+		},
+		{
+			id: 11,
+			emptyid:"10",
+			title: '其他',
+			start: '2018-03-13'
+		},
+		{
+			id: 12,
+			emptyid:"11",
+			title: '晚班',
+			url: 'http://www.baidu.com/',
+			start: '2018-03-28'
+		},
+		{
+			id: 13,
+			emptyid:"1",
+			title: '晚班',
+//          url: 'http://baidu.com/',
+			start: '2018-02-28'
+		},
+		{
+			id: 14,
+			emptyid:"1",
+			title: '早班',
+			start: '2018-04-01'
+		},
+		{
+			id: 15,
+			emptyid:"2",
+			title: '中班',
+			start: '2018-04-07'
+		},
+		{
+			id: 16,
+			emptyid:"3",
+			title: '晚班',
+			start: '2018-04-09'
+		},
+		{
+			id: 17,
+			emptyid:"4",
+			title: '其他',
+			start: '2018-04-16'
+		},
+		{
+			id: 18,
+			emptyid:"5",
+			title: '早班',
+			start: '2018-04-11',
+		},
+		{
+			id: 19,
+			emptyid:"6",
+			title: '晚班',
+			start: '2018-04-12'
+		},
+		{
+			id: 20,
+			emptyid:"7",
+			title: '中班',
+			start: '2018-04-12'
+		},
+		{
+			id: 21,
+			emptyid:"8",
+			title: '其他',
+			start: '2018-04-12'
+		},
+		{
+			id: 22,
+			emptyid:"9",
+			title: '早班',
+			start: '2018-04-12'
+		},
+		{
+			id: 23,
+			emptyid:"10",
+			title: '其他',
+			start: '2018-04-13'
+		},
+		{
+			id: 24,
+			emptyid:"11",
+			title: '晚班',
+			url: 'http://www.baidu.com/',
+			start: '2018-04-28'
+		},
+		{
+			id: 25,
+			emptyid:"1",
+			title: '晚班',
+//          url: 'http://baidu.com/',
+			start: '2018-04-28'
+		}
+		
+	];
+	
+	
+	for(i=0;i<xx.length;i++){
+		var html="<tr><td>"+xx[i].id+"</td><td>"+xx[i].emptyid+"</td><td>"+xx[i].title+"</td><td>"+xx[i].url+"</td><td>"+xx[i].start+"</td></tr>";
+		$("#example tbody").append(html);
+	}
+	
+	$('#example').DataTable( {
+		dom: 'Bfrtip',
+		language: {  
+			emptyTable: '没有数据',  
+			loadingRecords: '加载中...',  
+			processing: '查询中...',  
+			search: '检索:',  
+			lengthMenu: '每页 _MENU_ 件',  
+			zeroRecords: '没有数据',  
+			paginate: {  
+				'first':      '第一页',  
+				'last':       '最后一页',  
+				'next':       '下一页',  
+				'previous':   '上一页'  
+			},  
+			info: '第 _PAGE_ 页 / 总 _PAGES_ 页',  
+			infoEmpty: '没有数据',  
+			infoFiltered: '(过滤总件数 _MAX_ 条)',
+		},
+		buttons: [
+			{
+				extend: 'copyHtml5',
+			},
+			{
+				extend: 'excelHtml5',
+				title: 'Data export'
+			},
+			{
+				extend: 'pdfHtml5',
+				title: 'Data export'
+			},
+			{
+				extend: 'csvHtml5',
+				title: 'Data export'
+			},
+			{
+				extend:'print',
+			}
+		]
+	} );
+	
+	$(".buttons-copy").text('复制');
+	$(".buttons-excel").text('导出到excel');
+	$(".buttons-pdf").text('导出到pdf');
+	$(".buttons-csv").text('导出到csv');
+	$(".buttons-print").text('打印');
+
+});
+</script>
+
+</body>
+</html>

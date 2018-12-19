@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>js员工工作日历考勤表代码</title>
+
+<style type="text/css">
+	body {
+margin: 0px;
+padding: 0px;
+/* background: #ddd; */
+}
+	.everyWeekDay .weekday{
+		display: -moz-inline-box;
+		display: inline-block;
+		text-align: center;
+		/*height: 50px;*/
+		line-height: 26px;
+		width: 13.6%;
+		border: 1px solid transparent;
+		cursor: pointer;
+		box-sizing: border-box;
+	}
+	.everyDay .days {/*解决span不支持width属性*/
+		display: -moz-inline-box;
+		display: inline-block;
+		text-align: center;
+		/*height: 50px;*/
+		line-height: 50px;
+		width: 13.6%;
+		border: 1px solid transparent;
+		cursor: pointer;
+		box-sizing: border-box;
+	}
+</style>
+
+</head>
+<body>
+
+<div id="app">
+	<div style="position: absolute;width: 100%;border-radius: 5px;background-color:rgb(202, 237, 255);" id="dateOuter">
+		
+		<div class="attendtittle" style="height: 51px;line-height: 51px;border-bottom: 1px solid  #E6E6EB;">
+			<span style="margin-left: 16px;font-size: 16px;color: #333;font-weight: bold;">工作日历</span>
+			<span style="width: 44px;height: 24px;border: 1px solid #E6E6EB;padding:4px 8px;cursor: pointer;border-radius: 4px;font-size: 14px;color: #333;margin-left: 44px;" @click.prevent="getThisDay()">今天</span>
+			<span style="margin-left: 17px;color:  #8E8E93;cursor: pointer;" @click.stop.prevent="lastMonthClick()"><</span>
+			<span style="margin-left: 18px;color:  #8E8E93;cursor: pointer;" @click.stop.prevent="nextMonthClick()">></span>
+			<span style="font-size: 14px;color: #2D2D2D;margin-left: 17px;">{{checkYear}}年</span>
+			<span style="font-size: 14px;color: #2D2D2D;">{{checkMonth}}月</span>
+		</div>
+		<!--表体-->
+		<div id="attendwrap" style="height: 300px;">
+			<div id="attendwrapleft" style="width: 60%;float: left;">
+				<div class="everyWeekDay">
+					<span v-for="(item,index) in weekDays" class="weekday" >
+						<span v-if="item=='日' || item=='六'" class="weekday" style="color:#0089FA;">{{item}}</span>
+						<span class="weekday" style="color:#888;" v-else>{{item}}</span>
+					</span>
+				</div>
+				<div class="everyDay">
+					<!--空白站位-->
+					<span v-for="item1 in ThisWeekDayCounrt" :key="item1" class="days" ></span>
+					<!--这个月的天数-->
+					<span @click="getdate(item)" v-for="(item,index) in thisDayCount" class="days">
+						<span v-if="checkYear == nowYear && checkMonth == nowMonth && index+1 == nowDay" style="position: relative;">
+							<span v-if="cumWeekDayCounrt(index+1) == 6 || cumWeekDayCounrt(index+1) == 0" class="days" style="width:100%;cursor:pointer;"><span style="background-color:#4eccc4;color:#FFFFFF;padding:4px 10px;border-radius: 100%;">{{index+1}}</span></span>
+							<span v-else class="days" style="width:100%; cursor:pointer;border-radius: 100%;"><span style="background-color:#4eccc4;color:#FFFFFF;padding: 4px 10px;border-radius: 100%;">{{index+1}}</span></span>
+							<!--循环日历上面的状态-->
+							<span  v-for="(item,_index) in calData">
+								<span v-if="item.date==index+1">
+									<span v-for="(val,_in) in item.type">
+										<span style="position: absolute;bottom: -12px;right:30px;border-radius: 100%;width: 6px;height: 6px;background: red;" v-if="val==0"></span>
+											<div v-if="val==1" :style="{position: 'absolute',bottom: '0px',right: 14*(_in+1)+'px',color: '#0089FA',fontSize: '12px'}">加</div>
+											<div v-if="val==2" :style="{position: 'absolute',bottom: '0px',right: 14*(_in+1)+'px',color: '#5856D6',fontSize: '12px'}">差</div>
+											<div v-if="val==3" :style="{position: 'absolute',bottom: '0px',right: 14*(_in+1)+'px',color: '#FF9500',fontSize: '12px'}">假</div>
+											<div v-if="val==4" :style="{position: 'absolute',bottom: '0px',right: 14*(_in+1)+'px',color: '#00A753',fontSize: '12px'}">节</div>
+									</span>
+								</span>
+							</span>
+							<!--循环日历上面的状态 over-->
+						</span>
+						
+						<span v-else style="position: relative;" >
+							<span v-if="cumWeekDayCounrt(index+1) == 6 || cumWeekDayCounrt(index+1) == 0" class="days" style="color:#0089FA;cursor:pointer;">{{index+1}}</span>
+							<span v-else style="cursor:pointer;">{{index+1}}</span>
+							<!--循环日历上面的状态-->
+							<span  v-for="(item,_index) in calData">
+								<span v-if="item.date==index+1">
+									<span v-for="(val,_in) in item.type">
+										<span style="position: absolute;bottom: -10px;right:2px;border-radius: 100%;width: 6px;height: 6px;background: red;" v-if="val==0"></span>
+											<div v-if="val==1" :style="{position: 'absolute',bottom: '0px',right: -14*(_in+1)+'px',color: '#0089FA',fontSize: '12px'}">加</div>
+											<div v-if="val==2" :style="{position: 'absolute',bottom: '0px',right: -14*(_in+1)+'px',color: '#5856D6',fontSize: '12px'}">差</div>
+											<div v-if="val==3" :style="{position: 'absolute',bottom: '0px',right: -14*(_in+1)+'px',color: '#FF9500',fontSize: '12px'}">假</div>
+											<div v-if="val==4" :style="{position: 'absolute',bottom: '0px',right: -14*(_in+1)+'px',color: '#00A753',fontSize: '12px'}">节</div>
+									</span>
+								</span>
+							</span>
+							<!--循环日历上面的状态 over-->
+						</span>
+					</span>
+				</div>
+			</div>
+			<div id="attendwrapright" style="float: right;width: 39%;border-left: 1px solid #E6E6EB;height: 284px;margin-top: 8px;text-align: center;">
+				<div>
+					<div style="color: #5AC8FA;font-size: 54px;">12</div>
+					<div style="color: #75787B;font-size: 14px;">2017年12月</div>
+					<div style="color: #FF4C4D;font-size: 12px;margin-top: 6px;">出勤状态：异常</div>
+					<div style="margin-top: 16px;"><i>图</i><span style="color: #2D2D2D;font-size: 14px;">上班：</span><span style="color: #2D2D2D;font-size: 14px;">08:35:00(正常)</span></div>
+					<div style="margin-top: 20px;"><i>图</i><span style="color: #2D2D2D;font-size: 14px;">上班：</span><span style="color: #2D2D2D;font-size: 14px;">08:35:00(正常)</span></div>
+					<div style="margin-top: 20px;"><i>图</i><span style="color: #2D2D2D;font-size: 14px;">上班：</span><span style="color: #2D2D2D;font-size: 14px;">08:35:00(正常)</span></div>
+					<div style="margin-top: 20px;"><i>图</i><span style="color: #2D2D2D;font-size: 14px;">上班：</span><span style="color: #2D2D2D;font-size: 14px;">08:35:00(正常)</span></div>
+					
+				</div>
+			</div>
+		</div>
+		<!--footer-->
+		<div style="height: 47px;border-top: 1px solid #E6E6EB;line-height: 47px;">
+			<span style="width: 6px;height: 6px;border-radius: 100%;background: red;display: inline-block;margin-left: 16px;"></span>
+			<span style="color: #666666;font-size: 13px;position: relative;top: 1px;line-height: 13px;">异常</span>
+		</div>
+	</div>
+</div>
+<!--<script src="http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js" type="text/javascript" charset="utf-8"></script>-->
+<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	new Vue({
+		el:'#app',
+		data:function() {
+			return {
+				date : new Date(),
+				nowYear : new Date().getFullYear(),
+				nowMonth : new Date().getMonth() + 1,
+				nowDay : new Date().getDate(),
+				splitString : "-",
+				weekDays : new Array("日", "一", "二", "三", "四", "五", "六"),
+				months : new Array("一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"),
+				lastDays : new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31),
+				checkYear : '',
+				checkMonth : '',
+				thisDayCount:'',//这个月有几天
+				ThisWeekDayCounrt:"",//这个周有多少天
+				calData:[],//真数据进行渲染页面
+				resData:[{//假数据 模拟后台反过来的数据
+					date:'1',
+					type:[1,2],// 0、代表异常 1、代表加班 2、出差 3、假期 4、节日;
+					num:4,//2、代表一天打两次卡 4、代表一天打四次卡
+					value:[
+						{
+							isflag:true,//正常
+							namevalue:"上午上班/08:35:00(正常)"
+						},
+						{
+							isflag:false,//异常
+							namevalue:"上午下班/08:35:00(早退)"
+						},
+						{
+							isflag:true,
+							namevalue:"下午上班/---"
+						},
+						{
+							isflag:true,
+							namevalue:"下午下班/---"
+						},
+					]
+			
+				},{
+					date:'2',
+					type:[0],// 0、代表异常 1、代表加班 2、出差 3、假期 4、节日;
+					num:2,//2、代表一天打两次卡 4、代表一天打四次卡
+					value:[
+						{
+							isflag:true,//正常
+							namevalue:"上班/08:35:00(正常)"
+						},
+						{
+							isflag:false,//异常
+							namevalue:"下班/08:35:00(早退)"
+						},
+						
+					]
+			
+				},{
+					date:'8',
+					type:[3],// 0、代表异常 1、代表加班 2、出差 3、假期 4、节日;
+					num:2,//2、代表一天打两次卡 4、代表一天打四次卡
+					value:[
+						{
+							isflag:true,//正常
+							namevalue:"上班/08:35:00(正常)"
+						},
+						{
+							isflag:false,//异常
+							namevalue:"下班/08:35:00(早退)"
+						},
+						
+					]
+			
+				},{
+					date:'9',
+					type:[4],// 0、代表异常 1、代表加班 2、出差 3、假期 4、节日;
+					num:2,//2、代表一天打两次卡 4、代表一天打四次卡
+					value:[
+						{
+							isflag:true,//正常
+							namevalue:"上班/08:35:00(正常)"
+						},
+						{
+							isflag:false,//异常
+							namevalue:"下班/08:35:00(早退)"
+						},
+						
+					]
+			
+				},{
+					date:'7',
+					type:[1],// 0、代表异常 1、代表加班 2、出差 3、假期 4、节日;
+					num:2,//2、代表一天打两次卡 4、代表一天打四次卡
+					value:[
+						{
+							isflag:true,//正常
+							namevalue:"上班/08:35:00(正常)"
+						},
+						{
+							isflag:false,//异常
+							namevalue:"下班/08:35:00(早退)"
+						},
+						
+					]
+			
+				}]
+			}
+		},
+		computed:{
+			
+		},
+		created: function() {
+			var _this=this;
+			_this.checkYear=_this.nowYear;
+			_this.checkMonth=_this.nowMonth;
+			
+			setTimeout(function(){
+				//初始调用服务请求
+				_this.calData=_this.resData;
+				_this.getThisMonthDay(_this.checkYear,_this.checkMonth);
+				_this.getThisWeekDay(_this.checkYear,_this.checkMonth,1)
+			},1000)
+			
+		},
+		
+		methods: {
+			getdate:function(item){//点击天根据数据渲染右侧的内容
+				console.log(item)
+			},
+			getThisDay:function () { //返回今天 重新获取今天的数据渲染页面； 
+				this.checkYear = this.nowYear;
+				this.checkMonth = this.nowMonth;
+				
+				//请求数据 this.http;
+				this.requreData();
+			},
+			lastMonthClick:function () {//切换上一个月
+				if (this.checkMonth == 1) {
+					this.checkYear = this.checkYear - 1;
+					this.checkMonth = 12;
+				} else {
+					this.checkMonth = this.checkMonth - 1;
+				}
+				
+				//请求数据 this.http;
+				this.requreData();
+				
+			},
+			nextMonthClick:function () {//切换下一个月
+				if (this.checkMonth == 12) {
+					this.checkYear = this.checkYear + 1;
+					this.checkMonth = 1;
+				} else {
+					this.checkMonth = this.checkMonth + 1;
+				}
+				
+				//请求数据 this.http;
+				this.requreData();
+			},
+			requreData:function(){
+				//请求数据 this.http;
+				this.getThisMonthDay(this.checkYear,this.checkMonth);
+				this.getThisWeekDay(this.checkYear,this.checkMonth,1);
+			},
+			isLeapYear:function (year){
+				var isLeap=false;
+				if(0==year%4&&((year%100!=0)||(year%400==0))){
+					isLeap=true;
+				}
+				return isLeap;
+			},
+			getThisMonthDay:function (year, month) {
+				var thisDayCount = this.lastDays[month - 1];
+				if ((month == 2) && this.isLeapYear(year)) {
+					thisDayCount++;
+				}
+				this.thisDayCount=thisDayCount;
+			},
+			getThisWeekDay:function (year, month, date) {
+				var thisDate = new Date(year, month - 1, date);
+				this.ThisWeekDayCounrt=thisDate.getDay();
+			},
+			cumWeekDayCounrt:function(date){
+				var thisDate = new Date(this.checkYear, this.checkMonth-1, date);
+				return thisDate.getDay();
+			}
+		}
+	});
+</script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+</div>
+</body>
+</html>
