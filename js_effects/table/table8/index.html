@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery表格动态添加删除行代码</title>
+
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+
+<style type="text/css">
+html, body { padding: 0; margin: 0;  font-family:"微软雅黑";}
+body, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, button, textarea, p, blockquote, th,td { padding: 0; margin: 0; }
+body, button, input, textarea {font-family:"微软雅黑";}
+ol,ul,li { list-style:none;}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+a { text-decoration:none;}
+img { display:block; border:0;}
+.clearfix:after{content:".";display:block;height:0px;clear:both;visibility:hidden;}
+.clearfix{zoom:1;}
+button{background:none; border:none;}
+.preserve{padding:0 6px; float:right; margin-top:10px;}
+
+.append_btu,.delete_btu{ float:right; margin-right:10px; color:#000; font-weight:normal;} 
+
+.box_max{width:650px; margin:40px auto 0 auto; font-size:14px; }
+.login_box{width:630px;}
+/*table*/
+#addCont{border-left: 1px solid #000;border-top: 1px solid #000; }
+#addCont td{border-bottom: 1px solid #000;border-right: 1px solid #000;}
+#addCont .box_td_left{ text-align:center;padding:10px 0; background:#92cddb;}
+#addCont .box_td_right{padding:5px;}
+#addCont .box_td_right textarea{max-width:450px;min-width:450px; min-height:50px; border:none}
+#addCont .left_name{width:115px; height:22px; line-height:22px;  background:#92cddb; border:none; text-align:center; border-bottom:1px solid #ccc;}
+.min_input{margin:3px 0;}
+.min_input input{width:300px; height:24px; line-height:24px; border:none; border-bottom:1px solid #ccc;}
+</style>
+
+<script type="text/javascript">
+$(function(){
+	var aTr = document.getElementsByTagName('tr');
+	
+	var aDlist = '<tr>' +
+			'<td align="center" valign="top" class="box_td_left">' + '<input type="text" class="left_name" >' + '</td>' +
+			'<td class="box_td_right">' + '<textarea name="" cols="" rows=""></textarea>' 
+			+ '<span class="del-list"><a href="javascript:;" class="as delete_btu">删除</a></span></td>' +
+		   '</tr>';
+	
+	$('.add-icon').click(function(){
+			$('#addCont').find('tr').css('display','table-row');
+			$('#addCont').find('tbody').append(aDlist);        
+	});
+	
+	$('.as').live('click',function(){
+			$(this).parents("tr").remove();
+			
+			
+	});
+													
+});
+</script>
+<script>
+$(function(){
+
+	$('.min_input').click(function(){
+		var id=($(".txt_1").length)/1;
+		$(this).parent().append('<div class="min_input tr'+ id +'"><input type="text" class="txt_1" id=content0 name="content[]"  /><button  class="delete_btu">删除</button></td></tr>');	
+		id+=1;
+	})
+
+	$('.delete_btu').live("click",function(){
+		$(this).parent().remove();
+	})
+				
+}); 
+</script>  
+
+</head>
+
+<body>
+
+<div class="box_max"> 
+   <div class="login_box"> 
+        <table id="addCont" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="20%" align="center" valign="top" class="box_td_left">地址：</td>
+          <td width="80%" class="box_td_right">      
+           <div class="send_time">
+              <div class="min_input tr0">
+      			 <input type="text" class="txt_1" id=content0 name="content[]" value="Redwine/login"   />
+  				 <button onClick="javascript:add();" class="append_btu">添加</button>   
+             </div>
+            </div>
+        </td>
+        </tr>
+        <tr>
+          <td align="center" valign="top" class="box_td_left">必填参数</td>
+          <td class="box_td_right">
+           <div class="send_time">
+              <div class="min_input tr0">
+      			 <input type="text" class="txt_1" id=content0 name="content[]" value="Redwine/login"   />
+  				 <button onClick="javascript:add();" class="append_btu">添加</button>   
+             </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="top" class="box_td_left">传参方式</td>
+          <td class="box_td_right">
+           <div class="send_time">
+              <div class="min_input tr0">
+      			 <input type="text" class="txt_1" id=content0 name="content[]" value="Redwine/login"   />
+  				 <button onClick="javascript:add();" class="append_btu">添加</button>   
+             </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="top" class="box_td_left">返回结果</td>
+          <td class="box_td_right">
+           <div class="send_time">
+              <div class="min_input tr0">
+      			 <input type="text" class="txt_1" id=content0 name="content[]" value="Redwine/login"   />
+  				 <button onClick="javascript:add();" class="append_btu">添加</button>   
+             </div>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td align="center" valign="top" class="box_td_left">属性名称</td>
+          <td class="box_td_right">
+           <div class="send_time">
+              <div class="min_input tr0">
+      			 <input type="text" class="txt_1" id=content0 name="content[]" value="Redwine/login"   />
+  				 <button onClick="javascript:add();" class="append_btu">添加</button>   
+             </div>
+            </div>
+            </td>
+        </tr>
+  </table>
+  
+  <p class="mt10 ft14"><a class="add-icon append_btu" href="javascript:;">添加行</a></p>
+  </div>
+</div>   
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗. </p>
+</div>
+</body>
+</html>

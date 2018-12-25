@@ -1,0 +1,108 @@
+// Colors
+$red: #ED5053;
+$green: #00AF4F;
+$purple: #8E509F;
+$blue: #00B9ED;
+$orange: #F18829;
+$yellow: #F9DE00;
+
+// Mixins
+@mixin chunky-shadow($color1) {  
+  color:$color1;
+  text-shadow:     
+    darken($color1,5%) 1px 1px,
+    lighten($color1,20%) -1px -1px,
+    lighten( adjust-hue($color1,-10%), 5%) -2px -2px 6px,
+    lighten($color1,8%) -2px -2px,    
+    lighten($color1,8%) -1px -2px,
+    lighten($color1,8%) -1px -3px,
+    lighten($color1,8%) -2px -4px,
+    lighten($color1,8%) -2px -5px,
+    lighten( $color1,8%) -3px -6px,
+    $color1 -4px -7px,    
+    rgba(0,0,5,.4) 3px 4px 5px,
+    rgba(0,0,5,.2) -3px -4px 5px;  
+}
+
+// Styling
+.wrapper{
+  text-align:center;
+  padding:2rem;
+  background: linear-gradient(-45deg, #fff 30%, #ddd 50%, #fff);
+  background-size:100%;
+  background-repeat:no-repeat;
+  height:100vh;
+  box-sizing:border-box;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  overflow:auto;
+  box-sizing:border-box;
+  box-shadow:inset 0 0 1rem rgba(0,0,10,.5);
+}
+
+.content{
+  font-family:'Rubik';
+  font-size:6rem;
+  font-weight:900;
+  letter-spacing:.04em;
+  display:block;
+  word-spacing:3rem;
+  line-height:1.4;
+  text-transform:uppercase;
+  
+  div{
+    display:inline;
+  }
+
+  span{
+    display:inline-block;
+    &:hover{
+      animation: wobble 200ms;
+    }
+
+    &:nth-child(1n){
+      @include chunky-shadow($orange);
+      transform:rotate(-3deg);
+    }
+
+    &:nth-child(2n){
+      @include chunky-shadow($blue);
+      transform:rotate(3deg) translateY(4%);
+    }
+
+    &:nth-child(3n){
+      @include chunky-shadow($red);
+      transform:rotate(-3deg);
+    }
+
+    &:nth-child(4n){
+      @include chunky-shadow($green);
+      transform:rotate(-2deg);
+    }
+
+    &:nth-child(5n){
+      @include chunky-shadow($purple);
+      transform:rotate(3deg) translateY(-2%);
+    }
+
+    &:nth-child(6n){
+      @include chunky-shadow($yellow);
+      transform:rotate(5deg) translateY(1%);
+    }  
+
+  }
+
+}
+
+//Animations
+@keyframes wobble{
+  50%{
+    transform: translate(2%, 2%);
+  }
+}

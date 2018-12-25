@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<head>
+  <title>代码调整表格</title>
+  <meta name="description" content="">
+  <link rel="stylesheet" href="libs/bootstrap.css">
+  <link rel="stylesheet" href="libs/bootstrap-responsive.css">
+  <link rel="stylesheet" href="css/jquery.resizableColumns.css">
+  <link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+
+  <div class="container">
+    <h4>代码调整表格</h4>
+
+    <table class="table table-bordered" data-resizable-columns-id="demo-table">
+      <thead>
+        <tr>
+          <th data-resizable-column-id="#">#</th>
+          <th data-resizable-column-id="first_name">First Name</th>
+          <th data-resizable-column-id="last_name">Last Name</th>
+          <th data-resizable-column-id="username" id="username-column" data-noresize>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pre>
+      &lt;script src="libs/jquery.js"&gt;&lt;/script&gt;
+      &lt;script src="libs/store.js"&gt;&lt;/script&gt;
+      &lt;script src="jquery.resizableColumns.js"&gt;&lt;/script&gt;
+
+      &lt;table class="table table-bordered" data-resizable-columns-id="demo-table"&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th data-resizable-column-id="#"&gt;#&lt;/th&gt;
+            &lt;th data-resizable-column-id="first_name"&gt;First Name&lt;/th&gt;
+            &lt;th data-resizable-column-id="last_name"&gt;Last Name&lt;/th&gt;
+            &lt;th data-resizable-column-id="username" data-noresize&gt;Username&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          ...
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+
+      &lt;script&gt;
+        $(function(){
+          $("table").resizableColumns({
+            store: store
+          });
+        });
+      &lt;/script&gt;
+    </pre>
+
+  </div>
+
+  <script src="libs/jquery.js"></script>
+  <script src="libs/store.js"></script>
+  <script src="dist/jquery.resizableColumns.min.js"></script>
+  <script>
+
+    $(function(){
+      $("table").resizableColumns({
+        store: store
+      });
+    });
+
+  </script>
+<div style="text-align:center;clear:both">
+</div>
+</body>
+</html>

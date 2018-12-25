@@ -1,28 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动态计算文本框内的可输入字数</title>
+<script type="text/javascript" src="jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="textSum.min.js"></script>
+<style>
+*{ box-sizing:border-box;}
+body{ background:#f4f4f4;}
+span{ font-size:12px;}
+p{ margin:5px 0;}
+.textWrap{ margin:10px 0 20px;}
+.textWrap input,.textWrap textarea{ display:inline-block; background:#fff; border-radius:4px; border:1px solid #ddd; height:34px; width:100%; padding:7px 12px; padding-right:80px; line-height:20px; font-size:14px; color:#333;}
+.textWrap textarea{ height:80px;}
+</style>
+</head>
 
-<select id="select" onkeydown="Select.del(this,event)" onkeypress="Select.write(this,event)">
-    <option value=""></option>
-    <option value="aaa">aaa</option>
-    <option value="bbb">bbb</option>
-    <option value="ccc">ccc</option>
-</select>
-<input type="button" value="获取选择值ֵ" id="test" onclick="test();" />
+<body>
+
+<br>
+<div style="margin:50px auto; width:60%;">
+	<p><span>input maxlength = 10</span></p>
+    <div class="textWrap wordSumTotal">
+    	<input type="text" name="" maxlength="10">
+    </div>
+	<p><span>input maxlength = 20</span></p>
+    <div class="textWrap wordSumTotal">
+    	<input type="text" name="" style="height:46px;" maxlength="20">
+    </div>
+	<p><span>input maxlength 缺省时，默认maxlength = 10</span></p>
+    <div class="textWrap wordSumTotal">
+    	<input type="text" name="">
+    </div>
+    
+	<p><span>textarea maxlength = 20</span></p>
+    <div class="textWrap wordSumTotal">
+    	<textarea name="" cols="" rows="" maxlength="200"></textarea>
+    </div>
+    <br>
+    <p>使用方法：</p>
+    <p><pre><code>$('class or element').textSum();</code></pre></p>
+</div>
+
 <script>
-    var Select = {
-        del: function (obj, e) {
-            if ((e.keyCode || e.which || e.charCode) == 8) {
-                var opt = obj.options[0];
-                opt.text = opt.value = opt.value.substring(0, opt.value.length > 0 ? opt.value.length - 1 : 0);
-            }
-        },
-        write: function (obj, e) {
-            if ((e.keyCode || e.which || e.charCode) == 8) return;
-            var opt = obj.options[0];
-            opt.selected = "selected";
-            opt.text = opt.value += String.fromCharCode(e.charCode || e.which || e.keyCode);
-        }
-    }
-
-    function test() {
-        alert(document.getElementById("select").value);
-    }
+$(function(){
+	$('.wordSumTotal').textSum();
+});
 </script>
+</body>
+</html>

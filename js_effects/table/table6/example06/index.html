@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<meta name="author" content="Darko Bunic"/>
+		<meta name="description" content="Drag and drop table content with JavaScript"/>
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<script type="text/javascript" src="../drag.js"></script>
+		<!-- initialize drag and drop -->
+		<script type="text/javascript">
+			// onload event
+			window.onload = function () {
+				// initialization
+				REDIPS.drag.init();
+				// dragged elements can be placed to the empty cells only
+				REDIPS.drag.drop_option = 'single';
+				// elements could be cloned with pressed CTRL button
+				REDIPS.drag.clone_ctrlKey = true;
+			}
+			
+		</script>
+		<title>www.redips.net</title>
+	</head>
+	<body>
+		<center>
+			<h1><a href="http://www.redips.net/javascript/drag-and-drop-table-content/">www.redips.net</a></h1>
+			<h2>Example 6: Scrollable and fixed DIV containers</h2>
+		</center>
+		<div id="main_container">
+			<!-- tables inside this DIV could have draggable content -->
+			<div id="drag">
+
+				<!-- left container -->
+				<div id="left">
+					<table id="table1">
+						<colgroup>
+							<col width="70"/>
+							<col width="70"/>
+							<col width="70"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td class="upper_right"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div id="x" class="drag blue">A</div></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="lower_left"></td>
+								<th></th>
+								<th></th>
+							</tr>
+						</tbody>
+					</table>				
+				</div><!-- left container -->
+				
+				<!-- middle container -->
+
+				<div id="middle">
+					<table id="table3">
+						<colgroup>
+							<col width="70"/>
+							<col width="70"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td></td>
+								<td class="upper_right"></td>
+							</tr>
+							<tr>
+								<td><div id="x" class="drag blue">B</div></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="lower_left"></td>
+								<th></th>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- right container -->
+				<div id="right">
+					<table id="table2">
+						<colgroup>
+							<col width="70"/>
+							<col width="70"/>
+							<col width="70"/>
+							<col width="70"/>
+							<col width="70"/>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="upper_right"></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td><div id="x" class="drag blue">C</div></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<th></th>
+							</tr>
+							<tr>
+								<td class="lower_left"></td>
+								<th></th>
+								<th></th>
+								<th></th>
+								<th></th>
+							</tr>
+						</tbody>
+					</table>
+				</div><!-- right container -->
+			</div><!-- drag container -->
+			<!-- needed for creating DIV elements -->
+			<div id="obj_new"></div>
+			<!-- message -->
+			<div id="message">Clone element with CTRL key</div>
+		</div><!-- main container -->
+<div style="text-align:center;clear:both">
+<p>来源：<a href="http://www.redips.net/javascript/drag-and-drop-table-content/" target="_blank">Darko Bunic</a>　代码整理：<a href="http://www.sharejs.com/" target="_blank">脚本分享网</a>　感谢：<a href="http://www.sharejs.com" target="_blank">heishi</a></p>
+<p>转载请注明出处，此代码仅供学习交流，请勿用于商业用途。</p>
+<p><script language="javascript" src="http://www.sharejs.com/js/720.js"></script></p>
+</div>
+</body>
+</html>

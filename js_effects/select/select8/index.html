@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery下拉框美化插件fancyspinbox</title>
+
+<style>
+body { background-color:#F6BA59;}
+.container { margin:150px auto 30px auto; min-width:360px;}
+h1 { margin-bottom:30px;}
+</style>
+<link href="jquery.fancyspinbox.css" rel="stylesheet" type="text/css">
+
+</head>
+<body>
+<center>
+<div class="container">
+<select id="my-menu">
+    <option value="JavaScript">A5资讯</option>
+    <option value="C++">A5源码</option>
+    <option value="Ruby">HTML5特效</option>
+    <option value="jQuery">jQuery特效</option>
+    <option value="Python">CSS3特效</option>
+    <option value="Golang" selected>音效下载</option>
+</select>
+<script src="jquery.js"></script>
+<script src="jquery.fancyspinbox.js"></script>
+<script>
+$('#my-menu').fancyspinbox();
+</script>
+</div>
+</center>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>
+</div>
+</body>
+</html>

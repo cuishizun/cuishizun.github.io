@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=2.0">
+	<title>Buttons example - Bootstrap 4</title>
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="dataTables.bootstrap4.css">
+	<link rel="stylesheet" type="text/css" href="buttons.bootstrap4.css">
+	<link rel="stylesheet" type="text/css" href="shCore.css">
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style type="text/css" class="init">
+		.right{
+			font-size: 25px;
+		}
+		#light{
+			width: 527px;
+			float: left;
+		}
+		#Blight{
+			background-color: #c8e5bc;
+			float: right;
+		}
+		#example > thead > tr > th {
+			text-align: center;
+		}
+	</style>
+	<!--<script type="text/javascript" language="javascript" src="jquery-3.0.0.min.js"></script>-->
+	<script type="text/javascript" language="javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" language="javascript" src="jquery.dataTables.js"></script>
+	<script type="text/javascript" language="javascript" src="dataTables.bootstrap4.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="dataTables.buttons.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="buttons.bootstrap4.js">
+	</script>
+	<!--<script type="text/javascript" language="javascript" src="//cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js">-->
+	<!--</script>-->
+	<script type="text/javascript" src="jszip.js"></script>
+	<script type="text/javascript"src="pdfmake.min.js"></script>
+	<script type="text/javascript" src="vfs_fonts.js"></script>
+	<!--<script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js">-->
+	<!--</script>-->
+	<!--<script type="text/javascript" language="javascript" src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js">-->
+	<!--</script>-->
+	<script type="text/javascript" language="javascript" src="buttons.html5.js"></script>
+	<script type="text/javascript" language="javascript" src="buttons.print.js"></script>
+	<script type="text/javascript" language="javascript" src="buttons.colVis.js"></script>
+	<script type="text/javascript" language="javascript" src="shCore.js">
+	</script>
+	<script type="text/javascript" language="javascript" src="demo.js">
+	</script>
+	<script type="text/javascript" language="javascript" class="init">
+$(document).ready(function() {
+	var dataTable=[
+		{'日期':"2016-09-17",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-16",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-15",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-14",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-13",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-12",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-11",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-10",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-13",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-12",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-11",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-10",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-13",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-12",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-11",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"},
+		{'日期':"2016-09-10",'100报警':"100",'122报警':"200",'119报警':"300",'综合报警':"50",'其他报警':"50"}
+
+	];
+	var columName=[{data:'日期'},{data:'100报警'},{data:'122报警'},{data:'119报警'},{data:'综合报警'},{data:'其他报警'}];
+	for(var i =0; i <columName.length; i++){
+		$("#example thead tr").append("<th>"+columName[i].data+"</th>");
+	}
+
+	var table = $('#example').DataTable( {
+		paging: true,//分页
+		ordering: true,//是否启用排序
+		searching: true,//搜索
+		language: {
+			lengthMenu: '显示 <select style="height: 35px;width: 100px">'+
+			'<option value="10">10</option>'+
+			'<option value="20">20</option>'+
+			'<option value="30">30</option>'+
+			'<option value="40">40</option>'+
+			'<option value="50">50</option>'+
+			'<option value="-1">All</option>'+
+			'</select>',
+			search: '<span class="label label-success">搜索：</span>',//右上角的搜索文本，可以写html标签
+
+			paginate: {//分页的样式内容。
+				previous: "上一页",
+				next: "下一页",
+				first: "第一页",
+				last: "最后"
+			},
+			zeroRecords: "没有内容",//table tbody内容为空时，tbody的内容。
+			//下面三者构成了总体的左下角的内容。
+			info: "总共_PAGES_ 页，显示第_START_ 到第 _END_ ，筛选之后得到 _TOTAL_ 条，初始_MAX_ 条 ",//左下角的信息显示，大写的词为关键字。
+			infoEmpty: "0条记录",//筛选为空时左下角的显示。
+			infoFiltered: ""//筛选之后的左下角筛选提示，
+		},
+		paging: true,
+		pagingType: "full_numbers",//分页样式的类型
+		data: dataTable,
+		lengthChange: true,
+		columns:columName,
+//		dom: 'Bfltip',
+		'dom': '<"left"f>r<"right"<"#light"l><"Blight"B>>tip',
+		buttons: [ 'copy', 'excel', 'pdf', 'print','colvis' ],
+		createdRow : function ( row, data, index ) {
+				$('td', row).css('font-weight',"bold").css("text-align","center");
+
+		},
+
+	} );
+
+} );
+	</script>
+
+</head>
+<body class="dt-example dt-example-bootstrap4">
+	<div class="container">
+		<section>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<table id="example" class="table table-bordered table-striped table-hover">
+						<thead>
+						<tr id="table_tr">
+							<!--<th>日期</th>-->
+							<!--<th>110报警</th>-->
+							<!--<th>122报警</th>-->
+							<!--<th>119报警</th>-->
+							<!--<th>综合报警</th>-->
+							<!--<th>其他报警</th>-->
+						</tr>
+						</thead>
+
+					</table>
+				</div>
+			</div>
+
+		</section>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+.bobo{
+	background-image: url(0000.gif);
+	background-repeat: no-repeat;
+	margin: auto;
+	height: 423px;
+	width: 870px;
+}
+.bobo1{
+	width: 300px;
+	margin: auto;
+	padding-top: 10px;
+}
+
+.kwicks {
+	list-style: none;
+	position: relative;
+	padding: 0;
+	margin-top: auto;
+	margin-bottom: 5px;
+	margin-left:39px;
+	margin-right: auto;
+}
+.kwicks li{
+	width: 260px;
+	height: 170px;
+	display: block;
+	overflow: hidden;
+	padding: 0;
+}
+.kwicks.horizontal li {
+	margin-right: 5px;
+	float: left;
+	margin-bottom: 5px;
+}
+.kwicks.vertical  li{
+
+	margin-bottom: 5px;
+}
+#kwick_1,#kwick_2,#kwick_3,#kwick_4,#kwick_5,#kwick_6{
+	border: 0px solid #fff;
+}
+#kwick_1 {
+	background-image: url(../shouye/12.jpg);
+}
+
+#kwick_2 {
+	background-image: url(../shouye/22.jpg);
+}
+#kwick_3 {
+	background-image: url(../shouye/32.jpg);
+}
+
+#kwick_4 { 
+	background-image: url(../shouye/42.jpg);
+}
+#kwick_5 { 
+	background-image: url(../shouye/52.jpg);
+}
+#kwick_6 { 
+	background-image: url(../shouye/62.jpg);
+}
+
+.kwicks.horizontal #kwick_4 {
+	margin-right: none; 
+}
+.kwicks.vertical #kwick_4 {
+	margin-bottom: none;
+}
+#kwick_1 a ,#kwick_2 a ,#kwick_3 a ,#kwick_4 a ,#kwick_5 a ,#kwick_6 a {
+	display: block;
+	width: 100%;
+	height: 170px;
+}
+
+
+.footer {
+	WIDTH: 100%;
+	COLOR: #666666;
+	MARGIN-LEFT: auto;
+	MARGIN-RIGHT: auto;
+	font-size: 12px;
+}
+.footer A {
+	COLOR: #666666;
+	FONT-SIZE: 12px;
+	TEXT-DECORATION: underline
+}
+.footer A:hover {
+	TEXT-DECORATION: none;
+	color: #000000;
+}
+
+
+
+
+
+
+
+
+body {
+	font: 0.8em "Lucida Sans Unicode", "Lucida Grande", Arial, Helvetica, sans-serif;
+	color: #343434;
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+}
+
+.jrsc{ margin-top: 15px; margin-right: 50px; color: #666666; width: 80px; float: right; 
+}
+.jrsc a{
+	color: #A7C600;
+}
+
+.beian {
+	margin: 5px;
+}
+
+.beian a{
+	color: #666666;
+}

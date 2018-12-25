@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>仿Excel单元格选择</title>
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap-3.3.4.js"></script>
+<script src="js/myScript.js"></script>	
+
+<style>
+table {
+	-moz-user-select: none; /*火狐*/
+	-webkit-user-select: none; /*webkit浏览器*/
+	-ms-user-select: none; /*IE10*/
+	user-select: none;
+}
+
+td {
+	padding: 3px;
+}
+
+#coordinate,#select{
+	padding-left:16px;
+}
+</style>
+
+</head>
+<body onLoad="loadExcelTable();">
+
+	<div class="container">
+		<h3>仿Excel单元格选择</h3>
+		<h6>鼠标移动到表格内,按住shift选取两个单元格即可</h6>
+		<!-- 选项卡导航 -->
+		<ul class="nav nav-tabs" id="nav_box"></ul>
+		<!-- 选项卡面板 -->
+		<div class="tab-content" id="content"></div>
+		<div class="row" style="margin-top: 20px;">
+			<!-- 显示选中的坐标 -->
+			<div id="coordinate"></div>
+			<!-- 选中的表格区域 -->
+			<div id="select"></div>
+		</div>
+	</div>
+	
+</body>
+</html>
