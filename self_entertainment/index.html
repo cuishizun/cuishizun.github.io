@@ -15,42 +15,40 @@
 
     <script src="jquery-3.3.1.min.js"></script>
     <script>
-        $(function () {
-            let inputdata;
-            $.ajax({
-                url: 'a.json',
-                type: 'GET',
-                dataType: 'json',
-                data: '',
-                success: function (data) {
-                    for (let i = 0; i < data.length; i++) {
-                        $('ul').append(`<li>${data[i].a}</li>`);
-                    }
-                    inputdata = data;
+        let inputdata;
+        $.ajax({
+            url: 'a.json',
+            type: 'GET',
+            dataType: 'json',
+            data: '',
+            success: function (data) {
+                for (let i = 0; i < data.length; i++) {
+                    $('ul').append(`<li>${data[i].a}</li>`);
                 }
-            });
-
-            function saveText() {
-                debugger;
-                try {
-                    var fso, tf;
-                    fso = new ActiveXObject("Scripting.FileSystemObject");
-                    tf = fso.CreateTextFile("https://cuishizun.github.io/self_entertainment/a.json",
-                        true);
-                    tf.WriteLine("[");
-                    for (let i = 0; i < inputdata.length; i++) {
-                        tf.WriteLine(`{"a":${inputdata.a[i]}},`);
-                    }
-                    tf.WriteLine(`{"a":${$('#input').val()}}`);
-                    // 写一行。
-                    tf.Write("]");
-                    tf.Close();
-                } catch (e) {
-                    alert('请换用IE浏览器');
-                    return;
-                }
+                inputdata = data;
             }
         });
+
+        function saveText() {
+            debugger;
+            try {
+                var fso, tf;
+                fso = new ActiveXObject("Scripting.FileSystemObject");
+                tf = fso.CreateTextFile("https://cuishizun.github.io/self_entertainment/a.json",
+                    true);
+                tf.WriteLine("[");
+                for (let i = 0; i < inputdata.length; i++) {
+                    tf.WriteLine(`{"a":${inputdata.a[i]}},`);
+                }
+                tf.WriteLine(`{"a":${$('#input').val()}}`);
+                // 写一行。
+                tf.Write("]");
+                tf.Close();
+            } catch (e) {
+                alert('请换用IE浏览器');
+                return;
+            }
+        }
     </script>
 </body>
 
