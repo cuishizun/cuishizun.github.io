@@ -11,7 +11,7 @@
     <ul>
 
     </ul>
-    <button>Read</button>
+    <button onclick="saveText()">存数据</button>
 
     <script src="jquery-3.3.1.min.js"></script>
     <script>
@@ -22,7 +22,7 @@
                 type: 'GET',
                 dataType: 'json',
                 data: '',
-                success(data) {
+                success: function (data) {
                     for (let i = 0; i < data.length; i++) {
                         $('ul').append(`<li>${data[i].a}</li>`);
                     }
@@ -30,7 +30,8 @@
                 }
             });
 
-            $("button").click(function () {
+            function saveText() {
+                debugger;
                 try {
                     var fso, tf;
                     fso = new ActiveXObject("Scripting.FileSystemObject");
@@ -48,7 +49,7 @@
                     alert('请换用IE浏览器');
                     return;
                 }
-            });
+            }
         });
     </script>
 </body>
