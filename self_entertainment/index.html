@@ -1,53 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
-    <title>单行读文本</title>
-    <script>
-        let inputdata;
+    <title>导出生成json文件和文本</title>
+</head>
+
+<body>
+    <input type="file" id="file">
+    <button onclick="recoverJson()">恢复数据</button>
+    姓名：<input type="text" id="name">
+    年龄：<input type="number" id="age" min="1" step="1">
+    <input type="checkbox">按店名
+    <input type="checkbox">按品类
+    <input type="checkbox">按名称
+    <button onclick="saveJson()">保存</button>
+    <button onclick="downloadJson(students)">导出json文件</button>
+    <button onclick="clearJson()">清空数据</button>
+    <div class="names" id="names"></div>
+    <button onclick="showNames()">开始</button>
+    <button onclick="stopNames()">停止</button>
+    <ul></ul>
+</body>
+<script src="js/FileSaver.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/swfobject-2.2.min.js"></script>
+<script src="js/evercookie.js"></script>
+<script>
+    var ec = new evercookie();
+    var src, students = [];
+    var t;
+    var i = 0;
+    ec.get('students', function (value) {
+        if (value) {
+            let _value = JSON.parse(ec.decode(value));
+            showData(_value);
+        } else {
+            $('ul').append('`<li>暂无数据</li>`');
+        }
+    });
+
+    function showData(data) {
+        $('ul').html('');
+        students = data;
+        for (let i = 0; i < data.length; i++) {
+            $('ul').append(`<li>${data[i].name}:${data[i].age}</li>`);
+        }
+    }
+    // 导出生成json文件
+    function downloadJson() {
+        ec.get('students', function (value) {
+            if (value) {
+                let _value = ec.decode(value);
+                let blob = new Blob([_value], {
+                    type: ""
+                });
+                saveAs(blob, "hello.json");
+            } else {
+                alert('无数据可导出');
+            }
+        });
+    }
+    $('#file').change(function () {
+        var oFReader = new FileReader();
+        var file = document.getElementById('file').files[0];
+        oFReader.readAsDataURL(file);
+        oFReader.onloadend = function (oFRevent) {
+            src = oFRevent.target.result;
+        }
+    });
+
+    function saveJson() {
+        if ($('#name').val() && $('#age').val()) {
+            students.push({
+                name: $('#name').val(),
+                age: $('#age').val()
+            });
+            ec.set("students", ec.encode(JSON.stringify(students)));
+            showData(students);
+            $('#name,#age').val('');
+        } else {
+            alert('请先输入');
+        }
+    }
+
+    function clearJson() {
+        $('ul').html('');
+        $('#names').html('');
+        students = [];
+        ec.set('students', '');
+    }
+
+    function recoverJson() {
         $.ajax({
-            url: 'a.json',
+            url: src,
             type: 'GET',
             dataType: 'json',
             data: '',
             success: function (data) {
-                for (let i = 0; i < data.length; i++) {
-                    $('ul').append(`<li>${data[i].a}</li>`);
-                }
-                inputdata = data;
+                showData(_value);
             }
         });
+    }
 
-        function saveText() {
-            debugger;
-            try {
-                var fso, tf;
-                fso = new ActiveXObject("Scripting.FileSystemObject");
-                tf = fso.CreateTextFile("https://cuishizun.github.io/self_entertainment/a.json",
-                    true);
-                tf.WriteLine("[");
-                for (let i = 0; i < inputdata.length; i++) {
-                    tf.WriteLine(`{"a":${inputdata.a[i]}},`);
+    function showNames() {
+        if (students.length) {
+            clearInterval(t);
+            t = setInterval(function () {
+                document.getElementById("names").innerHTML = students[i].name;
+                i++;
+                if (i == students.length) {
+                    i = 0;
                 }
-                tf.WriteLine(`{"a":${$('#input').val()}}`);
-                // 写一行。
-                tf.Write("]");
-                tf.Close();
-            } catch (e) {
-                alert('请换用IE浏览器');
-                return;
-            }
+            }, 30);
+        } else {
+            alert('请先输入');
         }
-    </script>
-</head>
+    }
 
-<body>
-    <input type="text" id="input">
-    <input type="button" onclick="saveText();" value="存数据">
-    <ul></ul>
-
-    <script src="jquery-3.3.1.min.js"></script>
-</body>
+    function stopNames() {
+        clearInterval(t);
+    }
+</script>
 
 </html>
