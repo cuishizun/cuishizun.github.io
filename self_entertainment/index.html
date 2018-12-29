@@ -7,23 +7,38 @@
 </head>
 
 <body>
-    <input type="file" id="file">
-    <button id="read">Read</button>
-
-    <pre id="output"></pre>
+    <button onclick="CreateFile()">Read</button>
 
     <script src="jquery-3.3.1.min.js"></script>
     <script>
         $(function () {
-            $.ajax({
-                url: 'a.json',
-                type: 'GET',
-                dataType: 'json',
-                data: '',
-                success(data) {
-                    debugger;
+            try {
+                $.ajax({
+                    url: 'a.json',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: '',
+                    success(data) {
+                        debugger;
+                    }
+                });
+
+                function CreateFile() {
+                    var fso, tf;
+                    fso = new ActiveXObject("Scripting.FileSystemObject");
+                    tf = fso.CreateTextFile("https://cuishizun.github.io/self_entertainment/a.json",
+                        true);
+                    tf.WriteLine("{");
+                    tf.WriteLine('"a":13232323,');
+                    tf.WriteLine('"b":2');
+                    // 写一行。
+                    tf.Write("}");
+                    tf.Close();
                 }
-            });
+            } catch (e) {
+                alert('请换用IE浏览器');
+                return;
+            }
         });
     </script>
 </body>
