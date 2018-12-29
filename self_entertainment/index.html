@@ -7,12 +7,14 @@
 </head>
 
 <body>
+    <input type="text" id="input">
     <button onclick="CreateFile()">Read</button>
 
     <script src="jquery-3.3.1.min.js"></script>
     <script>
         $(function () {
             try {
+                let inputdata;
                 $.ajax({
                     url: 'a.json',
                     type: 'GET',
@@ -20,6 +22,7 @@
                     data: '',
                     success(data) {
                         debugger;
+                        inputdata = data;
                     }
                 });
 
@@ -28,11 +31,13 @@
                     fso = new ActiveXObject("Scripting.FileSystemObject");
                     tf = fso.CreateTextFile("https://cuishizun.github.io/self_entertainment/a.json",
                         true);
-                    tf.WriteLine("{");
-                    tf.WriteLine('"a":13232323,');
-                    tf.WriteLine('"b":2');
+                    tf.WriteLine("[");
+                    for (let i = 0; i < inputdata.length; i++) {
+                        tf.WriteLine(`{"a":${inputdata.a[i]}},`);
+                    }
+                    tf.WriteLine(`{"a":${$('#input').val()}}`);
                     // 写一行。
-                    tf.Write("}");
+                    tf.Write("]");
                     tf.Close();
                 }
             } catch (e) {
