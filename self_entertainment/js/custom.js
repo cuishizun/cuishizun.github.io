@@ -5,7 +5,7 @@
         mainPreloader = $('.preloader');
 
     mainWindow.on('load', function () {
-        mainPreloader.delay(350).fadeOut('slow');
+        mainPreloader.delay(1000).fadeOut('slow');
     });
 
 })(jQuery);

@@ -53,7 +53,7 @@
         <!-- START SITE HEADER -->
         <header id="awd-site-header">
             <div id="awd-site-logo" class="animated" data-animation="fadeInDown" data-animation-delay="500">
-                <h1><a href="#" class="go-slide" data-slide="home"><i class="fa fa-commenting-o"></i><span>Mr.Li</span></a></h1>
+                <h1><a href="#" class="go-slide" data-slide="home"><i class="fa fa-commenting-o"></i><span>Mr.Cui</span></a></h1>
             </div>
 
             <button class="menu-toggle animated" data-animation="fadeInDown" data-animation-delay="500" data-role="toggle">
@@ -101,10 +101,16 @@
                                                     <div class="col-lg-12 col-md-12 svm">
                                                         <div class="section-info text-center">
                                                             <!-- START TITLE -->
-                                                            <ul class="menus"></ul>
-                                                            <button onclick="showNames()">开始</button>
-                                                            <button onclick="stopNames()">停止</button>
-                                                            <div class="names" id="names"></div>
+                                                            <div class="meunbox">
+                                                                <h2>还在纠结今天中午吃什么？</h2>
+                                                                <h2>请看菜单</h2>
+                                                                <h2>点击点菜按钮，随机选取菜品，让你不再纠结</h2>
+                                                                <div class="menu">
+                                                                </div>
+                                                                <button onclick="showNames()">开始</button>
+                                                                <button onclick="stopNames()">停止</button>
+                                                                <div class="names" id="names"></div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -128,8 +134,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-12 svm">
-                                                        姓名：<input type="text" id="name">
-                                                        年龄：<input type="number" id="age" min="1" step="1">
+                                                        菜名：<input type="text" id="name">
                                                         <input type="checkbox">按店名
                                                         <input type="checkbox">按品类
                                                         <input type="checkbox">按名称
@@ -326,7 +331,7 @@
         <footer id="awd-site-footer">
             <!-- START COPYRIGHT -->
             <div class="copyright animated" data-animation="fadeInUp" data-animation-delay="500">
-                <p>适用浏览器：360、FireFox、Chrome、Opera、傲游、搜狗、世界之窗. 不支持Safari、IE8及以下浏览器。</p>
+                <p>纯属自娱自乐。</p>
             </div>
             <!-- END COPYRIGHT -->
 
@@ -368,15 +373,15 @@
             let _value = JSON.parse(ec.decode(value));
             showData(_value);
         } else {
-            $('ul.menus').append('`<li>暂无数据</li>`');
+            $('.menu').append('<span>暂无数据</span>');
         }
     });
 
     function showData(data) {
-        $('ul.menus').html('');
+        $('.menu').html('');
         students = data;
         for (let i = 0; i < data.length; i++) {
-            $('ul.menus').append(`<li>${data[i].name}:${data[i].age}</li>`);
+            $('.menu').append(`<span>${data[i].name}</span>`);
         }
     }
     // 导出生成json文件
@@ -403,21 +408,20 @@
     });
 
     function saveJson() {
-        if ($('#name').val() && $('#age').val()) {
+        if ($('#name').val()) {
             students.push({
-                name: $('#name').val(),
-                age: $('#age').val()
+                name: $('#name').val()
             });
             ec.set("students", ec.encode(JSON.stringify(students)));
             showData(students);
-            $('#name,#age').val('');
+            $('#name').val('');
         } else {
             alert('请先输入');
         }
     }
 
     function clearJson() {
-        $('ul.menus').html('');
+        $('.menu').html('');
         $('#names').html('');
         students = [];
         ec.set('students', '');
