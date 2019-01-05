@@ -377,17 +377,21 @@
     var t;
     var i = 0;
     ec.get('students', function (value, data) {
-        if (value) {
-            console.log(ec.decode(value));
-            let _value = $.parseJSON(ec.decode(value));
-            showData(_value);
-        } else {
-            $('.menu').html('<span>暂无数据</span>');
+        try {
+            if (value) {
+                console.log(ec.decode(value));
+                let _value = $.parseJSON(ec.decode(value));
+                showData(_value);
+            } else {
+                $('.menu').html('暂无数据');
+            }
+        }catch(e){
+            throw e;
         }
     });
 
     function showData(data) {
-        $('.menu').html('');
+        $('.menu').html('暂无数据');
         students = data;
         for (let i = 0; i < data.length; i++) {
             $('.menu').append(`<span>${data[i].name}</span>`);
@@ -430,7 +434,7 @@
     }
 
     function clearJson() {
-        $('.menu').html('');
+        $('.menu').html('暂无数据');
         $('#names').html('');
         students = [];
         ec.set('students', '');
