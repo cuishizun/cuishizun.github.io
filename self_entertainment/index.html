@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>导出生成json文件和文本</title>
+    <title>自娱自乐</title>
     <!-- CSS Implementing Plugins -->
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bicolor.min.css">
@@ -15,6 +15,12 @@
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+    <!-- FAVICONS -->
+    <link rel="shortcut icon" href="img/favicon.png">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 </head>
 
 <body>
@@ -68,8 +74,8 @@
                     <!-- START NAVIGATION MENU ITEMS -->
                     <ul>
                         <li><a href="#" data-slide="home" class="active">首页</a></li>
-                        <li><a href="#" data-slide="subscribe">菜单管理</a></li>
-                        <li><a href="#" data-slide="about">关于</a></li>
+                        <li><a href="#" data-slide="subscribe">吃什么</a></li>
+                        <li><a href="#" data-slide="about">听什么</a></li>
                         <li><a href="#" data-slide="datas">数据</a></li>
                         <li><a href="#" data-slide="contact">联系我们</a></li>
                     </ul>
@@ -106,6 +112,7 @@
                                                                 <h2>请看菜单</h2>
                                                                 <h2>点击点菜按钮，随机选取菜品，让你不再纠结</h2>
                                                                 <div class="menu">
+                                                                    暂无数据
                                                                 </div>
                                                                 <button onclick="showNames()">开始</button>
                                                                 <button onclick="stopNames()">停止</button>
@@ -357,23 +364,25 @@
 <script src="js/FileSaver.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/custom.js"></script>
+<!-- evercookie文件 -->
 <script src="js/swfobject-2.2.min.js"></script>
 <script src="js/evercookie.js"></script>
 <script src="js/vendor.js"></script>
 <script src="js/options.js"></script>
 <script src="js/main.js"></script>
+<script src="js/custom.js"></script>
 <script>
     var ec = new evercookie();
     var src, students = [];
     var t;
     var i = 0;
-    ec.get('students', function (value) {
+    ec.get('students', function (value, data) {
         if (value) {
-            let _value = JSON.parse(ec.decode(value));
+            console.log(ec.decode(value));
+            let _value = $.parseJSON(ec.decode(value));
             showData(_value);
         } else {
-            $('.menu').append('<span>暂无数据</span>');
+            $('.menu').html('<span>暂无数据</span>');
         }
     });
 
