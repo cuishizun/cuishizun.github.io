@@ -1,6 +1,7 @@
 (function ($) {
     "use strict";
 
+    /*loading开始*/
     var mainWindow = $(window),
         mainPreloader = $('.preloader');
 

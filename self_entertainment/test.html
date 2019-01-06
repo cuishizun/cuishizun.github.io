@@ -1,0 +1,252 @@
+<!doctype html>
+<html>
+<head>
+</head>
+    
+<body>
+
+<script>
+var db;
+//检测浏览器是否支持 indexedDBOk
+function indexedDBOk() {
+    return "indexedDB" in window;
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    //判断 indexedDBOk 支持 是/否？
+    if(!indexedDBOk) return;
+    
+ //打开数据库  这个变量其中一个属性是一个已存在的对象存储list,名为objectStoreNames
+    var openRequest = indexedDB.open("idarticle_people6",1);
+
+    openRequest.onupgradeneeded = function(e) {
+
+        var thisDB = e.target.result;
+    //通过contains方法检车某个对象是否已经存在了，如果不存在则可进行创建
+        if(!thisDB.objectStoreNames.contains("people")) {
+            
+            //使用key生成器
+            var os = thisDB.createObjectStore("people", {autoIncrement:true});
+
+
+            //索引
+           //os.createIndex(索引名称，列，指定某个列是否是唯一)
+            os.createIndex("name", "name", {unique:false});
+            //I want email to be unique
+            os.createIndex("email", "email", {unique:true});
+        }
+    }
+
+    openRequest.onsuccess = function(e) {
+
+        db = e.target.result;
+
+        //监听添加事件
+        document.querySelector("#addButton").addEventListener("click", addPerson, false);
+
+        
+        document.querySelector("#getButton").addEventListener("click", getPeople, false);
+
+          document.querySelector("#delete").addEventListener("click", deleteData, false);
+
+            document.querySelector("#getStore").addEventListener("click", getDataByKey, false);
+
+         document.querySelector("#getButton1").addEventListener("click", getDataByKey1, false);
+
+         document.querySelector("#getButton2").addEventListener("click", getDataByKey2, false);
+
+
+    }    
+
+    openRequest.onerror = function(e) {
+        //Do something for the error
+    }
+
+
+},false);
+
+
+function addPerson(e) {
+    var name = document.querySelector("#name").value;
+    var email = document.querySelector("#email").value;
+
+    console.log("About to add "+name+"/"+email);
+
+    // 对象 = db.事物（将要处理的数组，事物类型）
+
+    var transaction = db.transaction(["people"],"readwrite");
+    //设置存储对象people为为读写操作，然后使用objectStore指定要操作的存储对象，存在变量store
+    var store = transaction.objectStore("people");
+
+    //设置添加数据
+    var person = {
+        name:name,
+        email:email,
+        created:new Date()
+    }
+
+    //声明一个普通的javascript对象,使用store的add方法 增加这个对象到对象存储中
+    var request = store.add(person);
+
+
+   //增加数据是异步操作，增加两个事件监听
+    request.onerror = function(e) {
+        alert("Sorry, that email address already exists.");
+        console.log("Error",e.target.error.name);
+        console.dir(e.target);
+        //some type of error handler
+    }
+
+    request.onsuccess = function(e) {
+        console.log("Woot! Did it");
+    }
+}
+
+
+function getPeople(e) {
+    var name = document.querySelector("#nameSearch").value;
+
+    var endname = document.querySelector("#nameSearchEnd").value;
+
+    if(name == "" && endname == "") return;
+
+    // 对象 = db.事物（将要处理的数组，事物类型）
+    var transaction = db.transaction(["people"],"readonly");
+
+    //设置存储对象people为为读写操作，然后使用objectStore指定要操作的存储对象，存在变量store
+    var store = transaction.objectStore("people");
+    
+    var index = store.index("name");
+
+    //Make the range depending on what type we are doing
+    var range;
+    if(name != "" && endname != "") {
+        range = IDBKeyRange.bound(name, endname);
+    } else if(name == "") {
+        range = IDBKeyRange.upperBound(endname);
+    } else {
+        range = IDBKeyRange.lowerBound(name);
+    }
+
+    var s = "";
+
+    index.openCursor(range).onsuccess = function(e) {
+        var cursor = e.target.result;
+        if(cursor) {
+            s += "<h2>Key "+cursor.key+"</h2><p>";
+            for(var field in cursor.value) {
+                s+= field+"="+cursor.value[field]+"<br/>";
+            }
+            s+="</p>";
+            cursor.continue();
+        }
+        document.querySelector("#status").innerHTML = s;
+    }
+
+}
+
+
+//清空store
+function deleteData(e) {
+var transaction = db.transaction(["people"],"readwrite");
+ var store=transaction.objectStore("people");     
+ store.clear();
+}
+
+//列表查询
+    function getDataByKey(e) { 
+         var s = ""; 
+      
+        db.transaction(["people"], "readonly").objectStore("people").openCursor().onsuccess = function(e) { 
+            var cursor = e.target.result; 
+            if(cursor) { 
+                s += "<h2>Key "+cursor.key+"</h2><p>"; 
+                for(var field in cursor.value) { 
+                    s+= field+"="+cursor.value[field]+"<br/>"; 
+                } 
+                s+="</p>"; 
+                cursor.continue(); 
+            } 
+            document.querySelector("#status2").innerHTML = s; 
+        } 
+    } 
+
+
+//查询
+function getDataByKey1(){
+    var name = document.querySelector("#nameSearch1").value;
+    if(name === "" ) return;
+
+    var transaction = db.transaction(["people"],"readonly");
+    var store = transaction.objectStore("people");
+    var index = store.index("name");
+    var request = index.get(name);
+    
+            request.onsuccess=function(e){ 
+                var result = e.target.result;
+                console.log(result.email); 
+
+            };
+}
+
+
+//更新
+function getDataByKey2(e){
+ var name = document.querySelector("#nameSearch2").value;
+     if(name === "" ) return;
+
+var transaction = db.transaction(["people"],"readwrite");
+            var store=transaction.objectStore("people"); 
+
+            var index = store.index("name");
+            var request=index.get(name); 
+
+            request.onsuccess=function(e){ 
+               var result = e.target.result;
+               result.email=909;
+                store.put(result); 
+            };
+}
+</script>
+
+<input type="text" id="name" placeholder="Name"><br/>
+<input type="email" id="email" placeholder="Email"><br/>
+<button id="addButton">Add Data</button>
+
+<p/>
+
+Starting with: <input type="text" id="nameSearch" placeholder="Name"><br/>
+Ending with: <input type="text" id="nameSearchEnd" placeholder="Name"><br/>
+<button id="getButton">Get By Name Range</button>
+
+<p/>
+
+<p>
+    <button id="delete">delete clear</button>
+</p>
+
+<p>
+    <button id="getStore">查找数据（列）</button>
+</p>
+<p id="status2">
+
+</p>
+<p/>
+
+<input type="text" id="nameSearch1" placeholder="Name"><br/>
+<button id="getButton1">查找数据</button>
+
+<p/>
+
+<p/>
+
+<input type="text" id="nameSearch2" placeholder="Name"><br/>
+<button id="getButton2">更新数据</button>
+
+<p/>
+<div id="status"></div>
+
+
+</body>
+</html>
