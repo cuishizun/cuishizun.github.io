@@ -50,6 +50,7 @@
                 <div class="awd-site-bg bg-home"></div>
                 <div class="awd-site-bg bg-subscribe"></div>
                 <div class="awd-site-bg bg-about"></div>
+                <div class="awd-site-bg bg-game"></div>
                 <div class="awd-site-bg bg-contact"></div>
                 <div class="awd-site-bg bg-datas"></div>
             </div>
@@ -70,12 +71,13 @@
             <!-- START NAVIGATION -->
             <nav id="awd-site-nav" class="navigation animated" data-animation="fadeInDown" data-animation-delay="500">
                 <div class="nav-container">
-
+                    ·
                     <!-- START NAVIGATION MENU ITEMS -->
                     <ul>
                         <li><a href="#" data-slide="home" class="active">首页</a></li>
                         <li><a href="#" data-slide="subscribe">吃什么</a></li>
                         <li><a href="#" data-slide="about">听什么</a></li>
+                        <li><a href="#" data-slide="game">玩什么</a></li>
                         <li><a href="#" data-slide="datas">数据</a></li>
                         <li><a href="#" data-slide="contact">联系我们</a></li>
                     </ul>
@@ -131,32 +133,30 @@
                                                 <div class="row">
                                                     <div class="col-md-12 svm">
                                                         <div class="meunbox">
-                                                            <h2>还在纠结吃什么？</h2>
+                                                            <!-- <h2>还在纠结吃什么？</h2>
                                                             <h2>请看菜单</h2>
-                                                            <h2>点击按钮，随机选取菜品，让你不再纠结</h2>
-                                                            <input type="radio" name="menu" value="0">按店名
+                                                            <h2>点击点菜按钮，随机选取菜品，让你不再纠结</h2> -->
+                                                            <input type="radio" name="menu" id="restaurant" value="0">按店名
+                                                            <input type="radio" name="menu" id="menuType" value="1">按品类
+                                                            <input type="radio" name="menu" id="menuName" value="2">按名称
                                                             <button id="befAddRestaurant" class="hide">+</button>
                                                             <div class="addForm hide">
                                                                 <input type="text" id="name">
                                                                 <button id="addRestaurant">保存</button>
-                                                            </div>
-                                                            <input type="radio" name="menu" value="1">按品类
-                                                            <button id="befAddRType" class="hide">+</button>
-                                                            <div class="addTForm hide">
-                                                                <input type="text" id="type">
-                                                                <button id="addRestaurantType">保存</button>
-                                                            </div>
-                                                            <input type="radio" name="menu" value="2">按名称
-                                                            <button id="befAddName" class="hide">+</button>
-                                                            <div class="addNForm hide">
-                                                                <input type="text" id="type">
-                                                                <button id="addRestaurantName">保存</button>
+                                                                <button id="cancel">取消</button>
                                                             </div>
                                                             <div class="menu">
+                                                                <h1 class="row skew-title">
+
+                                                                </h1>
                                                             </div>
-                                                            <button onclick="showNames()">开始</button>
-                                                            <button onclick="stopNames()">停止</button>
-                                                            <div class="names" id="names"></div>
+                                                            <button id="showMenu">点菜</button>
+                                                            <button id="stopMenu">停止</button>
+                                                            <button id="delRestaurant">清空数据</button>
+                                                            <div>
+                                                                <div id="chooseName"></div>
+                                                                <a class="badge" id="chooseNum"></a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -170,7 +170,7 @@
                             </div>
 
                             <!-- ABOUT SECTION -->
-                            <div class=" slide-item " data-slide-id="about ">
+                            <div class="slide-item" data-slide-id="about">
                                 <!-- START CONTAINER -->
                                 <div class="container-fluid ">
                                     <div class="row ">
@@ -231,7 +231,68 @@
                                 </div>
                                 <!-- END CONTAINER -->
                             </div>
+                            <!-- GAME SECTION -->
+                            <div class="slide-item" data-slide-id="game">
+                                <!-- START CONTAINER -->
+                                <div class="container-fluid ">
+                                    <div class="row ">
+                                        <div class="col-md-12 ">
 
+                                            <!-- START SLIDE CONTENT-->
+                                            <div class="slide-content ">
+                                                <div class="row ">
+                                                    <div class="col-lg-5 col-lg-offset-2 col-md-6 col-md-offset-1 col-md-push-5
+        svm ">
+                                                        <div class="section-info text-right ">
+                                                            <!-- START TITLE -->
+                                                            <h2 class="section-title text-default animated "
+                                                                data-animation="fadeIn " data-animation-delay="60 ">关于我们</h2>
+                                                            <!-- END TITLE -->
+                                                            <p class="animated " data-animation="fadeIn "
+                                                                data-animation-delay="100 ">公司致力于为客户提供专业的电信增值服务，帮助企业便捷接入验证码短信、短信通知、语音验证码、国际验证码、短信公众号、短信营销、彩信营销、数字奖励营销、手机话费充值、手机流量充值等电信增值服务，满足企业运营、营销推广多场景需要。</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5 col-md-pull-7 svm ">
+                                                        <div class="section-info text-left ">
+                                                            <!-- START FEATURES-LIST -->
+                                                            <div class="features-list ">
+
+                                                                <!-- FEATURE -->
+                                                                <div class="featured-item animated " data-animation="fadeIn "
+                                                                    data-animation-delay="150 ">
+                                                                    <div class="featured-text ">
+                                                                        <h3><i class="fa fa-rocket "></i> 安全高效</h3>
+
+                                                                        <p>多年的技术积累与创新，树立在该领域的标杆地位。业务平台及软件全部自主研发，且都通过了国家知识产权认定。</p>
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="featured-item ">
+                                                                    <!-- FEATURE -->
+                                                                    <div class="featured-item animated
+        "
+                                                                        data-animation="fadeIn " data-animation-delay="150 ">
+                                                                        <div class="featured-text ">
+                                                                            <h3><i class="icon-paint "></i> 高性能、高并发</h3>
+
+                                                                            <p>在互联网及通讯行业有十几年的技术研发和运营维护经验，掌握高性能、高并发、大数据处理技术。</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                            <!-- END FEATURES-LIST -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- END SLIDE CONTENT-->
+                                        </div>
+                                    </div>
+                                    <!-- END ROW -->
+                                </div>
+                                <!-- END CONTAINER -->
+                            </div>
                             <!-- datas SECTION -->
                             <div class="slide-item " data-slide-id="datas ">
                                 <!-- START CONTAINER -->
