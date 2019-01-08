@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/mplayer.css">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -136,7 +137,7 @@
                                                             <!-- <h2>还在纠结吃什么？</h2>
                                                             <h2>请看菜单</h2>
                                                             <h2>点击点菜按钮，随机选取菜品，让你不再纠结</h2> -->
-                                                            <input type="radio" name="menu" id="restaurant" value="0">按店名
+                                                            <input type="radio" name="menu" id="menu_store" value="0">按店名
                                                             <input type="radio" name="menu" id="menuType" value="1">按品类
                                                             <input type="radio" name="menu" id="menuName" value="2">按名称
                                                             <button id="befAddRestaurant" class="hide">+</button>
@@ -155,7 +156,7 @@
                                                             <button id="delRestaurant">清空数据</button>
                                                             <div>
                                                                 <div id="chooseName"></div>
-                                                                <a class="badge" id="chooseNum"></a>
+                                                                <a class="badge hide" id="chooseCount"></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -179,47 +180,9 @@
                                             <!-- START SLIDE CONTENT-->
                                             <div class="slide-content ">
                                                 <div class="row ">
-                                                    <div class="col-lg-5 col-lg-offset-2 col-md-6 col-md-offset-1 col-md-push-5
-                                svm ">
-                                                        <div class="section-info text-right ">
-                                                            <!-- START TITLE -->
-                                                            <h2 class="section-title text-default animated "
-                                                                data-animation="fadeIn " data-animation-delay="60 ">关于我们</h2>
-                                                            <!-- END TITLE -->
-                                                            <p class="animated " data-animation="fadeIn "
-                                                                data-animation-delay="100 ">公司致力于为客户提供专业的电信增值服务，帮助企业便捷接入验证码短信、短信通知、语音验证码、国际验证码、短信公众号、短信营销、彩信营销、数字奖励营销、手机话费充值、手机流量充值等电信增值服务，满足企业运营、营销推广多场景需要。</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-5 col-md-pull-7 svm ">
-                                                        <div class="section-info text-left ">
-                                                            <!-- START FEATURES-LIST -->
-                                                            <div class="features-list ">
-
-                                                                <!-- FEATURE -->
-                                                                <div class="featured-item animated " data-animation="fadeIn "
-                                                                    data-animation-delay="150 ">
-                                                                    <div class="featured-text ">
-                                                                        <h3><i class="fa fa-rocket "></i> 安全高效</h3>
-
-                                                                        <p>多年的技术积累与创新，树立在该领域的标杆地位。业务平台及软件全部自主研发，且都通过了国家知识产权认定。</p>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="featured-item ">
-                                                                    <!-- FEATURE -->
-                                                                    <div class="featured-item animated
-                                "
-                                                                        data-animation="fadeIn " data-animation-delay="150 ">
-                                                                        <div class="featured-text ">
-                                                                            <h3><i class="icon-paint "></i> 高性能、高并发</h3>
-
-                                                                            <p>在互联网及通讯行业有十几年的技术研发和运营维护经验，掌握高性能、高并发、大数据处理技术。</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                            </div>
-                                                            <!-- END FEATURES-LIST -->
+                                                    <div class="col-md-12 svm ">
+                                                        <div class="section-info text-center ">
+                                                            http://www.qiyidj.com/qqmusic.php
                                                         </div>
                                                     </div>
                                                 </div>
@@ -436,6 +399,56 @@
         </footer>
 
     </div>
+    <div class="mp" style="z-index: 999999;">
+        <div class="mp-box">
+            <img src="img/mplayer_error.png" alt="music cover" class="mp-cover">
+            <div class="mp-info">
+                <p class="mp-name">燕归巢</p>
+                <p class="mp-singer">许嵩</p>
+                <p><span class="mp-time-current">00:00</span>/<span class="mp-time-all">00:00</span></p>
+            </div>
+            <div class="mp-btn">
+                <button class="mp-prev" title="上一首"></button>
+                <button class="mp-pause" title="播放"></button>
+                <button class="mp-next" title="下一首"></button>
+                <button class="mp-mode" title="播放模式"></button>
+                <div class="mp-vol">
+                    <button class="mp-vol-img" title="静音"></button>
+                    <div class="mp-vol-range" data-range_min="0" data-range_max="100" data-cur_min="80">
+                        <div class="mp-vol-current"></div>
+                        <div class="mp-vol-circle"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mp-pro">
+                <div class="mp-pro-current"></div>
+            </div>
+            <div class="mp-menu">
+                <button class="mp-list-toggle"></button>
+                <button class="mp-lrc-toggle"></button>
+            </div>
+        </div>
+        <button class="mp-toggle">
+            <span class="mp-toggle-img"></span>
+        </button>
+        <div class="mp-lrc-box">
+            <ul class="mp-lrc"></ul>
+        </div>
+        <button class="mp-lrc-close"></button>
+        <div class="mp-list-box">
+            <ul class="mp-list-title"></ul>
+            <table class="mp-list-table">
+                <thead>
+                    <tr>
+                        <th>歌名</th>
+                        <th>歌手</th>
+                        <th>时长</th>
+                    </tr>
+                </thead>
+                <tbody class="mp-list"></tbody>
+            </table>
+        </div>
+    </div>
 </body>
 <script src="js/FileSaver.min.js"></script>
 <script src="js/jquery.min.js"></script>
@@ -444,7 +457,12 @@
 <script src="js/options.js"></script>
 <script src="js/main.js"></script>
 <script src="js/custom.js"></script>
-<script src="js/restaurant.js"></script>
+<script src="js/mplayer.js"></script>
+<script src="js/mplayer-list.js"></script>
+<script src="js/mplayer-functions.js"></script>
+<script src="js/jquery.nstSlider.min.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/music.js"></script>
 <!--<script>
     var ec = new evercookie();
     var src, students = [];

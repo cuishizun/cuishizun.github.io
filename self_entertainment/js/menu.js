@@ -2,7 +2,8 @@
     "use strict";
 
     var db, menus = [],
-        t, i = 0;
+        t, i = 0,
+        menuId;
     //检测浏览器是否支持 indexedDBOk
     function indexedDBOk() {
         return "indexedDB" in window;
@@ -20,18 +21,51 @@
 
             var thisDB = e.target.result;
             //通过contains方法检车某个对象是否已经存在了，如果不存在则可进行创建
-            if (!thisDB.objectStoreNames.contains("restaurant")) {
+            if (!thisDB.objectStoreNames.contains("menu_store")) {
 
                 //使用key生成器
-                var os = thisDB.createObjectStore("restaurant", {
+                var menu_store = thisDB.createObjectStore("menu_store", {
+                    keyPath: "menuId",
                     autoIncrement: true
                 });
                 //索引
                 //os.createIndex(索引名称，列，指定某个列是否是唯一)
-                os.createIndex("name", "name", {
+                menu_store.createIndex("name", "name", {
                     unique: true
                 });
-                os.createIndex("count", "count", {
+                menu_store.createIndex("count", "count", {
+                    unique: false
+                });
+            }
+            if (!thisDB.objectStoreNames.contains("menu_type")) {
+
+                //使用key生成器
+                var menu_type = thisDB.createObjectStore("menu_type", {
+                    keyPath: "menuId",
+                    autoIncrement: true
+                });
+                //索引
+                //os.createIndex(索引名称，列，指定某个列是否是唯一)
+                menu_type.createIndex("name", "name", {
+                    unique: true
+                });
+                menu_type.createIndex("count", "count", {
+                    unique: false
+                });
+            }
+            if (!thisDB.objectStoreNames.contains("menu_name")) {
+
+                //使用key生成器
+                var menu_name = thisDB.createObjectStore("menu_name", {
+                    keyPath: "menuId",
+                    autoIncrement: true
+                });
+                //索引
+                //os.createIndex(索引名称，列，指定某个列是否是唯一)
+                menu_name.createIndex("name", "name", {
+                    unique: true
+                });
+                menu_name.createIndex("count", "count", {
                     unique: false
                 });
             }
@@ -44,7 +78,7 @@
             //监听事件
             document.querySelector("#showMenu").addEventListener("click", showMenu, false);
             document.querySelector("#stopMenu").addEventListener("click", stopMenu, false);
-            document.querySelector("#restaurant").addEventListener("click", getRestaurant, false);
+            document.querySelector("#menu_store").addEventListener("click", getRestaurant, false);
             document.querySelector("#menuType").addEventListener("click", getRestaurant, false);
             document.querySelector("#menuName").addEventListener("click", getRestaurant, false);
             document.querySelector("#addRestaurant").addEventListener("click", addRestaurant, false);
@@ -62,22 +96,29 @@
     }, false);
 
     function addRestaurant() {
-        var name = $("#name").val();
+        var name = $("#name").val(),
+            tableName;
         // 对象 = db.事物（将要处理的数组，事物类型）
-
-        var transaction = db.transaction(["restaurant"], "readwrite");
+        if ($('[name=menu]').filter((index, ret) => ret.checked)[0].value === '0') {
+            tableName = 'menu_store';
+        } else if ($('[name=menu]').filter((index, ret) => ret.checked)[0].value === '1') {
+            tableName = 'menu_type';
+        } else {
+            tableName = 'menu_name';
+        }
+        var transaction = db.transaction([tableName], "readwrite");
         //设置存储对象people为为读写操作，然后使用objectStore指定要操作的存储对象，存在变量restaurant
-        var restaurantStore = transaction.objectStore("restaurant");
+        var restaurantStore = transaction.objectStore(tableName);
 
         //设置添加数据
-        var restaurant = {
+        var menu = {
             name: name,
             count: 0,
             created: new Date()
         }
 
         //声明一个普通的javascript对象,使用restaurant的add方法 增加这个对象到对象存储中
-        var request = restaurantStore.add(restaurant);
+        var request = restaurantStore.add(menu);
 
         //增加数据是异步操作，增加两个事件监听
         request.onerror = function (e) {
@@ -85,7 +126,7 @@
         }
 
         request.onsuccess = function () {
-            menus.push(restaurant);
+            menus.push(menu);
             getRestaurant();
         }
     }
@@ -102,12 +143,38 @@
         $("#name").val('');
     }
 
+    function skew() {
+        $('.skew-title').children('span').hover((function () {
+            var $el, n;
+            $el = $(this);
+            n = $el.index() + 1;
+            $el.addClass('flat');
+            if (n % 2 === 0) {
+                return $el.prev().addClass('flat');
+            } else {
+                if (!$el.hasClass('last')) {
+                    return $el.next().addClass('flat');
+                }
+            }
+        }), function () {
+            return $('.flat').removeClass('flat');
+        });
+    }
     //列表查询
-    function getRestaurant() {
+    function getRestaurant(e) {
         $('.addForm').addClass('hide');
         $('#befAddRestaurant').removeClass('hide');
-        var s = "";
-        db.transaction(["restaurant"], "readonly").objectStore("restaurant").openCursor().onsuccess = function (e) {
+        var s = "",
+            tableName;
+        menus = [];
+        if ($('[name=menu]').filter((index, ret) => ret.checked)[0].value === '0') {
+            tableName = 'menu_store';
+        } else if ($('[name=menu]').filter((index, ret) => ret.checked)[0].value === '1') {
+            tableName = 'menu_type';
+        } else {
+            tableName = 'menu_name';
+        }
+        db.transaction([tableName], "readonly").objectStore(tableName).openCursor().onsuccess = function (e) {
             var cursor = e.target.result;
             if (cursor) {
                 var namestr = '';
@@ -125,28 +192,14 @@
             document.querySelector(".skew-title").innerHTML = s;
 
             /* 折纸效果 */
-            $('.skew-title').children('span').hover((function () {
-                var $el, n;
-                $el = $(this);
-                n = $el.index() + 1;
-                $el.addClass('flat');
-                if (n % 2 === 0) {
-                    return $el.prev().addClass('flat');
-                } else {
-                    if (!$el.hasClass('last')) {
-                        return $el.next().addClass('flat');
-                    }
-                }
-            }), function () {
-                return $('.flat').removeClass('flat');
-            });
+            skew();
         }
     }
 
     //清空restaurant
     function delRestaurant(e) {
-        var transaction = db.transaction(["restaurant"], "readwrite");
-        var restaurantStore = transaction.objectStore('restaurant');
+        var transaction = db.transaction(["menu_store"], "readwrite");
+        var restaurantStore = transaction.objectStore('menu_store');
         restaurantStore.clear();
         $('#befAddRestaurant').removeClass('hide');
         $('.addForm').addClass('hide');
@@ -160,7 +213,8 @@
             clearInterval(t);
             t = setInterval(function () {
                 $("#chooseName").html(menus[i].name);
-                $("#chooseNum").html(menus[i].count);
+                $("#chooseCount").html(menus[i].count);
+                menuId = menus[i].menuId;
                 i++;
                 if (i == menus.length) {
                     i = 0;
@@ -175,37 +229,40 @@
     }
 
     function stopMenu() {
-        clearInterval(t);
-        upgradeRestaurant();
+        if (t) {
+            clearInterval(t);
+            t = 0;
+            upgradeRestaurant();
+        } else {
+            alert('请重新点菜');
+        }
     }
 
     //更新
     function upgradeRestaurant(e) {
         var name = $("#chooseName").html(),
-            count = parseInt($("#chooseNum").text()) + 1;
+            count = parseInt($("#chooseCount").html()) + 1,
+            tableName;
         if (name === "") return;
-        var transaction = db.transaction(["restaurant"], "readwrite");
-        var store = transaction.objectStore("restaurant");
-        /* var ret = {
+        if ($('[name=menu]').filter((index, ret) => ret.checked)[0].value === '0') {
+            tableName = 'menu_store';
+        } else if ($('[name=menu]').filter((index, ret) => ret.checked)[0].value === '1') {
+            tableName = 'menu_type';
+        } else {
+            tableName = 'menu_name';
+        }
+        var transaction = db.transaction([tableName], "readwrite");
+        var store = transaction.objectStore(tableName);
+        var ret = {
+            menuId,
             name,
             count,
             created: new Date()
-        }; */
-        var request = store.get(name);
+        };
+        var request = store.put(ret);
 
-        request.onsuccess = function (e) {
-            // var result = e.target.result;
-            var delRequest = store.clear();
-            delRequest.onsuccess = function (e) {
-                var ret = {
-                    name,
-                    count,
-                    created: new Date()
-                };
-                // result.count += 1;
-                store.add(ret);
-                getRestaurant();
-            };
+        request.onsuccess = function () {
+            getRestaurant();
         };
     }
 })(jQuery);
