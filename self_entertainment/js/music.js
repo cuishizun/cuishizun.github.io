@@ -31,17 +31,12 @@ var modeText = ['顺序播放', '单曲循环', '随机播放', '列表循环'],
     player;
 //列表查询
 function getMusic() {
-    db.transaction(['music'], "readonly").objectStore('music').openCursor().onsuccess = function (e) {
+    db.transaction(['music'], "readonly").objectStore('music').getAll().onsuccess = function (e) {
         var cursor = e.target.result;
         if (cursor) {
-            mplayer_song[cursor.value.type].push({
-                "name": cursor.value.name,
-                "singer": cursor.value.singer,
-                "time": cursor.value.time,
-                "img": cursor.value.img,
-                "src": cursor.value.src,
-                "lrc": cursor.value.lrc
-            });
+            for (let i = 0; i < cursor.length; i++) {
+                mplayer_song[cursor[i].type].push(cursor[i]);
+            }
         }
         player = new MPlayer({
             // 容器选择器名称
@@ -49,7 +44,7 @@ function getMusic() {
             // 播放列表
             songList: mplayer_song,
             // 专辑图片错误时显示的图片
-            defaultImg: 'img/mplayer_error.png',
+            defaultImg: 'img/music/mplayer_error.png',
             // 自动播放
             autoPlay: false,
             // 播放模式(0->顺序播放,1->单曲循环,2->随机播放,3->列表循环(默认))
@@ -94,7 +89,7 @@ function getMusic() {
             });
         });
 
-        $(document.body).append(player.audio); // 测试用
+        // $(document.body).append(player.audio); // 测试用
 
         setEffects(player);
     }
