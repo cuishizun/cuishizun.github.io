@@ -69,6 +69,42 @@
                     unique: false
                 });
             }
+            if (!thisDB.objectStoreNames.contains("music")) {
+
+                //使用key生成器
+                var music = thisDB.createObjectStore("music", {
+                    keyPath: "musicId",
+                    autoIncrement: true
+                });
+                //索引
+                //os.createIndex(索引名称，列，指定某个列是否是唯一)
+                music.createIndex("name", "name", {
+                    unique: false
+                });
+                music.createIndex("singer", "singer", {
+                    unique: false
+                });
+
+                music.createIndex("time", "time", {
+                    unique: false
+                });
+
+                music.createIndex("src", "src", {
+                    unique: false
+                });
+
+                music.createIndex("img", "img", {
+                    unique: false
+                });
+
+                music.createIndex("lrc", "lrc", {
+                    unique: false
+                });
+
+                music.createIndex("type", "type", {
+                    unique: false
+                });
+            }
         }
 
         openRequest.onsuccess = function (e) {
@@ -112,7 +148,7 @@
 
         //设置添加数据
         var menu = {
-            name: name,
+            name,
             count: 0,
             created: new Date()
         }

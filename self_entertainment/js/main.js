@@ -21,11 +21,11 @@
     var ctx = canvas.getContext("2d");
     window.requestAnimFrame = (function () {
         return window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 1000 / 60);
-        };
+            window.webkitRequestAnimationFrame ||
+            window.mozRequestAnimationFrame ||
+            function (callback) {
+                window.setTimeout(callback, 1000 / 60);
+            };
     })();
 
     var curves_array = [];
@@ -64,14 +64,14 @@
             var x = 0;
             var y = 0;
 
-            var cp1xvx = Math.random() * 2- 1;
+            var cp1xvx = Math.random() * 2 - 1;
             var cp1xvy = Math.random() * 2 - 1;
 
             var cp1yvx = Math.random() * 2 - 1;
             var cp1yvy = Math.random() * 2 - 1;
 
-            var cp2xvx= Math.random() * 2 - 1;
-            var cp2xvy= Math.random() * 2 - 1;
+            var cp2xvx = Math.random() * 2 - 1;
+            var cp2xvy = Math.random() * 2 - 1;
 
             var cp2yvx = Math.random() * 2 - 1;
             var cp2yvy = Math.random() * 2 - 1;
@@ -81,8 +81,8 @@
                 new curve(
                     cp1x, cp1y, cp2x, cp2y,
                     x, y,
-                    cp1xvx,cp1xvy,cp1yvx,cp1yvy,
-                    cp2xvx,cp2xvy,cp2yvx,cp2yvy
+                    cp1xvx, cp1xvy, cp1yvx, cp1yvy,
+                    cp2xvx, cp2xvy, cp2yvx, cp2yvy
                 )
             );
         }
@@ -131,7 +131,7 @@
         requestAnimFrame(awdCanvasDraw);
     }
 
-    function awdCanvas(){
+    function awdCanvas() {
         awdCanvasResize();
         awdCanvasInit();
         awdCanvasDraw();
@@ -238,8 +238,7 @@
                     $menu.find('a[data-slide=' + prevSlide + ']').trigger("click");
                 }
 
-            }
-            else if (e.keyCode == 39 || e.keyCode == 38) { // right
+            } else if (e.keyCode == 39 || e.keyCode == 38) { // right
 
                 var nextSlide = menu_elem_active.next().data('slide');
                 var maxSlides = allSlides + 1;
@@ -271,10 +270,10 @@
     function awdCountdown() {
 
         $('#clock').countdown(awd_countdownDate).on('update.countdown', function (event) {
-            var $this = $(this).html(event.strftime(''
-                + '<div class="counter-container"><div class="counter-date"><div class="counter-box first"><span>day%!d</span><div class="number">%-D</div></div></div>'
-                + '<div class="counter-time"><div class="counter-box"><div class="number">%H:%M</div></div>'
-                + '<div class="counter-box last"><div class="number">%S</div><span>seconds</span></div></div></div>'
+            var $this = $(this).html(event.strftime('' +
+                '<div class="counter-container"><div class="counter-date"><div class="counter-box first"><span>day%!d</span><div class="number">%-D</div></div></div>' +
+                '<div class="counter-time"><div class="counter-box"><div class="number">%H:%M</div></div>' +
+                '<div class="counter-box last"><div class="number">%S</div><span>seconds</span></div></div></div>'
             ));
         });
     }
@@ -316,8 +315,7 @@
             if (resp.result === 'error') {
                 $subscribeEmail.focus();
                 $('.subscribe-notice').addClass('visible');
-            }
-            else if (resp.result === 'success') {
+            } else if (resp.result === 'success') {
                 $form[0].reset();
                 $subscribeEmail.blur();
                 $('.subscribe-notice').addClass('visible');
@@ -353,8 +351,7 @@
                 $subscribeNotice.stop(true).hide().addClass('visible').html(awd_subscribeError).fadeIn();
                 $submitButton.prop('disabled', false);
                 $subscribeEmail.focus();
-            }
-            else {
+            } else {
                 $.ajax({
                     type: 'POST',
                     url: url,
@@ -408,8 +405,7 @@
                 contactNotice.stop(true).hide().html(awd_contactEmailError).fadeIn();
                 emailField.addClass("input-error");
                 $('#contact-email').focus();
-            }
-            else {
+            } else {
                 $.ajax({
                     type: 'POST',
                     url: 'assets/php/contact.php',
@@ -426,6 +422,79 @@
                         input.blur();
                     }
                 });
+            }
+            return false;
+
+        });
+
+    }
+
+    ///** MUSIC FORM **/
+
+    function awdMusicForm() {
+
+        var $form = $('#music-form');
+
+        $form.on('submit', function (e) {
+
+            var input = $(this).find('input, textarea');
+            var requiredFields = $(this).find('.required');
+            var musicNameVal = $('.music-form-name').val();
+            var musicSingerVal = $('.music-form-singer').val();
+            var musicTimeVal = $('.music-form-time').val();
+            var musicLrcVal = $('.music-form-lrc').val();
+            var musicLink = $('.music-form-src').val();
+            var musicImg = $('.music-form-img').val();
+            var musicType = $('.music-form-type').val();
+            var musicNotice = $('.music-notice');
+
+            e.preventDefault();
+
+            if (musicLink == '' || musicType == '' || musicNameVal == '' || musicSingerVal == '' || musicTimeVal == '' || musicLrcVal == '') {
+                musicNotice.stop(true).hide().html(awd_contactInputError).fadeIn();
+                requiredFields.each(function () {
+                    $(this).addClass("input-error");
+                });
+
+            } else {
+                let flag = true;
+                for (let i = 0; i < mplayer_song.length; i++) {
+                    if (mplayer_song[i].name === musicNameVal) {
+                        flag = false;
+                    }
+                }
+                if (flag) {
+                    var transaction = db.transaction(['music'], "readwrite");
+                    //设置存储对象people为为读写操作，然后使用objectStore指定要操作的存储对象，存在变量restaurant
+                    var restaurantStore = transaction.objectStore('music');
+
+                    //设置添加数据
+                    var menu = {
+                        name: musicNameVal,
+                        singer: musicSingerVal,
+                        time: musicTimeVal,
+                        img: musicImg,
+                        src: musicLink,
+                        lrc: musicLrcVal,
+                        type: musicType,
+                        created: new Date()
+                    };
+
+                    //声明一个普通的javascript对象,使用restaurant的add方法 增加这个对象到对象存储中
+                    var request = restaurantStore.add(menu);
+
+                    //增加数据是异步操作，增加两个事件监听
+                    request.onerror = function (e) {
+                        throw e;
+                    }
+
+                    request.onsuccess = function () {
+                        window.location.reload();
+                        alert('添加成功');
+                    }
+                } else {
+                    alert('已存在该歌曲名');
+                }
             }
             return false;
 
@@ -492,11 +561,12 @@
         }
         awdSubscribe();
         awdContactForm();
+        awdMusicForm();
         awdScrollbar();
 
         if (awd_bg_animated === true) {
             awdCanvas();
-            $(window).resize(function(){
+            $(window).resize(function () {
                 awdCanvasResize();
             });
         }

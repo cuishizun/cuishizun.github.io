@@ -835,17 +835,21 @@ strong {
     margin-left: 15px;
 }
 
-/* Contact */
+/* Contact &Music */
 
 .contact-form input[type="text"],
-.contact-form input[type="email"] {
+.contact-form input[type="email"],
+.music-form input[type="text"] {
     width: 100%;
 }
 
 .contact-form input,
 .contact-form textarea,
-.contact-form select {
-    background: transparent;
+.contact-form select,
+.music-form input,
+.music-form textarea,
+.music-form select {
+    background: #F44336;
     outline: none;
     font-family: "Quicksand", sans-serif;
     -webkit-appearance: none;
@@ -866,7 +870,8 @@ strong {
     position: relative;
 }
 
-.contact-form textarea {
+.contact-form textarea,
+.music-form textarea {
     float: left;
     resize: none;
     height: 140px;
@@ -878,33 +883,47 @@ strong {
     border-color: #ed5555;
 }
 
+.music-form .input-error {
+    border-color: #008ed4;
+}
+
 .contact-form .contact-notice {
     font-size: 16px;
 }
 
-.contact-form .btn {
+.music-form .music-notice {
+    font-size: 16px;
+}
+
+.contact-form .btn,
+.music-form .btn {
     padding: 12px 15px;
 }
 
 .contact-form input::-webkit-input-placeholder,
-.contact-form textarea::-webkit-input-placeholder {
+.contact-form textarea::-webkit-input-placeholder,
+.music-form input::-webkit-input-placeholder,
+.music-form textarea::-webkit-input-placeholder {
     color: inherit;
     font-family: "Quicksand", sans-serif;
     font-size: 16px;
     letter-spacing: 2px;
 }
 
-.contact-form :-moz-placeholder {
+.contact-form :-moz-placeholder,
+.music-form :-moz-placeholder {
     color: inherit;
     opacity: 1;
 }
 
-.contact-form ::-moz-placeholder {
+.contact-form ::-moz-placeholder,
+.music-form ::-moz-placeholder {
     color: inherit;
     opacity: 1;
 }
 
-.contact-form :-ms-input-placeholder {
+.contact-form :-ms-input-placeholder,
+.music-form :-ms-input-placeholder {
     color: inherit;
 }
 
