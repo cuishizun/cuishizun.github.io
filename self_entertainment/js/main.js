@@ -477,7 +477,7 @@
                         src: musicLink,
                         lrc: musicLrcVal,
                         type: musicType,
-                        created: new Date()
+                        created: moment().format('YYYY-MM-DD HH:mm:ss')
                     };
 
                     //声明一个普通的javascript对象,使用restaurant的add方法 增加这个对象到对象存储中

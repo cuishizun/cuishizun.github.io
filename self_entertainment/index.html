@@ -72,7 +72,6 @@
             <!-- START NAVIGATION -->
             <nav id="awd-site-nav" class="navigation animated" data-animation="fadeInDown" data-animation-delay="500">
                 <div class="nav-container">
-                    ·
                     <!-- START NAVIGATION MENU ITEMS -->
                     <ul>
                         <li><a href="#" data-slide="home" class="active">首页</a></li>
@@ -187,6 +186,12 @@
                                                             https://music.163.com/
 
                                                             http://www.ytmp3.cn/
+
+                                                            http://www.5nd.com/
+
+                                                            http://www.yue365.com/
+
+                                                            http://www.9ku.com
                                                             <form id="music-form" class="music-form">
                                                                 <div class="row">
                                                                     <div class="col-lg-4 col-md-6 col-md-12 animated"
@@ -287,10 +292,10 @@
                                                     <div class="col-md-12 svm">
                                                         <div class="section-info text-center">
                                                             <!-- SERVICE -->
+                                                            <button onclick="downloadJson()">导出全部数据</button>
                                                             <input type="file" id="file">
                                                             <button onclick="recoverJson()">恢复数据</button>
-                                                            <button onclick="downloadJson()">导出json文件</button>
-                                                            <button id="delRestaurant">清空数据</button>
+                                                            <button onclick="clearJson()">清除全部数据</button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -469,6 +474,8 @@
         </div>
     </div>
 </body>
+
+<script src="js/moment-with-locales.js"></script>
 <script src="js/FileSaver.min.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -483,101 +490,5 @@
 <script src="js/menu.js"></script>
 <script src="js/music.js"></script>
 <script src="js/recoverData.js"></script>
-<!--<script>
-    var ec = new evercookie();
-    var src, students = [];
-    var t;
-    var i = 0;
-    ec.get('students', function (value, data) {
-        if (value) {
-            console.log(ec.decode(value));
-            let _value = $.parseJSON(ec.decode(value));
-            showData(_value);
-        } else {
-            $('.menu').html('<span>暂无数据</span>');
-        }
-    });
-
-    function showData(data) {
-        $('.menu').html('');
-        students = data;
-        for (let i = 0; i < data.length; i++) {
-            $('.menu').append(`<span>${data[i].name}</span>`);
-        }
-    }
-    // 导出生成json文件
-    function downloadJson() {
-        ec.get('students', function (value) {
-            if (value) {
-                let _value = ec.decode(value);
-                let blob = new Blob([_value], {
-                    type: ""
-                });
-                saveAs(blob, "hello.json");
-            } else {
-                alert('无数据可导出');
-            }
-        });
-    }
-    $('#file').change(function () {
-        var oFReader = new FileReader();
-        var file = document.getElementById('file').files[0];
-        oFReader.readAsDataURL(file);
-        oFReader.onloadend = function (oFRevent) {
-            src = oFRevent.target.result;
-        }
-    });
-
-    function saveJson() {
-        if ($('#name').val()) {
-            students.push({
-                name: $('#name').val()
-            });
-            ec.set("students", ec.encode(JSON.stringify(students)));
-            showData(students);
-            $('#name').val('');
-        } else {
-            alert('请先输入');
-        }
-    }
-
-    function clearJson() {
-        $('.menu').html('');
-        $('#names').html('');
-        students = [];
-        ec.set('students', '');
-    }
-
-    function recoverJson() {
-        $.ajax({
-            url: src,
-            type: 'GET',
-            dataType: 'json',
-            data: '',
-            success: function (data) {
-                showData(_value);
-            }
-        });
-    }
-
-    function showNames() {
-        if (students.length) {
-            clearInterval(t);
-            t = setInterval(function () {
-                document.getElementById("names").innerHTML = students[i].name;
-                i++;
-                if (i == students.length) {
-                    i = 0;
-                }
-            }, 30);
-        } else {
-            alert('请先输入');
-        }
-    }
-
-    function stopNames() {
-        clearInterval(t);
-    }
-</script>-->
 
 </html>
