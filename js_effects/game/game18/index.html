@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script src="js/jquery-1.10.2.js"></script>
+<title>2048</title>
+</head>
+<body>
+<div class="head">
+<div class="scroebox">
+<p>当前积分</p>
+<div class="score score1">0</div>
+<div class="markdel1"></div>
+</div>
+<div class="scroebox">
+<p>最高积分</p>
+<div class="score score2">0</div>
+<div class="markdel2"></div>
+</div>
+</div>
+<div class="mainbox" id="slider">
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cellbg"></div>
+<div class="cell row1 col1 left up"></div>
+<div class="cell row1 col2 up"></div>
+<div class="cell row1 col3 up"></div>
+<div class="cell row1 col4 up right"></div>
+<div class="cell row2 col1 left"></div>
+<div class="cell row2 col2 center"></div>
+<div class="cell row2 col3 center"></div>
+<div class="cell row2 col4 right"></div>
+<div class="cell row3 col1 left"></div>
+<div class="cell row3 col2 center"></div>
+<div class="cell row3 col3 center"></div>
+<div class="cell row3 col4 right"></div>
+<div class="cell row4 col1 left down"></div>
+<div class="cell row4 col2 down"></div>
+<div class="cell row4 col3 down"></div>
+<div class="cell row4 col4 right down"></div>
+</div>
+<div class="manubox">
+<p><span class="tt">2048怎么玩？</span><br><br>
+电脑：方向键移动;手机：手指滑动屏幕。<br>
+得到一个“2048”就算胜利了,如果16个格子全部填满并且无法移动的话，那么gameover。</p>
+<b class="newGame">重新开始</b></div>
+<script src="js/2048.js"></script>
+</body>
+</html>

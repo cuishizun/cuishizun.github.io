@@ -16,14 +16,14 @@
 	</style>
 </head>
 
-<body style="background:rgba(5,0,35,1.00)">
+<body style="background:rgba(5,0,35,1.00);overflow: hidden;">
 	<canvas id="cav"></canvas>
 </body>
 <script>
 	function blossom(id) {
 		var blossom = this;
 		this.cav_w = window.innerWidth;
-		this.cav_h = window.innerHeight * 0.9; //设置 画布宽高
+		this.cav_h = window.innerHeight * 1; //设置 画布宽高
 		this.canvas = document.getElementById(id);
 		this.canvas.width = this.cav_w;
 		this.canvas.height = this.cav_h;

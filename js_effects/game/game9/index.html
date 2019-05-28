@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>贪吃蛇 1.0</title>
+<link rel="stylesheet" type="text/css" href="css/index.css" />
+</head>
+<body>
+<div class="body">
+<div class="content">
+<span onclick="start();">Start Game</span>
+<p>说明：方向键控制，空格暂停，再按空格继续</p>
+<div id="score">Score
+<p>0</p>
+<span>Continue</span>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+			//获取操作区域
+			this.content = document.getElementsByClassName("content")[0];
+			this.scoreDiv = document.getElementById("score");
+			this.height = content.offsetHeight; //高度
+			this.width = content.offsetWidth; //宽度
+			this.table = document.createElement("table"); //表格
+			this.foodRow = 0; //食物行值
+			this.foodCel = 0; //食物列值
+			this.maxCel; //最大列值
+			this.maxRow; //最大行数
+			this.snake = [[5, 4],[4, 4],[3, 4],[2, 4],[1, 4]]; //蛇
+			this.len = snake.length; //蛇长度
+			this.timeNumber = 0; //运动函数返回值
+			this.direction = "RIGHT"; //方向
+			this.sw; //食物
+			this.X = false;
+			this.Y = true;
+			this.score = 0;
+
+			/**
+			 * 初始化
+			 */
+			function initial() {
+				scoreDiv.style.display = "none";
+				drawTable(); //绘制表格
+				createFood(); //生成食物
+				//预备运动
+				timeNumber = window.setInterval(function() {
+					for(var i = 0; i < len; i++) {
+						snake[i][0] += 1;
+					}
+					createSnake(); //生成蛇
+				}, 100);
+				//重置游戏
+				scoreDiv.lastElementChild.onclick = function(){
+					scoreDiv.style.display = "none";
+					score = 0;
+					direction = "RIGHT";
+					table.rows[foodRow].cells[foodCel].removeChild(sw);
+					createFood(); //重新生成食物
+					run(); //运行
+				};
+			}
+			/**
+			 * 创建食物
+			 */
+			function createFood() {
+				var ii = true;
+				//验证食物的位置不能在蛇的位置上
+				while(ii) {
+					foodRow = Math.floor(Math.random() * (height / 20));
+					foodCel = Math.floor(Math.random() * (height / 20));
+					for(var i = 0; i < snake.length; i++) {
+						if(snake[i][0] == foodCel && snake[i][1] == foodRow) {
+							ii = true;
+							break;
+						}else{
+							ii = false;
+						}
+					}
+				}
+				var food = table.rows[foodRow].cells[foodCel]; //获取生成的td
+				sw = document.createElement("div");
+				sw.className = "food";
+				food.appendChild(sw); //把div添加至td中
+				var flag = false;
+				window.setInterval(function() { //闪烁效果
+					if(flag) {
+						sw.style.height = 17 + "px";
+						sw.style.width = 18 + "px";
+						flag = false;
+					} else {
+						sw.style.height = 15 + "px";
+						sw.style.width = 16 + "px";
+						flag = true;
+					}
+				},200);
+			}
+
+			/**
+			 * 创建蛇
+			 */
+			function createSnake() {
+				var tail = table.rows[snake[len - 1][1]].cells[snake[len - 1][0] - 1];
+				for(var i = 0; i < len; i++) { //循环设置蛇背景色
+					var head = table.rows[snake[i][1]].cells[snake[i][0]];
+					if(head) {
+						head.style.backgroundColor = "rgba(255,255,0," + ((1 / len) * (len - i) + 0.2) + ")";
+					}
+					if(snake[i][0] == table.rows.item(0).cells.length) { //判断是否出边界
+						snake[i][0] = -1;
+					}
+				}
+				if(tail) { //恢复蛇尾后一格的背景色
+					tail.style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+				}
+			}
+			/**
+			 * 绘制表格
+			 */
+				 function drawTable() {
+				maxRow = height / 20;
+				maxCel = width / 20;
+				for(var i = 0; i < maxRow; i++) {
+					var tr = table.insertRow();
+					for(var j = 0; j < maxCel; j++) {
+						var td = tr.insertCell();
+					}
+				}
+				content.appendChild(table);
+			}
+
+			/**
+			 * 开始游戏
+			 */
+			function start() {
+				document.getElementsByTagName("span")[0].style.display = "none";
+				run();
+			}
+
+			/**
+			 * 运行游戏
+			 */
+			function run() {
+				var suspend = true;
+				var ii = true;
+				//清除运动效果
+				clearInterval(timeNumber);
+				for(var i = 0; i < len; i++) {
+					table.rows[snake[i][1]].cells[snake[i][0]].style.backgroundColor = "rgba(0, 0, 0, 0.2)";
+				}
+				snake = [
+					[5, 4],
+					[4, 4],
+					[3, 4],
+					[2, 4],
+					[1, 4]
+				]; //恢复默认值
+				len = snake.length;
+				move(direction); //开始移动
+				//监听事件
+				document.addEventListener("keydown", function(e) {
+					var direc = direction; //获取当前方向
+					var keys = e.keyCode || window.event.keyCode;
+						switch(keys) {
+							case 32: //空格
+								if(suspend){
+									clearInterval(timeNumber);//清除计时器
+									suspend = false;
+									ii = false;
+								}else{
+									ii = true;
+									suspend = true;
+									clearInterval(timeNumber);//清除计时器
+									move(direction); //移动
+								}
+							break;
+						case 37: //←
+							if(X && ii) {
+								direction = "LEFT";
+								X = false;
+								Y = true;
+							}
+							break;
+						case 38: //↑
+							if(Y && ii) {
+								direction = "UP";
+								Y = false;
+								X = true;
+							}
+							break;
+						case 39: //→
+							if(X && ii) {
+								direction = "RIGHT";
+								X = false;
+								Y = true;
+							}
+							break;
+						case 40: //↓
+							if(Y && ii) {
+								direction = "DOWN";
+								Y = false;
+								X = true;
+							}
+							break;
+					   }
+							if(direc != direction){ //确保用户每次按下的键都是不同
+								clearInterval(timeNumber);//清除计时器
+								move(direction); //移动
+							}
+				});
+			}
+
+			/**
+			 * 蛇移动的方法
+			 * @param {Object} direction 方向
+			 */
+			function move(direction) {
+				var tailY; //蛇尾
+				var tailX; //蛇尾
+				//蛇运动
+				timeNumber = window.setInterval(function() {
+					tailY = snake[len - 1][1]; //获取数组最后的元素
+					tailX = snake[len - 1][0];
+					for(var i = len - 1; i > 0; i--) { //数组后移
+						snake[i][0] = snake[i - 1][0];
+						snake[i][1] = snake[i - 1][1];
+					}
+					switch(direction) {
+						case "LEFT":
+							snake[0][0] -= 1;
+							snake[0][0] = snake[0][0] == -1 ? maxCel-1:snake[0][0];
+							break;
+						case "UP": 
+							snake[0][1] -= 1;
+							snake[0][1] = snake[0][1] == -1 ? maxRow-1:snake[0][1];
+							break;
+						case "RIGHT":
+							snake[0][0] += 1;
+							snake[0][0] = snake[0][0] == maxCel ? 0:snake[0][0];
+							break;
+						case "DOWN":
+							snake[0][1] += 1;
+							snake[0][1] = snake[0][1] == maxRow ? 0:snake[0][1]; 
+							break;
+					}
+						for(var i = 0; i < len; i++) { //蛇渲染(控制透明度来实现头深，尾浅效果)
+							var head = table.rows[snake[i][1]].cells[snake[i][0]];
+								if(head){
+									head.style.backgroundColor = "rgba(255,255,0," + ((1 / len) * (len - i) + 0.2) + ")";
+								}
+						}
+					
+					table.rows[tailY].cells[tailX].style.backgroundColor = "rgba(0, 0, 0, 0.2)"; //清除尾格色
+					eat(tailX, tailY); //验证是否吃到食物					
+				},180);
+			}
+
+			/**
+			 * 	吃食物
+			 * @param {Object} tailX 最后一格
+			 * @param {Object} tailY
+			 */
+			function eat(tailX, tailY) {
+				//判断蛇头和食物的位置是否一致
+				if(snake[0][1] == foodRow && snake[0][0] == foodCel) {
+					var food = table.rows[foodRow].cells[foodCel]; //获取当前食物的位置
+					food.removeChild(sw); //删除div;
+					createFood(); //重新生成食物
+					//添加蛇的长度
+					snake.push([tailX, tailY]);
+					len = snake.length; //重新赋值长度
+					score++; //得分
+				}
+				//判断蛇头位置是否和自身相触
+				for(var i = 4 ; i < len; i++){
+					if(snake[0][1] == snake[i][1] && snake[0][0] == snake[i][0]){
+						scoreDiv.firstElementChild.innerText = score;
+						scoreDiv.style.display = "block";
+						clearInterval(timeNumber);//清除计时器
+						break;
+					}
+				}
+			}
+
+			window.onload = function() {
+				initial(); //初始化
+			}
+		</script>
+</body>
+</html>
