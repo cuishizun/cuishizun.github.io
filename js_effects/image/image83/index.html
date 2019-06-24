@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+	<head>
+		<title>Photo Desk</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<meta name="description" content="" />
+		<meta name="keywords" content=""/>
+		<link rel="shortcut icon" href="../favicon.ico" type="image/x-icon"/>
+		<link rel="stylesheet" href="css/style.css" type="text/css" media="screen"/>
+		<style>
+			span.reference{
+				position:fixed;
+				left:10px;
+				bottom:10px;
+				font-size:11px;
+			}
+			span.reference a{
+				color:#555;
+				text-decoration:none;
+				text-shadow:1px 1px 1px #fff;
+			}
+			span.reference a:hover{
+				color:#000;
+			}
+			h1.title{
+				text-indent:-9000px;
+				position:absolute;
+				top:0px;
+				left:0px;
+				width:563px;
+				height:88px;
+				background:transparent url(images/title.png) no-repeat top left;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h1 class="title">Interactive Photo Desk with jQuery and CSS3</h1>
+	
+		</div>
+
+		<div>
+			<a id="pd_loading" href="#" class="pd_loading"></a>
+		</div>
+
+		<div id="pd_options_bar" class="pd_options_bar">
+			<a href="#" class="shuffle">Shuffle</a>
+			<a href="#" class="backdesk" style="display:none;">Back to Desk</a>
+			<a href="#" class="viewall">View All</a>
+		</div>
+		<div id="pd_container" class="pd_container">
+			<div class="pd_photo">
+				<div class="pd_hold">
+					<img src="photos/1.jpg" alt=""/>
+				</div>
+				<span class="delete"></span>
+			</div>
+			<div class="pd_photo">
+				<div class="pd_hold">
+					<img src="photos/2.jpg" alt=""/>
+				</div>
+				<span class="delete"></span>
+			</div>
+			<div class="pd_photo">
+				<div class="pd_hold">
+					<img src="photos/3.jpg" alt=""/>
+				</div>
+				<span class="delete"></span>
+			</div>
+			<div class="pd_photo">
+				<div class="pd_hold">
+					<img src="photos/4.jpg" alt=""/>
+				</div>
+				<span class="delete"></span>
+			</div>
+			<div class="pd_photo">
+				<div class="pd_hold">
+					<img src="photos/5.jpg" alt=""/>
+				</div>
+				<span class="delete"></span>
+			</div>
+		</div>
+
+		<!-- The JavaScript -->
+		<script src="jquery.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script src="jquery.transform-0.6.2.min.js"></script>
+		<script src="jquery.animate-shadow-min.js"></script>
+		<script src="PhotoDesk.js"></script>
+	</body>
+</html>

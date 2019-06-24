@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>LocalResizeIMG</title>
+</head>
+<style>
+
+    body {
+
+        margin: 20px 20%;
+
+        color:#777;
+
+        text-align: center;
+
+    }
+
+</style>
+<body>
+<h1 class="text-center">LocalResizeIMG-本地压缩 1.0</h1>
+<hr />
+<input type="file" />
+<hr />
+
+<script src="jquery.min.js" type="text/javascript"></script>
+<script src="localResizeIMG.js" type="text/javascript"></script>
+
+<script src="patch/mobileBUGFix.mini.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+        $('input:file').localResizeIMG({
+
+             width: 200,
+
+             quality: 0.8,
+
+             success: function (result) {
+
+             var img = new Image();
+
+             img.src = result.base64;
+
+
+
+             $('body').append(img);
+
+             console.log(result);
+
+             }
+
+         });
+
+	</script>
+</body>
+</html>

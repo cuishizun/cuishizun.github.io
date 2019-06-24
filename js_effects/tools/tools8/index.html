@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>压缩图片插件</title>
+<style>
+#img {
+	padding: 5px;
+	border: 1px dashed #C4C4C4;
+}
+</style>
+</head>
+<body>
+<h3>图片压缩插件compressPhotoUpload.js</h3>
+<p>ratio: 0.1, //默认为0.1 压缩比,值越小压缩出的图片越小，同时画质越差</p>
+<div class="m">
+<input type="file" id="input" />
+<canvas id="canvas"></canvas>
+</div>
+</body>
+<script src="js/compressPhotoUpload.min.js"></script>
+<script>
+document.querySelector("#input").onchange = function() {
+    let z = new zz();
+    z.compressPhotoUpload({
+        elem: this,		//必传，上传图片的input元素
+        ratio: 0.3,		//默认为0.1   压缩比
+        maxsize: 1,	//默认为1024,单位为kb    大于此值则做压缩操作
+        success: (e) => {	//必传，成功后的回调函数，返回的参数是图片信息（对象）
+            console.log(e);
+            document.querySelector(".m").innerHTML = `<a href="${e.data}"  download><img id="img" src="${e.data}" width="200px"/></a>`
+        }
+    });
+}
+/*
+    优先用const,let,解构赋值
+
+*/
+
+</script>
+</html>
